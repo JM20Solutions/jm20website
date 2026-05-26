@@ -1,0 +1,22 @@
+{
+  "name": "jm20-n8n-workflow-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Test suite for the Customer Support Intent Router n8n workflow",
+  "scripts": {
+    "test": "jest --runInBand",
+    "test:watch": "jest --watch --runInBand",
+    "test:coverage": "jest --coverage --runInBand"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.14.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.5",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "nock": "^13.5.4"
+  }
+}

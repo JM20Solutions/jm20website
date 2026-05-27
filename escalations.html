@@ -80,6 +80,36 @@
       font-family:'SF Pro Text',system-ui,-apple-system,sans-serif;
       letter-spacing:-0.224px;
     }
+    select option {
+  background: #1d1d1f;
+  color: #ffffff;
+}
+    .custom-select { position: relative; width: 100%; }
+    .custom-select-selected {
+      width:100%; background:rgba(255,255,255,0.05); border:1.5px solid rgba(255,255,255,0.1);
+      border-radius:10px; padding:0.8rem 1rem; font-size:0.9rem; color:#ffffff; cursor:pointer;
+      display:flex; align-items:center; justify-content:space-between;
+      font-family:'SF Pro Text',system-ui,-apple-system,sans-serif;
+      transition:border-color .15s, box-shadow .15s;
+    }
+    .custom-select-selected:hover, .custom-select.open .custom-select-selected {
+      border-color:#2997ff; box-shadow:0 0 0 3px rgba(41,151,255,0.15);
+    }
+    .custom-select-options {
+      display:none; position:absolute; top:calc(100% + 4px); left:0; right:0;
+      background:#1d1d1f; border:1.5px solid rgba(255,255,255,0.15);
+      border-radius:10px; z-index:50; overflow:hidden;
+      box-shadow:0 8px 24px rgba(0,0,0,0.5);
+    }
+    .custom-select.open .custom-select-options { display:block; }
+    .custom-select-option {
+      padding:0.75rem 1rem; font-size:0.9rem; color:#ffffff; cursor:pointer;
+      font-family:'SF Pro Text',system-ui,-apple-system,sans-serif;
+      transition:background .1s;
+    }
+    .custom-select-option[data-placeholder="true"] { color:rgba(255,255,255,0.35); }
+    .custom-select-option:hover { background:rgba(41,151,255,0.15); }
+    .custom-select-option.selected { background:rgba(41,151,255,0.1); color:#2997ff; }
     input::placeholder,textarea::placeholder{color:rgba(255,255,255,0.25)}
     input:focus,textarea:focus,select:focus{
       border-color:#2997ff;
@@ -221,6 +251,26 @@
         </div>
 
         <div class="field">
+          <label data-i18n="label-reason">Reason for contact *</label>
+          <div class="custom-select" id="customSelect">
+            <div class="custom-select-selected" id="customSelectSelected">
+              <span id="customSelectText" data-i18n="placeholder-reason" style="color:rgba(255,255,255,0.25)">Select a reason...</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><path d="M2 4l4 4 4-4" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="custom-select-options" id="customSelectOptions">
+              <div class="custom-select-option" data-value="" data-i18n="placeholder-reason" data-placeholder="true">Select a reason...</div>
+              <div class="custom-select-option" data-value="Cancelaciones" data-i18n="reason-cancel">Cancelaciones</div>
+              <div class="custom-select-option" data-value="Pedidos y envíos" data-i18n="reason-orders">Pedidos y envíos</div>
+              <div class="custom-select-option" data-value="Pagos y reclamaciones" data-i18n="reason-payments">Pagos y reclamaciones</div>
+              <div class="custom-select-option" data-value="Soporte técnico" data-i18n="reason-tech">Soporte técnico</div>
+              <div class="custom-select-option" data-value="Quejas" data-i18n="reason-complaints">Quejas</div>
+              <div class="custom-select-option" data-value="Otros" data-i18n="reason-other">Otros</div>
+            </div>
+          </div>
+          <input type="hidden" id="reason" />
+        </div>
+
+        <div class="field">
           <label data-i18n="label-description">What happened? *</label>
           <textarea id="description" data-i18n-placeholder="placeholder-description" placeholder="The more detail, the better. Tell us what went wrong and how we can best help you right now." required></textarea>
         </div>
@@ -237,6 +287,34 @@
 </div>
 
 <script>
+  // ── CUSTOM SELECT ──
+  const customSelect = document.getElementById('customSelect');
+  const customSelectSelected = document.getElementById('customSelectSelected');
+  const customSelectText = document.getElementById('customSelectText');
+  const customSelectOptions = document.getElementById('customSelectOptions');
+  const reasonInput = document.getElementById('reason');
+
+  customSelectSelected.addEventListener('click', () => {
+    customSelect.classList.toggle('open');
+  });
+
+  document.querySelectorAll('.custom-select-option').forEach(option => {
+    option.addEventListener('click', () => {
+      if (option.dataset.placeholder) return;
+      const value = option.dataset.value;
+      reasonInput.value = value;
+      customSelectText.textContent = option.textContent;
+      customSelectText.style.color = '#ffffff';
+      document.querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
+      option.classList.add('selected');
+      customSelect.classList.remove('open');
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!customSelect.contains(e.target)) customSelect.classList.remove('open');
+  });
+
   // ── CONFIG ──
   const SUPABASE_URL  = 'https://wiavnyuchdsfztzhvaua.supabase.co';
   const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndpYXZueXVjaGRzZnp0emh2YXVhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEwMDI2ODQsImV4cCI6MjA4NjU3ODY4NH0.dXz7vyFglA_lihma__rbtBT8afZZ1YUJEkAmqpFOL6c';
@@ -264,6 +342,14 @@
       'label-phone':        'Phone Number',
       'label-description':  'What happened? *',
       'placeholder-description': 'The more detail, the better. Tell us what went wrong and how we can best help you right now.',
+      'label-reason':       'Reason for contact *',
+      'placeholder-reason': 'Select a reason...',
+      'reason-cancel':      'Cancellations',
+      'reason-orders':      'Orders & Shipping',
+      'reason-payments':    'Payments & Claims',
+      'reason-tech':        'Technical Support',
+      'reason-complaints':  'Complaints',
+      'reason-other':       'Other',
       'email-notice':       '📧 You will be notified by email with the resolution of your request.',
       'submit-btn':         'Request Priority Help →',
       'privacy':            '🔒 Your information is handled securely within EU infrastructure.',
@@ -294,6 +380,14 @@
       'label-phone':        'Número de Teléfono',
       'label-description':  '¿Qué sucedió? *',
       'placeholder-description': 'Cuanta más información, mejor. Cuéntanos qué salió mal y cómo podemos ayudarte mejor ahora.',
+      'label-reason':       'Motivo de contacto *',
+      'placeholder-reason': 'Selecciona un motivo...',
+      'reason-cancel':      'Cancelaciones',
+      'reason-orders':      'Pedidos y envíos',
+      'reason-payments':    'Pagos y reclamaciones',
+      'reason-tech':        'Soporte técnico',
+      'reason-complaints':  'Quejas',
+      'reason-other':       'Otros',
       'email-notice':       '📧 Serás notificado por correo electrónico con la resolución de tu solicitud.',
       'submit-btn':         'Solicitar Ayuda Prioritaria →',
       'privacy':            '🔒 Tu información es manejada de forma segura dentro de la infraestructura de la UE.',
@@ -320,7 +414,13 @@
 
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
-      if (t[key] !== undefined) el.textContent = t[key];
+      if (t[key] !== undefined) {
+        if (el.tagName === 'OPTION') {
+          el.textContent = t[key];
+        } else {
+          el.textContent = t[key];
+        }
+      }
     });
 
     document.querySelectorAll('[data-i18n-html]').forEach(el => {
@@ -350,8 +450,18 @@
       email:        document.getElementById('email').value.trim(),
       order_number: document.getElementById('order_number').value.trim() || null,
       phone:        document.getElementById('phone').value.trim() || null,
+      reason:       document.getElementById('reason').value || null,
       description:  document.getElementById('description').value.trim(),
     };
+
+    if (!payload.full_name || !payload.email || !payload.reason || !payload.description) {
+      errorBox.textContent = t['error-required'];
+      errorBox.classList.add('visible');
+      btn.disabled = false;
+      btn.classList.remove('loading');
+      btn.textContent = t['submit-btn'];
+      return;
+    }
 
     try {
       const res = await fetch(SUPABASE_URL + '/rest/v1/escalations_form', {

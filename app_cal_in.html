@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JM20 — Client Session</title>
+
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;height:100%}
+    body{background:#000000;font-family:'SF Pro Text',system-ui,-apple-system,BlinkMacSystemFont,sans-serif;min-height:100vh;color:#ffffff}
+    ::selection{background:rgba(41,151,255,0.3);color:#ffffff}
+    ::-webkit-scrollbar{width:5px}
+    ::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.12);border-radius:3px}
+
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+    /* ── NAV ── */
+    .nav{
+      height:60px;display:flex;align-items:center;justify-content:space-between;
+      padding:0 2.5rem;border-bottom:1px solid rgba(255,255,255,0.09);background:#000000;
+      position:sticky;top:0;z-index:100;
+    }
+    .logo-name{font-weight:700;font-size:1.05rem;color:#ffffff;letter-spacing:-0.025em;text-decoration:none;font-family:'SF Pro Display',system-ui,-apple-system,sans-serif}
+    .nav-right{display:flex;align-items:center;gap:0.75rem}
+    .nav-badge{
+      display:flex;align-items:center;gap:0.4rem;
+      background:rgba(52,211,153,0.12);border:1px solid rgba(52,211,153,0.35);
+      border-radius:100px;padding:0.3rem 0.875rem;
+    }
+    .nav-badge-dot{width:6px;height:6px;border-radius:50%;background:#34d399;animation:pulse 2s infinite}
+    .nav-badge-text{font-size:0.75rem;font-weight:600;color:#34d399;letter-spacing:0.04em;font-family:'SF Pro Text',system-ui,-apple-system,sans-serif}
+    .lang-toggle{
+      background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.18);
+      border-radius:100px;padding:0.3rem 0.875rem;font-size:0.75rem;font-weight:600;
+      color:rgba(255,255,255,0.7);cursor:pointer;
+      font-family:'SF Pro Text',system-ui,-apple-system,sans-serif;
+      letter-spacing:0.04em;transition:all .15s;
+    }
+    .lang-toggle:hover{background:rgba(255,255,255,0.11);color:#ffffff}
+
+    /* ── LAYOUT ── */
+    .page{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 60px)}
+
+    /* ── LEFT PANEL ── */
+    .left{background:#272729;padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center}
+    .left-tag{font-size:0.72rem;font-weight:600;color:#2997ff;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem;font-family:'SF Pro Text',system-ui,-apple-system,sans-serif}
+    .left-title{font-size:clamp(2rem,3.5vw,2.75rem);font-weight:700;color:#ffffff;letter-spacing:-0.028px;line-height:1.07;margin-bottom:1.25rem;font-family:'SF Pro Display',system-ui,-apple-system,sans-serif}
+    .left-title span{color:#2997ff}
+    .left-sub{color:#a0a0a0;font-size:0.975rem;line-height:1.7;margin-bottom:2.5rem;font-family:'SF Pro Text',system-ui,-apple-system,sans-serif;letter-spacing:-0.374px}
+
+    .info-card{background:#1d1d1f;border:1px solid rgba(255,255,255,0.09);border-radius:18px;padding:1.5rem;margin-bottom:1.25rem}
+    .info-card-title{font-weight:600;font-size:0.875rem;color:#ffffff;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem;letter-spacing:-0.224px;font-family:'SF Pro Text',system-ui,-apple-system,sans-serif}
+    .info-row{display:flex;align-items:flex-start;gap:0.625rem;margin-bottom:0.625rem}
+    .info-row:last-child{margin-bottom:0}
+    .info-dot{width:6px;height:6px;border-radius:50%;background:#2997ff;flex-shrink:0;margin-top:6px}
+    .info-text{font-size:0.85rem;color:#a0a0a0;line-height:1.5;font-family:'SF Pro Text',system-ui,-apple-system,sans-serif;letter-spacing:-0.224px}
+
+    /* ── RIGHT PANEL ── */
+    .right{background:#1d1d1f;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+
+    /* ── CAL.COM WIDGET ── */
+    #cal-booking{
+      width:100%;
+      height:calc(100vh - 60px);
+      min-height:660px;
+    }
+
+    @media(max-width:768px){
+      .page{grid-template-columns:1fr}
+      .left{padding:3rem 1.5rem}
+      .right{height:700px}
+      #cal-booking{zoom:1;width:100%;height:700px;min-height:700px}
+    }
+  </style>
+</head>
+<body>
+
+<div id="mainPage">
+  <nav class="nav">
+    <a href="#" class="logo-name">JM<span style="color:#2997ff">20</span></a>
+    <div class="nav-right">
+      <button class="lang-toggle" id="langToggle" onclick="toggleLang()">ES</button>
+      <div class="nav-badge">
+        <div class="nav-badge-dot"></div>
+        <span class="nav-badge-text" data-i18n="nav-badge-text">PARTNER SESSIONS</span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page">
+
+    <!-- LEFT PANEL -->
+    <div class="left">
+      <div class="left-tag" data-i18n="left-tag">Client Support</div>
+      <h1 class="left-title" data-i18n-html="left-title">Let's dive into<br/><span>the details.</span></h1>
+      <p class="left-sub" data-i18n="left-sub">Need a strategy check-in or a technical deep dive? Tell us what you're working on and we'll ensure the right specialist is prepared for our call.</p>
+
+      <div class="info-card">
+        <div class="info-card-title" data-i18n="benefits-card-title">🤝 Partner Benefits</div>
+        <div class="info-row"><div class="info-dot"></div><div class="info-text" data-i18n="benefit-row-1">Priority scheduling for active accounts</div></div>
+        <div class="info-row"><div class="info-dot"></div><div class="info-text" data-i18n="benefit-row-2">Direct access to technical leads</div></div>
+        <div class="info-row"><div class="info-dot"></div><div class="info-text" data-i18n="benefit-row-3">Action items sent after every call</div></div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-title" data-i18n="session-card-title">📅 Session Details</div>
+        <div class="info-row"><div class="info-dot"></div><div class="info-text" data-i18n="session-row-1">30-minute focused call</div></div>
+        <div class="info-row"><div class="info-dot"></div><div class="info-text" data-i18n="session-row-2">Video or phone — your preference</div></div>
+        <div class="info-row"><div class="info-dot"></div><div class="info-text" data-i18n="session-row-3">Confirmation sent instantly to your email</div></div>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL — CAL.COM -->
+    <div class="right">
+      <iframe src="https://cal.eu/jmsolutions-mng6gi?embed=true" id="cal-booking" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+  </div>
+</div>
+
+
+
+<script>
+  const TRANSLATIONS = {
+    en: {
+      'nav-badge-text':     'PARTNER SESSIONS',
+      'left-tag':           'Client Support',
+      'left-title':         "Let's dive into<br/><span>the details.</span>",
+      'left-sub':           "Need a strategy check-in or a technical deep dive? Tell us what you're working on and we'll ensure the right specialist is prepared for our call.",
+      'benefits-card-title':'🤝 Partner Benefits',
+      'benefit-row-1':      'Priority scheduling for active accounts',
+      'benefit-row-2':      'Direct access to technical leads',
+      'benefit-row-3':      'Action items sent after every call',
+      'session-card-title': '📅 Session Details',
+      'session-row-1':      '30-minute focused call',
+      'session-row-2':      'Video or phone — your preference',
+      'session-row-3':      'Confirmation sent instantly to your email',
+    },
+    es: {
+      'nav-badge-text':     'SESIONES DE SOCIOS',
+      'left-tag':           'Soporte al Cliente',
+      'left-title':         'Vamos a profundizar<br/><span>en los detalles.</span>',
+      'left-sub':           '¿Necesitas una revisión de estrategia o una inmersión técnica? Cuéntanos en qué estás trabajando y nos aseguraremos de que el especialista adecuado esté preparado para nuestra llamada.',
+      'benefits-card-title':'🤝 Beneficios del Socio',
+      'benefit-row-1':      'Programación prioritaria para cuentas activas',
+      'benefit-row-2':      'Acceso directo a los líderes técnicos',
+      'benefit-row-3':      'Puntos de acción enviados después de cada llamada',
+      'session-card-title': '📅 Detalles de la Sesión',
+      'session-row-1':      'Llamada enfocada de 30 minutos',
+      'session-row-2':      'Video o teléfono — como prefieras',
+      'session-row-3':      'Confirmación enviada al instante a tu correo',
+    }
+  };
+
+  let currentLang = 'en';
+
+  function toggleLang() {
+    currentLang = currentLang === 'en' ? 'es' : 'en';
+    applyLang();
+  }
+
+  function applyLang() {
+    const t = TRANSLATIONS[currentLang];
+    document.documentElement.lang = currentLang;
+    document.getElementById('langToggle').textContent = currentLang === 'en' ? 'ES' : 'EN';
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key] !== undefined) el.textContent = t[key];
+    });
+
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+  }
+</script>
+</body>
+</html>

@@ -3201,7 +3201,7 @@ function App() {
             var blob = new Blob([arr], { type: d.audio_type || 'audio/mpeg' });
             var audioUrl = URL.createObjectURL(blob);
             new Audio(audioUrl).play();
-            reply = '🔊';
+            reply = d.text ? '🔊 ' + d.text : '🔊';
             addMessage({ role: 'bot', text: reply, isErr: !r.ok, time: now(), audioUrl: audioUrl });
           } else {
             addMessage({ role: 'bot', text: reply, isErr: !r.ok, time: now() });

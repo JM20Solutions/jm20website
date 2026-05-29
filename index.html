@@ -72,7 +72,7 @@ const T = {
 ───────────────────────────────────────────────── */
 const TR = {
   en:{
-    navProducts:"Products",navPricing:"Pricing",navHowItWorks:"How it works",navDemo:"Demo",navAbout:"About",navBookDemo:"Start with a Discovery →",
+    navProducts:"Products",navPricing:"Pricing",navHowItWorks:"How it works",navDemo:"Demo",navAbout:"About",navBlog:"Blog",navBookDemo:"Start with a Discovery →",
     ddAgent:"Murph",ddAgentSub:"24/7 AI on Web, WhatsApp & Telegram",ddIntelligence:"Mowaat",ddIntelligenceSub:"Live dashboard & Ask AI analytics",ddCopilot:"Sheetah",ddCopilotSub:"Natural language database queries",
     trustEU:"EU Data Sovereignty",trustGDPR:"GDPR Article 28 compliant",trustDB:"Zero direct database exposure",trustLock:"No vendor lock-in",trustA11y:"Voice-accessible — works hands-free for visually &amp; motor-impaired users",
     vpEyebrow:"OUR COMMITMENTS",vpH2:"Built different. By design.",
@@ -109,7 +109,7 @@ const TR = {
     contactEyebrow:"START WITH A DISCOVERY",contactH1:"Your process, mapped. Your roadmap, delivered in 48 hours.",contactBody:"We audit your current workflow, identify every automation opportunity, and hand you a custom plan with effort, timeline and ROI estimate. Deducted in full from any package you sign.",contactF1:"Live Deployment: Experience our AI active across your preferred channels (WhatsApp, Telegram, and Web).",contactF2:"Security Audit: Verify the 4-layer architecture keeping your data strictly within the EU.",contactF3:"Compliance Check: Ensure total GDPR alignment for your specific technical setup.",contactF4:"Financial Roadmap: Get a clear ROI projection and a custom pricing plan for your workload.",contactBadge1:"EU Data Residency",contactBadge2:"GDPR Art. 28",contactBadge3:"Zero DB Exposure",contactBadge4:"You Own It",contactFormH2:"Tell us about yourself",contactFormSub:"We'll get back to you as soon as possible.",contactLabelName:"Full Name *",contactLabelCompany:"Company",contactLabelEmail:"Business Email *",contactLabelPhone:"Phone",contactLabelWebsite:"Website",contactErrorMsg:"Something went wrong. Please try again.",contactSubmitBtn:"Submit",contactSendingBtn:"Sending…",contactPrivacyNote:"Your data stays in the EU. We never share your information with third parties.",contactLabelInterest:"Interested in (select all that apply)",contactInterestDiscover:"Discover",contactInterestMurph:"Murph",contactInterestMowaat:"Mowaat",contactInterestSheetah:"Sheetah",contactInterestCustom:"Custom",contactLabelComments:"Comments",contactCommentsPlaceholder:"Tell us more about your project or any questions you have…",contactSuccessH2:"Request received!",contactSuccessBody:"We'll review your details and reach out within one business day to schedule your walkthrough.",contactSuccessBack:"← Back to site",mowatEyebrow:"Mowaat · Live Dashboard",mowatH2a:"Every interaction.",mowatH2b:"Tracked. Measured. Yours.",mowatSub:"Mowaat gives you real-time visibility into what your AI handles, what it saves, and where humans step in — so you're never flying blind.",mowatSlide1Label:"847 interactions this month",mowatSlide1Title:"Your AI handled 84% of everything.",mowatSlide1Sub:"Six query types. Automatically classified. Zero manual tagging.",mowatSlide2Label:"Instant visibility",mowatSlide2Title:"See exactly where every query goes.",mowatSlide2Sub:"AI Resolved, Self-Service, Escalations — one live view, always current.",mowatSlide3Label:"The trend that matters",mowatSlide3Title:"AI Resolved vs Real Escalations.",mowatSlide3Sub:"Six months in, the AI handles more and escalations keep falling.",mowatSlide4Label:"€2,847 saved",mowatSlide4Title:"What you would have paid human agents.",mowatSlide4Sub:"Calculated per interaction, accumulated in real time.",mowatSlide5Label:"Peak hours, covered.",mowatSlide5Title:"Your AI works when your team can't.",mowatSlide5Sub:"7pm on a Friday — Murph has it. No overtime, no missed customers.",mowatCta:"See Mowaat in action →",
   },
   es:{
-    navProducts:"Productos",navPricing:"Precios",navHowItWorks:"Cómo funciona",navDemo:"Demo",navAbout:"Nosotros",navBookDemo:"Empieza con un Discovery →",
+    navProducts:"Productos",navPricing:"Precios",navHowItWorks:"Cómo funciona",navDemo:"Demo",navAbout:"Nosotros",navBlog:"Blog",navBookDemo:"Empieza con un Discovery →",
     ddAgent:"Murph",ddAgentSub:"IA 24/7 en Web, WhatsApp y Telegram",ddIntelligence:"Mowaat",ddIntelligenceSub:"Dashboard en vivo y análisis con IA",ddCopilot:"Sheetah",ddCopilotSub:"Consultas a tu base de datos en lenguaje natural",
     trustEU:"Soberanía de datos en la UE",trustGDPR:"Cumple con el Artículo 28 del RGPD",trustDB:"Sin exposición directa a la base de datos",trustLock:"Sin dependencia del proveedor",trustA11y:"Accesible por voz — funciona sin manos para usuarios con discapacidad visual o motora",
     vpEyebrow:"NUESTROS COMPROMISOS",vpH2:"Construido diferente. Por diseño.",
@@ -575,6 +575,11 @@ const Nav = ({onContact, onPage, lang, setLang, onLogin, user, onLogout}) => {
           onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.07)"; e.currentTarget.style.color = "#ffffff"; }}
           onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "rgba(255,255,255,0.72)"; }}
         >{t.navAbout}</button>
+        <button style={linkStyle}
+          onClick={() => onPage("blog")}
+          onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.07)"; e.currentTarget.style.color = "#ffffff"; }}
+          onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "rgba(255,255,255,0.72)"; }}
+        >{t.navBlog}</button>
       </div>
 
       {/* Right: Lang toggle + Login + CTA + Hamburger */}
@@ -628,6 +633,7 @@ const Nav = ({onContact, onPage, lang, setLang, onLogin, user, onLogout}) => {
         <a className="nav-mobile-link" href="#how-it-works" onClick={() => setMenuOpen(false)}>{t.navHowItWorks}</a>
         <a className="nav-mobile-link" href="#demo" onClick={() => setMenuOpen(false)}>{t.navDemo}</a>
         <button className="nav-mobile-link" onClick={() => { onPage("about"); setMenuOpen(false); }}>{t.navAbout}</button>
+        <button className="nav-mobile-link" onClick={() => { onPage("blog"); setMenuOpen(false); }}>{t.navBlog}</button>
         <div style={{marginTop:"1rem", display:"flex", flexDirection:"column", gap:"0.75rem"}}>
           {user ? (
             <button className="btn-ghost" onClick={() => { onLogout(); setMenuOpen(false); }} style={{width:"100%", padding:"10px", fontSize:"14px"}}>Sign Out ({user.first_name || user.email})</button>
@@ -2345,6 +2351,105 @@ const LegalPage = ({onBack, lang="en"}) => {
 };
 
 
+const BlogPage = ({onBack, onContact, lang}) => {
+  const es = lang === "es";
+  const T2 = {
+    eyebrow: es ? "PERSPECTIVAS · JM20" : "INSIGHTS · JM20",
+    h1: es ? "Pensamiento claro sobre IA para empresas europeas." : "Clear thinking on AI for European businesses.",
+    sub: es ? "Sin hype. Sin jerga. Solo lo que los fundadores y equipos de operaciones necesitan saber." : "No hype. No jargon. Just what founders and operations teams need to know.",
+    readOn: es ? "Leer en Medium →" : "Read on Medium →",
+    minRead: es ? "min de lectura" : "min read",
+    tag1: es ? "Cumplimiento · Regulación UE" : "Compliance · EU Regulation",
+    tag2: es ? "Operaciones · ROI" : "Operations · ROI",
+    disc: es ? "¿Listo para hablar sobre tu negocio?" : "Ready to talk about your business?",
+    discSub: es ? "Empieza con un Discovery y te mostramos exactamente qué se puede automatizar." : "Start with a Discovery and we'll show you exactly what can be automated.",
+    discCta: es ? "Empieza con un Discovery →" : "Start with a Discovery →",
+  };
+  const articles = [
+    {
+      tag: T2.tag1,
+      date: es ? "Junio 2026" : "June 2026",
+      read: "8",
+      title: es
+        ? "La Ley de IA de la UE entra en vigor en agosto. ¿Está tu empresa preparada?"
+        : "The EU AI Act Takes Effect in August. Is Your Business Ready?",
+      body: es
+        ? "En agosto de 2026, la Ley de Inteligencia Artificial de la UE comienza a aplicarse a los sistemas de IA de alto riesgo. La mayoría de las pymes europeas no saben que están afectadas — y las que usan herramientas de IA americanas pueden estar incumpliendo sin saberlo."
+        : "In August 2026, the EU Artificial Intelligence Act begins applying to high-risk AI systems. Most European SMBs don't know they're affected — and those using American AI tools may already be non-compliant without realising it.",
+      href: "https://medium.com/@gerard.picazo.es/the-eu-ai-act-takes-effect-in-august-is-your-business-ready-f1beb1901cba",
+      accent: "#2997ff",
+    },
+    {
+      tag: T2.tag2,
+      date: es ? "Mayo 2026" : "May 2026",
+      read: "6",
+      title: es
+        ? "El coste real de no automatizar: lo que pierden las pymes cada semana"
+        : "The Real Cost of Not Automating: What SMBs Lose Every Week",
+      body: es
+        ? "La mayoría de los dueños de negocios calculan el coste de la automatización. Muy pocos calculan el coste de no automatizar. Aquí está el análisis real: en tiempo de equipo, en oportunidades perdidas y en errores evitables que se acumulan semana tras semana."
+        : "Most business owners calculate the cost of automation. Very few calculate the cost of not automating. Here's the honest breakdown — in team time, in missed opportunities, and in avoidable errors that compound every single week.",
+      href: "https://medium.com/@gerard.picazo.es/the-real-cost-of-not-automating-what-smbs-lose-every-week-5652abcbf7a5",
+      accent: "#34d399",
+    },
+  ];
+  const cardBase = {background:"#1c1c1e", border:"1px solid rgba(255,255,255,0.08)", borderRadius:18, overflow:"hidden", display:"flex", flexDirection:"column"};
+  return (
+    <div style={{minHeight:"100vh", background:"#000000", fontFamily:"SF Pro Text,system-ui,-apple-system,sans-serif"}}>
+      {/* Nav */}
+      <div style={{height:52, display:"flex", alignItems:"center", padding:"0 1.25rem", borderBottom:"1px solid rgba(255,255,255,0.07)", background:"#000000"}}>
+        <button onClick={onBack} style={{background:"none", border:"none", cursor:"pointer"}}>
+          <span style={{fontWeight:600, fontSize:"1.6rem", letterSpacing:"-0.025em", fontFamily:"SF Pro Display,system-ui,-apple-system,sans-serif"}}>
+            <span style={{color:"#f5a623"}}>JM</span><span style={{color:"#2997ff"}}>20</span>
+          </span>
+        </button>
+        <div style={{marginLeft:"auto", display:"flex", gap:"0.5rem", alignItems:"center"}}>
+          <button onClick={onBack} style={{background:"none", border:"1px solid rgba(255,255,255,0.15)", borderRadius:"9999px", padding:"0.35rem 0.75rem", color:"rgba(255,255,255,0.6)", fontSize:"13px", cursor:"pointer", fontFamily:"SF Pro Text,system-ui,-apple-system,sans-serif"}}>← {es ? "Volver" : "Back"}</button>
+          <button onClick={onContact} style={{background:"#2997ff", color:"#ffffff", borderRadius:"9999px", padding:"0.35rem 0.875rem", fontSize:"13px", fontWeight:400, cursor:"pointer", border:"none", fontFamily:"SF Pro Text,system-ui,-apple-system,sans-serif", letterSpacing:"-0.12px"}}>{es ? "Empieza con un Discovery →" : "Start with a Discovery →"}</button>
+        </div>
+      </div>
+
+      {/* Hero */}
+      <div style={{maxWidth:760, margin:"0 auto", padding:"5rem 2rem 3rem", textAlign:"center"}}>
+        <span style={{fontSize:"11px", color:"#2997ff", fontWeight:600, letterSpacing:"3px", textTransform:"uppercase"}}>{T2.eyebrow}</span>
+        <h1 style={{fontSize:"clamp(1.75rem,4vw,2.75rem)", fontWeight:600, color:"#ffffff", letterSpacing:"-0.374px", marginTop:"0.75rem", marginBottom:"1rem", fontFamily:"SF Pro Display,system-ui,-apple-system,sans-serif", lineHeight:1.07}}>{T2.h1}</h1>
+        <p style={{fontSize:"17px", color:"#a0a0a0", lineHeight:1.55, letterSpacing:"-0.374px"}}>{T2.sub}</p>
+      </div>
+
+      {/* Article cards */}
+      <div style={{maxWidth:900, margin:"0 auto", padding:"0 1.5rem 6rem", display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(320px,1fr))", gap:"1.5rem"}}>
+        {articles.map((a, i) => (
+          <div key={i} style={cardBase}>
+            {/* Accent bar */}
+            <div style={{height:3, background:a.accent}}/>
+            <div style={{padding:"1.75rem 1.75rem 1.5rem", display:"flex", flexDirection:"column", flex:1}}>
+              <div style={{display:"flex", alignItems:"center", justifyContent:"space-between", marginBottom:"1.25rem"}}>
+                <span style={{fontSize:"11px", fontWeight:600, color:a.accent, letterSpacing:"2px", textTransform:"uppercase"}}>{a.tag}</span>
+                <span style={{fontSize:"12px", color:"rgba(255,255,255,0.3)"}}>{a.date} · {a.read} {T2.minRead}</span>
+              </div>
+              <h2 style={{fontSize:"clamp(1rem,2.5vw,1.25rem)", fontWeight:600, color:"#ffffff", letterSpacing:"-0.374px", lineHeight:1.25, marginBottom:"0.875rem", fontFamily:"SF Pro Display,system-ui,-apple-system,sans-serif"}}>{a.title}</h2>
+              <p style={{fontSize:"14px", color:"#a0a0a0", lineHeight:1.6, letterSpacing:"-0.12px", flex:1, marginBottom:"1.5rem"}}>{a.body}</p>
+              <a href={a.href} target="_blank" rel="noopener noreferrer"
+                style={{display:"inline-flex", alignItems:"center", gap:"0.375rem", color:a.accent, fontSize:"14px", fontWeight:500, textDecoration:"none", letterSpacing:"-0.224px"}}
+                onMouseEnter={e => e.currentTarget.style.opacity="0.75"}
+                onMouseLeave={e => e.currentTarget.style.opacity="1"}>
+                {T2.readOn}
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Discovery CTA */}
+      <div style={{borderTop:"1px solid rgba(255,255,255,0.07)", padding:"4rem 2rem", textAlign:"center"}}>
+        <p style={{fontSize:"11px", color:"#2997ff", fontWeight:600, letterSpacing:"3px", textTransform:"uppercase", marginBottom:"0.75rem"}}>{T2.disc}</p>
+        <p style={{fontSize:"17px", color:"#a0a0a0", maxWidth:480, margin:"0 auto 2rem", lineHeight:1.55, letterSpacing:"-0.374px"}}>{T2.discSub}</p>
+        <button onClick={onContact} style={{background:"#2997ff", color:"#ffffff", padding:"14px 28px", borderRadius:"9999px", fontSize:"17px", fontWeight:400, cursor:"pointer", border:"none", fontFamily:"SF Pro Text,system-ui,-apple-system,sans-serif", letterSpacing:"-0.374px"}}>{T2.discCta}</button>
+      </div>
+    </div>
+  );
+};
+
 const CareersPage = ({onBack, onContact, lang}) => {
   const es = lang === "es";
   return (
@@ -2742,7 +2847,7 @@ function App() {
   if (page === "about")      return <AboutPage onBack={() => goPage("home")} lang={lang}/>;
   if (page === "compliance") return <CompliancePage onBack={() => goPage("home")} lang={lang}/>;
   if (page === "legal")      return <LegalPage onBack={() => goPage("home")} lang={lang}/>;
-  if (page === "blog")       return <CareersPage onBack={() => goPage("home")} onContact={() => goPage("contact")} lang={lang}/>;
+  if (page === "blog")       return <BlogPage onBack={() => goPage("home")} onContact={() => goPage("contact")} lang={lang}/>;
   if (page === "careers")    return <CareersPage onBack={() => goPage("home")} onContact={() => goPage("contact")} lang={lang}/>;
   if (page === "products")   return <ProductsPage onBack={() => goPage("home")} onContact={() => goPage("contact")} lang={lang}/>;
 

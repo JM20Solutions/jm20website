@@ -450,11 +450,11 @@
       email:        document.getElementById('email').value.trim(),
       order_number: document.getElementById('order_number').value.trim() || null,
       phone:        document.getElementById('phone').value.trim() || null,
-      reason:       document.getElementById('reason').value || null,
+      categoria:       document.getElementById('reason').value || null,
       description:  document.getElementById('description').value.trim(),
     };
 
-    if (!payload.full_name || !payload.email || !payload.reason || !payload.description) {
+    if (!payload.full_name || !payload.email || !payload.categoria || !payload.description) {
       errorBox.textContent = t['error-required'];
       errorBox.classList.add('visible');
       btn.disabled = false;

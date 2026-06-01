@@ -19,6 +19,8 @@
   <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/prop-types@15.8.1/prop-types.min.js" crossorigin></script>
   <script src="https://unpkg.com/recharts@2.8.0/umd/Recharts.js" crossorigin></script>
+  <!-- JSX transformer (required to run the in-page JSX). Pinned. -->
+  <script src="https://unpkg.com/@babel/standalone@7.29.7/babel.min.js" crossorigin></script>
   
 
   <!-- getdesign: apple DARK — design tokens applied below -->
@@ -33,7 +35,7 @@
 <body>
   <div id="root"><div style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:system-ui;color:#7a7a7a;font-size:0.9rem;">Loading JM20…</div></div>
 
-  <script>
+  <script type="text/babel" data-presets="react">
     const { useState, useRef, useEffect, useCallback } = React;
     const { LineChart, Line, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, PieChart, Pie, Cell, AreaChart, Area } = Recharts;
 
@@ -2901,7 +2903,7 @@ function App() {
      JM20 CHAT WIDGET — vanilla JS, no dependencies
      Edit the CONFIG block below only
      ============================================================ -->
-<script>
+<script type="text/babel" data-presets="react">
 (function() {
 
   /* ── CONFIG ── */

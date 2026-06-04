@@ -4150,8 +4150,28 @@ const DataCopilotDemoMock = ({
   const [query, setQuery] = useState("");
   const formatResponse = text => text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/^• (.+)/gm, '<li>$1</li>').replace(/^\d+\. (.+)/gm, '<li>$1</li>').replace(/\n\n/g, '<br/><br/>').replace(/\n/g, '<br/>');
 
+  // Pause the auto-cycle when the demo is off-screen or the tab is hidden,
+  // so its timers/re-renders don't compete with user interactions (INP).
+  const rootRef = useRef(null);
+  const [active, setActive] = useState(true);
+  useEffect(() => {
+    let onScreen = true;
+    const update = () => setActive(onScreen && !document.hidden);
+    const io = new IntersectionObserver(entries => {
+      onScreen = entries[0].isIntersecting;
+      update();
+    }, { threshold: 0.15 });
+    if (rootRef.current) io.observe(rootRef.current);
+    document.addEventListener("visibilitychange", update);
+    return () => {
+      io.disconnect();
+      document.removeEventListener("visibilitychange", update);
+    };
+  }, []);
+
   // Auto-cycle through examples
   useEffect(() => {
+    if (!active) return;
     let cancelled = false;
     const tids = [];
     const q = examples[exIdx];
@@ -4188,7 +4208,7 @@ const DataCopilotDemoMock = ({
       cancelled = true;
       tids.forEach(clearTimeout);
     };
-  }, [exIdx, lang]);
+  }, [exIdx, lang, active]);
 
   // Manual run (clicking a chip)
   const run = q => {
@@ -4213,6 +4233,7 @@ const DataCopilotDemoMock = ({
     }
   };
   return /*#__PURE__*/React.createElement("div", {
+    ref: rootRef,
     style: {
       background: "rgba(255,255,255,0.03)",
       borderRadius: 18,
@@ -4263,8 +4284,7 @@ const DataCopilotDemoMock = ({
       display: "flex",
       flexDirection: "column",
       gap: "0.625rem",
-      minHeight: 120,
-      maxHeight: 320,
+      height: 320,
       overflowY: "auto"
     }
   }, messages.map((msg, i) => /*#__PURE__*/React.createElement("div", {

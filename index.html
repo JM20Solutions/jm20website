@@ -8154,8 +8154,20 @@ function App() {
   const [loginOpen, setLoginOpen] = useState(false);
   const [user, setUser] = useState(null);
   const goPage = p => {
+    // Add a browser-history entry so the browser back button steps back inside the site
+    window.history.pushState({ page: p }, "");
     setPage(p);
   };
+  // Restore the matching page when the user presses the browser back/forward button
+  useEffect(() => {
+    // Seed the initial entry so the first back press is handled instead of leaving the site
+    window.history.replaceState({ page: "home" }, "");
+    const onPop = e => {
+      setPage(e.state && e.state.page ? e.state.page : "home");
+    };
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
   useEffect(() => {
     window.scrollTo({
       top: 0,

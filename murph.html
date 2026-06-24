@@ -6,27 +6,24 @@
   <title>Reserva tu cita por voz · JM20</title>
   <meta name="description" content="Habla con Murph, el agente de voz de JM20, y reserva tu llamada de Discovery en menos de un minuto." />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
 
+  <!-- Official Vapi widget (handles its own button, mic, centering & colors) -->
+  <script src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js"></script>
+
   <style>
     :root {
       --bg:      #05060a;
-      --bg-glow: #14224a;
       --ink:     #f6f8fc;
       --muted:   #9aa3b8;
       --line:    rgba(255, 255, 255, 0.10);
-      --blue:    #3d63f5;
-      --blue-2:  #2746d4;
+      --blue:    #2997ff;
       --amber:   #f5a623;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     html, body { height: 100%; }
-
     body {
       background: var(--bg);
       color: var(--ink);
@@ -38,177 +35,72 @@
       position: relative;
       overflow-x: hidden;
     }
-
-    /* Ambient brand glow */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
       background:
-        radial-gradient(60% 50% at 50% 12%, rgba(61, 99, 245, 0.22), transparent 70%),
-        radial-gradient(45% 40% at 50% 95%, rgba(61, 99, 245, 0.18), transparent 70%);
+        radial-gradient(60% 50% at 50% 12%, rgba(41,151,255,0.22), transparent 70%),
+        radial-gradient(45% 40% at 50% 95%, rgba(41,151,255,0.16), transparent 70%);
       pointer-events: none;
       z-index: 0;
     }
-
     .topbar {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      position: relative; z-index: 2;
+      display: flex; align-items: center; justify-content: space-between;
       padding: 22px clamp(20px, 5vw, 48px);
     }
-
     .logo {
       font-family: "Plus Jakarta Sans", sans-serif;
-      font-weight: 800;
-      font-size: 24px;
-      letter-spacing: -0.02em;
+      font-weight: 800; font-size: 24px; letter-spacing: -0.02em;
     }
     .logo .jm { color: var(--amber); }
     .logo .nm { color: var(--ink); }
-
     .back {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      border: 1px solid var(--line);
-      padding: 8px 16px;
-      border-radius: 999px;
+      color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500;
+      border: 1px solid var(--line); padding: 8px 16px; border-radius: 999px;
       transition: color .2s, border-color .2s, background .2s;
     }
     .back:hover, .back:focus-visible { color: var(--ink); border-color: rgba(255,255,255,.28); background: rgba(255,255,255,.03); }
-
     main {
-      position: relative;
-      z-index: 1;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      position: relative; z-index: 1; flex: 1;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
       text-align: center;
-      padding: 24px clamp(20px, 5vw, 48px) 220px;
+      padding: 24px clamp(20px, 5vw, 48px) 200px;
     }
-
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      font-size: 11.5px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #c6cfe6;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.03);
-      padding: 8px 16px;
-      border-radius: 999px;
-      margin-bottom: 30px;
+      display: inline-flex; align-items: center; gap: 9px;
+      font-size: 11.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+      color: #c6cfe6; border: 1px solid var(--line); background: rgba(255,255,255,0.03);
+      padding: 8px 16px; border-radius: 999px; margin-bottom: 30px;
     }
-    .eyebrow .dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: #46e08a;
-      box-shadow: 0 0 0 4px rgba(70, 224, 138, 0.18);
-    }
-
+    .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: #46e08a; box-shadow: 0 0 0 4px rgba(70,224,138,0.18); }
     h1 {
-      font-family: "Plus Jakarta Sans", sans-serif;
-      font-weight: 800;
-      font-size: clamp(34px, 6.2vw, 62px);
-      line-height: 1.04;
-      letter-spacing: -0.03em;
-      max-width: 16ch;
-      margin-bottom: 22px;
+      font-family: "Plus Jakarta Sans", sans-serif; font-weight: 800;
+      font-size: clamp(34px, 6.2vw, 62px); line-height: 1.04; letter-spacing: -0.03em;
+      max-width: 16ch; margin-bottom: 22px;
     }
-    h1 .accent {
-      background: linear-gradient(180deg, #6f8dff, var(--blue));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .lede {
-      color: var(--muted);
-      font-size: clamp(15px, 1.6vw, 18px);
-      line-height: 1.6;
-      max-width: 52ch;
-      margin-bottom: 34px;
-    }
-
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px 22px;
-      color: #7e8aa3;
-      font-size: 13px;
-      font-weight: 500;
-    }
+    h1 .accent { background: linear-gradient(180deg, #6fb6ff, var(--blue)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .lede { color: var(--muted); font-size: clamp(15px, 1.6vw, 18px); line-height: 1.6; max-width: 52ch; margin-bottom: 34px; }
+    .meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 22px; color: #7e8aa3; font-size: 13px; font-weight: 500; }
     .meta span { display: inline-flex; align-items: center; gap: 7px; }
     .meta svg { width: 15px; height: 15px; opacity: .8; }
-
-    .hint {
-      position: fixed;
-      left: 0; right: 0;
-      bottom: 18px;
-      z-index: 2;
-      text-align: center;
-      color: #6b7790;
-      font-size: 12.5px;
-      pointer-events: none;
-    }
-
-    /* ── Vapi floating button: brand styling + centered placement ──
-       (These class names are the ones Vapi officially exposes for
-       custom styling: .vapi-btn, .vapi-btn-pill, .vapi-btn-is-*)
-       We override ALL positioning props with !important because the
-       widget sets its own position via inline styles. */
-    .vapi-btn {
-      position: fixed !important;
-      left: 50% !important;
-      right: auto !important;
-      top: auto !important;
-      bottom: 56px !important;
-      margin: 0 !important;
-      transform: translateX(-50%) !important;
-      background: linear-gradient(180deg, #0f1b3a, #0a1226) !important;
-      border: 1px solid rgba(61, 99, 245, 0.55) !important;
-      border-radius: 999px !important;
-      box-shadow: 0 16px 44px rgba(61, 99, 245, 0.40) !important;
-      transition: box-shadow .2s ease, transform .15s ease !important;
-    }
-    .vapi-btn:hover {
-      transform: translateX(-50%) translateY(-2px) !important;
-      box-shadow: 0 22px 54px rgba(61, 99, 245, 0.58) !important;
-    }
-    /* Make the pill's title + subtitle white so they read on the dark pill */
-    .vapi-btn, .vapi-btn * { color: #ffffff !important; }
-
-    @media (prefers-reduced-motion: reduce) {
-      * { animation: none !important; transition: none !important; }
-    }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
   </style>
 </head>
 <body>
   <header class="topbar">
     <div class="logo"><span class="jm">JM</span><span class="nm">20</span></div>
-    <!-- Change this link to wherever "Volver" should go on your site -->
     <a class="back" href="https://jm20aisolutions.com/">← Volver</a>
   </header>
 
   <main>
     <span class="eyebrow"><span class="dot"></span>Reserva por voz · Disponible 24/7</span>
-
-    <h1>Habla con Murph para reservar tu <span class="accent">Discovery</span>.</h1>
-
+    <h1>Habla con Murph y reserva tu <span class="accent">Discovery</span>.</h1>
     <p class="lede">
-      Pulsa el botón de abajo, permite el acceso al micrófono y cuéntale a Murph
-      qué necesitas. Te ayuda a agendar tu llamada de Discovery en menos de un minuto.
+      Pulsa el botón, permite el acceso al micrófono y cuéntale a Murph qué necesitas.
+      Te ayuda a agendar tu llamada de Discovery en menos de un minuto.
     </p>
-
     <div class="meta">
       <span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>
@@ -221,60 +113,24 @@
     </div>
   </main>
 
-  <p class="hint">El botón aparece abajo en el centro. Si no lo ves, recarga la página.</p>
-
   <!-- ════════════════════════════════════════════════════════════════
-       VAPI VOICE WIDGET
-       👉 Paste the SAME two values you used before:
-          - YOUR_ASSISTANT_ID    (Vapi ▸ Assistants)
-          - YOUR_PUBLIC_API_KEY  (Vapi ▸ API Keys ▸ Public Key)
+       👉 Paste your SAME two values in the two attributes below:
+          public-key="..."    →  Vapi ▸ API Keys ▸ Public Key
+          assistant-id="..."  →  Vapi ▸ Assistants ▸ your assistant
        ════════════════════════════════════════════════════════════════ -->
-  <script>
-    var vapiInstance = null;
-    const assistant = "63cc81fb-a3ac-42f1-90d7-2b97eedaeed8";
-    const apiKey = "fa7d6792-6a25-4837-89c0-440973acfba2";
-
-    const buttonConfig = {
-      position: "bottom",   // bottom-center (CSS above forces true horizontal centering)
-      offset: "48px",
-      width: "60px",
-      height: "60px",
-      idle: {
-        type: "pill",
-        color: "rgb(61, 99, 245)",
-        title: "Llama a Murph",
-        subtitle: "Reserva tu cita por voz",
-        icon: "https://unpkg.com/lucide-static@0.321.0/icons/phone.svg"
-      },
-      loading: {
-        type: "pill",
-        color: "rgb(39, 70, 212)",
-        title: "Conectando…",
-        subtitle: "Un momento, por favor",
-        icon: "https://unpkg.com/lucide-static@0.321.0/icons/loader.svg"
-      },
-      active: {
-        type: "pill",
-        color: "rgb(239, 68, 68)",
-        title: "En llamada con Murph",
-        subtitle: "Pulsa para colgar",
-        icon: "https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg"
-      }
-    };
-
-    (function (d, t) {
-      var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
-      g.src = "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
-      g.defer = true; g.async = true;
-      s.parentNode.insertBefore(g, s);
-      g.onload = function () {
-        vapiInstance = window.vapiSDK.run({
-          apiKey: apiKey,
-          assistant: assistant,
-          config: buttonConfig
-        });
-      };
-    })(document, "script");
-  </script>
+  <vapi-widget
+    public-key="YOUR_PUBLIC_API_KEY"
+    assistant-id="YOUR_ASSISTANT_ID"
+    mode="voice"
+    theme="dark"
+    size="full"
+    position="bottom-center"
+    color-accent="#2997ff"
+    cta-button-color="#2997ff"
+    cta-button-text-color="#ffffff"
+    title="Murph"
+    cta-title="Llama a Murph"
+    cta-subtitle="Reserva tu cita por voz"
+  ></vapi-widget>
 </body>
 </html>

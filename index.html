@@ -140,7 +140,9 @@ const TR = {
     ddAgent: "Murph",
     ddAgentSub: "24/7 AI on Web, WhatsApp & Telegram",
     ddIntelligence: "Mowaat",
-    ddIntelligenceSub: "Live dashboard & Ask AI analytics",
+    ddIntelligenceSub: "Live dashboard & real-time analytics",
+    ddIggy: "Iggy",
+    ddIggySub: "AI chat built into your Mowaat dashboard",
     ddCopilot: "Sheetah",
     ddCopilotSub: "Natural language database queries",
     trustEU: "EU Data Sovereignty",
@@ -182,16 +184,16 @@ const TR = {
     step4Label: "Sovereign Data Isolation",
     step4Desc: "Your database is never exposed to the public internet. No direct connections. No external pings. Your data never moves.",
     productsEyebrow: "OUR PRODUCTS",
-    productsH1: "Three tools. One stack that grows with you.",
-    productsSub: "Each product works standalone. But together they tell a story: Murph handles your customers, Mowaat shows you what's happening, and Sheetah lets you ask your data anything. From the first message to the last insight — all connected.",
+    productsH1: "Support, Track, Forecast:\nThe Complete AI Ecosystem for Your Business.",
+    productsSub: "Murph doesn't just answer questions — it orchestrates your entire customer experience. Backed by a powerful ecosystem of AI agents, Murph gives you total visibility into your support operations and ROI. Mowaat is your central dashboard for real-time AI tracking and clear ROI metrics. Iggy is an AI graph agent that uncovers deep insights, pinpoints operational issues, and drives smart decisions. Sheetah is an AI reporting agent that generates instant forecasts, spots trends, and delivers data-backed recommendations. Stop guessing. Start scaling.",
     productsBack: "← Back",
     productsCta: "Book a demo →",
     productsNeedCustom: "Your process doesn't fit any of these?",
     productsNeedCustomSub: "Good — tell us what you need and we'll build it with you from scratch.",
     productsCustomCta: "Let's scope it together →",
     teasersEyebrow: "WHAT WE BUILD",
-    teasersH2: "Three tools. One stack that grows with you.",
-    teasersSub: "Each product works standalone. But together they tell a story: Murph handles your customers, Mowaat shows you what's happening, and Sheetah lets you ask your data anything. From the first message to the last insight — all connected.",
+    teasersH2: "Support, Track, Forecast:\nThe Complete AI Ecosystem for Your Business.",
+    teasersSub: "Murph doesn't just answer questions — it orchestrates your entire customer experience. Backed by a powerful ecosystem of AI agents, Murph gives you total visibility into your support operations and ROI. Mowaat is your central dashboard for real-time AI tracking and clear ROI metrics. Iggy is an AI graph agent that uncovers deep insights, pinpoints operational issues, and drives smart decisions. Sheetah is an AI reporting agent that generates instant forecasts, spots trends, and delivers data-backed recommendations. Stop guessing. Start scaling.",
     teaserLearnMore: "Learn more →",
     agentTag: "Murph — AI Support Agent",
     agentHeadline: "\"Where's my order?\"\n\"Why is it late?\"\n\"Can I cancel?\"\nAnswered. Every time.",
@@ -207,7 +209,13 @@ const TR = {
     dashB1: "Financial Guardrails: Real-time LLM cost tracking — no surprise bills, ever.",
     dashB2: "Operational Pulse: Live metrics on tickets, escalations, and AI-vs-human resolution rates.",
     dashB3: "Multi-Channel Oversight: Unified view across WhatsApp, Telegram, and Web.",
-    dashB4: "Ask AI: Type or speak your question — instant answers from your live dashboard, no SQL.",
+    iggyTag: "Iggy — Dashboard AI Chat",
+    iggyHeadline: "\"What caused this spike?\"\n\"Why did resolution time drop?\"\nAsk your dashboard. Get an answer.",
+    iggySub: "Iggy lives inside your Mowaat dashboard. See a chart or a number and want to know more? Ask Iggy — it reasons over the same live database behind your metrics and gives you the detail the dashboard doesn't show. Type your question or say it out loud. No SQL, no separate tool, no separate login — it's Mowaat, just deeper.",
+    iggyB1: "Embedded directly in your Mowaat dashboard — no separate app to open",
+    iggyB2: "Ask about any chart or metric and get an instant, reasoned answer",
+    iggyB3: "Reads the same live database behind your dashboard — always current",
+    iggyB4: "Type or speak your question — transcribed and answered instantly",
     copilotTag: "Sheetah — Data Copilot",
     copilotHeadline: "Ask your database anything.\nGet an answer — not a spreadsheet.",
     copilotSub: "What Murph handles and Mowaat tracks, Sheetah lets you interrogate at depth. It connects directly to your database and reasons over it in real time — orders, revenue, tickets, inventory — in plain English. Type your question or just say it out loud — Sheetah transcribes and answers instantly. No SQL, no data analyst, no waiting. Works with MySQL, PostgreSQL, MongoDB, Airtable and more. No migration, ever.",
@@ -339,16 +347,16 @@ const TR = {
     pkgDiscoveryTag: "Audit & Roadmap",
     pkgDiscoveryMo: "one-time",
     pkgDiscoveryNote: "Deducted from any package",
-    pkgDiscoveryDesc: "Not sure where to start? We map your process, find the opportunities, and hand you a plan in 48 hours. If you go ahead with any package, the €500 comes off the price.",
+    pkgDiscoveryDesc: "Not sure where to start? We map your process, find the opportunities, and hand you a plan in 48 hours. If you go ahead with any package, the €250 comes off the price.",
     pkgDiscoveryF1: "Process & workflow audit",
     pkgDiscoveryF2: "Automation opportunity mapping",
     pkgDiscoveryF3: "Custom roadmap delivered in 48h",
     pkgDiscoveryF4: "ROI and effort estimate",
-    pkgDiscoveryF5: "€500 credited if you sign a package",
+    pkgDiscoveryF5: "€250 credited if you sign a package",
     pkgDiscoveryCta: "Get started",
     pkgStarterName: "Starter",
     pkgStarterTag: "Murph",
-    pkgStarterMo: "+ €300/mo optional",
+    pkgStarterMo: "",
     pkgStarterDesc: "Your support runs 24/7 — orders, billing, inventory, escalations — without adding headcount. Murph handles it. You own the system.",
     pkgStarterF1: "Murph AI support agent — Web, Telegram & WhatsApp",
     pkgStarterF2: "Live inventory lookup with store link",
@@ -356,28 +364,41 @@ const TR = {
     pkgStarterF4: "Full escalation loop — Slack, form, acknowledgment & resolution emails",
     pkgStarterF5: "n8n workflow build & handoff",
     pkgStarterF6: "30 days email support included",
+    pkgStarterF7: "Optional managed retainer — €150/mo",
     pkgStarterCta: "Get started",
-    pkgIntelName: "PRO",
+    pkgIntelName: "Pro",
     pkgIntelTag: "Murph + Mowaat",
-    pkgIntelMo: "+ €400/mo optional",
+    pkgIntelMo: "",
     pkgIntelDesc: "Everything in Starter, plus a live dashboard so you always know what your AI is doing, what it's costing, and what it's saving. No surprises.",
     pkgIntelF1: "Everything in Starter, plus:",
     pkgIntelF2: "Mowaat live intelligence dashboard",
     pkgIntelF3: "Real-time tickets, escalations & resolution rates",
-    pkgIntelF4: "Ask AI — query your dashboard in plain English",
-    pkgIntelF5: "LLM usage & cost monitoring",
-    pkgIntelF6: "Unified view across Web, WhatsApp & Telegram",
+    pkgIntelF4: "LLM usage & cost monitoring",
+    pkgIntelF5: "Unified view across Web, WhatsApp & Telegram",
+    pkgIntelF6: "Optional managed retainer — €200/mo",
     pkgIntelCta: "Most popular",
-    pkgSuiteName: "Scale",
-    pkgSuiteTag: "Murph + Mowaat + Sheetah",
-    pkgSuiteMo: "+ €500/mo optional",
-    pkgSuiteDesc: "The full stack. Murph handles your customers, Mowaat shows you the numbers, and Sheetah lets you interrogate your data in plain English. Everything connected, everything yours.",
-    pkgSuiteF1: "Everything in Pro, plus:",
-    pkgSuiteF2: "Sheetah Data Copilot — direct database intelligence",
+    pkgAdvName: "Business",
+    pkgAdvTag: "Murph + Mowaat + Iggy",
+    pkgAdvMo: "",
+    pkgAdvDesc: "Everything in Pro, plus Iggy — an AI chat built into your dashboard. Ask about any chart, get the detail behind it, instantly.",
+    pkgAdvF1: "Everything in Pro, plus:",
+    pkgAdvF2: "Iggy — AI chat embedded in your Mowaat dashboard",
+    pkgAdvF3: "Ask about any graph or metric, get an instant answer",
+    pkgAdvF4: "Drills into the live SQL data behind every chart",
+    pkgAdvF5: "No separate login, no separate tool — lives inside Mowaat",
+    pkgAdvF6: "Optional managed retainer — €250/mo",
+    pkgAdvCta: "Get started",
+    pkgSuiteName: "Enterprise",
+    pkgSuiteTag: "Murph + Mowaat + Iggy + Sheetah",
+    pkgSuiteMo: "",
+    pkgSuiteDesc: "The full stack. Murph handles support, Mowaat shows the numbers, Iggy explains any chart, and Sheetah answers anything beyond it — any database, no migration.",
+    pkgSuiteF1: "Everything in Business, plus:",
+    pkgSuiteF2: "Sheetah Data Copilot — standalone, cross-database intelligence",
     pkgSuiteF3: "Works with any database — no migration ever",
     pkgSuiteF4: "Query orders, revenue & tickets in plain English",
     pkgSuiteF5: "Priority support & monthly updates",
     pkgSuiteF6: "Custom prompt tuning included",
+    pkgSuiteF7: "Optional managed retainer — €300/mo",
     pkgSuiteCta: "Get started",
     pkgCustomName: "Custom",
     pkgCustomTag: "Bespoke Automation",
@@ -485,7 +506,9 @@ const TR = {
     ddAgent: "Murph",
     ddAgentSub: "IA 24/7 en Web, WhatsApp y Telegram",
     ddIntelligence: "Mowaat",
-    ddIntelligenceSub: "Dashboard en vivo y análisis con IA",
+    ddIntelligenceSub: "Dashboard en vivo y analítica en tiempo real",
+    ddIggy: "Iggy",
+    ddIggySub: "Chat de IA integrado en tu dashboard Mowaat",
     ddCopilot: "Sheetah",
     ddCopilotSub: "Consultas a tu base de datos en lenguaje natural",
     trustEU: "Soberanía de datos en la UE",
@@ -527,16 +550,16 @@ const TR = {
     step4Label: "Aislamiento Soberano de Datos",
     step4Desc: "Tu base de datos nunca queda expuesta a la internet pública. Sin conexiones directas. Sin pings externos. Tus datos no se mueven.",
     productsEyebrow: "NUESTROS PRODUCTOS",
-    productsH1: "Tres herramientas. Un stack que crece contigo.",
-    productsSub: "Cada producto funciona por sí solo. Pero juntos cuentan una historia: Murph atiende a tus clientes, Mowaat te muestra lo que está pasando, y Sheetah te deja preguntarle cualquier cosa a tus datos. Del primer mensaje al último insight — todo conectado.",
+    productsH1: "Soporte, Tracking y Forecast:\nEl Ecosistema de IA Completo para tu Negocio.",
+    productsSub: "Murph no se limita a responder preguntas: orquesta toda la experiencia de tus clientes. Respaldado por un ecosistema de agentes de IA, Murph te da visibilidad total sobre tus operaciones de soporte y tu ROI. Mowaat es tu dashboard central para el seguimiento de la IA en tiempo real y métricas claras de ROI. Iggy es un agente de IA de grafos que descubre insights profundos, detecta problemas operativos e impulsa mejores decisiones. Sheetah es un agente de IA de informes que genera previsiones al instante, detecta tendencias y ofrece recomendaciones basadas en datos. Deja de adivinar. Empieza a escalar.",
     productsBack: "← Volver",
     productsCta: "Reservar demo →",
     productsNeedCustom: "¿Tu proceso no encaja en ninguno de estos?",
     productsNeedCustomSub: "Perfecto — cuéntanos qué necesitas y lo construimos contigo desde cero.",
     productsCustomCta: "Hablemos y lo definimos →",
     teasersEyebrow: "LO QUE CONSTRUIMOS",
-    teasersH2: "Tres herramientas. Un stack que crece contigo.",
-    teasersSub: "Cada producto funciona por sí solo. Pero juntos cuentan una historia: Murph atiende a tus clientes, Mowaat te muestra lo que está pasando, y Sheetah te deja preguntarle cualquier cosa a tus datos. Del primer mensaje al último insight — todo conectado.",
+    teasersH2: "Soporte, Tracking y Forecast:\nEl Ecosistema de IA Completo para tu Negocio.",
+    teasersSub: "Murph no se limita a responder preguntas: orquesta toda la experiencia de tus clientes. Respaldado por un ecosistema de agentes de IA, Murph te da visibilidad total sobre tus operaciones de soporte y tu ROI. Mowaat es tu dashboard central para el seguimiento de la IA en tiempo real y métricas claras de ROI. Iggy es un agente de IA de grafos que descubre insights profundos, detecta problemas operativos e impulsa mejores decisiones. Sheetah es un agente de IA de informes que genera previsiones al instante, detecta tendencias y ofrece recomendaciones basadas en datos. Deja de adivinar. Empieza a escalar.",
     teaserLearnMore: "Ver más →",
     agentTag: "Murph — Agente de Soporte IA",
     agentHeadline: "\"¿Dónde está mi pedido?\"\n\"¿Por qué llega tarde?\"\n\"¿Puedo cancelarlo?\"\nRespondido. Siempre.",
@@ -552,7 +575,13 @@ const TR = {
     dashB1: "Control Financiero: Seguimiento de costes LLM en tiempo real — sin facturas sorpresa, nunca.",
     dashB2: "Pulso Operacional: Métricas en vivo de tickets, escalados y tasas de resolución IA vs humano.",
     dashB3: "Visión Multicanal: Vista unificada de WhatsApp, Telegram y Web.",
-    dashB4: "Ask AI: Escribe o habla tu pregunta — respuestas instantáneas de tu dashboard en vivo, sin SQL.",
+    iggyTag: "Iggy — Chat IA del Dashboard",
+    iggyHeadline: "\"¿Qué causó este pico?\"\n\"¿Por qué bajó el tiempo de resolución?\"\nPregúntale a tu dashboard. Obtén una respuesta.",
+    iggySub: "Iggy vive dentro de tu dashboard Mowaat. ¿Ves un gráfico o un número y quieres saber más? Pregúntale a Iggy — razona sobre la misma base de datos en vivo que hay detrás de tus métricas y te da el detalle que el dashboard no muestra. Escribe tu pregunta o dila en voz alta. Sin SQL, sin herramienta aparte, sin login aparte — es Mowaat, solo que más profundo.",
+    iggyB1: "Integrado directamente en tu dashboard Mowaat — sin abrir otra app",
+    iggyB2: "Pregunta sobre cualquier gráfico o métrica y obtén una respuesta razonada al instante",
+    iggyB3: "Lee la misma base de datos en vivo que hay detrás de tu dashboard — siempre actualizada",
+    iggyB4: "Escribe o di tu pregunta en voz alta — transcrita y respondida al instante",
     copilotTag: "Sheetah — Data Copilot",
     copilotHeadline: "Pregúntale a tu base de datos lo que quieras.\nObtén una respuesta — no una hoja de cálculo.",
     copilotSub: "Lo que Murph gestiona y Mowaat muestra, Sheetah te permite interrogarlo en profundidad. Se conecta directamente a tu base de datos y razona sobre ella en tiempo real — pedidos, ingresos, tickets, inventario — en lenguaje natural. Escribe tu pregunta o simplemente dila en voz alta — Sheetah transcribe y responde al instante. Sin SQL, sin analista de datos, sin esperas. Funciona con MySQL, PostgreSQL, MongoDB, Airtable y más. Sin migración, jamás.",
@@ -684,16 +713,16 @@ const TR = {
     pkgDiscoveryTag: "Auditoría y Hoja de Ruta",
     pkgDiscoveryMo: "pago único",
     pkgDiscoveryNote: "Descontado de cualquier paquete",
-    pkgDiscoveryDesc: "¿No sabes por dónde empezar? Mapeamos tu proceso, encontramos las oportunidades y te entregamos un plan en 48 horas. Si contratas cualquier paquete, los €500 se descuentan del precio.",
+    pkgDiscoveryDesc: "¿No sabes por dónde empezar? Mapeamos tu proceso, encontramos las oportunidades y te entregamos un plan en 48 horas. Si contratas cualquier paquete, los €250 se descuentan del precio.",
     pkgDiscoveryF1: "Auditoría de proceso y flujo de trabajo",
     pkgDiscoveryF2: "Mapeo de oportunidades de automatización",
     pkgDiscoveryF3: "Hoja de ruta personalizada en 48h",
     pkgDiscoveryF4: "Estimación de ROI y esfuerzo",
-    pkgDiscoveryF5: "€500 acreditados si contratas un paquete",
+    pkgDiscoveryF5: "€250 acreditados si contratas un paquete",
     pkgDiscoveryCta: "Empezar",
     pkgStarterName: "Starter",
     pkgStarterTag: "Murph",
-    pkgStarterMo: "+ €300/mes opcional",
+    pkgStarterMo: "",
     pkgStarterDesc: "Tu soporte funciona 24/7 — pedidos, facturación, inventario, escalaciones — sin aumentar el equipo. Murph lo gestiona. Tú posees el sistema.",
     pkgStarterF1: "Murph agente de soporte IA — Web, Telegram y WhatsApp",
     pkgStarterF2: "Consulta de inventario en vivo con enlace a la tienda",
@@ -701,28 +730,41 @@ const TR = {
     pkgStarterF4: "Ciclo de escalación completo — Slack, formulario, email de acuse y resolución",
     pkgStarterF5: "Construcción y entrega de flujos n8n",
     pkgStarterF6: "30 días de soporte por email incluidos",
+    pkgStarterF7: "Retainer de gestión opcional — €150/mes",
     pkgStarterCta: "Empezar",
     pkgIntelName: "Pro",
     pkgIntelTag: "Murph + Mowaat",
-    pkgIntelMo: "+ €400/mes opcional",
-    pkgIntelDesc: "Todo lo del Starter, más un dashboard en vivo para que siempre sepas lo que hace tu IA, lo que cuesta y lo que ahorra. Sin sorpresas.",
+    pkgIntelMo: "",
+    pkgIntelDesc: "Todo lo de Starter, más un dashboard en vivo para que siempre sepas lo que hace tu IA, lo que cuesta y lo que ahorra. Sin sorpresas.",
     pkgIntelF1: "Todo lo incluido en Starter, más:",
     pkgIntelF2: "Mowaat dashboard de inteligencia en vivo",
     pkgIntelF3: "Tickets, escalados y tasas de resolución en tiempo real",
-    pkgIntelF4: "Ask AI — consulta tu dashboard en español",
-    pkgIntelF5: "Monitorización de uso y costes de LLM",
-    pkgIntelF6: "Vista unificada de Web, WhatsApp y Telegram",
+    pkgIntelF4: "Monitorización de uso y costes de LLM",
+    pkgIntelF5: "Vista unificada de Web, WhatsApp y Telegram",
+    pkgIntelF6: "Retainer de gestión opcional — €200/mes",
     pkgIntelCta: "Más popular",
-    pkgSuiteName: "Scale",
-    pkgSuiteTag: "Murph + Mowaat + Sheetah",
-    pkgSuiteMo: "+ €500/mes opcional",
-    pkgSuiteDesc: "El stack completo. Murph atiende a tus clientes, Mowaat te muestra los números, y Sheetah te deja interrogar tus datos en lenguaje natural. Todo conectado, todo tuyo.",
-    pkgSuiteF1: "Todo lo incluido en Pro, más:",
-    pkgSuiteF2: "Sheetah Data Copilot — inteligencia directa sobre tu base de datos",
+    pkgAdvName: "Business",
+    pkgAdvTag: "Murph + Mowaat + Iggy",
+    pkgAdvMo: "",
+    pkgAdvDesc: "Todo lo de Pro, más Iggy — un chat de IA integrado en tu dashboard. Pregunta sobre cualquier gráfico y obtén el detalle al instante.",
+    pkgAdvF1: "Todo lo incluido en Pro, más:",
+    pkgAdvF2: "Iggy — chat de IA integrado en tu dashboard Mowaat",
+    pkgAdvF3: "Pregunta sobre cualquier gráfico o métrica, obtén respuesta al instante",
+    pkgAdvF4: "Profundiza en los datos SQL en vivo detrás de cada gráfico",
+    pkgAdvF5: "Sin login aparte, sin herramienta aparte — vive dentro de Mowaat",
+    pkgAdvF6: "Retainer de gestión opcional — €250/mes",
+    pkgAdvCta: "Empezar",
+    pkgSuiteName: "Enterprise",
+    pkgSuiteTag: "Murph + Mowaat + Iggy + Sheetah",
+    pkgSuiteMo: "",
+    pkgSuiteDesc: "El stack completo. Murph atiende el soporte, Mowaat muestra los números, Iggy explica cualquier gráfico, y Sheetah responde todo lo demás — cualquier base de datos, sin migración.",
+    pkgSuiteF1: "Todo lo incluido en Business, más:",
+    pkgSuiteF2: "Sheetah Data Copilot — inteligencia independiente entre bases de datos",
     pkgSuiteF3: "Funciona con cualquier base de datos — sin migración jamás",
     pkgSuiteF4: "Consulta pedidos, ingresos y tickets en español",
     pkgSuiteF5: "Soporte prioritario y actualizaciones mensuales",
     pkgSuiteF6: "Ajuste de prompts personalizado incluido",
+    pkgSuiteF7: "Retainer de gestión opcional — €300/mes",
     pkgSuiteCta: "Empezar",
     pkgCustomName: "A Medida",
     pkgCustomTag: "Automatización Personalizada",
@@ -842,6 +884,8 @@ body{background:#000000;font-family:SF Pro Display,system-ui,-apple-system,Blink
 @keyframes heroGlow{0%,100%{transform:translateX(-50%) scale(1);opacity:0.55}50%{transform:translateX(-50%) scale(1.22);opacity:1}}
 @keyframes heroGlow2{0%,100%{opacity:0.35;transform:scale(1)}50%{opacity:0.85;transform:scale(1.15)}}
 @keyframes carouselProgress{from{width:0%}to{width:100%}}
+@keyframes teaserPan{0%,100%{transform:scale(1.04)}50%{transform:scale(1.13)}}
+@keyframes teaserShift{0%,100%{background-position:20% 30%}50%{background-position:80% 70%}}
 
 /* Apple pill CTA — btn-primary: #2997ff on dark */
 .btn-primary{
@@ -917,13 +961,27 @@ input,button,select,textarea{font-family:SF Pro Text,system-ui,-apple-system,san
   .nav-cta-btn{font-size:11px !important; padding:0.3rem 0.6rem !important; white-space:nowrap}
 }
 
+/* Pricing — 3 cols → 2 cols on tablet */
+@media(max-width:1024px) and (min-width:769px){
+  .pricing-grid{
+    grid-template-columns:repeat(2,1fr) !important;
+  }
+}
+
+/* Four tools teaser grid — 2 cols → 1 col on mobile */
+@media(max-width:768px){
+  .teasers-grid{
+    grid-template-columns:1fr !important;
+  }
+}
+
 /* ── MOBILE RESPONSIVE ── */
 @media(max-width:768px){
 
   /* Fix global overflow — nothing escapes the viewport */
   body{ overflow-x:hidden !important; }
 
-  /* Pricing — 5 cols → 1 col */
+  /* Pricing — grid → 1 col */
   .pricing-grid{
     display:flex !important;
     flex-direction:column !important;
@@ -1407,6 +1465,12 @@ const Nav = ({
     sub: t.ddIntelligenceSub,
     accent: "#a78bfa",
     id: "dashboard"
+  }, {
+    icon: "💬",
+    name: t.ddIggy,
+    sub: t.ddIggySub,
+    accent: "#C5A059",
+    id: "iggy"
   }, {
     icon: "🔍",
     name: t.ddCopilot,
@@ -2733,6 +2797,311 @@ const DataCopilotMockup = ({
   }, "\u2191")));
 };
 
+/* ── IGGY MOCKUP — matches the real Iggy dashboard-intelligence UI ── */
+const IGGY_MOCKUP_COPY = {
+  en: {
+    windowLabel: "Mowaat — Ask Iggy",
+    subtitle: "Dashboard Intelligence by ",
+    brand: "JM20",
+    live: "Live DB Connected",
+    askLabel: "ASK YOUR DATABASE ANYTHING IN PLAIN ENGLISH",
+    clear: "Clear",
+    ask: "Ask",
+    history: "History",
+    favorites: "Favorites",
+    save: "Save to Favorites",
+    logTag: "Iggy Dashboard Intelligence"
+  },
+  es: {
+    windowLabel: "Mowaat — Preguntar a Iggy",
+    subtitle: "Inteligencia de Dashboard por ",
+    brand: "JM20",
+    live: "Base de Datos Conectada",
+    askLabel: "PREGÚNTALE A TU BASE DE DATOS EN LENGUAJE NATURAL",
+    clear: "Borrar",
+    ask: "Preguntar",
+    history: "Historial",
+    favorites: "Favoritos",
+    save: "Guardar en favoritos",
+    logTag: "Iggy Dashboard Intelligence"
+  }
+};
+const IGGY_EXAMPLES = {
+  en: ["Find customers that have a pending cancellation and also give me the reasons of the cancellation", "Which products had the most refund requests this month?", "Show me customers who churned right after a price increase"],
+  es: ["Encuentra clientes con cancelación pendiente y dime los motivos de la cancelación", "¿Qué productos tuvieron más solicitudes de reembolso este mes?", "Muéstrame los clientes que se dieron de baja tras una subida de precio"]
+};
+const IggyMockup = ({
+  lang = "en"
+}) => {
+  const c = IGGY_MOCKUP_COPY[lang] || IGGY_MOCKUP_COPY.en;
+  const examples = IGGY_EXAMPLES[lang] || IGGY_EXAMPLES.en;
+  const font = "SF Pro Text,system-ui,-apple-system,sans-serif";
+
+  // Pause the auto-cycle when off-screen or the tab is hidden
+  const rootRef = useRef(null);
+  const [active, setActive] = useState(true);
+  useEffect(() => {
+    let onScreen = true;
+    const update = () => setActive(onScreen && !document.hidden);
+    const io = new IntersectionObserver(entries => {
+      onScreen = entries[0].isIntersecting;
+      update();
+    }, { threshold: 0.15 });
+    if (rootRef.current) io.observe(rootRef.current);
+    document.addEventListener("visibilitychange", update);
+    return () => {
+      io.disconnect();
+      document.removeEventListener("visibilitychange", update);
+    };
+  }, []);
+  const [exIdx, setExIdx] = useState(0);
+  const [typed, setTyped] = useState("");
+  const [phase, setPhase] = useState("typing");
+  const [logQuery, setLogQuery] = useState("");
+  useEffect(() => {
+    if (!active) return;
+    let cancelled = false;
+    const tids = [];
+    const q = examples[exIdx];
+    setTyped("");
+    setPhase("typing");
+    let i = 0;
+    const typeStep = () => {
+      if (cancelled) return;
+      i += 1;
+      setTyped(q.slice(0, i));
+      if (i < q.length) {
+        tids.push(setTimeout(typeStep, 18 + Math.random() * 22));
+      } else {
+        tids.push(setTimeout(() => {
+          if (cancelled) return;
+          setPhase("asking");
+          tids.push(setTimeout(() => {
+            if (cancelled) return;
+            setPhase("done");
+            setLogQuery(q);
+            tids.push(setTimeout(() => {
+              if (!cancelled) setExIdx(idx => (idx + 1) % examples.length);
+            }, 2600));
+          }, 550));
+        }, 500));
+      }
+    };
+    tids.push(setTimeout(typeStep, 350));
+    return () => {
+      cancelled = true;
+      tids.forEach(clearTimeout);
+    };
+  }, [exIdx, lang, active]);
+  const truncate = s => s.length > 74 ? s.slice(0, 74) + "\u2026" : s;
+  const pill = (label, extra = {}) => /*#__PURE__*/React.createElement("div", {
+    style: Object.assign({
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "0.35rem",
+      background: "rgba(255,255,255,0.06)",
+      border: "1px solid rgba(255,255,255,0.1)",
+      borderRadius: 999,
+      padding: "0.4rem 0.85rem",
+      fontSize: "0.72rem",
+      color: "rgba(255,255,255,0.7)",
+      fontFamily: font,
+      whiteSpace: "nowrap"
+    }, extra)
+  }, label);
+  return /*#__PURE__*/React.createElement("div", {
+    ref: rootRef,
+    style: {
+      background: "#0d0d0f",
+      borderRadius: 20,
+      overflow: "hidden",
+      boxShadow: "0 24px 80px rgba(0,0,0,0.6)",
+      border: "1px solid rgba(255,255,255,0.06)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "0.75rem 1rem",
+      background: "#141416",
+      borderBottom: "1px solid rgba(255,255,255,0.06)",
+      display: "flex",
+      alignItems: "center",
+      gap: "0.5rem"
+    }
+  }, ["#ef4444", "#f59e0b", "#22c55e"].map(cl => /*#__PURE__*/React.createElement("div", {
+    key: cl,
+    style: {
+      width: 10,
+      height: 10,
+      borderRadius: "50%",
+      background: cl
+    }
+  })), /*#__PURE__*/React.createElement("span", {
+    style: {
+      marginLeft: "0.75rem",
+      fontSize: "0.78rem",
+      color: "rgba(255,255,255,0.4)",
+      fontFamily: font
+    }
+  }, c.windowLabel)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "1.25rem 1.25rem 1.5rem"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "flex-start",
+      marginBottom: "1rem"
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: "1.5rem",
+      fontWeight: 700,
+      color: "#C5A059",
+      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+    }
+  }, "Iggy"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: "0.72rem",
+      color: "rgba(255,255,255,0.4)",
+      fontFamily: font,
+      marginTop: "0.15rem"
+    }
+  }, c.subtitle, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "#C5A059"
+    }
+  }, c.brand))), pill(c.live, {
+    background: "rgba(255,255,255,0.05)"
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      borderTop: "1px solid rgba(255,255,255,0.08)",
+      margin: "0.25rem 0 1.1rem"
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: "0.65rem",
+      fontWeight: 600,
+      letterSpacing: "1.5px",
+      color: "#2997ff",
+      fontFamily: font,
+      marginBottom: "0.6rem"
+    }
+  }, c.askLabel), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: "0.6rem",
+      marginBottom: "0.75rem",
+      alignItems: "stretch"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      background: "rgba(255,255,255,0.04)",
+      border: "1px solid rgba(255,255,255,0.08)",
+      borderRadius: 12,
+      padding: "0.85rem 1rem",
+      fontSize: "0.78rem",
+      lineHeight: 1.5,
+      color: "rgba(255,255,255,0.75)",
+      fontFamily: font,
+      position: "relative",
+      minHeight: "3.2rem"
+    }
+  }, typed, phase === "typing" && /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: "inline-block",
+      width: 2,
+      height: "0.9em",
+      background: "#C5A059",
+      marginLeft: 2,
+      animation: "pulse 0.8s steps(2) infinite",
+      verticalAlign: "text-bottom"
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "absolute",
+      right: "0.6rem",
+      bottom: "0.6rem",
+      width: 22,
+      height: 22,
+      borderRadius: "50%",
+      background: "rgba(255,255,255,0.08)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: "0.65rem"
+    }
+  }, "\uD83C\uDFA4")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: "0.4rem",
+      justifyContent: "flex-end"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "rgba(255,255,255,0.06)",
+      border: "1px solid rgba(255,255,255,0.1)",
+      borderRadius: 8,
+      padding: "0.35rem 0.9rem",
+      fontSize: "0.72rem",
+      color: "rgba(255,255,255,0.6)",
+      fontFamily: font,
+      textAlign: "center"
+    }
+  }, c.clear), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "#2997ff",
+      borderRadius: 8,
+      padding: "0.35rem 0.9rem",
+      fontSize: "0.72rem",
+      color: "#fff",
+      fontFamily: font,
+      textAlign: "center",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: "0.3rem",
+      transform: phase === "asking" ? "scale(0.94)" : "scale(1)",
+      boxShadow: phase === "asking" ? "0 0 0 3px rgba(41,151,255,0.35)" : "none",
+      transition: "transform .15s ease, box-shadow .15s ease"
+    }
+  }, "\u25B6", " ", c.ask))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: "0.5rem",
+      flexWrap: "wrap",
+      marginBottom: "1rem"
+    }
+  }, pill(`\u{1F551} ${c.history} \u25BE`), pill(`\u2606 ${c.favorites} \u25BE`), pill(`\u2605 ${c.save}`, {
+    background: "rgba(41,151,255,0.08)",
+    border: "1px solid rgba(41,151,255,0.35)",
+    color: "#2997ff"
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: "0.6rem",
+      flexWrap: "wrap",
+      minHeight: "1.4rem",
+      opacity: logQuery ? 1 : 0,
+      transition: "opacity .3s"
+    }
+  }, pill(`\u2318 ${c.logTag}`, {
+    background: "rgba(41,151,255,0.08)",
+    border: "1px solid rgba(41,151,255,0.35)",
+    color: "#2997ff"
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: "0.72rem",
+      color: "rgba(255,255,255,0.35)",
+      fontStyle: "italic",
+      fontFamily: font
+    }
+  }, "\u201C", truncate(logQuery), "\u201D"))));
+};
+
 /* ── AGENT MOCKUP ── */
 const AGENT_MOCKUP_MSGS = {
   en: {
@@ -3051,13 +3420,25 @@ const getProducts = lang => {
     tagBg: "rgba(167,139,250,0.12)",
     headline: t.dashHeadline,
     sub: t.dashSub,
-    benefits: [t.dashB1, t.dashB2, t.dashB3, t.dashB4],
+    benefits: [t.dashB1, t.dashB2, t.dashB3],
     Visual: ({
       lang
     }) => /*#__PURE__*/React.createElement(DashboardCarousel, {
       lang: lang
     }),
     reverse: true,
+    dark: true
+  }, {
+    id: "iggy",
+    tag: t.iggyTag,
+    accent: "#C5A059",
+    bg: "#1f1e1a",
+    tagBg: "rgba(197,160,89,0.12)",
+    headline: t.iggyHeadline,
+    sub: t.iggySub,
+    benefits: [t.iggyB1, t.iggyB2, t.iggyB3, t.iggyB4],
+    Visual: IggyMockup,
+    reverse: false,
     dark: true
   }, {
     id: "copilot",
@@ -3069,7 +3450,7 @@ const getProducts = lang => {
     sub: t.copilotSub,
     benefits: [t.copilotB1, t.copilotB2, t.copilotB3, t.copilotB4],
     Visual: DataCopilotDemoMock,
-    reverse: false,
+    reverse: true,
     dark: true
   }];
 };
@@ -3179,13 +3560,14 @@ const ProductsPage = ({
       color: "#ffffff",
       marginTop: "0.5rem",
       letterSpacing: "-0.02em",
+      whiteSpace: "pre-line",
       fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, t.productsH1), /*#__PURE__*/React.createElement("p", {
     style: {
       color: "#a0a0a0",
       fontSize: "clamp(14px,3.5vw,17px)",
-      maxWidth: 520,
+      maxWidth: 720,
       margin: "0.75rem auto 0",
       lineHeight: 1.55,
       fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
@@ -3404,6 +3786,7 @@ const ProductsPage = ({
 const PRODUCT_IMGS = {
   agent: "murph.png",
   dashboard: "mowaat.png",
+  iggy: "iggy.png",
   copilot: "sheetah.png"
 };
 const PRODUCT_IMG_CFG = {
@@ -3415,6 +3798,10 @@ const PRODUCT_IMG_CFG = {
     size: "120%",
     pos: "left top"
   },
+  iggy: {
+    size: "120%",
+    pos: "left top"
+  },
   copilot: {
     size: "120%",
     pos: "left top"
@@ -3423,17 +3810,20 @@ const PRODUCT_IMG_CFG = {
 const PRODUCT_NAMES = {
   agent: "Murph",
   dashboard: "Mowaat",
+  iggy: "Iggy",
   copilot: "Sheetah"
 };
 const PRODUCT_ONE_LINERS = {
   en: {
     agent: "AI support agent for WhatsApp, Telegram & Web.",
     dashboard: "Live dashboard. See what your AI does and saves.",
+    iggy: "AI chat built into your dashboard. Ask any chart, anything.",
     copilot: "Query your database in plain language. No SQL."
   },
   es: {
     agent: "Agente de soporte IA para WhatsApp, Telegram y Web.",
     dashboard: "Dashboard en vivo. Ve lo que hace tu IA y lo que ahorra.",
+    iggy: "Chat de IA integrado en tu dashboard. Pregúntale lo que sea.",
     copilot: "Consulta tu base de datos en lenguaje natural. Sin SQL."
   }
 };
@@ -3477,29 +3867,26 @@ const ProductTeasers = ({
       color: "#ffffff",
       marginTop: "0.75rem",
       letterSpacing: "-0.028em",
+      whiteSpace: "pre-line",
       fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, t.teasersH2), /*#__PURE__*/React.createElement("p", {
     style: {
       color: "rgba(255,255,255,0.45)",
       fontSize: "17px",
-      maxWidth: 480,
+      maxWidth: 680,
       margin: "0.75rem auto 0",
       lineHeight: 1.55,
       fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.teasersSub)), /*#__PURE__*/React.createElement("div", {
+    className: "teasers-grid",
     style: {
       display: "grid",
-      gridTemplateColumns: "repeat(auto-fit,minmax(min(320px,100%),1fr))",
-      gap: "1px",
-      background: "rgba(255,255,255,0.06)",
-      borderRadius: "20px",
-      overflow: "hidden"
+      gridTemplateColumns: "repeat(2,1fr)",
+      gap: "1.25rem"
     }
   }, PRODUCTS.map((p, idx) => {
-    const img = PRODUCT_IMGS[p.id];
-    const imgCfg = PRODUCT_IMG_CFG[p.id];
     const name = PRODUCT_NAMES[p.id];
     const oneLiner = oneLiners[p.id];
     const isHov = hov === idx;
@@ -3510,32 +3897,18 @@ const ProductTeasers = ({
       onMouseLeave: () => setHov(null),
       style: {
         position: "relative",
-        minHeight: 340,
+        background: p.bg,
+        border: `1px solid ${isHov ? p.accent + "55" : "rgba(255,255,255,0.07)"}`,
+        borderRadius: 18,
+        padding: "1.5rem",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "flex-end",
+        gap: "1.25rem",
         cursor: "pointer",
+        transition: "border-color .3s ease",
         overflow: "hidden"
       }
     }, /*#__PURE__*/React.createElement("div", {
-      style: {
-        position: "absolute",
-        inset: 0,
-        backgroundImage: `url("${img}")`,
-        backgroundSize: imgCfg.size,
-        backgroundPosition: imgCfg.pos,
-        backgroundRepeat: "no-repeat",
-        filter: isHov ? "brightness(1.0) saturate(1.05)" : "brightness(0.88) saturate(0.96)",
-        transition: "filter .35s ease"
-      }
-    }), /*#__PURE__*/React.createElement("div", {
-      style: {
-        position: "absolute",
-        inset: 0,
-        background: isHov ? `linear-gradient(to bottom, ${p.accent}33 0%, rgba(0,0,0,0.3) 35%, rgba(0,0,0,0.72) 100%)` : "linear-gradient(to bottom, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.42) 42%, rgba(0,0,0,0.82) 100%)",
-        transition: "background .35s ease"
-      }
-    }), /*#__PURE__*/React.createElement("div", {
       style: {
         position: "absolute",
         top: 0,
@@ -3548,31 +3921,54 @@ const ProductTeasers = ({
       }
     }), /*#__PURE__*/React.createElement("div", {
       style: {
+        pointerEvents: "none",
+        height: 320,
+        overflow: "hidden",
         position: "relative",
-        zIndex: 1,
-        padding: "2.25rem 2rem",
-        display: "flex",
-        flexDirection: "column",
-        gap: "0.6rem"
+        borderRadius: 12
       }
-    }, /*#__PURE__*/React.createElement("div", {
+    }, /*#__PURE__*/React.createElement(p.Visual, {
+      lang: lang
+    }), /*#__PURE__*/React.createElement("div", {
       style: {
-        fontSize: "clamp(2rem,4vw,2.5rem)",
+        position: "absolute",
+        left: 0,
+        right: 0,
+        bottom: 0,
+        height: 48,
+        background: `linear-gradient(to bottom, transparent, ${p.bg})`,
+        pointerEvents: "none"
+      }
+    })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: "0.5rem"
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        width: 6,
+        height: 6,
+        borderRadius: "50%",
+        background: p.accent,
+        animation: "pulse 2s infinite",
+        flexShrink: 0
+      }
+    }), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: "1.4rem",
         fontWeight: 700,
         color: "#ffffff",
-        letterSpacing: "-0.04em",
-        lineHeight: 1,
-        fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif",
-        textShadow: "0 2px 12px rgba(0,0,0,0.7)"
+        letterSpacing: "-0.03em",
+        fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
       }
-    }, name), /*#__PURE__*/React.createElement("p", {
+    }, name)), /*#__PURE__*/React.createElement("p", {
       style: {
-        margin: 0,
-        fontSize: "15px",
-        color: "rgba(255,255,255,0.75)",
-        lineHeight: 1.55,
-        fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif",
-        textShadow: "0 1px 6px rgba(0,0,0,0.6)"
+        margin: "0.4rem 0 0",
+        fontSize: "14px",
+        color: "rgba(255,255,255,0.6)",
+        lineHeight: 1.5,
+        fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
       }
     }, oneLiner), /*#__PURE__*/React.createElement("div", {
       style: {
@@ -3583,8 +3979,8 @@ const ProductTeasers = ({
         fontSize: "13px",
         fontWeight: 500,
         fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif",
-        marginTop: "0.5rem",
-        opacity: isHov ? 1 : 0.6,
+        marginTop: "0.6rem",
+        opacity: isHov ? 1 : 0.7,
         transition: "opacity .25s"
       }
     }, t.teaserLearnMore)));
@@ -6054,7 +6450,7 @@ const Pricing = ({
   const packages = [{
     name: t.pkgDiscoveryName,
     tag: t.pkgDiscoveryTag,
-    price: "€500",
+    price: "€250",
     mo: t.pkgDiscoveryMo,
     priceNote: t.pkgDiscoveryNote,
     accent: "#a0a0a0",
@@ -6067,19 +6463,19 @@ const Pricing = ({
   }, {
     name: t.pkgStarterName,
     tag: t.pkgStarterTag,
-    price: "€1,800",
+    price: "€1,500",
     mo: t.pkgStarterMo,
     accent: "#2997ff",
     tagBg: "rgba(41,151,255,0.1)",
     desc: t.pkgStarterDesc,
-    features: [t.pkgStarterF1, t.pkgStarterF2, t.pkgStarterF3, t.pkgStarterF4, t.pkgStarterF5, t.pkgStarterF6],
+    features: [t.pkgStarterF1, t.pkgStarterF2, t.pkgStarterF3, t.pkgStarterF4, t.pkgStarterF5, t.pkgStarterF6, t.pkgStarterF7],
     pop: false,
     cta: t.pkgStarterCta,
     ctaStyle: "btn-ghost"
   }, {
     name: t.pkgIntelName,
     tag: t.pkgIntelTag,
-    price: "€2,700",
+    price: "€2,000",
     mo: t.pkgIntelMo,
     accent: "#2997ff",
     tagBg: "rgba(41,151,255,0.1)",
@@ -6089,14 +6485,26 @@ const Pricing = ({
     cta: t.pkgIntelCta,
     ctaStyle: "btn-primary"
   }, {
+    name: t.pkgAdvName,
+    tag: t.pkgAdvTag,
+    price: "€2,500",
+    mo: t.pkgAdvMo,
+    accent: "#C5A059",
+    tagBg: "rgba(197,160,89,0.1)",
+    desc: t.pkgAdvDesc,
+    features: [t.pkgAdvF1, t.pkgAdvF2, t.pkgAdvF3, t.pkgAdvF4, t.pkgAdvF5, t.pkgAdvF6],
+    pop: false,
+    cta: t.pkgAdvCta,
+    ctaStyle: "btn-ghost"
+  }, {
     name: t.pkgSuiteName,
     tag: t.pkgSuiteTag,
-    price: "€3,500",
+    price: "€3,000",
     mo: t.pkgSuiteMo,
     accent: "#2997ff",
     tagBg: "rgba(41,151,255,0.1)",
     desc: t.pkgSuiteDesc,
-    features: [t.pkgSuiteF1, t.pkgSuiteF2, t.pkgSuiteF3, t.pkgSuiteF4, t.pkgSuiteF5, t.pkgSuiteF6],
+    features: [t.pkgSuiteF1, t.pkgSuiteF2, t.pkgSuiteF3, t.pkgSuiteF4, t.pkgSuiteF5, t.pkgSuiteF6, t.pkgSuiteF7],
     pop: false,
     cta: t.pkgSuiteCta,
     ctaStyle: "btn-ghost"
@@ -6123,7 +6531,7 @@ const Pricing = ({
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      maxWidth: 1200,
+      maxWidth: 1040,
       margin: "0 auto"
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -6157,16 +6565,17 @@ const Pricing = ({
     }
   }, t.pricingSub)), /*#__PURE__*/React.createElement("div", {
     style: {
-      margin: "2rem 0 3rem",
+      margin: "2rem auto 3rem",
+      maxWidth: 760,
       background: "rgba(41,151,255,0.06)",
       border: "1px solid rgba(41,151,255,0.2)",
       borderRadius: 14,
       padding: "1.25rem 1.75rem",
       display: "flex",
       alignItems: "center",
-      justifyContent: "space-between",
+      justifyContent: "center",
       flexWrap: "wrap",
-      gap: "1rem"
+      gap: "1.25rem"
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -6213,7 +6622,7 @@ const Pricing = ({
     className: "pricing-grid",
     style: {
       display: "grid",
-      gridTemplateColumns: "repeat(5,1fr)",
+      gridTemplateColumns: "repeat(3,1fr)",
       gap: "1px",
       background: "rgba(255,255,255,0.07)",
       borderRadius: "18px",
@@ -6223,7 +6632,7 @@ const Pricing = ({
     key: i,
     style: {
       background: "#1d1d1f",
-      padding: "1.75rem",
+      padding: "1.375rem",
       position: "relative",
       display: "flex",
       flexDirection: "column",
@@ -6252,7 +6661,7 @@ const Pricing = ({
       background: pkg.tagBg,
       borderRadius: "9999px",
       padding: "0.25rem 0.75rem",
-      marginBottom: "1rem",
+      marginBottom: "0.75rem",
       alignSelf: "flex-start"
     }
   }, /*#__PURE__*/React.createElement("span", {
@@ -6266,7 +6675,7 @@ const Pricing = ({
   }, pkg.tag)), /*#__PURE__*/React.createElement("div", {
     style: {
       fontWeight: 600,
-      fontSize: "18px",
+      fontSize: "17px",
       color: "#ffffff",
       marginBottom: "0.25rem",
       letterSpacing: "0.231px",
@@ -6274,18 +6683,18 @@ const Pricing = ({
     }
   }, pkg.name), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: "13px",
+      fontSize: "12.5px",
       color: "#a0a0a0",
-      marginBottom: "1rem",
+      marginBottom: "0.75rem",
       lineHeight: 1.43,
       letterSpacing: "-0.224px",
       fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif",
-      minHeight: "10rem"
+      minHeight: "5rem"
     }
   }, pkg.desc), /*#__PURE__*/React.createElement("div", {
     style: {
       fontWeight: 600,
-      fontSize: pkg.price.includes("talk") || pkg.price === "Hablemos" ? "1.4rem" : "2rem",
+      fontSize: pkg.price.includes("talk") || pkg.price === "Hablemos" ? "1.3rem" : "1.65rem",
       color: pkg.pop ? "#2997ff" : pkg.customAccent || "#ffffff",
       letterSpacing: "-0.28px",
       fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
@@ -6294,8 +6703,8 @@ const Pricing = ({
     style: {
       fontSize: "11px",
       color: "#34d399",
-      marginBottom: "1.5rem",
-      paddingBottom: "1rem",
+      marginBottom: "1rem",
+      paddingBottom: "0.75rem",
       borderBottom: "1px solid rgba(255,255,255,0.07)",
       fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
     }
@@ -6303,8 +6712,8 @@ const Pricing = ({
     style: {
       fontSize: "11px",
       color: "#a0a0a0",
-      marginBottom: "1.5rem",
-      paddingBottom: "1rem",
+      marginBottom: "1rem",
+      paddingBottom: "0.75rem",
       borderBottom: "1px solid rgba(255,255,255,0.07)",
       fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
     }
@@ -6313,8 +6722,8 @@ const Pricing = ({
       listStyle: "none",
       display: "flex",
       flexDirection: "column",
-      gap: "0.625rem",
-      marginBottom: "1.75rem",
+      gap: "0.5rem",
+      marginBottom: "1.25rem",
       flex: 1
     }
   }, pkg.features.map(f => /*#__PURE__*/React.createElement("li", {
@@ -6323,7 +6732,7 @@ const Pricing = ({
       display: "flex",
       gap: "0.5rem",
       color: "#a0a0a0",
-      fontSize: "13px",
+      fontSize: "12.5px",
       alignItems: "flex-start",
       letterSpacing: "-0.224px",
       fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
@@ -6341,9 +6750,9 @@ const Pricing = ({
     style: {
       display: "block",
       width: "100%",
-      padding: "0.75rem",
+      padding: "0.625rem",
       borderRadius: "9999px",
-      fontSize: "14px",
+      fontSize: "13px",
       ...(pkg.customAccent ? {
         borderColor: pkg.customAccent,
         color: pkg.customAccent

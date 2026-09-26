@@ -306,6 +306,15 @@ const TR = {
     demoJwtDesc: "Every interaction is authenticated via cryptographic token before reaching the AI.",
     demoRag: "RAG-powered responses",
     demoRagDesc: "The AI queries your actual database through a secure Edge Function — answers are grounded in your real data, not guessed.",
+    tabIggy: "Iggy",
+    demoIggyDb: "Live database queries",
+    demoIggyDbDesc: "Iggy reads the same live database behind your Mowaat charts — never cached, never stale.",
+    demoIggyContext: "Instant, in-context answers",
+    demoIggyContextDesc: "Ask about any chart in front of you and get an answer scoped to exactly what you're looking at.",
+    demoIggySession: "Same secure session as Mowaat",
+    demoIggySessionDesc: "Runs inside your authenticated dashboard login — no separate account, no separate access point.",
+    demoIggyNoSql: "No SQL required",
+    demoIggyNoSqlDesc: "Ask in plain English — Iggy translates your question into the right database query automatically.",
     demoResponseTime: "2s average response time",
     demoResponseTimeDesc: "From question received to answer delivered, end-to-end in under 2 seconds.",
     demoEuData: "All data stays in EU",
@@ -551,7 +560,7 @@ const TR = {
     step4Desc: "Tu base de datos nunca queda expuesta a la internet pública. Sin conexiones directas. Sin pings externos. Tus datos no se mueven.",
     productsEyebrow: "NUESTROS PRODUCTOS",
     productsH1: "Soporte, Tracking y Forecast:\nEl Ecosistema de IA Completo para tu Negocio.",
-    productsSub: "Murph no se limita a responder preguntas: orquesta toda la experiencia de tus clientes. Respaldado por un ecosistema de agentes de IA, Murph te da visibilidad total sobre tus operaciones de soporte y tu ROI. Mowaat es tu dashboard central para el seguimiento de la IA en tiempo real y métricas claras de ROI. Iggy es un agente de IA de grafos que descubre insights profundos, detecta problemas operativos e impulsa mejores decisiones. Sheetah es un agente de IA de informes que genera previsiones al instante, detecta tendencias y ofrece recomendaciones basadas en datos. Deja de adivinar. Empieza a escalar.",
+    productsSub: "Murph no se limita a responder preguntas: orquesta toda la experiencia de tus clientes. Respaldado por un ecosistema de agentes de IA, Murph te da visibilidad total sobre tus operaciones de soporte y tu ROI. Mowaat es tu dashboard central para el seguimiento de la IA en tiempo real y métricas claras de ROI. Iggy es un agente de IA de grafos que descubre insights profundos, detecta problemas operativos e impulsa mejores decisiones. Sheetah es un agente de IA de informes que genera forecasts al instante, detecta tendencias y ofrece recomendaciones basadas en datos. Deja de adivinar. Empieza a escalar.",
     productsBack: "← Volver",
     productsCta: "Reservar demo →",
     productsNeedCustom: "¿Tu proceso no encaja en ninguno de estos?",
@@ -559,7 +568,7 @@ const TR = {
     productsCustomCta: "Hablemos y lo definimos →",
     teasersEyebrow: "LO QUE CONSTRUIMOS",
     teasersH2: "Soporte, Tracking y Forecast:\nEl Ecosistema de IA Completo para tu Negocio.",
-    teasersSub: "Murph no se limita a responder preguntas: orquesta toda la experiencia de tus clientes. Respaldado por un ecosistema de agentes de IA, Murph te da visibilidad total sobre tus operaciones de soporte y tu ROI. Mowaat es tu dashboard central para el seguimiento de la IA en tiempo real y métricas claras de ROI. Iggy es un agente de IA de grafos que descubre insights profundos, detecta problemas operativos e impulsa mejores decisiones. Sheetah es un agente de IA de informes que genera previsiones al instante, detecta tendencias y ofrece recomendaciones basadas en datos. Deja de adivinar. Empieza a escalar.",
+    teasersSub: "Murph no se limita a responder preguntas: orquesta toda la experiencia de tus clientes. Respaldado por un ecosistema de agentes de IA, Murph te da visibilidad total sobre tus operaciones de soporte y tu ROI. Mowaat es tu dashboard central para el seguimiento de la IA en tiempo real y métricas claras de ROI. Iggy es un agente de IA de grafos que descubre insights profundos, detecta problemas operativos e impulsa mejores decisiones. Sheetah es un agente de IA de informes que genera forecasts al instante, detecta tendencias y ofrece recomendaciones basadas en datos. Deja de adivinar. Empieza a escalar.",
     teaserLearnMore: "Ver más →",
     agentTag: "Murph — Agente de Soporte IA",
     agentHeadline: "\"¿Dónde está mi pedido?\"\n\"¿Por qué llega tarde?\"\n\"¿Puedo cancelarlo?\"\nRespondido. Siempre.",
@@ -672,6 +681,15 @@ const TR = {
     demoJwtDesc: "Cada interacción se autentica mediante token criptográfico antes de llegar a la IA.",
     demoRag: "Respuestas potenciadas con RAG",
     demoRagDesc: "La IA consulta tu base de datos real a través de una Edge Function segura — respuestas basadas en tus datos reales, no adivinadas.",
+    tabIggy: "Iggy",
+    demoIggyDb: "Consultas en vivo a la base de datos",
+    demoIggyDbDesc: "Iggy lee la misma base de datos en vivo que hay detrás de tus gráficos de Mowaat — nunca datos en caché ni desactualizados.",
+    demoIggyContext: "Respuestas instantáneas y en contexto",
+    demoIggyContextDesc: "Pregunta sobre el gráfico que tienes delante y obtén una respuesta centrada exactamente en lo que estás viendo.",
+    demoIggySession: "Misma sesión segura que Mowaat",
+    demoIggySessionDesc: "Funciona dentro de tu sesión autenticada del dashboard — sin cuenta aparte, sin punto de acceso aparte.",
+    demoIggyNoSql: "Sin necesidad de SQL",
+    demoIggyNoSqlDesc: "Pregunta en lenguaje natural — Iggy traduce tu pregunta en la consulta correcta a la base de datos automáticamente.",
     demoResponseTime: "2s de tiempo de respuesta medio",
     demoResponseTimeDesc: "Desde la pregunta recibida hasta la respuesta entregada, de extremo a extremo en menos de 2 segundos.",
     demoEuData: "Todos los datos permanecen en la UE",
@@ -2827,8 +2845,92 @@ const IGGY_MOCKUP_COPY = {
   }
 };
 const IGGY_EXAMPLES = {
-  en: ["Find customers that have a pending cancellation and also give me the reasons of the cancellation", "Which products had the most refund requests this month?", "Show me customers who churned right after a price increase"],
-  es: ["Encuentra clientes con cancelación pendiente y dime los motivos de la cancelación", "¿Qué productos tuvieron más solicitudes de reembolso este mes?", "Muéstrame los clientes que se dieron de baja tras una subida de precio"]
+  en: [{
+    q: "Find customers that have a pending cancellation and also give me the reasons of the cancellation",
+    header: "Customers with pending cancellations",
+    summary: "4 customers currently have a cancellation pending, tied to 3 recurring reasons.",
+    findings: [{
+      label: "Pricing concerns",
+      detail: "2 customers cited the recent price increase"
+    }, {
+      label: "Missing feature",
+      detail: "1 customer needs multi-user seats"
+    }, {
+      label: "Support delay",
+      detail: "1 customer waited over 48h for a reply"
+    }]
+  }, {
+    q: "Which products had the most refund requests this month?",
+    header: "Top refund requests this month",
+    summary: "18 refund requests this month, concentrated in two product lines.",
+    findings: [{
+      label: "Starter Plan",
+      detail: "9 requests, mostly billing confusion"
+    }, {
+      label: "Add-on Pack B",
+      detail: "5 requests, shipping delays"
+    }, {
+      label: "Refund value",
+      detail: "€1,240 total, down 12% vs last month"
+    }]
+  }, {
+    q: "Show me customers who churned right after a price increase",
+    header: "Churn after the last price increase",
+    summary: "7 customers cancelled within 30 days of the March price increase.",
+    findings: [{
+      label: "Legacy Starter plan",
+      detail: "5 of 7 churned customers were on it"
+    }, {
+      label: "Average tenure",
+      detail: "4.2 months before churn"
+    }, {
+      label: "Win-back",
+      detail: "2 customers re-engaged after a retention offer"
+    }]
+  }],
+  es: [{
+    q: "Encuentra clientes con cancelación pendiente y dime los motivos de la cancelación",
+    header: "Clientes con cancelación pendiente",
+    summary: "4 clientes tienen actualmente una cancelación pendiente, vinculada a 3 motivos recurrentes.",
+    findings: [{
+      label: "Precio",
+      detail: "2 clientes mencionaron la última subida de precio"
+    }, {
+      label: "Falta de funcionalidad",
+      detail: "1 cliente necesita asientos multiusuario"
+    }, {
+      label: "Retraso en soporte",
+      detail: "1 cliente esperó más de 48h una respuesta"
+    }]
+  }, {
+    q: "¿Qué productos tuvieron más solicitudes de reembolso este mes?",
+    header: "Reembolsos más solicitados este mes",
+    summary: "18 solicitudes de reembolso este mes, concentradas en dos líneas de producto.",
+    findings: [{
+      label: "Plan Starter",
+      detail: "9 solicitudes, sobre todo por confusión de facturación"
+    }, {
+      label: "Pack adicional B",
+      detail: "5 solicitudes, por retrasos de envío"
+    }, {
+      label: "Importe reembolsado",
+      detail: "€1.240 en total, un 12% menos que el mes pasado"
+    }]
+  }, {
+    q: "Muéstrame los clientes que se dieron de baja tras una subida de precio",
+    header: "Bajas tras la última subida de precio",
+    summary: "7 clientes cancelaron en los 30 días posteriores a la subida de precio de marzo.",
+    findings: [{
+      label: "Plan Starter antiguo",
+      detail: "5 de 7 bajas estaban en este plan"
+    }, {
+      label: "Permanencia media",
+      detail: "4,2 meses antes de la baja"
+    }, {
+      label: "Recuperados",
+      detail: "2 clientes volvieron tras una oferta de retención"
+    }]
+  }]
 };
 const IggyMockup = ({
   lang = "en"
@@ -2862,15 +2964,15 @@ const IggyMockup = ({
     if (!active) return;
     let cancelled = false;
     const tids = [];
-    const q = examples[exIdx];
+    const ex = examples[exIdx];
     setTyped("");
     setPhase("typing");
     let i = 0;
     const typeStep = () => {
       if (cancelled) return;
       i += 1;
-      setTyped(q.slice(0, i));
-      if (i < q.length) {
+      setTyped(ex.q.slice(0, i));
+      if (i < ex.q.length) {
         tids.push(setTimeout(typeStep, 18 + Math.random() * 22));
       } else {
         tids.push(setTimeout(() => {
@@ -2878,11 +2980,11 @@ const IggyMockup = ({
           setPhase("asking");
           tids.push(setTimeout(() => {
             if (cancelled) return;
-            setPhase("done");
-            setLogQuery(q);
+            setPhase("answering");
+            setLogQuery(ex.q);
             tids.push(setTimeout(() => {
               if (!cancelled) setExIdx(idx => (idx + 1) % examples.length);
-            }, 2600));
+            }, 4600));
           }, 550));
         }, 500));
       }
@@ -2893,6 +2995,7 @@ const IggyMockup = ({
       tids.forEach(clearTimeout);
     };
   }, [exIdx, lang, active]);
+  const answer = examples[exIdx];
   const truncate = s => s.length > 74 ? s.slice(0, 74) + "\u2026" : s;
   const pill = (label, extra = {}) => /*#__PURE__*/React.createElement("div", {
     style: Object.assign({
@@ -3099,7 +3202,53 @@ const IggyMockup = ({
       fontStyle: "italic",
       fontFamily: font
     }
-  }, "\u201C", truncate(logQuery), "\u201D"))));
+  }, "\u201C", truncate(logQuery), "\u201D")), phase === "answering" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: "0.9rem",
+      padding: "1rem 1.1rem",
+      background: "rgba(255,255,255,0.03)",
+      border: "1px solid rgba(255,255,255,0.08)",
+      borderLeft: "3px solid #2997ff",
+      borderRadius: 10,
+      animation: "fadeUp 0.4s ease"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontWeight: 600,
+      fontSize: "0.85rem",
+      color: "#ffffff",
+      marginBottom: "0.5rem",
+      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+    }
+  }, answer.header), /*#__PURE__*/React.createElement("p", {
+    style: {
+      fontSize: "0.76rem",
+      color: "rgba(255,255,255,0.6)",
+      lineHeight: 1.5,
+      margin: "0 0 0.75rem",
+      fontFamily: font
+    }
+  }, answer.summary), /*#__PURE__*/React.createElement("ul", {
+    style: {
+      listStyle: "none",
+      display: "flex",
+      flexDirection: "column",
+      gap: "0.4rem"
+    }
+  }, answer.findings.map((f, i) => /*#__PURE__*/React.createElement("li", {
+    key: i,
+    style: {
+      fontSize: "0.74rem",
+      color: "rgba(255,255,255,0.55)",
+      lineHeight: 1.5,
+      fontFamily: font
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "#ffffff",
+      fontWeight: 600
+    }
+  }, f.label, ": "), f.detail))))));
 };
 
 /* ── AGENT MOCKUP ── */
@@ -6207,6 +6356,93 @@ const DashboardDemo = ({
 /* ─────────────────────────────────────────────────
    DEMO SECTION — Obsidian dark tile · tabbed
 ───────────────────────────────────────────────── */
+/* ── IGGY DEMO — same two-column shell as Murph/Mowaat ── */
+const IggyDemo = ({
+  lang = "en"
+}) => {
+  const t = TR[lang];
+  return /*#__PURE__*/React.createElement("div", {
+    className: "demo-outer",
+    style: {
+      display: "flex",
+      gap: "2.5rem",
+      alignItems: "flex-start",
+      justifyContent: "center",
+      flexWrap: "wrap"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: "min(440px, 100%)",
+      minWidth: 0,
+      flexShrink: 0
+    }
+  }, /*#__PURE__*/React.createElement(IggyMockup, {
+    lang: lang
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "demo-right-panel",
+    style: {
+      flex: 1,
+      minWidth: 280,
+      maxWidth: 380
+    }
+  }, /*#__PURE__*/React.createElement("h3", {
+    style: {
+      fontWeight: 600,
+      fontSize: "21px",
+      color: "#ffffff",
+      marginBottom: "1rem",
+      letterSpacing: "0.231px",
+      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+    }
+  }, t.demoWhatYouSee), [{
+    icon: "database",
+    t: t.demoIggyDb,
+    d: t.demoIggyDbDesc
+  }, {
+    icon: "lightning",
+    t: t.demoIggyContext,
+    d: t.demoIggyContextDesc
+  }, {
+    icon: "lock",
+    t: t.demoIggySession,
+    d: t.demoIggySessionDesc
+  }, {
+    icon: "checkCircle",
+    t: t.demoIggyNoSql,
+    d: t.demoIggyNoSqlDesc
+  }].map((s, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      display: "flex",
+      gap: "0.75rem",
+      padding: "1rem 0",
+      borderBottom: "1px solid rgba(255,255,255,0.06)"
+    }
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: s.icon,
+    size: 20,
+    color: "#C5A059",
+    strokeWidth: 1.5
+  }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontWeight: 600,
+      fontSize: "17px",
+      color: "#ffffff",
+      marginBottom: "0.25rem",
+      letterSpacing: "-0.374px",
+      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+    }
+  }, s.t), /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "#a0a0a0",
+      fontSize: "14px",
+      lineHeight: 1.43,
+      letterSpacing: "-0.224px",
+      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+    }
+  }, s.d))))));
+};
+
 const DemoSection = ({
   lang
 }) => {
@@ -6220,6 +6456,10 @@ const DemoSection = ({
     id: "dashboard",
     label: t.tabDashboard,
     icon: "chart"
+  }, {
+    id: "iggy",
+    label: t.tabIggy,
+    icon: "brain"
   }, {
     id: "copilot",
     label: t.tabCopilot,
@@ -6314,6 +6554,8 @@ const DemoSection = ({
   }), tab_.label)))), tab === "agent" && /*#__PURE__*/React.createElement(SupportAgentDemo, {
     lang: lang
   }), tab === "dashboard" && /*#__PURE__*/React.createElement(DashboardDemo, {
+    lang: lang
+  }), tab === "iggy" && /*#__PURE__*/React.createElement(IggyDemo, {
     lang: lang
   }), tab === "copilot" && /*#__PURE__*/React.createElement(DataCopilotDemoMock, {
     lang: lang

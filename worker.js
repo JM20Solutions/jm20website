@@ -38,7 +38,7 @@ export default {
     const isHomepage = url.pathname === "/" || url.pathname === "/index.html";
 
     if (isHomepage && isKnownBot(userAgent)) {
-      const snapshotUrl = new URL("/bot-snapshot.html", url);
+      const snapshotUrl = new URL("/bot-snapshot", url);
       return env.ASSETS.fetch(new Request(snapshotUrl, request));
     }
 

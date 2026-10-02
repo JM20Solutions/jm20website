@@ -17,7 +17,7 @@
   <!-- SEO: crawl + canonical -->
   <meta name="robots" content="index, follow"/>
   <link rel="canonical" href="https://jm20aisolutions.com/"/>
-  <meta name="theme-color" content="#000000"/>
+  <meta name="theme-color" content="#2a2a2c"/>
 
   <!-- Open Graph (Facebook / LinkedIn / link previews) -->
   <meta property="og:type" content="website"/>
@@ -60,7 +60,7 @@
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
     /* Apple Dark: surface-black canvas */
-    body{background:#000000;font-family:SF Pro Display,system-ui,-apple-system,BlinkMacSystemFont,sans-serif;color:#ffffff}
+    body{background:#2a2a2c;font-family:SF Pro Display,system-ui,-apple-system,BlinkMacSystemFont,sans-serif;color:#ffffff}
     #root{min-height:100vh}
   </style>
 </head>
@@ -98,7 +98,7 @@ const {
 ───────────────────────────────────────────────── */
 const T = {
   /* surfaces */
-  bg: "#000000",
+  bg: "#2a2a2c",
   /* surface-black */
   surface: "#1d1d1f",
   /* ink / body */
@@ -193,8 +193,11 @@ const TR = {
     productsCustomCta: "Let's scope it together →",
     teasersEyebrow: "WHAT WE BUILD",
     teasersH2: "Support, Track, Forecast:\nThe Complete AI Ecosystem for Your Business.",
-    teasersSub: "Murph doesn't just answer questions — it orchestrates your entire customer experience. Backed by a powerful ecosystem of AI agents, Murph gives you total visibility into your support operations and ROI. Mowaat is your central dashboard for real-time AI tracking and clear ROI metrics. Iggy is an AI graph agent that uncovers deep insights, pinpoints operational issues, and drives smart decisions. Sheetah is an AI reporting agent that generates instant forecasts, spots trends, and delivers data-backed recommendations. Stop guessing. Start scaling.",
+    teasersSub: "Murph orchestrates your entire customer experience, backed by an ecosystem of AI agents. Stop guessing. Start scaling.",
     teaserLearnMore: "Learn more →",
+    stackFoundation: "THE FOUNDATION",
+    stackOnTop: "Stack on top of Murph",
+    stackAddsTo: "adds to Murph",
     agentTag: "Murph — AI Support Agent",
     agentHeadline: "\"Where's my order?\"\n\"Why is it late?\"\n\"Can I cancel?\"\nAnswered. Every time.",
     agentSub: "Murph isn't a FAQ bot. It reads your live database — orders, billing, inventory, cancellations, technical issues — and holds a real conversation until the problem is resolved. Type your message or just say it out loud — Murph transcribes and responds instantly. It remembers context across the full conversation. When it genuinely can't help, it doesn't drop the customer: it routes to a human with full conversation context, triggers a Slack alert, opens a dedicated escalation page, and fires acknowledgment and resolution emails automatically. The whole loop, closed.",
@@ -568,8 +571,11 @@ const TR = {
     productsCustomCta: "Hablemos y lo definimos →",
     teasersEyebrow: "LO QUE CONSTRUIMOS",
     teasersH2: "Soporte, Tracking y Forecast:\nEl Ecosistema de IA Completo para tu Negocio.",
-    teasersSub: "Murph no se limita a responder preguntas: orquesta toda la experiencia de tus clientes. Respaldado por un ecosistema de agentes de IA, Murph te da visibilidad total sobre tus operaciones de soporte y tu ROI. Mowaat es tu dashboard central para el seguimiento de la IA en tiempo real y métricas claras de ROI. Iggy es un agente de IA de grafos que descubre insights profundos, detecta problemas operativos e impulsa mejores decisiones. Sheetah es un agente de IA de informes que genera forecasts al instante, detecta tendencias y ofrece recomendaciones basadas en datos. Deja de adivinar. Empieza a escalar.",
+    teasersSub: "Murph orquesta toda la experiencia de tus clientes, respaldado por un ecosistema de agentes de IA. Deja de adivinar. Empieza a escalar.",
     teaserLearnMore: "Ver más →",
+    stackFoundation: "LA BASE",
+    stackOnTop: "Se suman a Murph",
+    stackAddsTo: "se suma a Murph",
     agentTag: "Murph — Agente de Soporte IA",
     agentHeadline: "\"¿Dónde está mi pedido?\"\n\"¿Por qué llega tarde?\"\n\"¿Puedo cancelarlo?\"\nRespondido. Siempre.",
     agentSub: "Murph no es un bot de preguntas frecuentes. Lee tu base de datos en vivo — pedidos, facturación, inventario, cancelaciones, incidencias técnicas — y mantiene una conversación real hasta que el problema se resuelve. Escribe tu mensaje o simplemente dilo en voz alta — Murph transcribe y responde al instante. Recuerda el contexto de toda la conversación. Cuando genuinamente no puede ayudar, no abandona al cliente: lo deriva a un humano con todo el contexto, activa una alerta en Slack, abre una página de escalación dedicada y envía emails de acuse de recibo y resolución automáticamente. Todo el ciclo, cerrado.",
@@ -887,7 +893,7 @@ const TR = {
 const css = `
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:hidden}
-body{background:#000000;font-family:SF Pro Display,system-ui,-apple-system,BlinkMacSystemFont,sans-serif;color:#ffffff;overflow-x:hidden}
+body{background:#2a2a2c;font-family:SF Pro Display,system-ui,-apple-system,BlinkMacSystemFont,sans-serif;color:#ffffff;overflow-x:hidden}
 #root{overflow-x:hidden;max-width:100vw}
 ::selection{background:rgba(41,151,255,0.3);color:#ffffff}
 ::-webkit-scrollbar{width:4px}
@@ -902,6 +908,14 @@ body{background:#000000;font-family:SF Pro Display,system-ui,-apple-system,Blink
 @keyframes heroGlow{0%,100%{transform:translateX(-50%) scale(1);opacity:0.55}50%{transform:translateX(-50%) scale(1.22);opacity:1}}
 @keyframes heroGlow2{0%,100%{opacity:0.35;transform:scale(1)}50%{opacity:0.85;transform:scale(1.15)}}
 @keyframes carouselProgress{from{width:0%}to{width:100%}}
+@keyframes shotIn{0%{opacity:0;transform:translateY(14px) scale(.98)}8%,92%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(0) scale(1)}}
+@keyframes shotScan{0%,10%{top:0;opacity:0}14%{opacity:1}58%{top:100%;opacity:1}62%,100%{top:100%;opacity:0}}
+@keyframes ansIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes caretBlink{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes barGrow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes growX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes shotPop{from{opacity:0;transform:scale(.88)}to{opacity:1;transform:scale(1)}}
+@keyframes shotGlow{0%,100%{box-shadow:0 0 0 0 var(--shot-c)}50%{box-shadow:0 0 28px 2px var(--shot-c)}}
 @keyframes teaserPan{0%,100%{transform:scale(1.04)}50%{transform:scale(1.13)}}
 @keyframes teaserShift{0%,100%{background-position:20% 30%}50%{background-position:80% 70%}}
 
@@ -969,7 +983,7 @@ input,button,select,textarea{font-family:SF Pro Text,system-ui,-apple-system,san
 .nav-links-center{display:flex;gap:0.125rem;align-items:center;position:absolute;left:50%;transform:translateX(-50%)}
 .nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
 .nav-hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,0.8);border-radius:2px;transition:all .2s}
-.nav-mobile-menu{display:none;position:fixed;inset:0;top:52px;background:#000000;z-index:999;padding:1.5rem 1.5rem;flex-direction:column;gap:0.5rem;overflow-y:auto}
+.nav-mobile-menu{display:none;position:fixed;inset:0;top:52px;background:#2a2a2c;z-index:999;padding:1.5rem 1.5rem;flex-direction:column;gap:0.5rem;overflow-y:auto}
 .nav-mobile-menu.open{display:flex}
 .nav-mobile-link{color:rgba(255,255,255,0.72);font-size:16px;font-weight:400;padding:0.75rem 0;border:none;background:transparent;cursor:pointer;text-align:left;font-family:SF Pro Text,system-ui,-apple-system,sans-serif;border-bottom:1px solid rgba(255,255,255,0.07);width:100%}
 @media(max-width:768px){
@@ -986,10 +1000,15 @@ input,button,select,textarea{font-family:SF Pro Text,system-ui,-apple-system,san
   }
 }
 
-/* Four tools teaser grid — 2 cols → 1 col on mobile */
+/* Four tools teaser grid — 3 cols → 1 col on mobile */
 @media(max-width:768px){
   .teasers-grid{
     grid-template-columns:1fr !important;
+  }
+  .teaser-connector{ display:none !important; }
+  .teaser-murph-wrap{
+    width:100% !important;
+    max-width:100% !important;
   }
 }
 
@@ -1521,7 +1540,7 @@ const Nav = ({
       alignItems: "center",
       justifyContent: "space-between",
       padding: "0 1rem",
-      background: sc ? "rgba(0,0,0,0.88)" : "#000000",
+      background: sc ? "rgba(42,42,44,0.88)" : "#2a2a2c",
       backdropFilter: sc ? "saturate(180%) blur(20px)" : "none",
       borderBottom: sc ? "1px solid rgba(255,255,255,0.07)" : "none",
       transition: "all .3s"
@@ -1869,7 +1888,7 @@ const TrustBar = ({
   const t = TR[lang];
   return /*#__PURE__*/React.createElement("div", {
     style: {
-      background: "#000000",
+      background: "#2a2a2c",
       borderTop: `1px solid ${T.border}`,
       borderBottom: `1px solid ${T.border}`,
       padding: "1rem 1.5rem",
@@ -1930,7 +1949,7 @@ const Hero = ({
       alignItems: "center",
       justifyContent: "center",
       padding: "5rem 1.25rem 4rem",
-      background: "#000000",
+      background: "#2a2a2c",
       position: "relative",
       overflow: "hidden",
       textAlign: "center"
@@ -2132,7 +2151,7 @@ const ValueProps = ({
   const [hovered, setHovered] = useState(null);
   return /*#__PURE__*/React.createElement("section", {
     style: {
-      background: "#1d1d1f",
+      background: "#2a2a2c",
       padding: "4rem 2rem",
       borderTop: `1px solid ${T.border}`
     }
@@ -2207,7 +2226,7 @@ const ValueProps = ({
     style: {
       position: "relative",
       zIndex: 1,
-      padding: "2.25rem 2rem",
+      padding: "1.50rem 1.25rem",
       display: "flex",
       flexDirection: "column",
       gap: "0.6rem"
@@ -3547,13 +3566,224 @@ const AgentMockup = ({
    Each tile: text left · mockup right (or reversed)
    product-tile-dark / product-tile-dark-2 / product-tile-dark-3
 ───────────────────────────────────────────────── */
+const SHOT_IDS = ["iggy", "copilot"];
+const CHAT_TYPE_MS = 26, CHAT_PAUSE_MS = 380, CHAT_THINK_MS = 1100, CHAT_HOLD_MS = 4300;
+const ChatDemo = ({ title, accent, ink, scenarios, chips, btn, empty, thinking, renderAnswer }) => {
+  const f = "SF Pro Text,system-ui,-apple-system,sans-serif";
+  const [idx, setIdx] = React.useState(0);
+  const [typed, setTyped] = React.useState(0);
+  const [phase, setPhase] = React.useState("typing");
+  const sc = scenarios[Math.min(idx, scenarios.length - 1)];
+  React.useEffect(() => {
+    let dead = false;
+    const ts = [];
+    setTyped(0);
+    setPhase("typing");
+    let n = 0;
+    const iv = setInterval(() => {
+      n++;
+      setTyped(n);
+      if (n >= sc.q.length) {
+        clearInterval(iv);
+        ts.push(setTimeout(() => {
+          if (dead) return;
+          setPhase("thinking");
+          ts.push(setTimeout(() => {
+            if (dead) return;
+            setPhase("answer");
+            ts.push(setTimeout(() => { if (!dead) setIdx(i => (i + 1) % scenarios.length); }, CHAT_HOLD_MS));
+          }, CHAT_THINK_MS));
+        }, CHAT_PAUSE_MS));
+      }
+    }, CHAT_TYPE_MS);
+    return () => { dead = true; clearInterval(iv); ts.forEach(clearTimeout); };
+  }, [idx, sc.q]);
+  const total = sc.q.length * CHAT_TYPE_MS + CHAT_PAUSE_MS + CHAT_THINK_MS + CHAT_HOLD_MS;
+  const svg = (children, size) => React.createElement("svg", { width: size || 14, height: size || 14, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round", style: { flexShrink: 0 } }, children);
+  const sparkle = svg(React.createElement("path", { d: "M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" }));
+  const mic = svg([React.createElement("rect", { key: 1, x: 9, y: 3, width: 6, height: 11, rx: 3 }), React.createElement("path", { key: 2, d: "M5 11a7 7 0 0 0 14 0" }), React.createElement("line", { key: 3, x1: 12, y1: 18, x2: 12, y2: 21 })], 13);
+  const chipOn = i => i === sc.chip && (phase !== "typing" || typed > 1);
+  return React.createElement("div", {
+    style: { minWidth: 0, maxWidth: "100%", background: "#0d0d0f", borderRadius: 20, overflow: "hidden", boxShadow: "0 24px 80px rgba(0,0,0,0.6)", border: "1px solid rgba(255,255,255,0.06)" }
+  },
+    React.createElement("div", {
+      style: { padding: "0.75rem 1rem", background: "#141416", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", gap: "0.5rem" }
+    },
+      ["#ef4444", "#f59e0b", "#22c55e"].map(c => React.createElement("div", { key: c, style: { width: 10, height: 10, borderRadius: "50%", background: c } })),
+      React.createElement("span", { style: { marginLeft: "0.75rem", fontSize: "0.78rem", color: "rgba(255,255,255,0.4)", fontFamily: f } }, title),
+      React.createElement("div", { style: { marginLeft: "auto", display: "flex", alignItems: "center", gap: "0.4rem" } },
+        React.createElement("div", { style: { width: 5, height: 5, borderRadius: "50%", background: "#22c55e", animation: "pulse 2s infinite" } }),
+        React.createElement("span", { style: { fontSize: "0.65rem", color: "#22c55e", fontFamily: f } }, "Live"))),
+    React.createElement("div", {
+      style: { padding: "1.25rem", height: 274, boxSizing: "border-box", display: "flex", flexDirection: "column", gap: 8, overflow: "hidden", fontFamily: f }
+    },
+      chips ? React.createElement("div", { style: { display: "flex", gap: 5, height: 22, flexShrink: 0, overflow: "hidden", minWidth: 0 } },
+        chips.map((c, i) => React.createElement("span", {
+          key: c,
+          style: { display: "inline-flex", alignItems: "center", padding: "0 9px", borderRadius: 999, fontSize: 9.5, whiteSpace: "nowrap", transition: "all .3s",
+            color: chipOn(i) ? accent : "rgba(255,255,255,0.45)", background: chipOn(i) ? accent + "1f" : "transparent", border: "1px solid " + (chipOn(i) ? accent + "77" : "rgba(255,255,255,0.1)") }
+        }, c))) : null,
+      React.createElement("div", {
+        style: { height: 38, flexShrink: 0, display: "flex", alignItems: "center", gap: 8, padding: "0 6px 0 11px", background: "#151517", borderRadius: 10, transition: "border-color .3s",
+          border: "1px solid " + (phase === "typing" ? accent + "66" : "rgba(255,255,255,0.09)") }
+      },
+        React.createElement("span", { style: { color: accent, display: "flex" } }, sparkle),
+        React.createElement("div", { style: { flex: 1, minWidth: 0, fontSize: 12, color: "rgba(255,255,255,0.92)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" } },
+          sc.q.slice(0, typed),
+          phase === "typing" ? React.createElement("span", { style: { display: "inline-block", width: 1.5, height: 14, background: accent, marginLeft: 1, verticalAlign: "middle", animation: "caretBlink 1s steps(1) infinite" } }) : null),
+        React.createElement("span", { style: { color: "rgba(255,255,255,0.3)", display: "flex" } }, mic),
+        React.createElement("div", {
+          style: { height: 26, padding: "0 12px", borderRadius: 8, background: accent, color: ink, fontSize: 11, fontWeight: 600, display: "flex", alignItems: "center", gap: 5, whiteSpace: "nowrap",
+            transform: phase === "thinking" ? "scale(0.94)" : "scale(1)", opacity: phase === "typing" ? 0.55 : 1, transition: "transform .15s, opacity .3s" }
+        }, btn)),
+      React.createElement("div", { style: { flex: 1, minHeight: 0, overflow: "hidden", position: "relative" } },
+        phase === "typing" ? React.createElement("div", { style: { height: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 8, fontSize: 11, color: "rgba(255,255,255,0.28)" } }, React.createElement("span", { style: { color: accent, opacity: 0.6, display: "flex" } }, sparkle), empty) : null,
+        phase === "thinking" ? React.createElement("div", { style: { height: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 10, fontSize: 11, color: "rgba(255,255,255,0.5)" } },
+          React.createElement("div", { style: { display: "flex", gap: 4 } }, [0, 1, 2].map(i => React.createElement("span", { key: i, style: { width: 6, height: 6, borderRadius: "50%", background: accent, animation: "bounce 1.1s infinite", animationDelay: (i * 0.16) + "s" } }))), thinking) : null,
+        phase === "answer" ? React.createElement("div", { key: idx, style: { height: "100%", animation: "ansIn .45s ease both" } }, renderAnswer(sc)) : null)),
+    React.createElement("div", { style: { padding: "0.75rem 1.25rem", borderTop: "1px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)" } },
+      React.createElement("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between" } },
+        React.createElement("div", null,
+          React.createElement("div", { style: { fontSize: "11px", fontWeight: 600, color: "rgba(255,255,255,0.6)", fontFamily: f } }, sc.label),
+          React.createElement("div", { style: { fontSize: "10px", color: "rgba(255,255,255,0.3)", fontFamily: f } }, sc.desc)),
+        React.createElement("div", { style: { display: "flex", gap: 5, alignItems: "center" } },
+          scenarios.map((_, k) => React.createElement("button", {
+            key: k, onClick: () => setIdx(k), "aria-label": "Example " + (k + 1),
+            style: { width: k === idx ? 16 : 5, height: 5, borderRadius: 3, background: k === idx ? accent : "rgba(255,255,255,0.2)", border: "none", cursor: "pointer", transition: "all .3s", padding: 0 }
+          })))),
+      React.createElement("div", { style: { marginTop: 8, height: 2, background: "rgba(255,255,255,0.07)", borderRadius: 1, overflow: "hidden", width: "100%" } },
+        React.createElement("div", { key: idx, style: { height: "100%", background: accent, animation: "carouselProgress " + total + "ms linear forwards" } }))));
+};
+
+const IggyShot = ({ lang }) => {
+  const es = lang === "es";
+  const gold = "#C5A059";
+  const ex = IGGY_EXAMPLES[lang] || IGGY_EXAMPLES.en;
+  const SHORTQ = es
+    ? ["Clientes con cancelación pendiente y sus motivos", "¿Qué productos tuvieron más reembolsos este mes?", "Clientes que se dieron de baja tras la subida de precio"]
+    : ["Customers with a pending cancellation, and why", "Which products had the most refunds this month?", "Customers who churned after the price increase"];
+  const scenarios = ex.map((e, i) => ({ q: SHORTQ[i] || e.q, label: e.header, desc: es ? "Consulta en vivo a tu base de datos" : "Live query on your database", ex: e }));
+  const renderAnswer = sc => {
+    const e = sc.ex;
+    const num = (e.summary.match(/^\d+/) || [""])[0];
+    const rest = num ? e.summary.slice(num.length).trim() : e.summary;
+    return React.createElement("div", { style: { height: "100%", boxSizing: "border-box", background: "#151517", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 10, padding: "12px 14px", display: "flex", flexDirection: "column", justifyContent: "space-between", gap: 8 } },
+      React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8 } },
+        React.createElement("span", { style: { fontSize: 9, fontWeight: 700, letterSpacing: "0.06em", color: gold, background: gold + "1f", border: "1px solid " + gold + "55", borderRadius: 999, padding: "2px 8px" } }, "IGGY"),
+        React.createElement("span", { style: { fontSize: 9.5, letterSpacing: "0.07em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" } }, e.header)),
+      React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10 } },
+        num ? React.createElement("div", { style: { width: 50, height: 50, flexShrink: 0, borderRadius: 12, background: gold + "1f", border: "1px solid " + gold + "55", color: gold, fontSize: 24, fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center" } }, num) : null,
+        React.createElement("div", { style: { fontSize: 12.5, lineHeight: 1.4, color: "rgba(255,255,255,0.9)" } }, rest)),
+      React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 6, borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: 10 } },
+        e.findings.map((fd, i) => React.createElement("div", { key: fd.label, style: { display: "flex", gap: 8, alignItems: "baseline", fontSize: 11, whiteSpace: "nowrap", overflow: "hidden", animation: "ansIn .4s ease both", animationDelay: (0.15 + i * 0.12) + "s" } },
+          React.createElement("span", { style: { width: 5, height: 5, borderRadius: "50%", background: gold, flexShrink: 0, alignSelf: "center" } }),
+          React.createElement("span", { style: { color: gold, fontWeight: 600, flexShrink: 0 } }, fd.label),
+          React.createElement("span", { style: { color: "rgba(255,255,255,0.6)", overflow: "hidden", textOverflow: "ellipsis" } }, fd.detail)))));
+  };
+  return React.createElement(ChatDemo, {
+    title: "Iggy · Dashboard Intelligence", accent: gold, ink: "#1a1405", scenarios, renderAnswer,
+    btn: es ? "Preguntar" : "Ask",
+    empty: es ? "Pregunta lo que quieras a tu base de datos" : "Ask your database anything in plain English",
+    thinking: es ? "Consultando tu base de datos…" : "Querying your database…"
+  });
+};
+
+const SHEETAH_DATA = {
+  en: {
+    chips: ["Revenue Report", "Overdue Invoices", "Customer Growth", "Forecast"],
+    months: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    scenarios: [
+      { q: "Revenue by month and next quarter forecast", chip: 0, label: "Revenue report", desc: "Trend and forecast from your live data", type: "bars",
+        kpis: [["Last 6 months", "€55.1k"], ["Since April", "+26%", 1], ["Q4 forecast", "€33.9k"]],
+        summary: "Revenue is up 26% since April. If the current growth holds, next quarter should reach €33.9k." },
+      { q: "Which invoices are overdue?", chip: 1, label: "Overdue invoices", desc: "Who owes what, and for how long", type: "rows",
+        kpis: [["Overdue", "€2,760"], ["Invoices", "3"], ["Oldest", "29 days", 1]],
+        rows: [["Ana López", 29, "€890"], ["Pablo García", 18, "€630"], ["Carlos Martínez", 15, "€1,240"]],
+        summary: "3 invoices are overdue, totalling €2,760. Ana López is the oldest at 29 days." },
+      { q: "New vs returning customers this month", chip: 2, label: "Customer growth", desc: "New versus returning customers", type: "split",
+        kpis: [["New", "40"], ["Returning", "60"], ["Growth", "+16%", 1]],
+        split: [["Aug", 33, 53], ["Sep", 40, 60]], legend: ["New", "Returning"],
+        summary: "Your customer base grew 16% month over month, and 60% of active customers are returning." }
+    ],
+    btn: "Run Report", empty: "Request a report or forecast in plain English", thinking: "Analyzing live data…", days: "d"
+  },
+  es: {
+    chips: ["Informe de ingresos", "Facturas vencidas", "Crecimiento", "Forecast"],
+    months: ["abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"],
+    scenarios: [
+      { q: "Ingresos por mes y forecast del próximo trimestre", chip: 0, label: "Informe de ingresos", desc: "Tendencia y forecast desde tus datos en vivo", type: "bars",
+        kpis: [["Últimos 6 meses", "55,1k €"], ["Desde abril", "+26%", 1], ["Forecast T4", "33,9k €"]],
+        summary: "Los ingresos han subido un 26% desde abril. Si el crecimiento se mantiene, el próximo trimestre llegará a 33,9k €." },
+      { q: "¿Qué facturas están vencidas?", chip: 1, label: "Facturas vencidas", desc: "Quién debe qué y desde hace cuánto", type: "rows",
+        kpis: [["Vencido", "2.760 €"], ["Facturas", "3"], ["La más antigua", "29 días", 1]],
+        rows: [["Ana López", 29, "890 €"], ["Pablo García", 18, "630 €"], ["Carlos Martínez", 15, "1.240 €"]],
+        summary: "Hay 3 facturas vencidas por un total de 2.760 €. Ana López es la más antigua, con 29 días." },
+      { q: "Clientes nuevos vs recurrentes este mes", chip: 2, label: "Crecimiento de clientes", desc: "Clientes nuevos frente a recurrentes", type: "split",
+        kpis: [["Nuevos", "40"], ["Recurrentes", "60"], ["Crecimiento", "+16%", 1]],
+        split: [["Ago", 33, 53], ["Sep", 40, 60]], legend: ["Nuevos", "Recurrentes"],
+        summary: "Tu base de clientes creció un 16% respecto al mes anterior y el 60% de los clientes activos son recurrentes." }
+    ],
+    btn: "Generar informe", empty: "Pide un informe o previsión en lenguaje natural", thinking: "Analizando datos en vivo…", days: "d"
+  }
+};
+const SheetahShot = ({ lang }) => {
+  const D = SHEETAH_DATA[lang] || SHEETAH_DATA.en;
+  const green = "#34d399";
+  const vals = [8.2, 8.5, 8.9, 9.4, 9.8, 10.3, 10.8, 11.3, 11.8];
+  const tile = { background: "#151517", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 8, padding: "5px 9px" };
+  const renderAnswer = sc => {
+    let visual = null;
+    if (sc.type === "bars") {
+      visual = React.createElement("div", { style: { display: "flex", alignItems: "flex-end", gap: 6, height: 64 } },
+        vals.map((v, i) => {
+          const fc = i >= 6;
+          return React.createElement("div", { key: i, style: { flex: 1, height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end", alignItems: "center", gap: 3 } },
+            React.createElement("div", { style: { width: "100%", height: v / 12 * 48, borderRadius: "3px 3px 0 0", transformOrigin: "bottom", animation: "barGrow .55s ease both", animationDelay: (i * 0.06) + "s",
+              background: fc ? "repeating-linear-gradient(45deg," + green + "33," + green + "33 3px,transparent 3px,transparent 6px)" : "linear-gradient(to top," + green + "99," + green + ")",
+              border: fc ? "1px dashed " + green + "88" : "none" } }),
+            React.createElement("span", { style: { fontSize: 8, color: fc ? green : "rgba(255,255,255,0.4)" } }, D.months[i]));
+        }));
+    } else if (sc.type === "rows") {
+      visual = React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 3, justifyContent: "center", height: 64 } },
+        sc.rows.map((r, i) => React.createElement("div", { key: r[0], style: { display: "grid", gridTemplateColumns: "18px 96px 1fr 50px", alignItems: "center", gap: 8, height: 19, animation: "ansIn .4s ease both", animationDelay: (i * 0.1) + "s" } },
+          React.createElement("span", { style: { width: 18, height: 18, borderRadius: "50%", background: green + "22", color: green, fontSize: 8, fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center" } }, r[0].split(" ").map(w => w[0]).join("")),
+          React.createElement("span", { style: { fontSize: 10.5, color: "rgba(255,255,255,0.85)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" } }, r[0]),
+          React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 6 } },
+            React.createElement("div", { style: { flex: 1, height: 5, background: "rgba(255,255,255,0.07)", borderRadius: 3, overflow: "hidden" } },
+              React.createElement("div", { style: { width: Math.min(100, r[1] / 30 * 100) + "%", height: "100%", background: r[1] > 25 ? "#f59e0b" : green, borderRadius: 3, transformOrigin: "left", animation: "growX .6s ease both", animationDelay: (0.15 + i * 0.1) + "s" } })),
+            React.createElement("span", { style: { fontSize: 9, color: "rgba(255,255,255,0.45)", width: 26, textAlign: "right" } }, r[1] + D.days)),
+          React.createElement("span", { style: { fontSize: 10.5, fontWeight: 600, color: "#fff", textAlign: "right" } }, r[2]))));
+    } else {
+      visual = React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 5, justifyContent: "center", height: 64 } },
+        sc.split.map((r, i) => React.createElement("div", { key: r[0], style: { display: "flex", alignItems: "center", gap: 8 } },
+          React.createElement("span", { style: { width: 22, fontSize: 9.5, color: "rgba(255,255,255,0.5)" } }, r[0]),
+          React.createElement("div", { style: { flex: 1, display: "flex", height: 18, borderRadius: 5, overflow: "hidden", transformOrigin: "left", animation: "growX .6s ease both", animationDelay: (i * 0.15) + "s" } },
+            React.createElement("div", { style: { width: r[1] + "%", background: green, color: "#04281c", fontSize: 9, fontWeight: 700, display: "flex", alignItems: "center", paddingLeft: 7 } }, r[1]),
+            React.createElement("div", { style: { width: r[2] + "%", background: green + "44", color: green, fontSize: 9, fontWeight: 700, display: "flex", alignItems: "center", paddingLeft: 7 } }, r[2])))),
+        React.createElement("div", { style: { display: "flex", gap: 12, fontSize: 8.5, color: "rgba(255,255,255,0.45)", paddingLeft: 30 } },
+          React.createElement("span", null, React.createElement("span", { style: { display: "inline-block", width: 7, height: 7, borderRadius: 2, background: green, marginRight: 4 } }), sc.legend[0]),
+          React.createElement("span", null, React.createElement("span", { style: { display: "inline-block", width: 7, height: 7, borderRadius: 2, background: green + "44", marginRight: 4 } }), sc.legend[1])));
+    }
+    return React.createElement("div", { style: { height: "100%", display: "flex", flexDirection: "column", gap: 6 } },
+      React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 6 } },
+        sc.kpis.map(k => React.createElement("div", { key: k[0], style: tile },
+          React.createElement("div", { style: { fontSize: 8.5, letterSpacing: "0.06em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" } }, k[0]),
+          React.createElement("div", { style: { fontSize: 15, fontWeight: 700, color: k[2] ? green : "#fff", lineHeight: 1.25 } }, k[1])))),
+      visual,
+      React.createElement("p", { style: { margin: 0, fontSize: 10, lineHeight: 1.4, color: "rgba(255,255,255,0.6)" } }, sc.summary));
+  };
+  return React.createElement(ChatDemo, {
+    title: "Sheetah · Analytics & Forecast", accent: green, ink: "#04281c", scenarios: D.scenarios, chips: D.chips, renderAnswer,
+    btn: D.btn, empty: D.empty, thinking: D.thinking
+  });
+};
 const getProducts = lang => {
   const t = TR[lang];
   return [{
     id: "agent",
     tag: t.agentTag,
     accent: "#2997ff",
-    bg: "#1d1d1f",
+    bg: "#2a2a2c",
     tagBg: "rgba(41,151,255,0.12)",
     headline: t.agentHeadline,
     sub: t.agentSub,
@@ -3565,7 +3795,7 @@ const getProducts = lang => {
     id: "dashboard",
     tag: t.dashTag,
     accent: "#a78bfa",
-    bg: "#272729",
+    bg: "#2a2a2c",
     tagBg: "rgba(167,139,250,0.12)",
     headline: t.dashHeadline,
     sub: t.dashSub,
@@ -3581,24 +3811,24 @@ const getProducts = lang => {
     id: "iggy",
     tag: t.iggyTag,
     accent: "#C5A059",
-    bg: "#1f1e1a",
+    bg: "#2a2a2c",
     tagBg: "rgba(197,160,89,0.12)",
     headline: t.iggyHeadline,
     sub: t.iggySub,
     benefits: [t.iggyB1, t.iggyB2, t.iggyB3, t.iggyB4],
-    Visual: IggyMockup,
+    Visual: IggyShot,
     reverse: false,
     dark: true
   }, {
     id: "copilot",
     tag: t.copilotTag,
     accent: "#34d399",
-    bg: "#252527",
+    bg: "#2a2a2c",
     tagBg: "rgba(52,211,153,0.12)",
     headline: t.copilotHeadline,
     sub: t.copilotSub,
     benefits: [t.copilotB1, t.copilotB2, t.copilotB3, t.copilotB4],
-    Visual: DataCopilotDemoMock,
+    Visual: SheetahShot,
     reverse: true,
     dark: true
   }];
@@ -3619,7 +3849,7 @@ const ProductsPage = ({
   return /*#__PURE__*/React.createElement("div", {
     style: {
       minHeight: "100vh",
-      background: "#000000"
+      background: "#2a2a2c"
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -3628,7 +3858,7 @@ const ProductsPage = ({
       alignItems: "center",
       padding: "0 1.25rem",
       borderBottom: "1px solid rgba(255,255,255,0.07)",
-      background: "#000000",
+      background: "#2a2a2c",
       position: "sticky",
       top: 0,
       zIndex: 100
@@ -3692,7 +3922,7 @@ const ProductsPage = ({
     style: {
       textAlign: "center",
       padding: "4rem 1.25rem 3rem",
-      background: "#000000"
+      background: "#2a2a2c"
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
@@ -3776,7 +4006,7 @@ const ProductsPage = ({
       maxWidth: 1100,
       margin: "0 auto",
       display: "grid",
-      gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+      gridTemplateColumns: isMobile ? "minmax(0,1fr)" : "minmax(0,1fr) minmax(0,1fr)",
       gap: isMobile ? "2rem" : "5rem",
       alignItems: "center",
       direction: isMobile ? "ltr" : p.reverse ? "rtl" : "ltr"
@@ -3882,8 +4112,8 @@ const ProductsPage = ({
   }, t.productsCta)), /*#__PURE__*/React.createElement("div", {
     style: {
       direction: "ltr",
-      maxHeight: isMobile ? "420px" : "none",
-      overflow: isMobile ? "hidden" : "visible",
+      maxHeight: isMobile && !SHOT_IDS.includes(p.id) ? "420px" : "none",
+      overflow: isMobile && !SHOT_IDS.includes(p.id) ? "hidden" : "visible",
       borderRadius: isMobile ? "14px" : "0"
     }
   }, /*#__PURE__*/React.createElement(p.Visual, {
@@ -3892,7 +4122,7 @@ const ProductsPage = ({
     style: {
       padding: "6rem 2rem",
       textAlign: "center",
-      background: "#1d1d1f",
+      background: "#2a2a2c",
       borderTop: "1px solid rgba(255,255,255,0.07)"
     }
   }, /*#__PURE__*/React.createElement("h2", {
@@ -3933,27 +4163,27 @@ const ProductsPage = ({
 
 /* ── ABSTRACT PRODUCT MARKS — no logos, pure geometry ── */
 const PRODUCT_IMGS = {
-  agent: "murph.png",
-  dashboard: "mowaat.png",
-  iggy: "iggy.png",
-  copilot: "sheetah.png"
+  agent: "",
+  dashboard: "",
+  iggy: "",
+  copilot: ""
 };
 const PRODUCT_IMG_CFG = {
   agent: {
-    size: "95%",
+    size: "100%",
     pos: "center top"
   },
   dashboard: {
-    size: "120%",
+    size: "100%",
     pos: "left top"
   },
   iggy: {
-    size: "120%",
-    pos: "left top"
+    size: "100%",
+    pos: "center top"
   },
   copilot: {
-    size: "120%",
-    pos: "left top"
+    size: "100%",
+    pos: "center top"
   }
 };
 const PRODUCT_NAMES = {
@@ -3964,16 +4194,30 @@ const PRODUCT_NAMES = {
 };
 const PRODUCT_ONE_LINERS = {
   en: {
-    agent: "AI support agent for WhatsApp, Telegram & Web.",
-    dashboard: "Live dashboard. See what your AI does and saves.",
-    iggy: "AI chat built into your dashboard. Ask any chart, anything.",
-    copilot: "Query your database in plain language. No SQL."
+    agent: "Orchestrates customer experience with full visibility over support operations and ROI.",
+    dashboard: "Central dashboard for real-time AI tracking and clear financial metrics.",
+    iggy: "Graph AI that uncovers deep insights and detects operational bottlenecks.",
+    copilot: "Reporting AI that instantly generates forecasts and data-driven recommendations."
   },
   es: {
-    agent: "Agente de soporte IA para WhatsApp, Telegram y Web.",
-    dashboard: "Dashboard en vivo. Ve lo que hace tu IA y lo que ahorra.",
-    iggy: "Chat de IA integrado en tu dashboard. Pregúntale lo que sea.",
-    copilot: "Consulta tu base de datos en lenguaje natural. Sin SQL."
+    agent: "Orquesta la experiencia de cliente con visibilidad total sobre soporte y ROI.",
+    dashboard: "Dashboard central para el seguimiento de tu IA en tiempo real y métricas claras de ROI.",
+    iggy: "IA de grafos que descubre insights profundos y detecta problemas operativos.",
+    copilot: "IA de reportes que genera forecasts al instante y recomendaciones con datos."
+  }
+};
+const PRODUCT_DESCS = {
+  en: {
+    agent: "Murph doesn't just answer questions: it orchestrates your entire customer experience, with total visibility over your support operations and ROI.",
+    dashboard: "Your central dashboard for real-time AI tracking and clear ROI metrics.",
+    iggy: "An AI graph agent that uncovers deep insights, pinpoints operational issues, and drives smarter decisions.",
+    copilot: "An AI reporting agent that generates instant forecasts, spots trends, and delivers data-backed recommendations."
+  },
+  es: {
+    agent: "Murph no se limita a responder preguntas: orquesta toda la experiencia de tus clientes, con visibilidad total sobre tus operaciones de soporte y tu ROI.",
+    dashboard: "Tu dashboard central para el seguimiento de la IA en tiempo real y métricas claras de ROI.",
+    iggy: "Un agente de IA de grafos que descubre insights profundos, detecta problemas operativos e impulsa mejores decisiones.",
+    copilot: "Un agente de IA de informes que genera forecasts al instante, detecta tendencias y ofrece recomendaciones basadas en datos."
   }
 };
 const ProductTeasers = ({
@@ -3982,158 +4226,306 @@ const ProductTeasers = ({
 }) => {
   const t = TR[lang];
   const PRODUCTS = getProducts(lang);
+  const font = "SF Pro Text,system-ui,-apple-system,sans-serif";
+  const fontDisplay = "SF Pro Display,system-ui,-apple-system,sans-serif";
+  const oneLiners = PRODUCT_DESCS[lang] || PRODUCT_DESCS.en;
   const [hov, setHov] = useState(null);
-  const oneLiners = PRODUCT_ONE_LINERS[lang] || PRODUCT_ONE_LINERS.en;
-  return /*#__PURE__*/React.createElement("section", {
-    style: {
-      padding: "4.5rem 2rem 5rem",
-      background: "#000000",
-      borderTop: `1px solid ${T.border}`
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      maxWidth: 1100,
-      margin: "0 auto"
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      textAlign: "center",
-      marginBottom: "2.5rem"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontSize: "11px",
-      color: "#2997ff",
-      fontWeight: 600,
-      letterSpacing: "3px",
-      textTransform: "uppercase",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
-    }
-  }, t.teasersEyebrow), /*#__PURE__*/React.createElement("h2", {
-    style: {
-      fontSize: "clamp(2rem,4vw,2.75rem)",
-      fontWeight: 600,
-      color: "#ffffff",
-      marginTop: "0.75rem",
-      letterSpacing: "-0.028em",
-      whiteSpace: "pre-line",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
-    }
-  }, t.teasersH2), /*#__PURE__*/React.createElement("p", {
-    style: {
-      color: "rgba(255,255,255,0.45)",
-      fontSize: "17px",
-      maxWidth: 680,
-      margin: "0.75rem auto 0",
-      lineHeight: 1.55,
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
-    }
-  }, t.teasersSub)), /*#__PURE__*/React.createElement("div", {
-    className: "teasers-grid",
-    style: {
-      display: "grid",
-      gridTemplateColumns: "repeat(2,1fr)",
-      gap: "1.25rem"
-    }
-  }, PRODUCTS.map((p, idx) => {
+
+  const renderTile = (p, idx) => {
+    const img = PRODUCT_IMGS[p.id];
+    const imgCfg = PRODUCT_IMG_CFG[p.id];
     const name = PRODUCT_NAMES[p.id];
     const oneLiner = oneLiners[p.id];
     const isHov = hov === idx;
-    return /*#__PURE__*/React.createElement("div", {
+
+    return React.createElement("div", {
       key: p.id,
       onClick: () => onPage("products"),
       onMouseEnter: () => setHov(idx),
       onMouseLeave: () => setHov(null),
       style: {
         position: "relative",
-        background: p.bg,
-        border: `1px solid ${isHov ? p.accent + "55" : "rgba(255,255,255,0.07)"}`,
-        borderRadius: 18,
-        padding: "1.5rem",
-        display: "flex",
-        flexDirection: "column",
-        gap: "1.25rem",
-        cursor: "pointer",
-        transition: "border-color .3s ease",
-        overflow: "hidden"
+  width: "330px",
+  maxWidth: "100%",
+  minHeight: "300px",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  cursor: "pointer",
+  overflow: "hidden",
+  borderRadius: 14,
+  flexShrink: 0,
+  transform: isHov ? "translateY(-8px) scale(1.025)" : "translateY(0) scale(1)",
+  boxShadow: isHov
+    ? `0 18px 44px ${p.accent}40, 0 0 0 1px ${p.accent}80`
+    : "0 0 0 1px rgba(255,255,255,0.04)",
+  transition: "transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease",
+  willChange: "transform"
       }
-    }, /*#__PURE__*/React.createElement("div", {
+    },
+      React.createElement("div", {
+        style: {
+          position: "absolute",
+          inset: 0,
+          backgroundImage: SHOT_IDS.includes(p.id) ? "none" : `url("${img}")`,
+          backgroundSize: imgCfg.size,
+          backgroundPosition: imgCfg.pos,
+          backgroundRepeat: "no-repeat",
+          filter: isHov
+            ? "brightness(1.0) saturate(1.05)"
+            : "brightness(0.88) saturate(0.96)",
+          transition: "filter .35s ease"
+        }
+      }),
+
+      React.createElement("div", {
+        style: {
+          position: "absolute",
+          inset: 0,
+          background: isHov
+            ? `linear-gradient(to bottom, ${p.accent}33 0%, rgba(0,0,0,0.3) 35%, rgba(0,0,0,0.72) 100%)`
+            : "linear-gradient(to bottom, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.42) 42%, rgba(0,0,0,0.82) 100%)",
+          transition: "background .35s ease"
+        }
+      }),
+
+      SHOT_IDS.includes(p.id)
+        ? React.createElement("div", {
+            style: {
+              position: "absolute",
+              top: 12,
+              left: 12,
+              right: 12,
+              zIndex: 2,
+              lineHeight: 0,
+              borderRadius: 10,
+              overflow: "hidden",
+              border: "1px solid rgba(255,255,255,0.08)"
+            }
+          },
+            React.createElement("img", {
+              src: img,
+              alt: name,
+              style: {
+                width: "100%",
+                height: "auto",
+                display: "block",
+                objectFit: "contain"
+              }
+            })
+          )
+        : null,
+
+      React.createElement("div", {
+        style: {
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: 2,
+          background: p.accent,
+          opacity: isHov ? 1 : 0,
+          transition: "opacity .3s"
+        }
+      }),
+
+      React.createElement("div", {
+        style: {
+          position: "relative",
+          zIndex: 1,
+          padding: "1.5rem 1.4rem 1.4rem",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          textAlign: "center",
+          gap: "0.6rem"
+        }
+      },
+
+        React.createElement("div", {
+          style: {
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "100%"
+          }
+        },
+          
+
+          React.createElement("div", {
+            style: {
+              fontSize: "1.75rem",
+              fontWeight: 700,
+              color: "#ffffff",
+              letterSpacing: "-0.04em",
+              lineHeight: 1,
+              fontFamily: fontDisplay,
+              textShadow: "0 2px 12px rgba(0,0,0,0.7)"
+            }
+          }, name)
+        ),
+
+        React.createElement("p", {
+          style: {
+            margin: 0,
+            fontSize: "13.5px",
+            color: isHov ? "#ffffff" : "rgba(255,255,255,0.82)",
+            transition: "color .3s",
+            lineHeight: 1.5,
+            fontFamily: font,
+            textShadow: "0 1px 6px rgba(0,0,0,0.6)",
+            display: "flex",
+           alignItems: "center",
+            justifyContent: "center"
+          }
+        }, oneLiner),
+
+        React.createElement("div", {
+          style: {
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "0.3rem",
+            color: p.accent,
+            fontSize: "12px",
+            fontWeight: 500,
+            fontFamily: font,
+            marginTop: "0.3rem",
+            opacity: isHov ? 1 : 0.6,
+            letterSpacing: isHov ? "0.04em" : "0",
+            transition: "opacity .25s, letter-spacing .25s"
+          }
+        }, t.teaserLearnMore)
+      )
+    );
+  };
+
+  return React.createElement("section", {
+    style: {
+      padding: "4.5rem 2rem 5rem",
+      background: "#2a2a2c",
+      borderTop: `1px solid ${T.border}`
+    }
+  },
+
+    React.createElement("div", {
       style: {
-        position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
-        height: 2,
-        background: p.accent,
-        opacity: isHov ? 1 : 0,
-        transition: "opacity .3s"
+        maxWidth: 1100,
+        margin: "0 auto"
       }
-    }), /*#__PURE__*/React.createElement("div", {
-      style: {
-        pointerEvents: "none",
-        height: 320,
-        overflow: "hidden",
-        position: "relative",
-        borderRadius: 12
-      }
-    }, /*#__PURE__*/React.createElement(p.Visual, {
-      lang: lang
-    }), /*#__PURE__*/React.createElement("div", {
-      style: {
-        position: "absolute",
-        left: 0,
-        right: 0,
-        bottom: 0,
-        height: 48,
-        background: `linear-gradient(to bottom, transparent, ${p.bg})`,
-        pointerEvents: "none"
-      }
-    })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-      style: {
-        display: "flex",
-        alignItems: "center",
-        gap: "0.5rem"
-      }
-    }, /*#__PURE__*/React.createElement("span", {
-      style: {
-        width: 6,
-        height: 6,
-        borderRadius: "50%",
-        background: p.accent,
-        animation: "pulse 2s infinite",
-        flexShrink: 0
-      }
-    }), /*#__PURE__*/React.createElement("span", {
-      style: {
-        fontSize: "1.4rem",
-        fontWeight: 700,
-        color: "#ffffff",
-        letterSpacing: "-0.03em",
-        fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
-      }
-    }, name)), /*#__PURE__*/React.createElement("p", {
-      style: {
-        margin: "0.4rem 0 0",
-        fontSize: "14px",
-        color: "rgba(255,255,255,0.6)",
-        lineHeight: 1.5,
-        fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
-      }
-    }, oneLiner), /*#__PURE__*/React.createElement("div", {
-      style: {
-        display: "flex",
-        alignItems: "center",
-        gap: "0.4rem",
-        color: p.accent,
-        fontSize: "13px",
-        fontWeight: 500,
-        fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif",
-        marginTop: "0.6rem",
-        opacity: isHov ? 1 : 0.7,
-        transition: "opacity .25s"
-      }
-    }, t.teaserLearnMore)));
-  }))));
+    },
+
+      React.createElement("div", {
+        style: {
+          textAlign: "center",
+          marginBottom: "3rem"
+        }
+      },
+
+        React.createElement("span", {
+          style: {
+            fontSize: "14px",
+            color: "#2997ff",
+            fontWeight: 600,
+            letterSpacing: "-0.224px",
+            fontFamily: font
+          }
+        }, t.teasersEyebrow),
+
+        React.createElement("h2", {
+          style: {
+            fontSize: "clamp(2rem,4vw,2.75rem)",
+            fontWeight: 600,
+            color: "#ffffff",
+            marginTop: "0.75rem",
+            letterSpacing: "-0.028em",
+            whiteSpace: "pre-line",
+            fontFamily: fontDisplay
+          }
+        }, t.teasersH2),
+
+        React.createElement("p", {
+          style: {
+            color: "rgba(255,255,255,0.45)",
+            fontSize: "17px",
+            maxWidth: 680,
+            margin: "0.75rem auto 0",
+            lineHeight: 1.55,
+            fontFamily: font
+          }
+        }, t.teasersSub)
+      ),
+
+      (() => {
+        const murphTile = renderTile(PRODUCTS[0], 0);
+        const restTiles = PRODUCTS
+          .slice(1)
+          .map((p, i) => renderTile(p, i + 1));
+
+        const curveStyle = {
+          fill: "none",
+          stroke: "rgba(255,255,255,0.16)",
+          strokeWidth: 1.5,
+          strokeLinecap: "round",
+          vectorEffect: "non-scaling-stroke"
+        };
+
+     const connector = React.createElement("svg", {
+  className: "teaser-connector",
+  width: "100%",
+  height: 55,
+  viewBox: "0 0 300 55",
+  preserveAspectRatio: "none",
+  style: {
+    display: "block",
+    width: "1038px",
+    maxWidth: "100%",
+    margin: "0 auto"
+  }
+},
+  React.createElement("path", {
+    d: "M150,0 C150,27 50,27 50,55",
+    ...curveStyle
+  }),
+  React.createElement("path", {
+    d: "M150,0 C150,27 150,27 150,55",
+    ...curveStyle
+  }),
+  React.createElement("path", {
+    d: "M150,0 C150,27 250,27 250,55",
+    ...curveStyle
+  })
+);
+
+        return React.createElement("div", null,
+
+          React.createElement("div", {
+            className: "teaser-murph-wrap",
+            style: {
+              width: "330px",
+  maxWidth: "100%",
+  margin: "0 auto",
+  borderRadius: 14,
+  overflow: "visible"
+            }
+          }, murphTile),
+
+          connector,
+
+          React.createElement("div", {
+            className: "teasers-grid",
+            style: {
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "stretch",
+              flexWrap: "wrap",
+              gap: "1rem"
+            }
+          }, restTiles)
+        );
+      })()
+    )
+  );
 };
 
 /* ── INDUSTRIES SECTION ── */
@@ -4162,7 +4554,7 @@ const IndustriesSection = ({
   return /*#__PURE__*/React.createElement("section", {
     style: {
       padding: "6rem 2rem",
-      background: "#1d1d1f",
+      background: "#2a2a2c",
       borderTop: `1px solid ${T.border}`
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -4237,6 +4629,8 @@ const IndustriesSection = ({
     style: {
       display: "flex",
       flexDirection: "column",
+      alignItems: "center",
+      textAlign: "center",
       gap: "0.4rem",
       marginTop: "0.5rem"
     }
@@ -4287,7 +4681,7 @@ const ConsultancySection = ({
   return /*#__PURE__*/React.createElement("section", {
     style: {
       padding: "6rem 2rem",
-      background: "#252527",
+      background: "#2a2a2c",
       borderTop: `1px solid ${T.border}`
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -4336,6 +4730,8 @@ const ConsultancySection = ({
     style: {
       display: "flex",
       flexDirection: "column",
+      alignItems: "stretch",
+      textAlign: "left",
       gap: "0.875rem",
       marginBottom: "2.5rem"
     }
@@ -4382,6 +4778,8 @@ const ConsultancySection = ({
     style: {
       display: "flex",
       flexDirection: "column",
+      alignItems: "stretch",
+      textAlign: "left",
       gap: "1rem"
     }
   }, [{
@@ -4412,9 +4810,15 @@ const ConsultancySection = ({
       alignItems: "center",
       justifyContent: "space-between",
       gap: "1rem",
-      flexWrap: "wrap"
+      flexWrap: "nowrap",
+      textAlign: "left"
     }
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      minWidth: 0
+    }
+  }, /*#__PURE__*/React.createElement("div", {
     style: {
       fontWeight: 600,
       fontSize: "15px",
@@ -4437,6 +4841,7 @@ const ConsultancySection = ({
       padding: "0.25rem 0.75rem",
       fontSize: "12px",
       whiteSpace: "nowrap",
+      flexShrink: 0,
       fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, step.tag))))));
@@ -4449,7 +4854,7 @@ const AgencyPartners = ({
   return /*#__PURE__*/React.createElement("section", {
     style: {
       padding: "6rem 2rem",
-      background: "#1d1d1f",
+      background: "#2a2a2c",
       borderTop: `1px solid ${T.border}`
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -4498,6 +4903,8 @@ const AgencyPartners = ({
     style: {
       display: "flex",
       flexDirection: "column",
+      alignItems: "stretch",
+      textAlign: "left",
       gap: "0.875rem",
       marginBottom: "2.5rem"
     }
@@ -4544,6 +4951,8 @@ const AgencyPartners = ({
     style: {
       display: "flex",
       flexDirection: "column",
+      alignItems: "stretch",
+      textAlign: "left",
       gap: "1rem"
     }
   }, [{
@@ -4570,9 +4979,15 @@ const AgencyPartners = ({
       alignItems: "center",
       justifyContent: "space-between",
       gap: "1rem",
-      flexWrap: "wrap"
+      flexWrap: "nowrap",
+      textAlign: "left"
     }
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      minWidth: 0
+    }
+  }, /*#__PURE__*/React.createElement("div", {
     style: {
       fontWeight: 600,
       fontSize: "15px",
@@ -4595,6 +5010,7 @@ const AgencyPartners = ({
       padding: "0.25rem 0.75rem",
       fontSize: "12px",
       whiteSpace: "nowrap",
+      flexShrink: 0,
       fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, step.tag))))));
@@ -4770,6 +5186,8 @@ const NoMigration = ({
     style: {
       display: "flex",
       flexDirection: "column",
+      alignItems: "center",
+      textAlign: "center",
       gap: "0.625rem"
     }
   }, [t.nmB1, t.nmB2, t.nmB3, t.nmB4].map(item => /*#__PURE__*/React.createElement("div", {
@@ -6469,7 +6887,7 @@ const DemoSection = ({
     id: "demo",
     style: {
       padding: "6rem 2rem",
-      background: "#1d1d1f",
+      background: "#2a2a2c",
       borderTop: `1px solid ${T.border}`
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -6588,7 +7006,7 @@ const FAQAccordion = ({
   return /*#__PURE__*/React.createElement("section", {
     style: {
       padding: "6rem 2rem",
-      background: "#000000",
+      background: "#2a2a2c",
       borderTop: `1px solid ${T.border}`
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -6768,7 +7186,7 @@ const Pricing = ({
     id: "pricing",
     style: {
       padding: "5rem 1.25rem",
-      background: "#272729",
+      background: "#2a2a2c",
       borderTop: `1px solid ${T.border}`
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -7036,7 +7454,7 @@ const AboutPage = ({
   return /*#__PURE__*/React.createElement("div", {
     style: {
       minHeight: "100vh",
-      background: "#000000"
+      background: "#2a2a2c"
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -7045,7 +7463,7 @@ const AboutPage = ({
       alignItems: "center",
       padding: "0 1.25rem",
       borderBottom: "1px solid rgba(255,255,255,0.07)",
-      background: "#000000"
+      background: "#2a2a2c"
     }
   }, /*#__PURE__*/React.createElement("button", {
     onClick: onBack,
@@ -7087,9 +7505,9 @@ const AboutPage = ({
     }
   }, "\u2190 ", es ? "Volver" : "Back")), /*#__PURE__*/React.createElement("div", {
     style: {
-      maxWidth: 780,
+      maxWidth: 1040,
       margin: "0 auto",
-      padding: "4rem 1.25rem"
+      padding: "4rem 1.5rem 5rem"
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
@@ -7110,14 +7528,14 @@ const AboutPage = ({
       lineHeight: 1.1,
       fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
     }
-  }, es ? /*#__PURE__*/React.createElement(React.Fragment, null, "Construido por alguien que ha pasado 30 a\xF1os", /*#__PURE__*/React.createElement("br", null), "al otro lado del mal servicio al cliente.") : /*#__PURE__*/React.createElement(React.Fragment, null, "Built by someone who's spent 30 years", /*#__PURE__*/React.createElement("br", null), "on the other side of bad customer service.")), /*#__PURE__*/React.createElement("div", {
+  }, es ? /*#__PURE__*/React.createElement(React.Fragment, null, "En JM20 desarrollamos soluciones de IA agéntica para transformar operaciones de atención al cliente.", /*#__PURE__*/React.createElement("br", null), "") : /*#__PURE__*/React.createElement(React.Fragment, null, "In JM20 we develop AI Agentic solutions to transform customer experience operations", /*#__PURE__*/React.createElement("br", null), "")), /*#__PURE__*/React.createElement("div", {
     className: "about-grid",
     style: {
       display: "grid",
       gridTemplateColumns: "1fr 1fr",
-      gap: "3rem",
-      marginBottom: "3rem",
-      alignItems: "center"
+      gap: "3.5rem",
+      marginBottom: "0",
+      alignItems: "start"
     }
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
     style: {
@@ -7127,7 +7545,7 @@ const AboutPage = ({
       marginBottom: "1.25rem",
       fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
     }
-  }, es ? "JM20 nació de una frustración que no podía ignorar: la mayoría de los negocios saben que su servicio al cliente está roto, y la mayoría no puede permitirse arreglarlo." : "JM20 started with a frustration I couldn't shake: most businesses know their customer support is broken, and most of them can't afford to fix it."), /*#__PURE__*/React.createElement("p", {
+  }, es ? "" : ""), /*#__PURE__*/React.createElement("p", {
     style: {
       color: "#a0a0a0",
       fontSize: "clamp(14px,3.5vw,17px)",
@@ -7135,7 +7553,7 @@ const AboutPage = ({
       marginBottom: "1.25rem",
       fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
     }
-  }, es ? "He pasado 30 años construyendo y gestionando operaciones de atención al cliente en distintos sectores — desde cero, a escala, bajo presión. Sé lo que significa hacerlo bien. Y también sé lo rápido que se desmorona cuando los equipos están desbordados y las bandejas de entrada, llenas." : "I've spent 30 years building and running customer operations across industries — from the ground up, at scale, under pressure. I know what good looks like. I also know how fast it falls apart when teams are understaffed and inboxes are full."), /*#__PURE__*/React.createElement("p", {
+  }, es ? "Creamos agentes capaces de gestionar interacciones, ejecutar tareas y seguir procesos de principio a fin, ayudando a las empresas a gestionar mayores volúmenes sin aumentar proporcionalmente la carga de sus equipos." : "We create AI agents that can manage interactions, execute tasks, and handle processes from end to end, helping businesses manage higher volumes without proportionally increasing the workload on their teams."), /*#__PURE__*/React.createElement("p", {
     style: {
       color: "#a0a0a0",
       fontSize: "clamp(14px,3.5vw,17px)",
@@ -7143,14 +7561,40 @@ const AboutPage = ({
       marginBottom: "1.25rem",
       fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
     }
-  }, es ? "JM20 es lo que construí cuando dejé de esperar a que alguien más lo resolviera. IA agéntica que gestiona el volumen, mantiene la calidad y devuelve el tiempo a tu equipo. Construida sobre infraestructura que posees, alojada en la UE, conforme desde el primer día." : "JM20 is what I built when I stopped waiting for someone else to solve it. Agentic AI that handles the volume, keeps the quality, and gives your team their time back. Built on infrastructure you own, hosted in the EU, compliant from day one."), /*#__PURE__*/React.createElement("p", {
+  }, es ? "Nuestro enfoque es práctico: utilizar IA para resolver problemas operativos concretos, mejorar la eficiencia y mantener la calidad del servicio." : "Our approach is practical: using AI to solve specific operational challenges, improve efficiency, and maintain service quality."), /*#__PURE__*/React.createElement("p", {
+     style: {
+    color: "#a0a0a0",
+    fontSize: "clamp(14px,3.5vw,17px)",
+    lineHeight: 1.7,
+    marginBottom: "1.25rem",
+    fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+  }
+}, es ? "Las soluciones de JM20 se construyen sobre infraestructura que el cliente controla, se alojan en la UE y se diseñan teniendo en cuenta la seguridad y el cumplimiento desde el principio." : "JM20 solutions are built on infrastructure controlled by the client, hosted in the EU, and designed with security and compliance in mind from the outset."), /*#__PURE__*/React.createElement("p", {
+  style: {
+    color: "#a0a0a0",
+    fontSize: "clamp(14px,3.5vw,17px)",
+    lineHeight: 1.7,
+    marginBottom: "1.25rem",
+    fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+  }
+}, es ? "Detrás de JM20 hay experiencia en operaciones de atención al cliente y una visión clara de cómo aplicar la tecnología a los retos reales que afrontan los equipos." : "JM20 combines experience in customer service operations with a clear understanding of how technology can be applied to the real challenges teams face."), /*#__PURE__*/React.createElement("p", {
+    
+    
+    
+    
     style: {
-      color: "#ffffff",
+      color: "#a0a0a0",
       fontSize: "clamp(14px,3.5vw,17px)",
       lineHeight: 1.7,
       fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
     }
-  }, es ? "Una persona. Muy en serio con lo que construimos. Y muy en serio con quién lo construimos." : "One person. Serious about what we build. And serious about who we build it for.")), /*#__PURE__*/React.createElement("div", {
+  }, es ? "Tecnología aplicada a operaciones reales." : "Technology applied to real life operations.")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: "1.5rem"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       flexDirection: "column",
@@ -7159,10 +7603,7 @@ const AboutPage = ({
       borderRadius: "18px",
       overflow: "hidden"
     }
-  }, [{
-    n: "30+",
-    label: es ? "Años en atención al cliente" : "Years in customer experience"
-  }, {
+  }, [ {
     n: "24/7",
     label: es ? "Soporte IA, siempre activo" : "AI support, always on"
   }, {
@@ -7175,7 +7616,7 @@ const AboutPage = ({
     key: i,
     style: {
       background: "#1d1d1f",
-      padding: "1.25rem 1.5rem"
+      padding: "1.75rem 1.5rem"
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -7192,7 +7633,7 @@ const AboutPage = ({
       marginTop: "0.25rem",
       fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
     }
-  }, s.label))))), /*#__PURE__*/React.createElement("div", {
+  }, s.label)))), /*#__PURE__*/React.createElement("div", {
     style: {
       background: "#1d1d1f",
       borderRadius: "18px",
@@ -7207,14 +7648,14 @@ const AboutPage = ({
       marginBottom: "1rem",
       fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
     }
-  }, es ? "¿Por qué empresas de la UE específicamente?" : "Why EU businesses specifically?"), /*#__PURE__*/React.createElement("p", {
+  }, es ? "¿Por qué la UE?" : "Why the EU?"), /*#__PURE__*/React.createElement("p", {
     style: {
       color: "#a0a0a0",
       fontSize: "clamp(14px,3.5vw,17px)",
       lineHeight: 1.7,
       fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
     }
-  }, es ? "El RGPD no es un obstáculo — es una ventaja competitiva. Las empresas de la UE que gestionan los datos correctamente generan una confianza más profunda con sus clientes. JM20 fue diseñado desde cero para ser nativo en RGPD y consciente de la Ley de IA de la UE: tus datos nunca salen de la infraestructura europea, tú posees el sistema completo, y el cumplimiento está integrado — no añadido a posteriori." : "GDPR is not an obstacle — it's a competitive advantage. EU businesses that handle data correctly build deeper trust with their customers. JM20 was designed from the ground up to be GDPR-native and EU AI Act aware: your data never leaves EU infrastructure, you own the entire system, and compliance is baked in — not bolted on."))));
+  }, es ? "JM20 está diseñado pensando en las empresas europeas y en sus requisitos de gestión y protección de datos. Nuestras soluciones se alojan en infraestructura dentro de la UE, lo que permite a las empresas mantener un mayor control sobre dónde se procesan y almacenan sus datos. La seguridad, la privacidad y el cumplimiento normativo forman parte de la arquitectura desde el principio, no como una capa añadida posteriormente. Para las empresas que operan en la UE, esto proporciona una base sólida para incorporar IA a sus operaciones dentro de sus requisitos de protección de datos y del marco regulatorio europeo. " : "JM20 is built with European businesses and their data requirements in mind. Our solutions are hosted on EU infrastructure, giving businesses greater control over where their data is processed and stored. Security, privacy, and compliance considerations are incorporated into the architecture from the outset rather than added later. For businesses operating in the EU, this provides a clear foundation for deploying AI within their existing regulatory and data-protection requirements."))))));
 };
 const CompliancePage = ({
   onBack,
@@ -7224,7 +7665,7 @@ const CompliancePage = ({
   return /*#__PURE__*/React.createElement("div", {
     style: {
       minHeight: "100vh",
-      background: "#000000"
+      background: "#2a2a2c"
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -7233,7 +7674,7 @@ const CompliancePage = ({
       alignItems: "center",
       padding: "0 1.25rem",
       borderBottom: "1px solid rgba(255,255,255,0.07)",
-      background: "#000000"
+      background: "#2a2a2c"
     }
   }, /*#__PURE__*/React.createElement("button", {
     onClick: onBack,
@@ -7449,7 +7890,7 @@ const LegalPage = ({
   return /*#__PURE__*/React.createElement("div", {
     style: {
       minHeight: "100vh",
-      background: "#000000"
+      background: "#2a2a2c"
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -7458,7 +7899,7 @@ const LegalPage = ({
       alignItems: "center",
       padding: "0 1.25rem",
       borderBottom: "1px solid rgba(255,255,255,0.07)",
-      background: "#000000"
+      background: "#2a2a2c"
     }
   }, /*#__PURE__*/React.createElement("button", {
     onClick: onBack,
@@ -7703,7 +8144,7 @@ const BlogPage = ({
   return /*#__PURE__*/React.createElement("div", {
     style: {
       minHeight: "100vh",
-      background: "#000000",
+      background: "#2a2a2c",
       fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -7713,7 +8154,7 @@ const BlogPage = ({
       alignItems: "center",
       padding: "0 1.25rem",
       borderBottom: "1px solid rgba(255,255,255,0.07)",
-      background: "#000000"
+      background: "#2a2a2c"
     }
   }, /*#__PURE__*/React.createElement("button", {
     onClick: onBack,
@@ -7931,7 +8372,7 @@ const CareersPage = ({
   return /*#__PURE__*/React.createElement("div", {
     style: {
       minHeight: "100vh",
-      background: "#000000"
+      background: "#2a2a2c"
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -7940,7 +8381,7 @@ const CareersPage = ({
       alignItems: "center",
       padding: "0 1.25rem",
       borderBottom: "1px solid rgba(255,255,255,0.07)",
-      background: "#000000"
+      background: "#2a2a2c"
     }
   }, /*#__PURE__*/React.createElement("button", {
     onClick: onBack,
@@ -8112,7 +8553,7 @@ const Footer = ({
   }, label));
   return /*#__PURE__*/React.createElement("footer", {
     style: {
-      background: "#1d1d1f",
+      background: "#2a2a2c",
       borderTop: "1px solid rgba(255,255,255,0.07)",
       padding: "4rem 2rem 2rem"
     }
@@ -8319,7 +8760,7 @@ const ContactPage = ({
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      background: "#000000",
+      background: "#2a2a2c",
       padding: "3rem"
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -8376,7 +8817,7 @@ const ContactPage = ({
   return /*#__PURE__*/React.createElement("div", {
     style: {
       minHeight: "100vh",
-      background: "#000000"
+      background: "#2a2a2c"
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -8386,7 +8827,7 @@ const ContactPage = ({
       justifyContent: "space-between",
       padding: "0 1.25rem",
       borderBottom: "1px solid rgba(255,255,255,0.07)",
-      background: "#000000"
+      background: "#2a2a2c"
     }
   }, /*#__PURE__*/React.createElement("button", {
     onClick: onBack,
@@ -8439,7 +8880,7 @@ const ContactPage = ({
   }, !isMobile && /*#__PURE__*/React.createElement("div", {
     style: {
       padding: "clamp(2rem,5vw,5rem) clamp(1.25rem,4vw,4rem)",
-      background: "#272729",
+      background: "#2a2a2c",
       display: "flex",
       flexDirection: "column",
       justifyContent: "center"
@@ -8553,7 +8994,7 @@ const ContactPage = ({
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
-      background: "#1d1d1f",
+      background: "#2a2a2c",
       overflowY: "auto"
     }
   }, /*#__PURE__*/React.createElement("h2", {
@@ -9063,7 +9504,7 @@ function App() {
   });
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("style", null, css), /*#__PURE__*/React.createElement("div", {
     style: {
-      background: "#000000",
+      background: "#2a2a2c",
       minHeight: "100vh",
       color: "#ffffff"
     }
@@ -9110,7 +9551,7 @@ function App() {
     style: {
       padding: "7rem 2rem",
       textAlign: "center",
-      background: "#252527",
+      background: "#2a2a2c",
       borderTop: `1px solid ${T.border}`
     }
   }, /*#__PURE__*/React.createElement("div", {

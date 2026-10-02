@@ -4216,7 +4216,7 @@ const PRODUCT_DESCS = {
   es: {
     agent: "Murph no se limita a responder preguntas: orquesta toda la experiencia de tus clientes, con visibilidad total sobre tus operaciones de soporte y tu ROI.",
     dashboard: "Tu dashboard central para el seguimiento de la IA en tiempo real y métricas claras de ROI.",
-    iggy: "Un agente de IA de grafos que descubre insights profundos, detecta problemas operativos e impulsa mejores decisiones.",
+    iggy: "Un agente de IA de graficos que descubre insights profundos, detecta problemas operativos e impulsa mejores decisiones.",
     copilot: "Un agente de IA de informes que genera forecasts al instante, detecta tendencias y ofrece recomendaciones basadas en datos."
   }
 };
@@ -4289,32 +4289,7 @@ const ProductTeasers = ({
         }
       }),
 
-      SHOT_IDS.includes(p.id)
-        ? React.createElement("div", {
-            style: {
-              position: "absolute",
-              top: 12,
-              left: 12,
-              right: 12,
-              zIndex: 2,
-              lineHeight: 0,
-              borderRadius: 10,
-              overflow: "hidden",
-              border: "1px solid rgba(255,255,255,0.08)"
-            }
-          },
-            React.createElement("img", {
-              src: img,
-              alt: name,
-              style: {
-                width: "100%",
-                height: "auto",
-                display: "block",
-                objectFit: "contain"
-              }
-            })
-          )
-        : null,
+            null,
 
       React.createElement("div", {
         style: {

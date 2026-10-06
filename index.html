@@ -4228,7 +4228,8 @@ const SupportAgentDemo = ({
       flexShrink: 0
     }
   }, /*#__PURE__*/React.createElement("video", {
-    src: "murph_video.mp4",
+    key: lang,
+    src: lang === "es" ? "murph_video_es.mp4" : "murph_video.mp4",
     controls: true,
     playsInline: true,
     preload: "metadata",

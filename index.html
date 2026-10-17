@@ -1,12 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <script async src="https://www.googletagmanager.com/gtag/js?id=G-CCL5B23RY5"></script>
-  <script>
+ <script>
+  /* Consent-gated analytics.
+     Google Analytics is NOT loaded until the visitor clicks Accept.
+     Consent defaults follow Google's documented consent-mode sequence:
+     default = denied, then update = granted after the visitor agrees. */
+  (function () {
+    var GA_ID = 'G-CCL5B23RY5', KEY = 'jm20_consent', gaLoaded = false, banner = null;
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-CCL5B23RY5');
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied' });
+
+    var TXT = {
+      en: { title: 'Cookies & analytics', body: 'We would like to use Google Analytics to understand how our site is used. It only runs if you accept. You can change your choice at any time from “Cookie settings” in the footer.', accept: 'Accept', reject: 'Reject', more: 'Privacy policy', label: 'Cookie preferences' },
+      es: { title: 'Cookies y analítica', body: 'Nos gustaría usar Google Analytics para entender cómo se usa nuestro sitio. Solo se activa si aceptas. Puedes cambiar tu elección en cualquier momento desde «Configuración de cookies» en el pie de página.', accept: 'Aceptar', reject: 'Rechazar', more: 'Política de privacidad', label: 'Preferencias de cookies' }
+    };
+    function lang() { return (document.documentElement.lang || 'en').slice(0, 2) === 'es' ? 'es' : 'en'; }
+    function read() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+    function write(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+
+    function loadGA() {
+      if (gaLoaded) return; gaLoaded = true;
+      var sc = document.createElement('script');
+      sc.async = true; sc.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+      document.head.appendChild(sc);
+      gtag('js', new Date());
+      gtag('consent', 'update', { analytics_storage: 'granted' });
+      gtag('config', GA_ID);
+    }
+    function clearGACookies() {
+      var host = location.hostname, parts = host.split('.'), domains = ['', host, '.' + host];
+      if (parts.length > 2) domains.push('.' + parts.slice(-2).join('.'));
+      document.cookie.split(';').forEach(function (c) {
+        var name = c.split('=')[0].trim();
+        if (name.indexOf('_ga') === 0) domains.forEach(function (d) {
+          document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/' + (d ? '; domain=' + d : '');
+        });
+      });
+    }
+    function decide(v) {
+      write(v);
+      if (v === 'granted') loadGA();
+      else { gtag('consent', 'update', { analytics_storage: 'denied' }); clearGACookies(); }
+      hide();
+    }
+    function hide() { if (banner) { banner.remove(); banner = null; } }
+    function paint() {
+      if (!banner) return;
+      var t = TXT[lang()];
+      banner.setAttribute('aria-label', t.label);
+      banner.querySelector('[data-k=title]').textContent = t.title;
+      banner.querySelector('[data-k=body]').textContent = t.body;
+      banner.querySelector('[data-k=more]').textContent = t.more;
+      banner.querySelector('[data-k=reject]').textContent = t.reject;
+      banner.querySelector('[data-k=accept]').textContent = t.accept;
+    }
+    function show() {
+      if (banner) { banner.querySelector('[data-k=accept]').focus(); return; }
+      if (!document.getElementById('jm20-consent-css')) {
+        var st = document.createElement('style'); st.id = 'jm20-consent-css';
+        st.textContent = '#jm20-consent{position:fixed;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:3000;max-width:760px;margin:0 auto;background:#1d1d1f;color:#f5f5f7;border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:16px 20px;box-shadow:0 16px 48px rgba(0,0,0,.6);font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}#jm20-consent strong{display:block;font-size:15px;margin-bottom:4px}#jm20-consent p{margin:0 0 12px;color:#d2d2d7}#jm20-consent .jm-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}#jm20-consent button{font:500 14px system-ui,sans-serif;min-height:40px;padding:0 20px;border-radius:9999px;cursor:pointer;color:#fff}#jm20-consent .jm-accept{background:#2997ff;border:1px solid #2997ff}#jm20-consent .jm-reject{background:transparent;border:1px solid rgba(255,255,255,.55)}#jm20-consent .jm-more{background:none;border:none;text-decoration:underline;padding:0 4px;margin-left:auto;color:#d2d2d7}';
+        document.head.appendChild(st);
+      }
+      banner = document.createElement('div');
+      banner.id = 'jm20-consent'; banner.setAttribute('role', 'dialog'); banner.setAttribute('aria-modal', 'false');
+      banner.setAttribute('aria-labelledby', 'jm20-consent-title'); banner.setAttribute('aria-describedby', 'jm20-consent-body');
+      banner.innerHTML = '<strong id="jm20-consent-title" data-k="title"></strong><p id="jm20-consent-body" data-k="body"></p><div class="jm-row"><button type="button" class="jm-reject" data-k="reject"></button><button type="button" class="jm-accept" data-k="accept"></button><button type="button" class="jm-more" data-k="more"></button></div>';
+      banner.querySelector('[data-k=accept]').addEventListener('click', function () { decide('granted'); });
+      banner.querySelector('[data-k=reject]').addEventListener('click', function () { decide('denied'); });
+      banner.querySelector('[data-k=more]').addEventListener('click', function () { if (window.jm20GoPage) window.jm20GoPage('legal'); });
+      banner.addEventListener('keydown', function (e) { if (e.key === 'Escape') decide('denied'); });
+      document.body.appendChild(banner);
+      paint();
+    }
+    window.jm20OpenConsent = show;
+    new MutationObserver(paint).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+    function init() { var c = read(); if (c === 'granted') loadGA(); else if (c !== 'denied') show(); }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+  })();
   </script>
 
   <meta charset="UTF-8"/>
@@ -62,6 +134,11 @@
     /* Apple Dark: surface-black canvas */
     body{background:#2a2a2c;font-family:SF Pro Display,system-ui,-apple-system,BlinkMacSystemFont,sans-serif;color:#ffffff}
     #root{min-height:100vh}
+    .skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:#2997ff;color:#fff;padding:.75rem 1.25rem;border-radius:0 0 12px 0;font:500 16px system-ui,sans-serif;text-decoration:none}
+    .skip-link:focus{left:0}
+    :focus-visible{outline:2px solid #2997ff;outline-offset:3px}
+    input:focus-visible,textarea:focus-visible{outline:2px solid #2997ff!important;outline-offset:2px}
+    @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
   </style>
 </head>
 <body>
@@ -1525,8 +1602,11 @@ const Nav = ({
       e.currentTarget.style.background = "transparent";
       e.currentTarget.style.color = "rgba(255,255,255,0.72)";
     },
-    onClick: () => setProdOpen(o => !o)
+    onClick: () => setProdOpen(o => !o),
+    "aria-expanded": prodOpen,
+    "aria-haspopup": "true"
   }, t.navProducts, " ", /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
     style: {
       fontSize: "0.6rem",
       opacity: 0.6
@@ -1588,7 +1668,7 @@ const Nav = ({
   }, p.name), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: "12px",
-      color: "rgba(255,255,255,0.45)",
+      color: "rgba(255,255,255,0.64)",
       fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, p.sub)))))), [{
@@ -1649,6 +1729,7 @@ const Nav = ({
   }, ["en", "es"].map(l => /*#__PURE__*/React.createElement("button", {
     key: l,
     onClick: () => setLang(l),
+    "aria-pressed": lang === l,
     style: {
       padding: "4px 10px",
       borderRadius: "9999px",
@@ -1673,7 +1754,8 @@ const Nav = ({
   }, t.navBookDemo), /*#__PURE__*/React.createElement("button", {
     className: "nav-hamburger",
     onClick: () => setMenuOpen(o => !o),
-    "aria-label": "Menu"
+    "aria-label": lang === "es" ? "Menú" : "Menu",
+    "aria-expanded": menuOpen
   }, /*#__PURE__*/React.createElement("span", {
     style: {
       transform: menuOpen ? "rotate(45deg) translate(5px,5px)" : "none"
@@ -2389,7 +2471,7 @@ const ChatDemo = ({ title, accent, ink, scenarios, chips, btn, empty, thinking, 
       style: { padding: "0.75rem 1rem", background: "#141416", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", gap: "0.5rem" }
     },
       ["#ef4444", "#f59e0b", "#22c55e"].map(c => React.createElement("div", { key: c, style: { width: 10, height: 10, borderRadius: "50%", background: c } })),
-      React.createElement("span", { style: { marginLeft: "0.75rem", fontSize: "0.78rem", color: "rgba(255,255,255,0.4)", fontFamily: f } }, title),
+      React.createElement("span", { style: { marginLeft: "0.75rem", fontSize: "0.78rem", color: "rgba(255,255,255,0.64)", fontFamily: f } }, title),
       React.createElement("div", { style: { marginLeft: "auto", display: "flex", alignItems: "center", gap: "0.4rem" } },
         React.createElement("div", { style: { width: 5, height: 5, borderRadius: "50%", background: "#22c55e", animation: "pulse 2s infinite" } }),
         React.createElement("span", { style: { fontSize: "0.65rem", color: "#22c55e", fontFamily: f } }, "Live"))),
@@ -3008,6 +3090,14 @@ const ProductTeasers = ({
     return React.createElement("div", {
       key: p.id,
       onClick: () => onPage("products", p.id),
+      role: "button",
+      tabIndex: 0,
+      "aria-label": name + (oneLiner ? " — " + oneLiner : ""),
+      onKeyDown: e => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onPage("products", p.id); }
+      },
+      onFocus: () => setHov(idx),
+      onBlur: () => setHov(null),
       onMouseEnter: () => setHov(idx),
       onMouseLeave: () => setHov(null),
       style: {
@@ -3188,7 +3278,7 @@ const ProductTeasers = ({
 
         React.createElement("p", {
           style: {
-            color: "rgba(255,255,255,0.45)",
+            color: "rgba(255,255,255,0.64)",
             fontSize: "17px",
             maxWidth: 680,
             margin: "0.75rem auto 0",
@@ -4666,7 +4756,7 @@ const _MSlide4 = () => /*#__PURE__*/React.createElement("div", null, /*#__PURE__
 }, "\u20AC2,847 ", /*#__PURE__*/React.createElement("span", {
   style: {
     fontSize: "0.85rem",
-    color: "rgba(255,255,255,0.35)",
+    color: "rgba(255,255,255,0.64)",
     fontWeight: 400
   }
 }, "saved \xB7 6 months")), /*#__PURE__*/React.createElement(ResponsiveContainer, {
@@ -4819,6 +4909,8 @@ const DashboardCarousel = ({
   const TOTAL = 5;
   const slides = lang === "es" ? _MSLIDES_ES : _MSLIDES_EN;
   useEffect(() => {
+    // Respect the OS "reduce motion" setting: do not auto-advance
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const id = setInterval(() => setSlide(s => (s + 1) % TOTAL), 2200);
     return () => clearInterval(id);
   }, []);
@@ -4853,7 +4945,7 @@ const DashboardCarousel = ({
     style: {
       marginLeft: "0.75rem",
       fontSize: "0.78rem",
-      color: "rgba(255,255,255,0.4)",
+      color: "rgba(255,255,255,0.64)",
       fontFamily: "SF Pro Text,system-ui,sans-serif"
     }
   }, "Mowaat \xB7 AI Analytics"), /*#__PURE__*/React.createElement("div", {
@@ -5019,6 +5111,7 @@ const FAQAccordion = ({
     }
   }, /*#__PURE__*/React.createElement("button", {
     onClick: () => setOpen(open === i ? null : i),
+    "aria-expanded": open === i,
     style: {
       width: "100%",
       padding: "1.25rem 1.5rem",
@@ -5973,7 +6066,7 @@ const LegalPage = ({
       body: "En virtud del RGPD, tienes derecho a acceder, rectificar, suprimir, limitar u obtener la portabilidad de tus datos personales. También puedes oponerte al tratamiento o retirar tu consentimiento en cualquier momento. Para ejercer cualquiera de estos derechos, contacta con nosotros en privacy@jm20.eu."
     }, {
       h: "6. Cookies",
-      body: "Este sitio web no utiliza cookies de seguimiento de terceros. No usamos Google Analytics, Meta Pixel ni ninguna tecnología de publicidad comportamental. Los únicos datos almacenados localmente son el estado de sesión necesario para el funcionamiento del sitio."
+      body: "Este sitio web utiliza Google Analytics para medir el uso del sitio, pero solo si pulsas «Aceptar» en el aviso de cookies. Si pulsas «Rechazar» o ignoras el aviso, Google Analytics no se carga y no se envían datos de analítica a Google. No usamos Meta Pixel ni ninguna tecnología de publicidad comportamental. Tu elección se guarda en tu navegador para recordarla y puedes cambiarla en cualquier momento desde «Configuración de cookies» en el pie de página. Los demás datos almacenados localmente son el estado de sesión necesario para el funcionamiento del sitio."
     }, {
       h: "7. Contacto",
       body: "Para cualquier consulta relacionada con la privacidad: privacy@jm20.eu · JM20 AI Solutions · España · UE"
@@ -6018,7 +6111,7 @@ const LegalPage = ({
       body: "Under GDPR, you have the right to access, rectify, erase, restrict or port your personal data. You may also object to processing or withdraw consent at any time. To exercise any of these rights, contact us at privacy@jm20.eu."
     }, {
       h: "6. Cookies",
-      body: "This website uses no third-party tracking cookies. We do not use Google Analytics, Meta Pixel, or any behavioural advertising technology. The only data stored locally is session state required for the website to function."
+      body: "This website uses Google Analytics to measure how the site is used, but only if you click Accept in the cookie banner. If you click Reject or ignore the banner, Google Analytics is not loaded and no analytics data is sent to Google. We do not use Meta Pixel or any behavioural advertising technology. Your choice is stored in your browser so it can be remembered, and you can change it at any time from “Cookie settings” in the footer. Any other data stored locally is session state required for the website to function."
     }, {
       h: "7. Contact",
       body: "For any privacy-related questions, contact: privacy@jm20.eu · JM20 AI Solutions · Spain · EU"
@@ -6252,7 +6345,7 @@ const BlogPage = ({
   }, a.tag), /*#__PURE__*/React.createElement("span", {
     style: {
       fontSize: "12px",
-      color: "rgba(255,255,255,0.3)"
+      color: "rgba(255,255,255,0.64)"
     }
   }, a.date, " \xB7 ", a.read, " ", T2.minRead)), /*#__PURE__*/React.createElement("h2", {
     style: {
@@ -6572,7 +6665,7 @@ const Footer = ({
       letterSpacing: "-0.224px",
       fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
     }
-  }, t.footerCompany), fLink(t.footerAbout, () => onPage("about")), fLink(t.footerCareers, () => onPage("careers")), fLink(t.footerTerms, () => onPage("legal")), fLink(t.footerPrivacy, () => onPage("legal")))), /*#__PURE__*/React.createElement("div", {
+  }, t.footerCompany), fLink(t.footerAbout, () => onPage("about")), fLink(t.footerCareers, () => onPage("careers")), fLink(t.footerTerms, () => onPage("legal")), fLink(t.footerPrivacy, () => onPage("legal")), fLink(lang === "es" ? "Configuración de cookies" : "Cookie settings", () => { if (window.jm20OpenConsent) window.jm20OpenConsent(); }))), /*#__PURE__*/React.createElement("div", {
     style: {
       borderTop: "1px solid rgba(255,255,255,0.06)",
       paddingTop: "1.5rem",
@@ -6600,7 +6693,7 @@ const Footer = ({
   }, "20")), /*#__PURE__*/React.createElement("span", {
     style: {
       fontSize: "12px",
-      color: "rgba(255,255,255,0.3)",
+      color: "rgba(255,255,255,0.64)",
       letterSpacing: "-0.12px",
       fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
     }
@@ -6622,7 +6715,7 @@ const Footer = ({
     key: b.text,
     style: {
       fontSize: "12px",
-      color: "rgba(255,255,255,0.35)",
+      color: "rgba(255,255,255,0.64)",
       fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif",
       display: "flex",
       alignItems: "center",
@@ -6631,7 +6724,7 @@ const Footer = ({
   }, /*#__PURE__*/React.createElement(Icon, {
     name: b.icon,
     size: 12,
-    color: "rgba(255,255,255,0.35)",
+    color: "rgba(255,255,255,0.64)",
     strokeWidth: 1.5
   }), b.text))))));
 };
@@ -6683,7 +6776,7 @@ const ContactPage = ({
   const lStyle = {
     fontSize: "12px",
     fontWeight: 400,
-    color: "rgba(255,255,255,0.4)",
+    color: "rgba(255,255,255,0.64)",
     marginBottom: "0.4rem",
     display: "block",
     letterSpacing: "-0.12px",
@@ -6730,6 +6823,7 @@ const ContactPage = ({
       padding: "3rem"
     }
   }, /*#__PURE__*/React.createElement("div", {
+    role: "status",
     style: {
       textAlign: "center",
       maxWidth: 480
@@ -6988,9 +7082,12 @@ const ContactPage = ({
       gap: "1.25rem"
     }
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
-    style: lStyle
+    style: lStyle,
+    htmlFor: "cf-name"
   }, t.contactLabelName), /*#__PURE__*/React.createElement("input", {
     required: true,
+    id: "cf-name",
+    autoComplete: "name",
     value: form.full_name,
     onChange: e => update("full_name", e.target.value),
     placeholder: "John Doe",
@@ -6998,8 +7095,11 @@ const ContactPage = ({
     onFocus: focus,
     onBlur: blur
   })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
-    style: lStyle
+    style: lStyle,
+    htmlFor: "cf-company"
   }, t.contactLabelCompany), /*#__PURE__*/React.createElement("input", {
+    id: "cf-company",
+    autoComplete: "organization",
     value: form.company,
     onChange: e => update("company", e.target.value),
     placeholder: "Your Company",
@@ -7007,10 +7107,13 @@ const ContactPage = ({
     onFocus: focus,
     onBlur: blur
   })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
-    style: lStyle
+    style: lStyle,
+    htmlFor: "cf-email"
   }, t.contactLabelEmail), /*#__PURE__*/React.createElement("input", {
     required: true,
     type: "email",
+    id: "cf-email",
+    autoComplete: "email",
     value: form.email,
     onChange: e => update("email", e.target.value),
     placeholder: "youremail@company.com",
@@ -7024,8 +7127,11 @@ const ContactPage = ({
       gap: "1rem"
     }
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
-    style: lStyle
+    style: lStyle,
+    htmlFor: "cf-phone"
   }, t.contactLabelPhone), /*#__PURE__*/React.createElement("input", {
+    id: "cf-phone",
+    autoComplete: "tel",
     value: form.phone,
     onChange: e => update("phone", e.target.value),
     placeholder: "+34 123 456 789",
@@ -7033,17 +7139,23 @@ const ContactPage = ({
     onFocus: focus,
     onBlur: blur
   })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
-    style: lStyle
+    style: lStyle,
+    htmlFor: "cf-website"
   }, t.contactLabelWebsite), /*#__PURE__*/React.createElement("input", {
+    id: "cf-website",
+    autoComplete: "url",
     value: form.website,
     onChange: e => update("website", e.target.value),
     placeholder: "your company's website",
     style: iStyle,
     onFocus: focus,
     onBlur: blur
-  }))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
+  }))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    id: "cf-interest-label",
     style: lStyle
   }, t.contactLabelInterest), /*#__PURE__*/React.createElement("div", {
+    role: "group",
+    "aria-labelledby": "cf-interest-label",
     style: {
       display: "flex",
       flexWrap: "wrap",
@@ -7071,6 +7183,7 @@ const ContactPage = ({
     return /*#__PURE__*/React.createElement("button", {
       key: opt.key,
       type: "button",
+      "aria-pressed": checked,
       onClick: toggle,
       style: {
         padding: "0.5rem 1rem",
@@ -7087,8 +7200,10 @@ const ContactPage = ({
       }
     }, checked ? "✓ " : "", opt.label);
   }))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
-    style: lStyle
+    style: lStyle,
+    htmlFor: "cf-comments"
   }, t.contactLabelComments), /*#__PURE__*/React.createElement("textarea", {
+    id: "cf-comments",
     value: form.comments,
     onChange: e => update("comments", e.target.value),
     placeholder: t.contactCommentsPlaceholder,
@@ -7103,6 +7218,7 @@ const ContactPage = ({
       lineHeight: 1.5
     }
   })), status === "error" && /*#__PURE__*/React.createElement("div", {
+    role: "alert",
     style: {
       background: "rgba(239,68,68,0.1)",
       border: "1px solid rgba(239,68,68,0.3)",
@@ -7133,7 +7249,7 @@ const ContactPage = ({
   }, status === "sending" ? t.contactSendingBtn : t.contactSubmitBtn), /*#__PURE__*/React.createElement("p", {
     style: {
       fontSize: "12px",
-      color: "rgba(255,255,255,0.3)",
+      color: "rgba(255,255,255,0.64)",
       textAlign: "center",
       lineHeight: 1.6,
       letterSpacing: "-0.12px",
@@ -7149,6 +7265,10 @@ function App() {
   const [page, setPage] = useState("home");
   const [lang, setLang] = useState("es");
   const anchorRef = useRef(null);
+  // Keep <html lang> in sync with the selected language (screen readers pick the right voice)
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
   const goPage = (p, anchor) => {
     // Optional anchor: id of a section to scroll to once the page has rendered
     anchorRef.current = anchor || null;
@@ -7183,50 +7303,71 @@ function App() {
       });
     }
   }, [page]);
+  useEffect(() => {
+    window.jm20GoPage = goPage;
+  });
   const t = TR[lang];
-  if (page === "contact") return /*#__PURE__*/React.createElement(ContactPage, {
+  const skipLink = React.createElement("a", {
+    href: "#main-content",
+    className: "skip-link",
+    onClick: e => {
+      e.preventDefault();
+      const m = document.getElementById("main-content");
+      if (m) { m.focus(); m.scrollIntoView(); }
+    }
+  }, lang === "es" ? "Saltar al contenido" : "Skip to content");
+  const wrapMain = el => React.createElement(React.Fragment, null, skipLink, React.createElement("main", {
+    id: "main-content",
+    tabIndex: -1,
+    style: { outline: "none" }
+  }, el));
+  if (page === "contact") return wrapMain(/*#__PURE__*/React.createElement(ContactPage, {
     onBack: () => goPage("home"),
     lang: lang
-  });
-  if (page === "about") return /*#__PURE__*/React.createElement(AboutPage, {
+  }));
+  if (page === "about") return wrapMain(/*#__PURE__*/React.createElement(AboutPage, {
     onBack: () => goPage("home"),
     lang: lang
-  });
-  if (page === "compliance") return /*#__PURE__*/React.createElement(CompliancePage, {
+  }));
+  if (page === "compliance") return wrapMain(/*#__PURE__*/React.createElement(CompliancePage, {
     onBack: () => goPage("home"),
     lang: lang
-  });
-  if (page === "legal") return /*#__PURE__*/React.createElement(LegalPage, {
+  }));
+  if (page === "legal") return wrapMain(/*#__PURE__*/React.createElement(LegalPage, {
     onBack: () => goPage("home"),
     lang: lang
-  });
-  if (page === "blog") return /*#__PURE__*/React.createElement(BlogPage, {
+  }));
+  if (page === "blog") return wrapMain(/*#__PURE__*/React.createElement(BlogPage, {
     onBack: () => goPage("home"),
     onContact: () => goPage("contact"),
     lang: lang
-  });
-  if (page === "careers") return /*#__PURE__*/React.createElement(CareersPage, {
+  }));
+  if (page === "careers") return wrapMain(/*#__PURE__*/React.createElement(CareersPage, {
     onBack: () => goPage("home"),
     onContact: () => goPage("contact"),
     lang: lang
-  });
-  if (page === "products") return /*#__PURE__*/React.createElement(ProductsPage, {
+  }));
+  if (page === "products") return wrapMain(/*#__PURE__*/React.createElement(ProductsPage, {
     onBack: () => goPage("home"),
     onContact: () => goPage("contact"),
     lang: lang
-  });
+  }));
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("style", null, css), /*#__PURE__*/React.createElement("div", {
     style: {
       background: "#2a2a2c",
       minHeight: "100vh",
       color: "#ffffff"
     }
-  }, /*#__PURE__*/React.createElement(Nav, {
+  }, skipLink, /*#__PURE__*/React.createElement(Nav, {
     onContact: () => goPage("contact"),
     onPage: goPage,
     lang: lang,
     setLang: setLang
-  }), /*#__PURE__*/React.createElement(Hero, {
+  }), /*#__PURE__*/React.createElement("main", {
+    id: "main-content",
+    tabIndex: -1,
+    style: { outline: "none" }
+  }, /*#__PURE__*/React.createElement(Hero, {
     onContact: () => goPage("contact"),
     onPage: goPage,
     lang: lang
@@ -7317,7 +7458,7 @@ function App() {
     }
   }, t.ctaCta2)), /*#__PURE__*/React.createElement("p", {
     style: {
-      color: "rgba(255,255,255,0.3)",
+      color: "rgba(255,255,255,0.64)",
       fontSize: "14px",
       fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif",
       letterSpacing: "-0.224px"
@@ -7330,7 +7471,7 @@ function App() {
       textUnderlineOffset: 3,
       cursor: "pointer"
     }
-  }, t.ctaNotReadyCta), " ", t.ctaNotReadySuffix))), /*#__PURE__*/React.createElement(Footer, {
+  }, t.ctaNotReadyCta), " ", t.ctaNotReadySuffix)))), /*#__PURE__*/React.createElement(Footer, {
     onContact: () => goPage("contact"),
     onPage: p => goPage(p),
     lang: lang

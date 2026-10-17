@@ -1,11 +1,13 @@
-// Cloudflare Worker — serves a pre-rendered static snapshot to AI/search
-// crawlers that can't execute JavaScript (GPTBot, ClaudeBot, PerplexityBot,
-// etc.), while every real visitor continues to get the normal interactive
-// React site, completely unchanged. No existing behavior is modified.
+// Cloudflare Worker — serves a pre-rendered static snapshot of the homepage to
+// AI/search crawlers that can't (or don't reliably) execute JavaScript
+// (GPTBot, ClaudeBot, PerplexityBot, etc.), while every real visitor gets the
+// normal interactive React site, unchanged.
+//
+// Googlebot and Bingbot are intentionally NOT listed: they render JavaScript,
+// so they index the real page. Serving them a different version risks being
+// treated as cloaking.
 
 const BOT_PATTERNS = [
-  /googlebot/i,
-  /bingbot/i,
   /duckduckbot/i,
   /gptbot/i,
   /chatgpt-user/i,
@@ -29,19 +31,23 @@ function isKnownBot(userAgent) {
 }
 
 export default {
-  async fetch(request, env, ctx) {
+  async fetch(request, env) {
     const url = new URL(request.url);
-    const userAgent = request.headers.get("User-Agent") || "";
 
-    // Only intervene on the homepage. Every other path (images, assets,
-    // any other page) is untouched, for bots and humans alike.
+    // Only the homepage is ever swapped. Every other path is untouched.
     const isHomepage = url.pathname === "/" || url.pathname === "/index.html";
+    if (!isHomepage) return env.ASSETS.fetch(request);
 
-    if (isHomepage && isKnownBot(userAgent)) {
-      const snapshotUrl = new URL("/bot-snapshot", url);
-      return env.ASSETS.fetch(new Request(snapshotUrl, request));
-    }
+    const userAgent = request.headers.get("User-Agent") || "";
+    const target = isKnownBot(userAgent)
+      ? new Request(new URL("/bot-snapshot", url), request)
+      : request;
 
-    return env.ASSETS.fetch(request);
+    const response = await env.ASSETS.fetch(target);
+
+    // The homepage response depends on the User-Agent, so tell caches.
+    const out = new Response(response.body, response);
+    out.headers.append("Vary", "User-Agent");
+    return out;
   }
 };

@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jm20aisolutions.com/</loc>
-    <lastmod>2026-06-03</lastmod>
-    <priority>1.0</priority>
+    <lastmod>2026-10-17</lastmod>
   </url>
   <url>
     <loc>https://jm20aisolutions.com/eu-ai-act</loc>
-    <lastmod>2026-06-01</lastmod>
-    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jm20aisolutions.com/eu-ai-act"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jm20aisolutions.com/ley-de-ia-ue"/>
   </url>
   <url>
     <loc>https://jm20aisolutions.com/ley-de-ia-ue</loc>
-    <lastmod>2026-06-01</lastmod>
-    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jm20aisolutions.com/eu-ai-act"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jm20aisolutions.com/ley-de-ia-ue"/>
   </url>
   <url>
     <loc>https://jm20aisolutions.com/cost-of-not-automating</loc>
-    <lastmod>2026-05-01</lastmod>
-    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jm20aisolutions.com/cost-of-not-automating"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jm20aisolutions.com/coste-de-no-automatizar"/>
   </url>
   <url>
     <loc>https://jm20aisolutions.com/coste-de-no-automatizar</loc>
-    <lastmod>2026-05-01</lastmod>
-    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jm20aisolutions.com/cost-of-not-automating"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jm20aisolutions.com/coste-de-no-automatizar"/>
   </url>
 </urlset>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  /* Consent-gated analytics.
+     Google Analytics is NOT loaded until the visitor clicks Accept.
+     Consent defaults follow Google's documented consent-mode sequence:
+     default = denied, then update = granted after the visitor agrees. */
+  (function () {
+    var GA_ID = 'G-CCL5B23RY5', KEY = 'jm20_consent', gaLoaded = false, banner = null;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied' });
+
+    var TXT = {
+      en: { title: 'Cookies & analytics', body: 'We would like to use Google Analytics to understand how our site is used. It only runs if you accept. You can change your choice at any time from “Cookie settings” in the footer.', accept: 'Accept', reject: 'Reject', more: 'Privacy policy', label: 'Cookie preferences' },
+      es: { title: 'Cookies y analítica', body: 'Nos gustaría usar Google Analytics para entender cómo se usa nuestro sitio. Solo se activa si aceptas. Puedes cambiar tu elección en cualquier momento desde «Configuración de cookies» en el pie de página.', accept: 'Aceptar', reject: 'Rechazar', more: 'Política de privacidad', label: 'Preferencias de cookies' }
+    };
+    function lang() { return (document.documentElement.lang || 'en').slice(0, 2) === 'es' ? 'es' : 'en'; }
+    function read() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+    function write(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+
+    function loadGA() {
+      if (gaLoaded) return; gaLoaded = true;
+      var sc = document.createElement('script');
+      sc.async = true; sc.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+      document.head.appendChild(sc);
+      gtag('js', new Date());
+      gtag('consent', 'update', { analytics_storage: 'granted' });
+      gtag('config', GA_ID);
+    }
+    function clearGACookies() {
+      var host = location.hostname, parts = host.split('.'), domains = ['', host, '.' + host];
+      if (parts.length > 2) domains.push('.' + parts.slice(-2).join('.'));
+      document.cookie.split(';').forEach(function (c) {
+        var name = c.split('=')[0].trim();
+        if (name.indexOf('_ga') === 0) domains.forEach(function (d) {
+          document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/' + (d ? '; domain=' + d : '');
+        });
+      });
+    }
+    function decide(v) {
+      write(v);
+      if (v === 'granted') loadGA();
+      else { gtag('consent', 'update', { analytics_storage: 'denied' }); clearGACookies(); }
+      hide();
+    }
+    function hide() { if (banner) { banner.remove(); banner = null; } }
+    function paint() {
+      if (!banner) return;
+      var t = TXT[lang()];
+      banner.setAttribute('aria-label', t.label);
+      banner.querySelector('[data-k=title]').textContent = t.title;
+      banner.querySelector('[data-k=body]').textContent = t.body;
+      banner.querySelector('[data-k=more]').textContent = t.more;
+      banner.querySelector('[data-k=reject]').textContent = t.reject;
+      banner.querySelector('[data-k=accept]').textContent = t.accept;
+    }
+    function show() {
+      if (banner) { banner.querySelector('[data-k=accept]').focus(); return; }
+      if (!document.getElementById('jm20-consent-css')) {
+        var st = document.createElement('style'); st.id = 'jm20-consent-css';
+        st.textContent = '#jm20-consent{position:fixed;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:3000;max-width:760px;margin:0 auto;background:#1d1d1f;color:#f5f5f7;border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:16px 20px;box-shadow:0 16px 48px rgba(0,0,0,.6);font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}#jm20-consent strong{display:block;font-size:15px;margin-bottom:4px}#jm20-consent p{margin:0 0 12px;color:#d2d2d7}#jm20-consent .jm-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}#jm20-consent button{font:500 14px system-ui,sans-serif;min-height:40px;padding:0 20px;border-radius:9999px;cursor:pointer;color:#fff}#jm20-consent .jm-accept{background:#0066cc;border:1px solid #0066cc}#jm20-consent .jm-reject{background:transparent;border:1px solid rgba(255,255,255,.55)}#jm20-consent .jm-more{background:none;border:none;text-decoration:underline;padding:0 4px;margin-left:auto;color:#d2d2d7}';
+        document.head.appendChild(st);
+      }
+      banner = document.createElement('div');
+      banner.id = 'jm20-consent'; banner.setAttribute('role', 'dialog'); banner.setAttribute('aria-modal', 'false');
+      banner.setAttribute('aria-labelledby', 'jm20-consent-title'); banner.setAttribute('aria-describedby', 'jm20-consent-body');
+      banner.innerHTML = '<strong id="jm20-consent-title" data-k="title"></strong><p id="jm20-consent-body" data-k="body"></p><div class="jm-row"><button type="button" class="jm-reject" data-k="reject"></button><button type="button" class="jm-accept" data-k="accept"></button><button type="button" class="jm-more" data-k="more"></button></div>';
+      banner.querySelector('[data-k=accept]').addEventListener('click', function () { decide('granted'); });
+      banner.querySelector('[data-k=reject]').addEventListener('click', function () { decide('denied'); });
+      banner.querySelector('[data-k=more]').addEventListener('click', function () { if (window.jm20GoPage) window.jm20GoPage('legal'); else window.location.href = (lang() === 'es' ? '/politica-de-privacidad' : '/privacy-policy'); });
+      banner.addEventListener('keydown', function (e) { if (e.key === 'Escape') decide('denied'); });
+      document.body.appendChild(banner);
+      paint();
+    }
+    window.jm20OpenConsent = show;
+    new MutationObserver(paint).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+    function init() { var c = read(); if (c === 'granted') loadGA(); else if (c !== 'denied') show(); }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+  })();
+  </script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Privacy Policy · JM20</title>
+<meta name="description" content="JM20 AI Solutions privacy policy: who we are, what data we collect, how we use it, where it is stored, your GDPR rights and cookies."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://jm20aisolutions.com/privacy-policy"/>
+<link rel="alternate" hreflang="es" href="https://jm20aisolutions.com/politica-de-privacidad"/>
+<link rel="alternate" hreflang="en" href="https://jm20aisolutions.com/privacy-policy"/>
+<link rel="alternate" hreflang="x-default" href="https://jm20aisolutions.com/privacy-policy"/>
+<meta name="theme-color" content="#2a2a2c"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="JM20"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:locale:alternate" content="es_ES"/>
+<meta property="og:title" content="Privacy Policy · JM20"/>
+<meta property="og:description" content="JM20 AI Solutions privacy policy: who we are, what data we collect, how we use it, where it is stored, your GDPR rights and cookies."/>
+<meta property="og:url" content="https://jm20aisolutions.com/privacy-policy"/>
+<meta property="og:image" content="https://jm20aisolutions.com/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+
+<style>
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:#2a2a2c;color:#fff;font-family:"SF Pro Text",system-ui,-apple-system,sans-serif;min-height:100vh;display:flex;flex-direction:column}
+a{color:#2997ff}a:focus-visible,button:focus-visible{outline:2px solid #2997ff;outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:12px;top:-64px;z-index:100;background:#fff;color:#1d1d1f;padding:12px 18px;border-radius:9999px;font-size:14px;text-decoration:none;transition:top .15s}
+.skip:focus{top:8px}
+.top{height:52px;display:flex;align-items:center;gap:12px;padding:0 1.25rem;border-bottom:1px solid rgba(255,255,255,.07);background:#2a2a2c}
+.logo{font:600 1.6rem/1 "SF Pro Display",system-ui,-apple-system,sans-serif;letter-spacing:-.025em;text-decoration:none}
+.logo .jm{color:#f5a623}.logo .n20{color:#2997ff}
+.top nav{margin-left:auto;display:flex;gap:10px;align-items:center}
+.pill{display:inline-flex;align-items:center;min-height:32px;border:1px solid rgba(255,255,255,.15);border-radius:9999px;padding:.35rem .75rem;color:rgba(255,255,255,.7);font-size:13px;text-decoration:none}
+.pill:hover{color:#fff;border-color:rgba(255,255,255,.4)}
+main{flex:1;outline:none}
+.wrap{max-width:780px;margin:0 auto;padding:4rem 1.25rem}
+.eyebrow{font-size:14px;color:#2997ff;font-weight:600;letter-spacing:-.224px;margin:0}
+h1{font:600 clamp(1.6rem,5vw,3rem)/1.15 "SF Pro Display",system-ui,-apple-system,sans-serif;letter-spacing:-.02em;margin:.5rem 0}
+.updated{color:#a0a0a0;font-size:14px;margin:0 0 3rem}
+.doc{display:flex;flex-direction:column;gap:1.75rem;border-top:1px solid rgba(255,255,255,.09);padding-top:2rem}
+h2{font-weight:600;font-size:clamp(14px,3.5vw,17px);line-height:1.4;margin:0 0 .5rem}
+.doc p{color:#a0a0a0;font-size:clamp(13px,3.5vw,16px);line-height:1.7;margin:0}
+.see{margin-top:3.5rem;font-size:15px;color:#a0a0a0}
+footer{border-top:1px solid rgba(255,255,255,.06);padding:1.5rem 1.25rem}
+.foot{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem}
+.foot p{margin:0;font-size:13px;color:rgba(255,255,255,.5)}
+.foot ul{list-style:none;display:flex;flex-wrap:wrap;gap:4px 20px;margin:0;padding:0}
+.foot a,.foot button{display:inline-flex;align-items:center;min-height:32px;background:none;border:0;padding:0;font:inherit;font-size:14px;color:rgba(255,255,255,.6);text-decoration:none;cursor:pointer}
+.foot a:hover,.foot button:hover{color:#2997ff}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.skip{transition:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <a class="logo" href="/" aria-label="JM20"><span class="jm">JM</span><span class="n20">20</span></a>
+  <nav aria-label="Navigation">
+    <a class="pill" href="/politica-de-privacidad" lang="es" hreflang="es">Español</a>
+    <a class="pill" href="/">← Back</a>
+  </nav>
+</header>
+<main id="main" tabindex="-1">
+  <div class="wrap">
+    <p class="eyebrow">LEGAL</p>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: January 2026 · Governed by Spanish and EU law</p>
+    <article class="doc">
+      <section>
+        <h2>1. Who we are</h2>
+        <p>JM20 is an AI automation consultancy based in Spain, operating within the European Union. We act as a data processor under GDPR when handling your customer data, and as a data controller for data you provide to us directly (e.g. contact forms, email).</p>
+      </section>
+      <section>
+        <h2>2. Data we collect</h2>
+        <p>We collect information you provide directly: name, company name, email address, phone number, and website. When operating managed services, we may process your customers' data strictly on your instructions and within the scope of our Data Processing Agreement.</p>
+      </section>
+      <section>
+        <h2>3. How we use your data</h2>
+        <p>Your contact information is used solely to respond to your enquiry, deliver our services, and send relevant updates. We never sell, rent or share your data with third parties for marketing purposes.</p>
+      </section>
+      <section>
+        <h2>4. Data storage</h2>
+        <p>All data is stored within EU infrastructure (Supabase, Frankfurt region). We do not transfer personal data outside the EU/EEA without appropriate safeguards (Standard Contractual Clauses).</p>
+      </section>
+      <section>
+        <h2>5. Your rights</h2>
+        <p>Under GDPR, you have the right to access, rectify, erase, restrict or port your personal data. You may also object to processing or withdraw consent at any time. To exercise any of these rights, contact us at privacy@jm20.eu.</p>
+      </section>
+      <section>
+        <h2>6. Cookies</h2>
+        <p>This website uses Google Analytics to measure how the site is used, but only if you click Accept in the cookie banner. If you click Reject or ignore the banner, Google Analytics is not loaded and no analytics data is sent to Google. We do not use Meta Pixel or any behavioural advertising technology. Your choice is stored in your browser so it can be remembered, and you can change it at any time from “Cookie settings” in the footer. Any other data stored locally is session state required for the website to function.</p>
+      </section>
+      <section>
+        <h2>7. Contact</h2>
+        <p>For any privacy-related questions, contact: privacy@jm20.eu · JM20 AI Solutions · Spain · EU</p>
+      </section>
+    </article>
+    <p class="see">See also: <a href="/terms-of-service">Terms of service</a></p>
+  </div>
+</main>
+<footer>
+  <div class="foot">
+    <p>© 2026 JM20 · Spain &amp; EU · GDPR Article 28 · You own the system</p>
+    <nav aria-label="Legal links">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/terms-of-service">Terms of service</a></li>
+        <li><a href="/privacy-policy">Privacy policy</a></li>
+        <li><button type="button" id="cookie-settings">Cookie settings</button></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+<script>document.getElementById('cookie-settings').addEventListener('click',function(){if(window.jm20OpenConsent)window.jm20OpenConsent();});</script>
+</body>
+</html>

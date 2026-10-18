@@ -1,0 +1,17 @@
+<!-- add these <url> entries inside the <urlset> of the main site's sitemap.xml -->
+  <url>
+    <loc>https://jm20aisolutions.com/politica-de-privacidad</loc>
+    <lastmod>2026-10-18</lastmod>
+  </url>
+  <url>
+    <loc>https://jm20aisolutions.com/terminos-de-servicio</loc>
+    <lastmod>2026-10-18</lastmod>
+  </url>
+  <url>
+    <loc>https://jm20aisolutions.com/privacy-policy</loc>
+    <lastmod>2026-10-18</lastmod>
+  </url>
+  <url>
+    <loc>https://jm20aisolutions.com/terms-of-service</loc>
+    <lastmod>2026-10-18</lastmod>
+  </url>

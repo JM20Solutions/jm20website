@@ -60,7 +60,7 @@
       if (banner) { banner.querySelector('[data-k=accept]').focus(); return; }
       if (!document.getElementById('jm20-consent-css')) {
         var st = document.createElement('style'); st.id = 'jm20-consent-css';
-        st.textContent = '#jm20-consent{position:fixed;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:3000;max-width:760px;margin:0 auto;background:#1d1d1f;color:#f5f5f7;border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:16px 20px;box-shadow:0 16px 48px rgba(0,0,0,.6);font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}#jm20-consent strong{display:block;font-size:15px;margin-bottom:4px}#jm20-consent p{margin:0 0 12px;color:#d2d2d7}#jm20-consent .jm-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}#jm20-consent button{font:500 14px system-ui,sans-serif;min-height:40px;padding:0 20px;border-radius:9999px;cursor:pointer;color:#fff}#jm20-consent .jm-accept{background:#2997ff;border:1px solid #2997ff}#jm20-consent .jm-reject{background:transparent;border:1px solid rgba(255,255,255,.55)}#jm20-consent .jm-more{background:none;border:none;text-decoration:underline;padding:0 4px;margin-left:auto;color:#d2d2d7}';
+        st.textContent = '#jm20-consent{position:fixed;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:3000;max-width:760px;margin:0 auto;background:#1d1d1f;color:#f5f5f7;border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:16px 20px;box-shadow:0 16px 48px rgba(0,0,0,.6);font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}#jm20-consent strong{display:block;font-size:15px;margin-bottom:4px}#jm20-consent p{margin:0 0 12px;color:#d2d2d7}#jm20-consent .jm-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}#jm20-consent button{font:500 14px system-ui,sans-serif;min-height:40px;padding:0 20px;border-radius:9999px;cursor:pointer;color:#fff}#jm20-consent .jm-accept{background:#0066cc;border:1px solid #0066cc}#jm20-consent .jm-reject{background:transparent;border:1px solid rgba(255,255,255,.55)}#jm20-consent .jm-more{background:none;border:none;text-decoration:underline;padding:0 4px;margin-left:auto;color:#d2d2d7}';
         document.head.appendChild(st);
       }
       banner = document.createElement('div');
@@ -69,7 +69,7 @@
       banner.innerHTML = '<strong id="jm20-consent-title" data-k="title"></strong><p id="jm20-consent-body" data-k="body"></p><div class="jm-row"><button type="button" class="jm-reject" data-k="reject"></button><button type="button" class="jm-accept" data-k="accept"></button><button type="button" class="jm-more" data-k="more"></button></div>';
       banner.querySelector('[data-k=accept]').addEventListener('click', function () { decide('granted'); });
       banner.querySelector('[data-k=reject]').addEventListener('click', function () { decide('denied'); });
-      banner.querySelector('[data-k=more]').addEventListener('click', function () { if (window.jm20GoPage) window.jm20GoPage('legal'); });
+      banner.querySelector('[data-k=more]').addEventListener('click', function () { window.location.href = (lang() === 'es' ? '/politica-de-privacidad' : '/privacy-policy'); });
       banner.addEventListener('keydown', function (e) { if (e.key === 'Escape') decide('denied'); });
       document.body.appendChild(banner);
       paint();
@@ -6679,7 +6679,7 @@ const Footer = ({
       letterSpacing: "-0.224px",
       fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
     }
-  }, t.footerCompany), fLink(t.footerAbout, () => onPage("about")), fLink(t.footerCareers, () => onPage("careers")), fLink(t.footerTerms, () => onPage("legal")), fLink(t.footerPrivacy, () => onPage("legal")), fLink(lang === "es" ? "Configuración de cookies" : "Cookie settings", () => { if (window.jm20OpenConsent) window.jm20OpenConsent(); }))), /*#__PURE__*/React.createElement("div", {
+  }, t.footerCompany), fLink(t.footerAbout, () => onPage("about")), fLink(t.footerCareers, () => onPage("careers")), fLink(t.footerTerms, null, lang === "es" ? "/terminos-de-servicio" : "/terms-of-service"), fLink(t.footerPrivacy, null, lang === "es" ? "/politica-de-privacidad" : "/privacy-policy"), fLink(lang === "es" ? "Configuración de cookies" : "Cookie settings", () => { if (window.jm20OpenConsent) window.jm20OpenConsent(); }))), /*#__PURE__*/React.createElement("div", {
     style: {
       borderTop: "1px solid rgba(255,255,255,0.06)",
       paddingTop: "1.5rem",

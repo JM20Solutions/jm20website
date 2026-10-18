@@ -6,7 +6,12 @@
 <       banner.querySelector('[data-k=more]').addEventListener('click', function () { if (window.jm20GoPage) window.jm20GoPage('legal'); });
 ---
 >       banner.querySelector('[data-k=more]').addEventListener('click', function () { window.location.href = (lang() === 'es' ? '/politica-de-privacidad' : '/privacy-policy'); });
-6682c6682
+920,921c920
+< ::-webkit-scrollbar{width:4px}
+< ::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.12);border-radius:2px}
+---
+> html{scrollbar-color:rgba(255,255,255,0.35) #1d1d1f}
+6682c6681
 <   }, t.footerCompany), fLink(t.footerAbout, () => onPage("about")), fLink(t.footerCareers, () => onPage("careers")), fLink(t.footerTerms, () => onPage("legal")), fLink(t.footerPrivacy, () => onPage("legal")), fLink(lang === "es" ? "Configuración de cookies" : "Cookie settings", () => { if (window.jm20OpenConsent) window.jm20OpenConsent(); }))), /*#__PURE__*/React.createElement("div", {
 ---
 >   }, t.footerCompany), fLink(t.footerAbout, () => onPage("about")), fLink(t.footerCareers, () => onPage("careers")), fLink(t.footerTerms, null, lang === "es" ? "/terminos-de-servicio" : "/terms-of-service"), fLink(t.footerPrivacy, null, lang === "es" ? "/politica-de-privacidad" : "/privacy-policy"), fLink(lang === "es" ? "Configuración de cookies" : "Cookie settings", () => { if (window.jm20OpenConsent) window.jm20OpenConsent(); }))), /*#__PURE__*/React.createElement("div", {

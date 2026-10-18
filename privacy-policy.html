@@ -89,7 +89,7 @@
 <link rel="alternate" hreflang="es" href="https://jm20aisolutions.com/politica-de-privacidad"/>
 <link rel="alternate" hreflang="en" href="https://jm20aisolutions.com/privacy-policy"/>
 <link rel="alternate" hreflang="x-default" href="https://jm20aisolutions.com/privacy-policy"/>
-<meta name="theme-color" content="#2a2a2c"/>
+<meta name="theme-color" content="#000000"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="JM20"/>
 <meta property="og:locale" content="en_US"/>
@@ -101,50 +101,57 @@
 <meta name="twitter:card" content="summary_large_image"/>
 
 <style>
-*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-body{margin:0;background:#2a2a2c;color:#fff;font-family:"SF Pro Text",system-ui,-apple-system,sans-serif;min-height:100vh;display:flex;flex-direction:column}
-a{color:#2997ff}a:focus-visible,button:focus-visible{outline:2px solid #2997ff;outline-offset:3px;border-radius:4px}
-.skip{position:absolute;left:12px;top:-64px;z-index:100;background:#fff;color:#1d1d1f;padding:12px 18px;border-radius:9999px;font-size:14px;text-decoration:none;transition:top .15s}
+:root{--accent:#2997ff;--bg:#000;--ink:#f5f5f7;--muted:#9a9aa2;--line:#1d1d1f;--card:#0c0c0d}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"SF Pro Display",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+  line-height:1.72;font-size:19px;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:12px;top:-64px;z-index:100;background:#fff;color:#1d1d1f;padding:12px 18px;border-radius:980px;font-size:14px;text-decoration:none;transition:top .15s}
 .skip:focus{top:8px}
-.top{height:52px;display:flex;align-items:center;gap:12px;padding:0 1.25rem;border-bottom:1px solid rgba(255,255,255,.07);background:#2a2a2c}
-.logo{font:600 1.6rem/1 "SF Pro Display",system-ui,-apple-system,sans-serif;letter-spacing:-.025em;text-decoration:none}
-.logo .jm{color:#f5a623}.logo .n20{color:#2997ff}
-.top nav{margin-left:auto;display:flex;gap:10px;align-items:center}
-.pill{display:inline-flex;align-items:center;min-height:32px;border:1px solid rgba(255,255,255,.15);border-radius:9999px;padding:.35rem .75rem;color:rgba(255,255,255,.7);font-size:13px;text-decoration:none}
-.pill:hover{color:#fff;border-color:rgba(255,255,255,.4)}
-main{flex:1;outline:none}
-.wrap{max-width:780px;margin:0 auto;padding:4rem 1.25rem}
-.eyebrow{font-size:14px;color:#2997ff;font-weight:600;letter-spacing:-.224px;margin:0}
-h1{font:600 clamp(1.6rem,5vw,3rem)/1.15 "SF Pro Display",system-ui,-apple-system,sans-serif;letter-spacing:-.02em;margin:.5rem 0}
-.updated{color:#a0a0a0;font-size:14px;margin:0 0 3rem}
-.doc{display:flex;flex-direction:column;gap:1.75rem;border-top:1px solid rgba(255,255,255,.09);padding-top:2rem}
-h2{font-weight:600;font-size:clamp(14px,3.5vw,17px);line-height:1.4;margin:0 0 .5rem}
-.doc p{color:#a0a0a0;font-size:clamp(13px,3.5vw,16px);line-height:1.7;margin:0}
-.see{margin-top:3.5rem;font-size:15px;color:#a0a0a0}
-footer{border-top:1px solid rgba(255,255,255,.06);padding:1.5rem 1.25rem}
-.foot{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem}
-.foot p{margin:0;font-size:13px;color:rgba(255,255,255,.5)}
-.foot ul{list-style:none;display:flex;flex-wrap:wrap;gap:4px 20px;margin:0;padding:0}
-.foot a,.foot button{display:inline-flex;align-items:center;min-height:32px;background:none;border:0;padding:0;font:inherit;font-size:14px;color:rgba(255,255,255,.6);text-decoration:none;cursor:pointer}
-.foot a:hover,.foot button:hover{color:#2997ff}
+.bar{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;
+  padding:16px 24px;background:rgba(0,0,0,.72);backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid var(--line)}
+.brand{font-weight:800;font-size:22px;letter-spacing:-.02em;text-decoration:none}
+.brand .jm{color:#c76b45}.brand .num{color:#2997ff}
+.bar nav{display:flex;gap:22px;align-items:center;font-size:14px}
+.bar nav a{color:var(--muted);text-decoration:none;display:inline-flex;align-items:center;min-height:32px}
+.bar nav a:hover{color:var(--ink)}
+main{max-width:720px;margin:0 auto;padding:64px 24px 40px;outline:none}
+.eyebrow{color:var(--accent);font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin:0 0 18px}
+h1{font-size:clamp(32px,6vw,52px);line-height:1.08;letter-spacing:-.025em;margin:0 0 20px;font-weight:800}
+.meta{font-size:14px;color:var(--muted);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;margin:0 0 40px}
+article h2{font-size:28px;line-height:1.2;letter-spacing:-.02em;margin:48px 0 14px;font-weight:700}
+.doc section:first-child h2{margin-top:0}
+article p{margin:0 0 22px}
+.see{margin:56px 0 0;color:var(--muted);font-size:16px}
+.see a{color:var(--ink)}
+footer{max-width:720px;margin:0 auto;padding:30px 24px 60px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+footer p{margin:0 0 10px}
+footer a{color:var(--muted)}
+.flinks{display:flex;flex-wrap:wrap;gap:4px 22px;list-style:none;margin:0;padding:0}
+.flinks a,.flinks button{display:inline-flex;align-items:center;min-height:32px;background:none;border:0;padding:0;font:inherit;color:var(--muted);cursor:pointer;text-decoration:underline}
+.flinks a:hover,.flinks button:hover{color:var(--ink)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.skip{transition:none}}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="top">
-  <a class="logo" href="/" aria-label="JM20"><span class="jm">JM</span><span class="n20">20</span></a>
+<header class="bar">
+  <a class="brand" href="/" aria-label="JM20"><span class="jm">JM</span><span class="num">20</span></a>
   <nav aria-label="Navigation">
-    <a class="pill" href="/politica-de-privacidad" lang="es" hreflang="es">Español</a>
-    <a class="pill" href="/">← Back</a>
+    <a href="/politica-de-privacidad" lang="es" hreflang="es">Español</a>
+    <a id="back-link" href="/">← Site</a>
   </nav>
 </header>
 <main id="main" tabindex="-1">
-  <div class="wrap">
+  <article>
     <p class="eyebrow">LEGAL</p>
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: January 2026 · Governed by Spanish and EU law</p>
-    <article class="doc">
+    <p class="meta">Last updated: January 2026 · Governed by Spanish and EU law</p>
+    <div class="doc">
       <section>
         <h2>1. Who we are</h2>
         <p>JM20 is an AI automation consultancy based in Spain, operating within the European Union. We act as a data processor under GDPR when handling your customer data, and as a data controller for data you provide to us directly (e.g. contact forms, email).</p>
@@ -173,23 +180,31 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:1.5rem 1.25rem}
         <h2>7. Contact</h2>
         <p>For any privacy-related questions, contact: privacy@jm20.eu · JM20 AI Solutions · Spain · EU</p>
       </section>
-    </article>
+    </div>
     <p class="see">See also: <a href="/terms-of-service">Terms of service</a></p>
-  </div>
+  </article>
 </main>
 <footer>
-  <div class="foot">
-    <p>© 2026 JM20 · Spain &amp; EU · GDPR Article 28 · You own the system</p>
-    <nav aria-label="Legal links">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/terms-of-service">Terms of service</a></li>
-        <li><a href="/privacy-policy">Privacy policy</a></li>
-        <li><button type="button" id="cookie-settings">Cookie settings</button></li>
-      </ul>
-    </nav>
-  </div>
+  <p>© 2026 JM20 · <a href="/">jm20aisolutions.com</a></p>
+  <nav aria-label="Legal links">
+    <ul class="flinks">
+      <li><a href="/terms-of-service">Terms of service</a></li>
+      <li><a href="/privacy-policy">Privacy policy</a></li>
+      <li><button type="button" id="cookie-settings">Cookie settings</button></li>
+    </ul>
+  </nav>
 </footer>
 <script>document.getElementById('cookie-settings').addEventListener('click',function(){if(window.jm20OpenConsent)window.jm20OpenConsent();});</script>
+<script>(function(){
+  var NOAH='https://noah.jm20aisolutions.com', KEY='jm20_from_noah', st=window.sessionStorage, LEGAL=/\/(politica-de-privacidad|terminos-de-servicio|privacy-policy|terms-of-service)\/?$/;
+  function get(){try{return st.getItem(KEY)==='1'}catch(e){return false}}
+  function set(v){try{if(v)st.setItem(KEY,'1');else st.removeItem(KEY)}catch(e){}}
+  var ref=document.referrer;
+  if(ref){
+    if(ref.indexOf(NOAH)===0){set(true)}
+    else{try{var u=new URL(ref);if(u.origin!==location.origin||!LEGAL.test(u.pathname))set(false)}catch(e){}}
+  }
+  if(get()){var a=document.getElementById('back-link');if(a){a.href=NOAH+'/';a.textContent=document.documentElement.lang==='es'?'\u2190 Volver a Noah':'\u2190 Back to Noah'}}
+})();</script>
 </body>
 </html>

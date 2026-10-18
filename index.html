@@ -6175,7 +6175,8 @@ const BlogPage = ({
     discSub: es ? "Reserva una llamada gratis y te mostramos exactamente qué se puede automatizar." : "Book a free call and we'll show you exactly what can be automated.",
     discCta: es ? "Reserva una llamada gratis →" : "Book a free call →"
   };
-  const articles = [{
+
+const articles = [{
     tag: T2.tag1,
     date: es ? "Junio 2026" : "June 2026",
     read: "8",
@@ -6191,7 +6192,20 @@ const BlogPage = ({
     body: es ? "La mayoría de los dueños de negocios calculan el coste de la automatización. Muy pocos calculan el coste de no automatizar. Aquí está el análisis real: en tiempo de equipo, en oportunidades perdidas y en errores evitables que se acumulan semana tras semana." : "Most business owners calculate the cost of automation. Very few calculate the cost of not automating. Here's the honest breakdown — in team time, in missed opportunities, and in avoidable errors that compound every single week.",
     href: es ? "/coste-de-no-automatizar" : "/cost-of-not-automating",
     accent: "#34d399"
-  }];
+  }, {
+    tag: T2.tag1,
+    date: es ? "Octubre 2026" : "October 2026",
+    read: "5",
+    title: es
+      ? "A2A: cuando los agentes de IA empiezan a trabajar juntos"
+      : "A2A: When AI Agents Start Working Together",
+    body: es
+      ? "Los agentes de IA ya no tienen que trabajar solos. A2A permite que diferentes agentes se comuniquen y colaboren, abriendo nuevas oportunidades para las empresas y nuevos retos de seguridad y coordinación."
+      : "AI agents no longer have to work alone. A2A allows different agents to communicate and collaborate, creating new opportunities for businesses as well as new challenges in security and coordination.",
+    href: "/a2a_blog",
+    accent: "#a78bfa"
+  }
+];
   const cardBase = {
     background: "#1c1c1e",
     border: "1px solid rgba(255,255,255,0.08)",

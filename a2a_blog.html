@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>¿Y si los agentes de IA trabajaran juntos? | A2A explicado — JM20</title>
+<meta name="description" content="Una introducción sencilla a A2A (Agent-to-Agent): cómo pueden colaborar los agentes de IA, sus ventajas, sus riesgos y la diferencia con MCP."/>
+<meta name="robots" content="index, follow"/>
+<meta name="theme-color" content="#000000"/>
+<link rel="canonical" href="https://jm20aisolutions.com/a2a-agente-a-agente"/>
+<link rel="alternate" hreflang="en" href="https://jm20aisolutions.com/a2a-agent-to-agent"/>
+<link rel="alternate" hreflang="es" href="https://jm20aisolutions.com/a2a-agente-a-agente"/>
+<link rel="alternate" hreflang="x-default" href="https://jm20aisolutions.com/a2a-agent-to-agent"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://jm20aisolutions.com/a2a-agente-a-agente"/>
+<meta property="og:title" content="¿Y si los agentes de IA trabajaran juntos? | A2A explicado"/>
+<meta property="og:description" content="Una introducción sencilla a A2A (Agent-to-Agent): cómo pueden colaborar los agentes de IA, sus ventajas, sus riesgos y la diferencia con MCP."/>
+<meta property="og:image" content="https://jm20aisolutions.com/og-image.png"/>
+<meta property="og:locale" content="es_ES"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="¿Y si los agentes de IA trabajaran juntos? | A2A explicado"/>
+<meta name="twitter:description" content="Una introducción sencilla a A2A (Agent-to-Agent): cómo pueden colaborar los agentes de IA, sus ventajas, sus riesgos y la diferencia con MCP."/>
+<meta name="twitter:image" content="https://jm20aisolutions.com/og-image.png"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"¿Y si los agentes de IA trabajaran juntos? | A2A explicado","description":"Una introducción sencilla a A2A (Agent-to-Agent): cómo pueden colaborar los agentes de IA, sus ventajas, sus riesgos y la diferencia con MCP.","inLanguage":"es","datePublished":"2026-05-01","image":"https://jm20aisolutions.com/og-image.png","mainEntityOfPage":"https://jm20aisolutions.com/a2a-agente-a-agente","author":{"@type":"Organization","name":"JM20","url":"https://jm20aisolutions.com/"},"publisher":{"@type":"Organization","name":"JM20","url":"https://jm20aisolutions.com/"}}
+</script>
+<style>
+:root{--accent:#34d399;--bg:#000;--ink:#f5f5f7;--muted:#9a9aa2;--line:#1d1d1f;--card:#0c0c0d}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"SF Pro Display",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+  line-height:1.72;font-size:19px;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.bar{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;
+  padding:16px 24px;background:rgba(0,0,0,.72);backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid var(--line)}
+.brand{font-weight:800;font-size:22px;letter-spacing:-.02em;text-decoration:none}
+.brand .jm{color:#c76b45}.brand .num{color:#2997ff}
+.bar nav{display:flex;gap:22px;align-items:center;font-size:14px}
+.bar nav a{color:var(--muted);text-decoration:none}
+.bar nav a:hover{color:var(--ink)}
+.bar .cta{color:#fff;background:#2997ff;padding:8px 16px;border-radius:980px;font-weight:600}
+main{max-width:720px;margin:0 auto;padding:64px 24px 40px}
+.eyebrow{color:var(--accent);font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin:0 0 18px}
+h1{font-size:clamp(32px,6vw,52px);line-height:1.08;letter-spacing:-.025em;margin:0 0 20px;font-weight:800}
+.dek{font-size:22px;color:#c7c7cf;line-height:1.5;margin:0 0 24px;font-weight:400}
+.meta{font-size:14px;color:var(--muted);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;margin:0 0 40px}
+article h2{font-size:28px;line-height:1.2;letter-spacing:-.02em;margin:48px 0 14px;font-weight:700}
+article p{margin:0 0 22px}
+article strong{color:#fff;font-weight:700}
+article ol,article ul{margin:0 0 22px;padding-left:0;list-style:none;counter-reset:n}
+article ol li{counter-increment:n;position:relative;padding-left:46px;margin:0 0 20px}
+article ol li::before{content:counter(n);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;
+  background:var(--accent);color:#fff;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center}
+article ul li{position:relative;padding-left:22px;margin:0 0 14px}
+article ul li::before{content:"";position:absolute;left:2px;top:13px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.obj{border-left:3px solid var(--accent);padding:4px 0 4px 20px;margin:0 0 26px}
+.obj .q{color:#fff;font-weight:600;font-style:italic;margin:0 0 8px}
+.comparison{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:24px 0 32px}
+.comparison-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+.comparison-card h3{margin:0 0 8px;font-size:20px;color:var(--accent)}
+.comparison-card p{margin:0;font-size:16px;color:#c7c7cf}
+.endcta{margin:56px 0 0;padding:32px;border:1px solid var(--line);border-radius:18px;background:var(--card)}
+.endcta p{color:var(--muted);font-size:16px;margin:0 0 20px}
+.endcta a{display:inline-block;background:#2997ff;color:#fff;text-decoration:none;font-weight:600;padding:12px 22px;border-radius:980px}
+footer{max-width:720px;margin:0 auto;padding:30px 24px 60px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="https://jm20aisolutions.com/"><span class="jm">JM</span><span class="num">20</span></a>
+  <nav>
+    <a href="https://jm20aisolutions.com/a2a-agent-to-agent">English</a>
+    <a href="https://jm20aisolutions.com/">← Inicio</a>
+    <a class="cta" href="https://jm20aisolutions.com/">Empieza con un Discovery →</a>
+  </nav>
+</header>
+<main>
+  <article>
+    <p class="eyebrow">Inteligencia Artificial · A2A Explicado</p>
+    <h1>¿Y si los agentes de IA trabajaran juntos como un equipo?</h1>
+    <p class="dek">El siguiente paso de la IA quizá no sea tener un asistente que lo haga todo, sino conseguir que varios asistentes colaboran para resolver problemas complejos.</p>
+    <p class="meta">Mayo 2026 · 5 min de lectura</p>
+    
+    <p>Imagina que tienes que organizar un viaje.</p>
+    <p>Una IA busca vuelos. Otra compara hoteles. Una tercera prepara el itinerario y otra calcula el presupuesto.</p>
+    <p>En lugar de hacerlo todo tú, tienes varios asistentes que colaboran para resolver un mismo problema.</p>
+    <p>¿Suena útil?</p>
+    <p>Esta es la idea detrás de <strong>A2A (Agent-to-Agent)</strong>: permitir que diferentes agentes de inteligencia artificial se comuniquen y trabajen juntos. Y esto podría cambiar nuestra forma de trabajar.</p>
+
+    <h2>¿Qué ventajas tiene?</h2>
+    <ol>
+      <li><strong>Menos trabajo repetitivo.</strong> Los agentes de IA pueden repartirse tareas y encargarse de procesos que normalmente requieren horas de trabajo manual.</li>
+      <li><strong>Cada agente tiene una función.</strong> Uno analiza datos, otro busca información y otro revisa los resultados. No hace falta que un único agente lo haga todo.</li>
+      <li><strong>Diferentes sistemas pueden colaborar.</strong> Las empresas podrían conectar agentes creados con tecnologías distintas, siempre que sean compatibles y estén bien integrados.</li>
+      <li><strong>Más tiempo para las personas.</strong> Si automatizamos bien las tareas rutinarias, podemos dedicar más tiempo a pensar, crear, resolver problemas y tomar decisiones.</li>
+    </ol>
+
+    <h2>¿Qué puede salir mal?</h2>
+    <p>Hacer que varios agentes colaboren también plantea nuevos problemas:</p>
+    <ul>
+      <li><strong>Un error puede extenderse.</strong> ¿Y si el primer agente encuentra un precio incorrecto para un vuelo y los demás utilizan ese dato para organizar todo el viaje?</li>
+      <li><strong>Riesgos de privacidad y seguridad.</strong> ¿Y si un agente comparte información privada con otro que no debería tener acceso a ella?</li>
+      <li><strong>Más agentes también pueden significar más costes.</strong> ¿Y si pasan tanto tiempo intercambiando información que el proceso acaba siendo más caro que hacerlo de otra manera?</li>
+      <li><strong>Trabajar juntos no garantiza mejores resultados.</strong> Incluso un equipo de agentes de IA puede equivocarse. A veces, una solución sencilla es suficiente.</li>
+    </ul>
+
+    <h2>A2A y MCP: ¿cuál es la diferencia?</h2>
+    <p>Son tecnologías relacionadas, pero no significan lo mismo:</p>
+    
+    <div class="comparison">
+      <div class="comparison-card">
+        <h3>MCP</h3>
+        <p>Ayuda a una aplicación de IA a conectarse con herramientas, datos y otros recursos.</p>
+      </div>
+      <div class="comparison-card">
+        <h3>A2A</h3>
+        <p>Facilita que los agentes de IA se comuniquen, deleguen tareas y colaboren entre sí.</p>
+      </div>
+    </div>
+
+    <p>Por ejemplo, un agente de atención al cliente podría usar MCP para consultar un pedido y A2A para colaborar con otro agente especializado en devoluciones.</p>
+
+    <h2>Entonces, ¿merece la pena A2A?</h2>
+    <p>Depende del problema.</p>
+    <p>Si un solo agente de IA puede resolver una tarea sencilla de forma fiable, añadir más agentes puede complicar las cosas sin aportar mucho.</p>
+    <p>Pero si el proceso requiere conocimientos diferentes, varios sistemas y distintas tareas que deben coordinarse, trabajar con varios agentes puede ser útil.</p>
+
+    <div class="obj">
+      <p class="q">«La pregunta importante no es cuántos agentes podemos conectar, sino qué problemas reales pueden resolver trabajando juntos.»</p>
+    </div>
+
+    <p>A2A es un protocolo abierto que Google presentó en 2025 para facilitar la comunicación y colaboración entre agentes de IA, incluso cuando utilizan tecnologías diferentes. Su potencial es interesante, pero todavía hay retos relacionados con la seguridad, los costes, la coordinación y la supervisión humana.</p>
+    <p>La tecnología puede hacer mucho, pero necesitamos saber cuándo confiar en ella y cuándo intervenir.</p>
+
+    <div class="obj">
+      <p class="q">Hablemos:</p>
+      <p>Si mañana pudieras tener un equipo de agentes de IA trabajando para ti, ¿qué tareas les delegarías primero? ¿Y qué cosas nunca dejarías en sus manos?</p>
+    </div>
+
+    <p style="color: var(--accent); font-size: 15px; font-weight: 600;">#InteligenciaArtificial &nbsp; #A2A &nbsp; #IA &nbsp; #Automatización</p>
+
+    <p style="font-size: 14px; color: var(--muted); margin-top: 30px;">
+      <strong>Para saber más:</strong><br/>
+      • <a href="https://developers.googleblog.com/google-cloud-donates-a2a-to-linux-foundation/" target="_blank" rel="noopener noreferrer">Google: A2A y la Linux Foundation</a><br/>
+      • <a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener noreferrer">Model Context Protocol (MCP)</a>
+    </p>
+
+    <div class="endcta">
+      <p>JM20 es una consultoría de automatización agéntica con IA con sede en la UE. Construimos agentes de IA para empresas europeas, empezando por un Discovery que mapea tu proceso, descubre las oportunidades de automatización y entrega una hoja de ruta a medida en 48 horas. Se descuenta íntegramente de cualquier paquete que contrates.</p>
+      <a href="https://jm20aisolutions.com/">Empieza con un Discovery →</a>
+    </div>
+  </article>
+</main>
+<footer>© 2026 JM20 · <a href="https://jm20aisolutions.com/">jm20aisolutions.com</a></footer>
+</body>
+</html>

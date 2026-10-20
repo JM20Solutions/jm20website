@@ -29,9 +29,9 @@ All packages build on each other: Murph is the foundation and each tier adds the
 
 **How long does implementation take?** Typically 2 to 4 weeks for a full setup including the support agent, secure architecture and dashboard. Simpler setups can be live in under a week.
 
-**What happens when the AI cannot answer?** Murph escalates to a human with the full conversation context, opens an escalation page, triggers a Slack alert and emails the customer an acknowledgment. A resolution email goes out when the issue is resolved.
+**What if Murph can't answer?** Murph escalates to a human with the full conversation context, opens an escalation page, triggers a Slack alert and emails the customer an acknowledgment. A resolution email goes out when the issue is resolved.
 
-**What happens after go-live?** An optional managed retainer covers monitoring of n8n workflows, Supabase Edge Functions, LLM costs and security checks. The customer owns the system.
+**Are we on our own after go-live?** An optional managed retainer covers monitoring of n8n workflows, Supabase Edge Functions, LLM costs and security checks. The customer owns the system.
 
 ## Contact
 

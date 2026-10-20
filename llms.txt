@@ -1,0 +1,49 @@
+# JM20 AI Solutions
+
+> JM20 builds AI agents that take the repetitive load off customer support, business intelligence and back-office work, while your team stays in control of the decisions that matter. Secure, GDPR-compliant AI support automation for EU businesses on Web, Telegram and WhatsApp. Your data stays in Europe.
+
+Website: https://jm20aisolutions.com/ (available in English and Spanish).
+Compliance positioning stated on the site: EU-based, GDPR Art. 28, EU AI Act aware, EAA compliant, voice accessible.
+
+## Products
+
+- **Murph, AI support agent.** Not a FAQ bot: it reads your live database (orders, billing, inventory, cancellations, technical issues) and holds a real conversation until the problem is resolved. Remembers context across the full conversation. Works on Web, WhatsApp and Telegram. When it cannot help, it routes to a human with full conversation context, triggers a Slack alert, opens a dedicated escalation page and sends acknowledgment and resolution emails.
+- **Mowaat, intelligent dashboard.** Live view of what Murph resolved, what escalated, what it cost and what it saved. Includes real-time LLM cost tracking, live metrics on tickets, escalations and AI-vs-human resolution rates, and a unified view across WhatsApp, Telegram and Web.
+- **Iggy, dashboard AI chat.** Lives inside the Mowaat dashboard. Ask about any chart or metric and get a reasoned answer from the same live database. Type or speak the question.
+- **Sheetah, data copilot.** Connects directly to your database and reasons over it in real time, in plain English, with no SQL. Works with MySQL, PostgreSQL, MongoDB, Airtable and more, with no migration. Owner and analyst access is secured behind login.
+
+## Pricing (prices exclude VAT)
+
+All packages build on each other: Murph is the foundation and each tier adds the next layer. A managed monthly retainer is available on every package but is always optional.
+
+- Discovery: €250, one-time, deducted from any package. We map your process, find the opportunities and hand you a plan in 48 hours.
+- Starter: €1,500. Includes Murph.
+- Pro: €2,000. Includes Murph and Mowaat.
+- Business: €2,500. Includes Murph, Mowaat and Iggy.
+- Enterprise: €3,000. Includes Murph, Mowaat, Iggy and Sheetah.
+- Custom: scoped per project, built and deployed on your infrastructure.
+
+## Frequently asked questions
+
+**Do I need to migrate my database?** No. JM20 connects to your existing systems (MySQL, MongoDB, Airtable, Stripe and more) through secure wrappers, and your data stays where it is.
+
+**How long does implementation take?** Typically 2 to 4 weeks for a full setup including the support agent, secure architecture and dashboard. Simpler setups can be live in under a week.
+
+**What happens when the AI cannot answer?** Murph escalates to a human with the full conversation context, opens an escalation page, triggers a Slack alert and emails the customer an acknowledgment. A resolution email goes out when the issue is resolved.
+
+**What happens after go-live?** An optional managed retainer covers monitoring of n8n workflows, Supabase Edge Functions, LLM costs and security checks. The customer owns the system.
+
+## Contact
+
+- Email: hello@jm20.ai
+- Site: https://jm20aisolutions.com/
+
+## Related pages
+
+- EU AI Act (English): https://jm20aisolutions.com/eu-ai-act
+- Ley de IA de la UE (Spanish): https://jm20aisolutions.com/ley-de-ia-ue
+- The cost of not automating (English): https://jm20aisolutions.com/cost-of-not-automating
+- El coste de no automatizar (Spanish): https://jm20aisolutions.com/coste-de-no-automatizar
+- Privacy policy: https://jm20aisolutions.com/privacy-policy (ES: https://jm20aisolutions.com/politica-de-privacidad)
+- Terms of service: https://jm20aisolutions.com/terms-of-service (ES: https://jm20aisolutions.com/terminos-de-servicio)
+- Noah, AI receptionist for barbershops and salons: https://noah.jm20aisolutions.com/

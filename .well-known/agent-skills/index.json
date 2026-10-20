@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "jm20-product-info",
+      "type": "skill-md",
+      "description": "Explain JM20 AI Solutions and its AI agents (Murph, Mowaat, Iggy, Sheetah) for EU businesses, and help visitors find pricing, FAQs, compliance pages and how to get in touch.",
+      "url": "https://jm20aisolutions.com/.well-known/agent-skills/jm20-product-info/SKILL.md",
+      "digest": "sha256:36fc87eeb044b95b61b4c7576376be80f5b8d5d4c00aa84ff9b523c0724dab18"
+    }
+  ]
+}

@@ -129,10 +129,13 @@
 
   <!-- getdesign: apple DARK — design tokens applied below -->
   <style>
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    @font-face{font-family:"Inter";font-style:normal;font-weight:300;font-display:swap;src:url(/fonts/inter-300.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Inter";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/inter-400.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Inter";font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/inter-600.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
     /* Apple Dark: surface-black canvas */
-    body{background:#2a2a2c;font-family:SF Pro Display,system-ui,-apple-system,BlinkMacSystemFont,sans-serif;color:#ffffff}
+    body{background:#2a2a2c;font-family:Inter,SF Pro Display,system-ui,-apple-system,BlinkMacSystemFont,sans-serif;color:#ffffff}
     #root{min-height:100vh}
     .skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:#2997ff;color:#fff;padding:.75rem 1.25rem;border-radius:0 0 12px 0;font:500 16px system-ui,sans-serif;text-decoration:none}
     .skip-link:focus{left:0}
@@ -140,6 +143,8 @@
     input:focus-visible,textarea:focus-visible{outline:2px solid #2997ff!important;outline-offset:2px}
     @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
   </style>
+<link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-600.woff2" as="font" type="font/woff2" crossorigin>
 </head>
 <body>
   <div id="root"><div style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:system-ui;color:#7a7a7a;font-size:0.9rem;">Loading JM20…</div></div>
@@ -276,7 +281,7 @@ const TR = {
     stackAddsTo: "adds to Murph",
     agentTag: "Murph — AI Support Agent",
     agentHeadline: "Murph stays with the problem until it's solved",
-    agentSub: "",
+    agentSub: "Murph isn't a FAQ bot. It reads your live database — orders, billing, inventory, cancellations, technical issues — and holds a real conversation until the problem is resolved. Type your message or just say it out loud — Murph transcribes and responds instantly. It remembers context across the full conversation. When it genuinely can't help, it doesn't drop the customer: it routes to a human with full conversation context, triggers a Slack alert, opens a dedicated escalation page, and fires acknowledgment and resolution emails automatically. The whole loop, closed.",
     agentB1: "Carries full conversations with memory — context, follow-ups, and reasoning, not one-shot answers",
     agentB2: "Queries live data across orders, billing, inventory, cancellations and technical issues in one session",
     agentB3: "Works on Web, WhatsApp & Telegram — wherever your customers already are",
@@ -626,9 +631,9 @@ const TR = {
     stackAddsTo: "se suma a Murph",
     agentTag: "Murph — Agente de Soporte IA",
     agentHeadline: "Murph se queda con el problema hasta resolverlo",
-    agentSub: "",
-    agentB1: "Murph no es un bot de preguntas frecuentes. Lee tu base de datos en vivo — pedidos, facturación, inventario, cancelaciones, incidencias técnicas",
-    agentB2: "Mantiene una conversación real hasta que el problema se resuelve",
+    agentSub: "Murph no es un bot de preguntas frecuentes. Lee tu base de datos en vivo — pedidos, facturación, inventario, cancelaciones, incidencias técnicas — y mantiene una conversación real hasta que el problema se resuelve. Escribe tu mensaje o simplemente dilo en voz alta — Murph transcribe y responde al instante. Recuerda el contexto de toda la conversación. Cuando genuinamente no puede ayudar, no abandona al cliente: lo deriva a un humano con todo el contexto, activa una alerta en Slack, abre una página de escalación dedicada y envía emails de acuse de recibo y resolución automáticamente. Todo el ciclo, cerrado.",
+    agentB1: "Mantiene conversaciones completas con memoria — contexto, seguimiento y razonamiento, no respuestas únicas",
+    agentB2: "Consulta datos en vivo: pedidos, facturación, inventario, cancelaciones e incidencias técnicas en una sesión",
     agentB3: "Funciona en Web, WhatsApp y Telegram — donde ya están tus clientes",
     agentB4: "Nunca atrapa al cliente en un bot — Murph ofrece ayuda primero y traspasa a un humano en cuanto lo pide de verdad, con todo el contexto, alerta Slack, formulario y emails de acuse y resolución",
     agentB5: "Totalmente operable por voz — usuarios con discapacidad visual o motora pueden interactuar sin manos en Web, WhatsApp y Telegram",
@@ -914,7 +919,7 @@ const TR = {
 const css = `
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:hidden}
-body{background:#2a2a2c;font-family:SF Pro Display,system-ui,-apple-system,BlinkMacSystemFont,sans-serif;color:#ffffff;overflow-x:hidden}
+body{background:#2a2a2c;font-family:Inter,SF Pro Display,system-ui,-apple-system,BlinkMacSystemFont,sans-serif;color:#ffffff;overflow-x:hidden}
 #root{overflow-x:hidden;max-width:100vw}
 ::selection{background:rgba(41,151,255,0.3);color:#ffffff}
 html{scrollbar-color:rgba(255,255,255,0.35) #1d1d1f}
@@ -951,7 +956,7 @@ html{scrollbar-color:rgba(255,255,255,0.35) #1d1d1f}
   cursor:pointer;
   border:none;
   transition:opacity .18s, transform .18s;
-  font-family:SF Pro Text,system-ui,-apple-system,sans-serif;
+  font-family:Inter,SF Pro Text,system-ui,-apple-system,sans-serif;
   display:inline-block;
   text-align:center;
 }
@@ -970,7 +975,7 @@ html{scrollbar-color:rgba(255,255,255,0.35) #1d1d1f}
   letter-spacing:-0.374px;
   cursor:pointer;
   transition:opacity .18s, transform .18s;
-  font-family:SF Pro Text,system-ui,-apple-system,sans-serif;
+  font-family:Inter,SF Pro Text,system-ui,-apple-system,sans-serif;
   display:inline-block;
   text-align:center;
 }
@@ -987,14 +992,14 @@ html{scrollbar-color:rgba(255,255,255,0.35) #1d1d1f}
 .card:hover{box-shadow:0 8px 32px rgba(0,0,0,0.6);transform:translateY(-2px)}
 
 a{text-decoration:none}
-input,button,select,textarea{font-family:SF Pro Text,system-ui,-apple-system,sans-serif}
+input,button,select,textarea{font-family:Inter,SF Pro Text,system-ui,-apple-system,sans-serif}
 /* Nav responsive */
 .nav-links-center{display:flex;gap:0.125rem;align-items:center;position:absolute;left:50%;transform:translateX(-50%)}
 .nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
 .nav-hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,0.8);border-radius:2px;transition:all .2s}
 .nav-mobile-menu{display:none;position:fixed;inset:0;top:52px;background:#2a2a2c;z-index:999;padding:1.5rem 1.5rem;flex-direction:column;gap:0.5rem;overflow-y:auto}
 .nav-mobile-menu.open{display:flex}
-.nav-mobile-link{color:rgba(255,255,255,0.72);font-size:16px;font-weight:400;padding:0.75rem 0;border:none;background:transparent;cursor:pointer;text-align:left;font-family:SF Pro Text,system-ui,-apple-system,sans-serif;border-bottom:1px solid rgba(255,255,255,0.07);width:100%}
+.nav-mobile-link{color:rgba(255,255,255,0.72);font-size:16px;font-weight:400;padding:0.75rem 0;border:none;background:transparent;cursor:pointer;text-align:left;font-family:Inter,SF Pro Text,system-ui,-apple-system,sans-serif;border-bottom:1px solid rgba(255,255,255,0.07);width:100%}
 @media(max-width:768px){
   .nav-links-center{display:none}
   .nav-hamburger{display:flex}
@@ -1044,6 +1049,7 @@ input,button,select,textarea{font-family:SF Pro Text,system-ui,-apple-system,san
   .pricing-grid{
     display:flex !important;
     flex-direction:column !important;
+    gap:1.25rem !important;
   }
 
   /* Footer — 4 cols → 2 cols */
@@ -1200,17 +1206,9 @@ input,button,select,textarea{font-family:SF Pro Text,system-ui,-apple-system,san
   }
 
 
-  /* Pricing card — rounded corners when stacked */
+  /* Pricing card — each card is its own rounded box when stacked */
   .pricing-grid > div{
-    border-radius:0 !important;
-    border-bottom:1px solid rgba(255,255,255,0.07) !important;
-  }
-  .pricing-grid > div:first-child{
-    border-radius:18px 18px 0 0 !important;
-  }
-  .pricing-grid > div:last-child{
-    border-radius:0 0 18px 18px !important;
-    border-bottom:none !important;
+    border-radius:18px !important;
   }
 }
 `;
@@ -1531,7 +1529,7 @@ const Nav = ({
     padding: "0.45rem 0.875rem",
     borderRadius: "6px",
     transition: "all .15s",
-    fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif",
+    fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif",
     cursor: "pointer",
     border: "none",
     background: "transparent"
@@ -1569,7 +1567,7 @@ const Nav = ({
       fontWeight: 600,
       fontSize: "1.6rem",
       letterSpacing: "-0.025em",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
@@ -1661,14 +1659,14 @@ const Nav = ({
       fontSize: "14px",
       fontWeight: 500,
       color: "#ffffff",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif",
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif",
       marginBottom: 2
     }
   }, p.name), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: "12px",
       color: "rgba(255,255,255,0.64)",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, p.sub)))))), [{
     label: t.navPricing,
@@ -1739,7 +1737,7 @@ const Nav = ({
       fontWeight: 600,
       cursor: "pointer",
       transition: "all .15s",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif",
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif",
       letterSpacing: "0.04em"
     }
   }, l.toUpperCase()))), /*#__PURE__*/React.createElement("button", {
@@ -1868,7 +1866,7 @@ const TrustBar = ({
       fontWeight: 400,
       color: "rgba(255,255,255,0.7)",
       letterSpacing: "-0.12px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, item.text))));
 };
@@ -1892,45 +1890,6 @@ const Hero = ({
       textAlign: "center"
     }
   }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: "absolute",
-      top: "20%",
-      left: "50%",
-      transform: "translateX(-50%)",
-      width: 800,
-      height: 500,
-      borderRadius: "50%",
-      background: "radial-gradient(circle,rgba(41,151,255,0.30) 0%,transparent 65%)",
-      pointerEvents: "none",
-      animation: "heroGlow 7s ease-in-out infinite"
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: "absolute",
-      top: "55%",
-      left: "28%",
-      width: 560,
-      height: 380,
-      borderRadius: "50%",
-      background: "radial-gradient(circle,rgba(167,139,250,0.18) 0%,transparent 65%)",
-      pointerEvents: "none",
-      animation: "heroGlow2 9s ease-in-out infinite",
-      animationDelay: "-5s"
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: "absolute",
-      top: "40%",
-      right: "18%",
-      width: 400,
-      height: 300,
-      borderRadius: "50%",
-      background: "radial-gradient(circle,rgba(41,151,255,0.14) 0%,transparent 65%)",
-      pointerEvents: "none",
-      animation: "heroGlow2 11s ease-in-out infinite",
-      animationDelay: "-2s"
-    }
-  }), /*#__PURE__*/React.createElement("div", {
     style: {
       maxWidth: 760,
       width: "100%",
@@ -1968,7 +1927,7 @@ const Hero = ({
       color: "#2997ff",
       fontWeight: 400,
       letterSpacing: "0.02em",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif",
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif",
       textAlign: "center",
       lineHeight: 1.4
     }
@@ -1980,7 +1939,7 @@ const Hero = ({
       color: "#ffffff",
       letterSpacing: "-0.02em",
       marginBottom: "1.25rem",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, t.heroH1a), /*#__PURE__*/React.createElement("p", {
     style: {
@@ -1991,7 +1950,7 @@ const Hero = ({
       letterSpacing: "-0.01em",
       maxWidth: 520,
       margin: "0 auto 2.5rem",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, t.heroLead), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -2052,7 +2011,7 @@ const Hero = ({
       fontWeight: 600,
       color: "#2997ff",
       letterSpacing: "-0.374px",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, s.value), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -2061,7 +2020,7 @@ const Hero = ({
       fontWeight: 400,
       marginTop: "0.3rem",
       letterSpacing: "-0.12px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, s.label))))));
 };
@@ -2105,7 +2064,7 @@ const ValueProps = ({
       fontWeight: 600,
       letterSpacing: "3px",
       textTransform: "uppercase",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.vpEyebrow), /*#__PURE__*/React.createElement("h2", {
     style: {
@@ -2114,7 +2073,7 @@ const ValueProps = ({
       color: "#ffffff",
       marginTop: "0.5rem",
       letterSpacing: "-0.374px",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, t.vpH2)), /*#__PURE__*/React.createElement("div", {
     className: "steps-grid",
@@ -2175,7 +2134,7 @@ const ValueProps = ({
       color: "#ffffff",
       letterSpacing: "-0.01em",
       lineHeight: 1.2,
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif",
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif",
       textShadow: "0 1px 10px rgba(0,0,0,0.6)"
     }
   }, t[v.tk + "Title"]), /*#__PURE__*/React.createElement("div", {
@@ -2184,7 +2143,7 @@ const ValueProps = ({
       color: "rgba(255,255,255,0.82)",
       lineHeight: 1.55,
       letterSpacing: "-0.224px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif",
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif",
       textShadow: "0 1px 6px rgba(0,0,0,0.5)"
     }
   }, t[v.tk + "Body"]))))));
@@ -2241,7 +2200,7 @@ const Security = ({
       color: "#2997ff",
       fontWeight: 600,
       letterSpacing: "-0.224px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.secEyebrow), /*#__PURE__*/React.createElement("h2", {
     style: {
@@ -2252,7 +2211,7 @@ const Security = ({
       marginBottom: "1rem",
       letterSpacing: "-0.374px",
       lineHeight: 1.47,
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.secH2a, /*#__PURE__*/React.createElement("br", null), t.secH2b), /*#__PURE__*/React.createElement("p", {
     style: {
@@ -2261,7 +2220,7 @@ const Security = ({
       lineHeight: 1.47,
       letterSpacing: "-0.374px",
       marginBottom: "1.5rem",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.secP1), /*#__PURE__*/React.createElement("p", {
     style: {
@@ -2270,7 +2229,7 @@ const Security = ({
       lineHeight: 1.47,
       letterSpacing: "-0.374px",
       marginBottom: "2rem",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.secP2), /*#__PURE__*/React.createElement("button", {
     className: "btn-primary",
@@ -2321,7 +2280,7 @@ const Security = ({
       color: "#ffffff",
       marginBottom: "0.3rem",
       letterSpacing: "-0.374px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, s.label), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -2329,7 +2288,7 @@ const Security = ({
       color: "#a0a0a0",
       lineHeight: 1.43,
       letterSpacing: "-0.224px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, s.desc)))))));
 };
@@ -2431,7 +2390,7 @@ const IGGY_EXAMPLES = {
 const SHOT_IDS = ["iggy", "copilot"];
 const CHAT_TYPE_MS = 26, CHAT_PAUSE_MS = 380, CHAT_THINK_MS = 1100, CHAT_HOLD_MS = 4300;
 const ChatDemo = ({ title, accent, ink, scenarios, chips, btn, empty, thinking, renderAnswer }) => {
-  const f = "SF Pro Text,system-ui,-apple-system,sans-serif";
+  const f = "Inter,SF Pro Text,system-ui,-apple-system,sans-serif";
   const [idx, setIdx] = React.useState(0);
   const [typed, setTyped] = React.useState(0);
   const [phase, setPhase] = React.useState("typing");
@@ -2737,7 +2696,7 @@ const ProductsPage = ({
       fontWeight: 600,
       fontSize: "1.6rem",
       letterSpacing: "-0.025em",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
@@ -2764,7 +2723,7 @@ const ProductsPage = ({
       color: "rgba(255,255,255,0.6)",
       fontSize: "13px",
       cursor: "pointer",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.productsBack), /*#__PURE__*/React.createElement("button", {
     onClick: onContact,
@@ -2777,7 +2736,7 @@ const ProductsPage = ({
       fontWeight: 400,
       cursor: "pointer",
       border: "none",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif",
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif",
       letterSpacing: "-0.12px"
     }
   }, t.productsCta))), /*#__PURE__*/React.createElement("div", {
@@ -2792,7 +2751,7 @@ const ProductsPage = ({
       color: "#2997ff",
       fontWeight: 600,
       letterSpacing: "-0.224px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.productsEyebrow), /*#__PURE__*/React.createElement("h1", {
     style: {
@@ -2802,7 +2761,7 @@ const ProductsPage = ({
       marginTop: "0.5rem",
       letterSpacing: "-0.02em",
       whiteSpace: "pre-line",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, t.productsH1), /*#__PURE__*/React.createElement("p", {
     style: {
@@ -2811,7 +2770,7 @@ const ProductsPage = ({
       maxWidth: 720,
       margin: "0.75rem auto 0",
       lineHeight: 1.55,
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.productsSub), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -2854,7 +2813,7 @@ const ProductsPage = ({
       fontSize: "15px",
       color: "#ffffff",
       fontWeight: 600,
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, p.tag))))), PRODUCTS.map(p => /*#__PURE__*/React.createElement("section", {
     key: p.id,
@@ -2902,7 +2861,7 @@ const ProductsPage = ({
       color: "#ffffff",
       fontWeight: 600,
       letterSpacing: "-0.01em",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, p.tag)), /*#__PURE__*/React.createElement("h2", {
     style: {
@@ -2912,7 +2871,7 @@ const ProductsPage = ({
       letterSpacing: "-0.02em",
       lineHeight: 1.1,
       marginBottom: "1rem",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, p.headline), /*#__PURE__*/React.createElement("p", {
     style: {
@@ -2920,7 +2879,7 @@ const ProductsPage = ({
       fontSize: "clamp(14px,3.5vw,17px)",
       lineHeight: 1.55,
       marginBottom: "2rem",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, p.sub), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -2957,7 +2916,7 @@ const ProductsPage = ({
       fontSize: "clamp(13px,3.5vw,17px)",
       color: "rgba(255,255,255,0.8)",
       lineHeight: 1.55,
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, b)))), /*#__PURE__*/React.createElement("button", {
     onClick: onContact,
@@ -2971,7 +2930,7 @@ const ProductsPage = ({
       letterSpacing: "-0.374px",
       cursor: "pointer",
       border: "none",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.productsCta)), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -2996,7 +2955,7 @@ const ProductsPage = ({
       color: "#ffffff",
       letterSpacing: "-0.28px",
       marginBottom: "1rem",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, t.productsNeedCustom), /*#__PURE__*/React.createElement("p", {
     style: {
@@ -3006,7 +2965,7 @@ const ProductsPage = ({
       margin: "0 auto 2rem",
       lineHeight: 1.47,
       letterSpacing: "-0.374px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.productsNeedCustomSub), /*#__PURE__*/React.createElement("button", {
     onClick: onContact,
@@ -3020,7 +2979,7 @@ const ProductsPage = ({
       letterSpacing: "-0.374px",
       cursor: "pointer",
       border: "none",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.productsCustomCta)));
 };
@@ -3076,8 +3035,8 @@ const ProductTeasers = ({
 }) => {
   const t = TR[lang];
   const PRODUCTS = getProducts(lang);
-  const font = "SF Pro Text,system-ui,-apple-system,sans-serif";
-  const fontDisplay = "SF Pro Display,system-ui,-apple-system,sans-serif";
+  const font = "Inter,SF Pro Text,system-ui,-apple-system,sans-serif";
+  const fontDisplay = "Inter,SF Pro Display,system-ui,-apple-system,sans-serif";
   const oneLiners = PRODUCT_DESCS[lang] || PRODUCT_DESCS.en;
   const [hov, setHov] = useState(null);
 
@@ -3251,7 +3210,7 @@ const ProductTeasers = ({
       React.createElement("div", {
         style: {
           textAlign: "center",
-          marginBottom: "3rem"
+          marginBottom: "4rem"
         }
       },
 
@@ -3267,11 +3226,13 @@ const ProductTeasers = ({
 
         React.createElement("h2", {
           style: {
-            fontSize: "clamp(2rem,4vw,2.75rem)",
+            fontSize: "clamp(1.75rem,3.4vw,2.4rem)",
             fontWeight: 600,
             color: "#ffffff",
-            marginTop: "0.75rem",
-            letterSpacing: "-0.028em",
+            maxWidth: 1000,
+            margin: "1.1rem auto 0",
+            lineHeight: 1.2,
+            letterSpacing: "-0.025em",
             whiteSpace: "pre-line",
             fontFamily: fontDisplay
           }
@@ -3281,9 +3242,9 @@ const ProductTeasers = ({
           style: {
             color: "rgba(255,255,255,0.64)",
             fontSize: "17px",
-            maxWidth: 680,
-            margin: "0.75rem auto 0",
-            lineHeight: 1.55,
+            maxWidth: 600,
+            margin: "1.5rem auto 0",
+            lineHeight: 1.65,
             fontFamily: font
           }
         }, t.teasersSub)
@@ -3406,7 +3367,7 @@ const IndustriesSection = ({
       color: "#2997ff",
       fontWeight: 600,
       letterSpacing: "-0.224px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.indEyebrow), /*#__PURE__*/React.createElement("h2", {
     style: {
@@ -3415,7 +3376,7 @@ const IndustriesSection = ({
       color: "#ffffff",
       marginTop: "0.5rem",
       letterSpacing: "-0.28px",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, t.indH2), /*#__PURE__*/React.createElement("p", {
     style: {
@@ -3425,7 +3386,7 @@ const IndustriesSection = ({
       margin: "0.75rem auto 0",
       lineHeight: 1.47,
       letterSpacing: "-0.374px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.indSub)), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -3448,7 +3409,7 @@ const IndustriesSection = ({
       fontSize: "18px",
       color: "#ffffff",
       letterSpacing: "-0.28px",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, ind.name), /*#__PURE__*/React.createElement("p", {
     style: {
@@ -3456,7 +3417,7 @@ const IndustriesSection = ({
       fontSize: "14px",
       lineHeight: 1.55,
       letterSpacing: "-0.224px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, ind.desc), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -3486,7 +3447,7 @@ const IndustriesSection = ({
     style: {
       fontSize: "13px",
       color: "rgba(255,255,255,0.6)",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, item))))))), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -3499,7 +3460,7 @@ const IndustriesSection = ({
       fontSize: "17px",
       marginBottom: "1.5rem",
       letterSpacing: "-0.374px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.indNoIndustry), /*#__PURE__*/React.createElement("button", {
     className: "btn-ghost",
@@ -3533,7 +3494,7 @@ const ConsultancySection = ({
       color: "#2997ff",
       fontWeight: 600,
       letterSpacing: "-0.224px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.consultEyebrow), /*#__PURE__*/React.createElement("h2", {
     style: {
@@ -3544,7 +3505,7 @@ const ConsultancySection = ({
       marginBottom: "1.25rem",
       letterSpacing: "-0.28px",
       lineHeight: 1.07,
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, t.consultH2a, /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {
     style: {
@@ -3557,7 +3518,7 @@ const ConsultancySection = ({
       lineHeight: 1.47,
       letterSpacing: "-0.374px",
       marginBottom: "2rem",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.consultBody), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -3597,7 +3558,7 @@ const ConsultancySection = ({
       color: "rgba(255,255,255,0.8)",
       lineHeight: 1.47,
       letterSpacing: "-0.374px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, b)))), /*#__PURE__*/React.createElement("button", {
     className: "btn-primary",
@@ -3657,13 +3618,13 @@ const ConsultancySection = ({
       fontSize: "15px",
       color: "#ffffff",
       marginBottom: 3,
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, step.label), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: "13px",
       color: "#a0a0a0",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, step.desc)), /*#__PURE__*/React.createElement("span", {
     style: {
@@ -3675,7 +3636,7 @@ const ConsultancySection = ({
       fontSize: "12px",
       whiteSpace: "nowrap",
       flexShrink: 0,
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, step.tag))))));
 };
@@ -3706,7 +3667,7 @@ const AgencyPartners = ({
       color: "#2997ff",
       fontWeight: 600,
       letterSpacing: "-0.224px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.agencyEyebrow), /*#__PURE__*/React.createElement("h2", {
     style: {
@@ -3717,7 +3678,7 @@ const AgencyPartners = ({
       marginBottom: "1.25rem",
       letterSpacing: "-0.28px",
       lineHeight: 1.07,
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, t.agencyH2a, /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {
     style: {
@@ -3730,7 +3691,7 @@ const AgencyPartners = ({
       lineHeight: 1.47,
       letterSpacing: "-0.374px",
       marginBottom: "2rem",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.agencyBody), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -3770,7 +3731,7 @@ const AgencyPartners = ({
       color: "rgba(255,255,255,0.8)",
       lineHeight: 1.47,
       letterSpacing: "-0.374px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, b)))), /*#__PURE__*/React.createElement("button", {
     className: "btn-primary",
@@ -3826,13 +3787,13 @@ const AgencyPartners = ({
       fontSize: "15px",
       color: "#ffffff",
       marginBottom: 3,
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, step.label), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: "13px",
       color: "#a0a0a0",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, step.desc)), /*#__PURE__*/React.createElement("span", {
     style: {
@@ -3844,7 +3805,7 @@ const AgencyPartners = ({
       fontSize: "12px",
       whiteSpace: "nowrap",
       flexShrink: 0,
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, step.tag))))));
 };
@@ -3910,7 +3871,7 @@ const NoMigration = ({
       color: "#2997ff",
       fontWeight: 600,
       letterSpacing: "-0.224px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.nmEyebrow), /*#__PURE__*/React.createElement("h2", {
     style: {
@@ -3921,7 +3882,7 @@ const NoMigration = ({
       marginBottom: "1rem",
       letterSpacing: "-0.02em",
       lineHeight: 1.2,
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.nmH2), /*#__PURE__*/React.createElement("p", {
     style: {
@@ -3930,7 +3891,7 @@ const NoMigration = ({
       lineHeight: 1.55,
       letterSpacing: "-0.01em",
       marginBottom: "1rem",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.nmP1), /*#__PURE__*/React.createElement("p", {
     style: {
@@ -3939,7 +3900,7 @@ const NoMigration = ({
       lineHeight: 1.55,
       letterSpacing: "-0.01em",
       marginBottom: "2rem",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.nmP2), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -3957,7 +3918,7 @@ const NoMigration = ({
       color: "#2997ff",
       marginBottom: "0.5rem",
       letterSpacing: "-0.12px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.nmCodeLabel), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -4013,7 +3974,7 @@ const NoMigration = ({
       fontSize: "12px",
       color: "#a0a0a0",
       marginTop: "0.625rem",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.nmCodeNote)), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -4049,7 +4010,7 @@ const NoMigration = ({
       fontSize: "clamp(13px,3.5vw,17px)",
       color: "rgba(255,255,255,0.8)",
       letterSpacing: "-0.01em",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, item))))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -4060,7 +4021,7 @@ const NoMigration = ({
       marginBottom: "3rem",
       textAlign: "center",
       textTransform: "uppercase",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.nmConnects), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -4100,7 +4061,7 @@ const NoMigration = ({
     style: {
       fontSize: "11px",
       color: "rgba(255,255,255,0.55)",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif",
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif",
       letterSpacing: "0.04em",
       opacity: hovered === i ? 1 : 0,
       transition: "opacity .2s",
@@ -4465,7 +4426,7 @@ const _MSlide1 = () => /*#__PURE__*/React.createElement("div", null, /*#__PURE__
     color: "rgba(255,255,255,0.35)",
     letterSpacing: "0.04em",
     marginBottom: "0.625rem",
-    fontFamily: "SF Pro Text,system-ui,sans-serif"
+    fontFamily: "Inter,SF Pro Text,system-ui,sans-serif"
   }
 }, "INTERACTION BREAKDOWN \xB7 847 TOTAL"), /*#__PURE__*/React.createElement("div", {
   style: {
@@ -4488,14 +4449,14 @@ const _MSlide1 = () => /*#__PURE__*/React.createElement("div", null, /*#__PURE__
     fontWeight: 700,
     color: c.color,
     letterSpacing: "-0.04em",
-    fontFamily: "SF Pro Display,system-ui,sans-serif"
+    fontFamily: "Inter,SF Pro Display,system-ui,sans-serif"
   }
 }, c.count), /*#__PURE__*/React.createElement("div", {
   style: {
     fontSize: "9px",
     color: "rgba(255,255,255,0.4)",
     marginTop: 2,
-    fontFamily: "SF Pro Text,system-ui,sans-serif"
+    fontFamily: "Inter,SF Pro Text,system-ui,sans-serif"
   }
 }, c.name), /*#__PURE__*/React.createElement("div", {
   style: {
@@ -4512,7 +4473,7 @@ const _MSlide2 = () => /*#__PURE__*/React.createElement("div", null, /*#__PURE__
     color: "rgba(255,255,255,0.35)",
     letterSpacing: "0.04em",
     marginBottom: "0.625rem",
-    fontFamily: "SF Pro Text,system-ui,sans-serif"
+    fontFamily: "Inter,SF Pro Text,system-ui,sans-serif"
   }
 }, "WHERE EVERY QUERY GOES"), /*#__PURE__*/React.createElement("div", {
   style: {
@@ -4573,7 +4534,7 @@ const _MSlide2 = () => /*#__PURE__*/React.createElement("div", null, /*#__PURE__
     fontSize: "11px",
     color: "rgba(255,255,255,0.65)",
     flex: 1,
-    fontFamily: "SF Pro Text,system-ui,sans-serif"
+    fontFamily: "Inter,SF Pro Text,system-ui,sans-serif"
   }
 }, c.name), /*#__PURE__*/React.createElement("span", {
   style: {
@@ -4588,7 +4549,7 @@ const _MSlide3 = () => /*#__PURE__*/React.createElement("div", null, /*#__PURE__
     color: "rgba(255,255,255,0.35)",
     letterSpacing: "0.04em",
     marginBottom: "0.5rem",
-    fontFamily: "SF Pro Text,system-ui,sans-serif"
+    fontFamily: "Inter,SF Pro Text,system-ui,sans-serif"
   }
 }, "AI RESOLVED vs REAL ESCALATIONS"), /*#__PURE__*/React.createElement("div", {
   style: {
@@ -4620,7 +4581,7 @@ const _MSlide3 = () => /*#__PURE__*/React.createElement("div", null, /*#__PURE__
   style: {
     fontSize: "10px",
     color: "rgba(255,255,255,0.5)",
-    fontFamily: "SF Pro Text,system-ui,sans-serif"
+    fontFamily: "Inter,SF Pro Text,system-ui,sans-serif"
   }
 }, x.l)))), /*#__PURE__*/React.createElement(ResponsiveContainer, {
   width: "100%",
@@ -4681,7 +4642,7 @@ const _MSlide4 = () => /*#__PURE__*/React.createElement("div", null, /*#__PURE__
     color: "rgba(255,255,255,0.35)",
     letterSpacing: "0.04em",
     marginBottom: "0.375rem",
-    fontFamily: "SF Pro Text,system-ui,sans-serif"
+    fontFamily: "Inter,SF Pro Text,system-ui,sans-serif"
   }
 }, "ESTIMATED COST SAVINGS (\u20AC)"), /*#__PURE__*/React.createElement("div", {
   style: {
@@ -4690,7 +4651,7 @@ const _MSlide4 = () => /*#__PURE__*/React.createElement("div", null, /*#__PURE__
     color: "#34d399",
     letterSpacing: "-0.04em",
     marginBottom: "0.5rem",
-    fontFamily: "SF Pro Display,system-ui,sans-serif"
+    fontFamily: "Inter,SF Pro Display,system-ui,sans-serif"
   }
 }, "\u20AC2,847 ", /*#__PURE__*/React.createElement("span", {
   style: {
@@ -4759,14 +4720,14 @@ const _MSlide5 = () => /*#__PURE__*/React.createElement("div", null, /*#__PURE__
     color: "rgba(255,255,255,0.35)",
     letterSpacing: "0.04em",
     marginBottom: "0.375rem",
-    fontFamily: "SF Pro Text,system-ui,sans-serif"
+    fontFamily: "Inter,SF Pro Text,system-ui,sans-serif"
   }
 }, "PEAK HOURS \u2014 AI COVERAGE"), /*#__PURE__*/React.createElement("div", {
   style: {
     fontSize: "11px",
     color: "#2997ff",
     marginBottom: "0.5rem",
-    fontFamily: "SF Pro Text,system-ui,sans-serif"
+    fontFamily: "Inter,SF Pro Text,system-ui,sans-serif"
   }
 }, "Peak: 7pm \xB7 134 interactions handled"), /*#__PURE__*/React.createElement(ResponsiveContainer, {
   width: "100%",
@@ -4885,7 +4846,7 @@ const DashboardCarousel = ({
       marginLeft: "0.75rem",
       fontSize: "0.78rem",
       color: "rgba(255,255,255,0.64)",
-      fontFamily: "SF Pro Text,system-ui,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,sans-serif"
     }
   }, "Mowaat \xB7 AI Analytics"), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -4906,7 +4867,7 @@ const DashboardCarousel = ({
     style: {
       fontSize: "0.65rem",
       color: "#22c55e",
-      fontFamily: "SF Pro Text,system-ui,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,sans-serif"
     }
   }, "Live"))), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -4927,13 +4888,13 @@ const DashboardCarousel = ({
       fontSize: "11px",
       fontWeight: 600,
       color: "rgba(255,255,255,0.6)",
-      fontFamily: "SF Pro Text,system-ui,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,sans-serif"
     }
   }, s.label), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: "10px",
       color: "rgba(255,255,255,0.3)",
-      fontFamily: "SF Pro Text,system-ui,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,sans-serif"
     }
   }, s.desc)), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -5022,7 +4983,7 @@ const FAQAccordion = ({
       color: "#2997ff",
       fontWeight: 600,
       letterSpacing: "-0.224px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.faqEyebrow), /*#__PURE__*/React.createElement("h2", {
     style: {
@@ -5031,7 +4992,7 @@ const FAQAccordion = ({
       color: "#ffffff",
       marginTop: "0.5rem",
       letterSpacing: "-0.28px",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, t.faqH2)), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -5070,7 +5031,7 @@ const FAQAccordion = ({
       color: "#ffffff",
       lineHeight: 1.47,
       letterSpacing: "-0.374px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, item.q), /*#__PURE__*/React.createElement("span", {
     style: {
@@ -5096,7 +5057,7 @@ const FAQAccordion = ({
       lineHeight: 1.47,
       letterSpacing: "-0.374px",
       borderTop: "1px solid rgba(255,255,255,0.06)",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, item.a)))))));
 };
@@ -5203,72 +5164,54 @@ const Pricing = ({
       color: "#2997ff",
       fontWeight: 600,
       letterSpacing: "-0.224px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.pricingEyebrow), /*#__PURE__*/React.createElement("h2", {
     style: {
       fontSize: "clamp(1.4rem,5vw,2.75rem)",
       fontWeight: 600,
       color: "#ffffff",
-      marginTop: "0.5rem",
+      marginTop: "0.75rem",
       letterSpacing: "-0.02em",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, t.pricingH2), /*#__PURE__*/React.createElement("p", {
     style: {
       color: "#a0a0a0",
-      marginTop: "0.5rem",
+      marginTop: "1.1rem",
+      marginLeft: "auto",
+      marginRight: "auto",
+      maxWidth: 720,
+      lineHeight: 1.65,
       fontSize: "clamp(13px,3.5vw,17px)",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.pricingSub)), /*#__PURE__*/React.createElement("div", {
     style: {
-      margin: "2rem auto 3rem",
-      maxWidth: 760,
-      background: "rgba(41,151,255,0.06)",
-      border: "1px solid rgba(41,151,255,0.2)",
-      borderRadius: 14,
-      padding: "1.25rem 1.75rem",
+      margin: "2.5rem auto 3.5rem",
+      maxWidth: 620,
+      textAlign: "center",
       display: "flex",
+      flexDirection: "column",
       alignItems: "center",
-      justifyContent: "center",
-      flexWrap: "wrap",
-      gap: "1.25rem"
+      gap: "1.1rem"
     }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "flex",
-      alignItems: "center",
-      gap: "1rem"
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      width: 40,
-      height: 40,
-      borderRadius: "50%",
-      background: "rgba(41,151,255,0.15)",
-      border: "1px solid rgba(41,151,255,0.3)",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      fontSize: "1.1rem",
-      flexShrink: 0
-    }
-  }, "\uD83D\uDD0D"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     style: {
       fontWeight: 600,
-      fontSize: "15px",
+      fontSize: "20px",
       color: "#ffffff",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.discoveryHookTitle), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: "13px",
+      fontSize: "15px",
       color: "#a0a0a0",
-      marginTop: 2,
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      marginTop: "0.5rem",
+      lineHeight: 1.6,
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
-  }, t.discoveryHookDesc))), /*#__PURE__*/React.createElement("button", {
+  }, t.discoveryHookDesc)), /*#__PURE__*/React.createElement("button", {
     className: "btn-primary",
     onClick: onContact,
     style: {
@@ -5281,20 +5224,18 @@ const Pricing = ({
     style: {
       display: "grid",
       gridTemplateColumns: "repeat(3,1fr)",
-      gap: "1px",
-      background: "rgba(255,255,255,0.07)",
-      borderRadius: "18px",
-      overflow: "hidden"
+      gap: "1.25rem"
     }
   }, packages.map((pkg, i) => /*#__PURE__*/React.createElement("div", {
     key: i,
     style: {
       background: "#1d1d1f",
-      padding: "1.375rem",
+      padding: "1.5rem",
       position: "relative",
       display: "flex",
       flexDirection: "column",
-      borderTop: pkg.pop ? "2px solid #2997ff" : "none"
+      borderRadius: 18,
+      border: pkg.pop ? "1px solid rgba(41,151,255,0.6)" : "1px solid rgba(255,255,255,0.08)"
     }
   }, pkg.pop && /*#__PURE__*/React.createElement("div", {
     style: {
@@ -5309,7 +5250,7 @@ const Pricing = ({
       borderRadius: "0 0 8px 8px",
       fontWeight: 400,
       whiteSpace: "nowrap",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.pkgMostPopular), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -5328,7 +5269,7 @@ const Pricing = ({
       color: pkg.customAccent || pkg.accent,
       fontWeight: 400,
       letterSpacing: "-0.12px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, pkg.tag)), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -5337,7 +5278,7 @@ const Pricing = ({
       color: "#ffffff",
       marginBottom: "0.25rem",
       letterSpacing: "0.231px",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, pkg.name), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -5346,7 +5287,7 @@ const Pricing = ({
       marginBottom: "0.75rem",
       lineHeight: 1.43,
       letterSpacing: "-0.224px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif",
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif",
       minHeight: "5rem"
     }
   }, pkg.desc), /*#__PURE__*/React.createElement("div", {
@@ -5355,7 +5296,7 @@ const Pricing = ({
       fontSize: pkg.price.includes("talk") || pkg.price === "Hablemos" ? "1.3rem" : "1.65rem",
       color: pkg.pop ? "#2997ff" : pkg.customAccent || "#ffffff",
       letterSpacing: "-0.28px",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, pkg.price), pkg.priceNote ? /*#__PURE__*/React.createElement("div", {
     style: {
@@ -5364,7 +5305,7 @@ const Pricing = ({
       marginBottom: "1rem",
       paddingBottom: "0.75rem",
       borderBottom: "1px solid rgba(255,255,255,0.07)",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, pkg.priceNote) : /*#__PURE__*/React.createElement("div", {
     style: {
@@ -5373,7 +5314,7 @@ const Pricing = ({
       marginBottom: "1rem",
       paddingBottom: "0.75rem",
       borderBottom: "1px solid rgba(255,255,255,0.07)",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, pkg.mo), /*#__PURE__*/React.createElement("ul", {
     style: {
@@ -5393,7 +5334,7 @@ const Pricing = ({
       fontSize: "12.5px",
       alignItems: "flex-start",
       letterSpacing: "-0.224px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
@@ -5431,7 +5372,7 @@ const Pricing = ({
       color: "#a0a0a0",
       lineHeight: 1.7,
       letterSpacing: "-0.224px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
@@ -5478,7 +5419,7 @@ const AboutPage = ({
       fontWeight: 600,
       fontSize: "1.6rem",
       letterSpacing: "-0.025em",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
@@ -5499,7 +5440,7 @@ const AboutPage = ({
       color: "rgba(255,255,255,0.6)",
       fontSize: "13px",
       cursor: "pointer",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, "\u2190 ", es ? "Volver" : "Back")), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -5513,7 +5454,7 @@ const AboutPage = ({
       color: "#2997ff",
       fontWeight: 600,
       letterSpacing: "-0.224px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, es ? "SOBRE JM20" : "ABOUT JM20"), /*#__PURE__*/React.createElement("h1", {
     style: {
@@ -5524,7 +5465,7 @@ const AboutPage = ({
       marginBottom: "2rem",
       letterSpacing: "-0.02em",
       lineHeight: 1.1,
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, es ? /*#__PURE__*/React.createElement(React.Fragment, null, "En JM20 desarrollamos soluciones de IA agéntica para transformar operaciones de atención al cliente.", /*#__PURE__*/React.createElement("br", null), "") : /*#__PURE__*/React.createElement(React.Fragment, null, "In JM20 we develop AI Agentic solutions to transform customer experience operations", /*#__PURE__*/React.createElement("br", null), "")), /*#__PURE__*/React.createElement("div", {
     className: "about-grid",
@@ -5541,7 +5482,7 @@ const AboutPage = ({
       fontSize: "clamp(14px,3.5vw,17px)",
       lineHeight: 1.7,
       marginBottom: "1.25rem",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, es ? "" : ""), /*#__PURE__*/React.createElement("p", {
     style: {
@@ -5549,7 +5490,7 @@ const AboutPage = ({
       fontSize: "clamp(14px,3.5vw,17px)",
       lineHeight: 1.7,
       marginBottom: "1.25rem",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, es ? "Creamos agentes capaces de gestionar interacciones, ejecutar tareas y seguir procesos de principio a fin, ayudando a las empresas a gestionar mayores volúmenes sin aumentar proporcionalmente la carga de sus equipos." : "We create AI agents that can manage interactions, execute tasks, and handle processes from end to end, helping businesses manage higher volumes without proportionally increasing the workload on their teams."), /*#__PURE__*/React.createElement("p", {
     style: {
@@ -5557,7 +5498,7 @@ const AboutPage = ({
       fontSize: "clamp(14px,3.5vw,17px)",
       lineHeight: 1.7,
       marginBottom: "1.25rem",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, es ? "Nuestro enfoque es práctico: utilizar IA para resolver problemas operativos concretos, mejorar la eficiencia y mantener la calidad del servicio." : "Our approach is practical: using AI to solve specific operational challenges, improve efficiency, and maintain service quality."), /*#__PURE__*/React.createElement("p", {
      style: {
@@ -5565,7 +5506,7 @@ const AboutPage = ({
     fontSize: "clamp(14px,3.5vw,17px)",
     lineHeight: 1.7,
     marginBottom: "1.25rem",
-    fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+    fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
   }
 }, es ? "Las soluciones de JM20 se construyen sobre infraestructura que el cliente controla, se alojan en la UE y se diseñan teniendo en cuenta la seguridad y el cumplimiento desde el principio." : "JM20 solutions are built on infrastructure controlled by the client, hosted in the EU, and designed with security and compliance in mind from the outset."), /*#__PURE__*/React.createElement("p", {
   style: {
@@ -5573,7 +5514,7 @@ const AboutPage = ({
     fontSize: "clamp(14px,3.5vw,17px)",
     lineHeight: 1.7,
     marginBottom: "1.25rem",
-    fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+    fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
   }
 }, es ? "Detrás de JM20 hay experiencia en operaciones de atención al cliente y una visión clara de cómo aplicar la tecnología a los retos reales que afrontan los equipos." : "JM20 combines experience in customer service operations with a clear understanding of how technology can be applied to the real challenges teams face."), /*#__PURE__*/React.createElement("p", {
     
@@ -5584,7 +5525,7 @@ const AboutPage = ({
       color: "#a0a0a0",
       fontSize: "clamp(14px,3.5vw,17px)",
       lineHeight: 1.7,
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, es ? "Tecnología aplicada a operaciones reales." : "Technology applied to real life operations.")), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -5622,14 +5563,14 @@ const AboutPage = ({
       fontWeight: 600,
       color: "#2997ff",
       letterSpacing: "-0.02em",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, s.n), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: "clamp(12px,3vw,14px)",
       color: "#a0a0a0",
       marginTop: "0.25rem",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, s.label)))), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -5644,14 +5585,14 @@ const AboutPage = ({
       fontSize: "clamp(16px,4vw,21px)",
       color: "#ffffff",
       marginBottom: "1rem",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, es ? "¿Por qué la UE?" : "Why the EU?"), /*#__PURE__*/React.createElement("p", {
     style: {
       color: "#a0a0a0",
       fontSize: "clamp(14px,3.5vw,17px)",
       lineHeight: 1.7,
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, es ? "JM20 está diseñado pensando en las empresas europeas y en sus requisitos de gestión y protección de datos. Nuestras soluciones se alojan en infraestructura dentro de la UE, lo que permite a las empresas mantener un mayor control sobre dónde se procesan y almacenan sus datos. La seguridad, la privacidad y el cumplimiento normativo forman parte de la arquitectura desde el principio, no como una capa añadida posteriormente. Para las empresas que operan en la UE, esto proporciona una base sólida para incorporar IA a sus operaciones dentro de sus requisitos de protección de datos y del marco regulatorio europeo. " : "JM20 is built with European businesses and their data requirements in mind. Our solutions are hosted on EU infrastructure, giving businesses greater control over where their data is processed and stored. Security, privacy, and compliance considerations are incorporated into the architecture from the outset rather than added later. For businesses operating in the EU, this provides a clear foundation for deploying AI within their existing regulatory and data-protection requirements."))))));
 };
@@ -5686,7 +5627,7 @@ const CompliancePage = ({
       fontWeight: 600,
       fontSize: "1.6rem",
       letterSpacing: "-0.025em",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
@@ -5707,7 +5648,7 @@ const CompliancePage = ({
       color: "rgba(255,255,255,0.6)",
       fontSize: "13px",
       cursor: "pointer",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, "\u2190 ", es ? "Volver" : "Back")), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -5721,7 +5662,7 @@ const CompliancePage = ({
       color: "#2997ff",
       fontWeight: 600,
       letterSpacing: "-0.224px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, es ? "CUMPLIMIENTO Y SEGURIDAD" : "COMPLIANCE & SECURITY"), /*#__PURE__*/React.createElement("h1", {
     style: {
@@ -5732,7 +5673,7 @@ const CompliancePage = ({
       marginBottom: "1rem",
       letterSpacing: "-0.02em",
       lineHeight: 1.1,
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, es ? /*#__PURE__*/React.createElement(React.Fragment, null, "C\xF3mo JM20 protege", /*#__PURE__*/React.createElement("br", null), "tu negocio y tus datos.") : /*#__PURE__*/React.createElement(React.Fragment, null, "How JM20 protects", /*#__PURE__*/React.createElement("br", null), "your business and your data.")), /*#__PURE__*/React.createElement("p", {
     style: {
@@ -5740,7 +5681,7 @@ const CompliancePage = ({
       fontSize: "clamp(14px,3.5vw,17px)",
       lineHeight: 1.7,
       marginBottom: "3rem",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, es ? "El cumplimiento normativo no es un añadido en JM20 — es la base sobre la que se construye todo. Aquí explicamos exactamente cómo satisfacemos cada capa de la legislación europea de protección de datos." : "Compliance isn't an afterthought at JM20 — it's the foundation everything is built on. Here's exactly how we satisfy every layer of EU data protection law."), [{
     tag: es ? "RGPD ARTÍCULO 28" : "GDPR ARTICLE 28",
@@ -5818,7 +5759,7 @@ const CompliancePage = ({
       fontWeight: 600,
       color: s.color,
       letterSpacing: "0.08em",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, s.tag), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -5826,7 +5767,7 @@ const CompliancePage = ({
       fontSize: "clamp(14px,3.5vw,19px)",
       color: "#ffffff",
       letterSpacing: "-0.01em",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, s.title))), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -5838,7 +5779,7 @@ const CompliancePage = ({
       fontSize: "clamp(13px,3.5vw,16px)",
       lineHeight: 1.7,
       marginBottom: "1.25rem",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, s.intro), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -5876,7 +5817,7 @@ const CompliancePage = ({
       fontSize: "clamp(12px,3vw,15px)",
       color: "rgba(255,255,255,0.8)",
       lineHeight: 1.55,
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, p)))))))));
 };
@@ -5911,7 +5852,7 @@ const LegalPage = ({
       fontWeight: 600,
       fontSize: "1.6rem",
       letterSpacing: "-0.025em",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
@@ -5932,7 +5873,7 @@ const LegalPage = ({
       color: "rgba(255,255,255,0.6)",
       fontSize: "13px",
       cursor: "pointer",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, "\u2190 ", es ? "Volver" : "Back")), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -5946,7 +5887,7 @@ const LegalPage = ({
       color: "#2997ff",
       fontWeight: 600,
       letterSpacing: "-0.224px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, es ? "LEGAL" : "LEGAL"), /*#__PURE__*/React.createElement("h1", {
     style: {
@@ -5956,14 +5897,14 @@ const LegalPage = ({
       marginTop: "0.5rem",
       marginBottom: "0.5rem",
       letterSpacing: "-0.02em",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, es ? /*#__PURE__*/React.createElement(React.Fragment, null, "T\xE9rminos de Servicio &", /*#__PURE__*/React.createElement("br", null), "Pol\xEDtica de Privacidad") : /*#__PURE__*/React.createElement(React.Fragment, null, "Terms of Service &", /*#__PURE__*/React.createElement("br", null), "Privacy Policy")), /*#__PURE__*/React.createElement("p", {
     style: {
       color: "#a0a0a0",
       fontSize: "14px",
       marginBottom: "3rem",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, es ? "Última actualización: enero 2026 · Regulado por la legislación española y de la UE" : "Last updated: January 2026 · Governed by Spanish and EU law"), (es ? [{
     title: "Términos de Servicio",
@@ -6067,7 +6008,7 @@ const LegalPage = ({
       color: "#ffffff",
       marginBottom: "2rem",
       letterSpacing: "-0.02em",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif",
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif",
       paddingBottom: "1rem",
       borderBottom: "1px solid rgba(255,255,255,0.09)"
     }
@@ -6085,14 +6026,14 @@ const LegalPage = ({
       fontSize: "clamp(14px,3.5vw,17px)",
       color: "#ffffff",
       marginBottom: "0.5rem",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, s.h), /*#__PURE__*/React.createElement("p", {
     style: {
       color: "#a0a0a0",
       fontSize: "clamp(13px,3.5vw,16px)",
       lineHeight: 1.7,
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, s.body))))))));
 };
@@ -6157,7 +6098,7 @@ const articles = [{
     style: {
       minHeight: "100vh",
       background: "#2a2a2c",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -6180,7 +6121,7 @@ const articles = [{
       fontWeight: 600,
       fontSize: "1.6rem",
       letterSpacing: "-0.025em",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
@@ -6207,7 +6148,7 @@ const articles = [{
       color: "rgba(255,255,255,0.6)",
       fontSize: "13px",
       cursor: "pointer",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, "\u2190 ", es ? "Volver" : "Back"), /*#__PURE__*/React.createElement("button", {
     onClick: onContact,
@@ -6220,7 +6161,7 @@ const articles = [{
       fontWeight: 400,
       cursor: "pointer",
       border: "none",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif",
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif",
       letterSpacing: "-0.12px"
     }
   }, es ? "Reserva una llamada gratis →" : "Book a free call →"))), /*#__PURE__*/React.createElement("div", {
@@ -6246,7 +6187,7 @@ const articles = [{
       letterSpacing: "-0.374px",
       marginTop: "0.75rem",
       marginBottom: "1rem",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif",
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif",
       lineHeight: 1.07
     }
   }, T2.h1), /*#__PURE__*/React.createElement("p", {
@@ -6308,7 +6249,7 @@ const articles = [{
       letterSpacing: "-0.374px",
       lineHeight: 1.25,
       marginBottom: "0.875rem",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, a.title), /*#__PURE__*/React.createElement("p", {
     style: {
@@ -6370,7 +6311,7 @@ const articles = [{
       fontWeight: 400,
       cursor: "pointer",
       border: "none",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif",
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif",
       letterSpacing: "-0.374px"
     }
   }, T2.discCta)));
@@ -6407,7 +6348,7 @@ const CareersPage = ({
       fontWeight: 600,
       fontSize: "1.6rem",
       letterSpacing: "-0.025em",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
@@ -6434,7 +6375,7 @@ const CareersPage = ({
       color: "rgba(255,255,255,0.6)",
       fontSize: "13px",
       cursor: "pointer",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, "\u2190 ", es ? "Volver" : "Back"), /*#__PURE__*/React.createElement("button", {
     onClick: onContact,
@@ -6447,7 +6388,7 @@ const CareersPage = ({
       fontWeight: 400,
       cursor: "pointer",
       border: "none",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif",
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif",
       letterSpacing: "-0.12px"
     }
   }, es ? "Escríbenos →" : "Get in touch →"))), /*#__PURE__*/React.createElement("div", {
@@ -6463,7 +6404,7 @@ const CareersPage = ({
       color: "#2997ff",
       fontWeight: 600,
       letterSpacing: "-0.224px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, es ? "TRABAJA CON NOSOTROS" : "CAREERS"), /*#__PURE__*/React.createElement("h1", {
     style: {
@@ -6474,7 +6415,7 @@ const CareersPage = ({
       marginBottom: "1.5rem",
       letterSpacing: "-0.02em",
       lineHeight: 1.1,
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, es ? /*#__PURE__*/React.createElement(React.Fragment, null, "Un equipo peque\xF1o.", /*#__PURE__*/React.createElement("br", null), "Un problema grande.", /*#__PURE__*/React.createElement("br", null), "Trabajo serio.") : /*#__PURE__*/React.createElement(React.Fragment, null, "A small team.", /*#__PURE__*/React.createElement("br", null), "A big problem.", /*#__PURE__*/React.createElement("br", null), "Serious work.")), /*#__PURE__*/React.createElement("p", {
     style: {
@@ -6483,7 +6424,7 @@ const CareersPage = ({
       lineHeight: 1.7,
       letterSpacing: "-0.374px",
       marginBottom: "3rem",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, es ? "Somos una persona construyendo IA agéntica seria para pymes europeas. Si eso suena como tu tipo de reto, nos encantaría saber de ti." : "We're a small team building serious AI for EU businesses. If that sounds like your kind of challenge, we'd like to hear from you."), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -6500,7 +6441,7 @@ const CareersPage = ({
       fontSize: "17px",
       color: "#ffffff",
       marginBottom: "0.5rem",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, es ? "¿Qué buscamos?" : "What we look for"), /*#__PURE__*/React.createElement("p", {
     style: {
@@ -6508,7 +6449,7 @@ const CareersPage = ({
       fontSize: "15px",
       lineHeight: 1.7,
       letterSpacing: "-0.224px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, es ? "Personas que se toman en serio la calidad, entienden lo que significa construir para pymes, y no necesitan que les expliquen por qué el RGPD importa. Si tienes experiencia en IA, automatización, diseño o atención al cliente — y quieres construir algo real — escríbenos." : "People who take quality seriously, understand what it means to build for SMBs, and don't need to be told why GDPR matters. If you have experience in AI, automation, design or customer operations — and want to build something real — reach out.")), /*#__PURE__*/React.createElement("button", {
     onClick: onContact,
@@ -6521,7 +6462,7 @@ const CareersPage = ({
       fontWeight: 400,
       cursor: "pointer",
       border: "none",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif",
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif",
       letterSpacing: "-0.374px",
       display: "inline-block",
       textAlign: "center",
@@ -6555,7 +6496,7 @@ const Footer = ({
       color: "rgba(255,255,255,0.5)",
       lineHeight: 2.41,
       letterSpacing: "-0.224px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif",
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif",
       cursor: "pointer",
       display: "block",
       transition: "color .15s"
@@ -6589,7 +6530,7 @@ const Footer = ({
       color: "#ffffff",
       marginBottom: "1rem",
       letterSpacing: "-0.224px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.footerGetStarted), fLink(t.footerBookDiscovery, () => onContact()), fLink(t.footerViewProducts, () => onPage("products")), fLink(t.footerPricing, null, "#pricing"), fLink(t.footerContact, () => onContact())), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -6598,7 +6539,7 @@ const Footer = ({
       color: "#ffffff",
       marginBottom: "1rem",
       letterSpacing: "-0.224px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.footerProducts), fLink("Murph", () => onPage("products")), fLink("Mowaat", () => onPage("products")), fLink("Sheetah", () => onPage("products")), fLink(t.footerCustomAuto, () => onContact())), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -6607,7 +6548,7 @@ const Footer = ({
       color: "#ffffff",
       marginBottom: "1rem",
       letterSpacing: "-0.224px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.footerCompliance), fLink(t.footerGDPR, () => onPage("compliance")), fLink(t.footerEUData, () => onPage("compliance")), fLink(t.footerZeroDB, () => onPage("compliance")), fLink(t.footerSecurity, () => onPage("compliance")), fLink(t.footerEAA, () => onPage("compliance"))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -6616,7 +6557,7 @@ const Footer = ({
       color: "#ffffff",
       marginBottom: "1rem",
       letterSpacing: "-0.224px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.footerCompany), fLink(t.footerAbout, () => onPage("about")), fLink(t.footerCareers, () => onPage("careers")), fLink(t.footerTerms, null, lang === "es" ? "/terminos-de-servicio" : "/terms-of-service"), fLink(t.footerPrivacy, null, lang === "es" ? "/politica-de-privacidad" : "/privacy-policy"), fLink(lang === "es" ? "Configuración de cookies" : "Cookie settings", () => { if (window.jm20OpenConsent) window.jm20OpenConsent(); }))), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -6633,7 +6574,7 @@ const Footer = ({
       fontWeight: 600,
       fontSize: "1.2rem",
       letterSpacing: "-0.025em",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
@@ -6648,7 +6589,7 @@ const Footer = ({
       fontSize: "12px",
       color: "rgba(255,255,255,0.64)",
       letterSpacing: "-0.12px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.footerCopyright), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -6669,7 +6610,7 @@ const Footer = ({
     style: {
       fontSize: "12px",
       color: "rgba(255,255,255,0.64)",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif",
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif",
       display: "flex",
       alignItems: "center",
       gap: "0.3rem"
@@ -6722,7 +6663,7 @@ const ContactPage = ({
     color: "#ffffff",
     outline: "none",
     transition: "border-color .15s, box-shadow .15s",
-    fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif",
+    fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif",
     letterSpacing: "-0.01em",
     boxSizing: "border-box"
   };
@@ -6733,7 +6674,7 @@ const ContactPage = ({
     marginBottom: "0.4rem",
     display: "block",
     letterSpacing: "-0.12px",
-    fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+    fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
   };
   const focus = e => {
     e.target.style.borderColor = "rgba(41,151,255,0.5)";
@@ -6801,7 +6742,7 @@ const ContactPage = ({
       color: "#ffffff",
       marginBottom: "0.75rem",
       letterSpacing: "-0.28px",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, t.contactSuccessH2), /*#__PURE__*/React.createElement("p", {
     style: {
@@ -6810,7 +6751,7 @@ const ContactPage = ({
       lineHeight: 1.47,
       marginBottom: "2rem",
       letterSpacing: "-0.374px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.contactSuccessBody), /*#__PURE__*/React.createElement("button", {
     onClick: onBack,
@@ -6824,7 +6765,7 @@ const ContactPage = ({
       letterSpacing: "-0.374px",
       cursor: "pointer",
       border: "none",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.contactSuccessBack)));
   return /*#__PURE__*/React.createElement("div", {
@@ -6857,7 +6798,7 @@ const ContactPage = ({
       fontWeight: 600,
       fontSize: "1.6rem",
       letterSpacing: "-0.025em",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
@@ -6880,7 +6821,7 @@ const ContactPage = ({
       fontSize: "13px",
       color: "rgba(255,255,255,0.7)",
       cursor: "pointer",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif",
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif",
       letterSpacing: "-0.12px",
       transition: "all .15s"
     }
@@ -6906,7 +6847,7 @@ const ContactPage = ({
       letterSpacing: "-0.224px",
       marginBottom: "1rem",
       display: "block",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.contactEyebrow), /*#__PURE__*/React.createElement("h1", {
     style: {
@@ -6916,7 +6857,7 @@ const ContactPage = ({
       letterSpacing: "-0.02em",
       lineHeight: 1.1,
       marginBottom: "1.25rem",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, t.contactH1), /*#__PURE__*/React.createElement("p", {
     style: {
@@ -6925,7 +6866,7 @@ const ContactPage = ({
       lineHeight: 1.55,
       letterSpacing: "-0.01em",
       marginBottom: "2.5rem",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.contactBody), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -6962,7 +6903,7 @@ const ContactPage = ({
       fontSize: "clamp(13px,3.5vw,17px)",
       color: "rgba(255,255,255,0.75)",
       lineHeight: 1.55,
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, item)))), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -6991,7 +6932,7 @@ const ContactPage = ({
       padding: "0.3rem 0.875rem",
       fontSize: "12px",
       color: "rgba(255,255,255,0.6)",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif",
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif",
       display: "inline-flex",
       alignItems: "center",
       gap: "0.35rem"
@@ -7017,7 +6958,7 @@ const ContactPage = ({
       color: "#ffffff",
       marginBottom: "0.375rem",
       letterSpacing: "-0.02em",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif"
     }
   }, t.contactFormH2), /*#__PURE__*/React.createElement("p", {
     style: {
@@ -7025,7 +6966,7 @@ const ContactPage = ({
       fontSize: "14px",
       marginBottom: "1.5rem",
       letterSpacing: "-0.224px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
 }, t.contactFormSub), /*#__PURE__*/React.createElement("form", {
     onSubmit: submit,
@@ -7145,7 +7086,7 @@ const ContactPage = ({
         background: checked ? "rgba(41,151,255,0.15)" : "rgba(255,255,255,0.04)",
         color: checked ? "#2997ff" : "rgba(255,255,255,0.6)",
         fontSize: "14px",
-        fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif",
+        fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif",
         cursor: "pointer",
         transition: "all .15s",
         letterSpacing: "-0.12px",
@@ -7179,7 +7120,7 @@ const ContactPage = ({
       padding: "0.75rem 1rem",
       fontSize: "14px",
       color: "#ef4444",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.contactErrorMsg), /*#__PURE__*/React.createElement("button", {
     type: "submit",
@@ -7195,7 +7136,7 @@ const ContactPage = ({
       letterSpacing: "-0.374px",
       cursor: status === "sending" ? "not-allowed" : "pointer",
       border: "none",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif",
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif",
       opacity: status === "sending" ? 0.55 : 1,
       transition: "opacity .18s"
     }
@@ -7206,7 +7147,7 @@ const ContactPage = ({
       textAlign: "center",
       lineHeight: 1.6,
       letterSpacing: "-0.12px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.contactPrivacyNote)))));
 };
@@ -7369,7 +7310,7 @@ function App() {
       color: "#ffffff",
       letterSpacing: "-0.28px",
       marginBottom: "1rem",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif",
+      fontFamily: "Inter,SF Pro Display,system-ui,-apple-system,sans-serif",
       lineHeight: 1.07
     }
   }, t.ctaH2a, /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {
@@ -7384,7 +7325,7 @@ function App() {
       margin: "0 auto 2.5rem",
       lineHeight: 1.47,
       letterSpacing: "-0.374px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }
   }, t.ctaBody), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -7414,7 +7355,7 @@ function App() {
     style: {
       color: "rgba(255,255,255,0.64)",
       fontSize: "14px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif",
+      fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif",
       letterSpacing: "-0.224px"
     }
   }, t.ctaNotReadyLabel, " ", /*#__PURE__*/React.createElement("a", {

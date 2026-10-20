@@ -2190,7 +2190,8 @@ const ValueProps = ({
   }, t[v.tk + "Body"]))))));
 };
 const Security = ({
-  lang
+  lang,
+  onContact
 }) => {
   const t = TR[lang];
   const steps = [{
@@ -2273,6 +2274,7 @@ const Security = ({
     }
   }, t.secP2), /*#__PURE__*/React.createElement("button", {
     className: "btn-primary",
+    onClick: onContact,
     style: {
       padding: "11px 22px",
       fontSize: "17px"
@@ -4328,69 +4330,7 @@ const SupportAgentDemo = ({
       height: "auto",
       background: "#000"
     }
-  })), /*#__PURE__*/React.createElement("div", {
-    className: "demo-right-panel",
-    style: {
-      flex: 1,
-      minWidth: 280,
-      maxWidth: 380
-    }
-  }, /*#__PURE__*/React.createElement("h3", {
-    style: {
-      fontWeight: 600,
-      fontSize: "21px",
-      color: "#ffffff",
-      marginBottom: "1rem",
-      letterSpacing: "0.231px",
-      fontFamily: "SF Pro Display,system-ui,-apple-system,sans-serif"
-    }
-  }, t.demoWhatYouSee), [{
-    icon: "jwt",
-    t: t.demoJwt,
-    d: t.demoJwtDesc
-  }, {
-    icon: "brain",
-    t: t.demoRag,
-    d: t.demoRagDesc
-  }, {
-    icon: "lightning",
-    t: t.demoResponseTime,
-    d: t.demoResponseTimeDesc
-  }, {
-    icon: "shield",
-    t: t.demoEuData,
-    d: t.demoEuDataDesc
-  }].map((s, i) => /*#__PURE__*/React.createElement("div", {
-    key: i,
-    style: {
-      display: "flex",
-      gap: "0.75rem",
-      padding: "1rem 0",
-      borderBottom: "1px solid rgba(255,255,255,0.06)"
-    }
-  }, /*#__PURE__*/React.createElement(Icon, {
-    name: s.icon,
-    size: 20,
-    color: "#2997ff",
-    strokeWidth: 1.5
-  }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontWeight: 600,
-      fontSize: "17px",
-      color: "#ffffff",
-      marginBottom: "0.25rem",
-      letterSpacing: "-0.374px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
-    }
-  }, s.t), /*#__PURE__*/React.createElement("div", {
-    style: {
-      color: "#a0a0a0",
-      fontSize: "14px",
-      lineHeight: 1.43,
-      letterSpacing: "-0.224px",
-      fontFamily: "SF Pro Text,system-ui,-apple-system,sans-serif"
-    }
-  }, s.d))))));
+  })));
 };
 
 /* ─────────────────────────────────────────────────
@@ -7391,7 +7331,8 @@ function App() {
     onContact: () => goPage("contact"),
     lang: lang
   }), /*#__PURE__*/React.createElement(Security, {
-    lang: lang
+    lang: lang,
+    onContact: () => goPage("contact")
   }), /*#__PURE__*/React.createElement(AgencyPartners, {
     onContact: () => goPage("contact"),
     lang: lang

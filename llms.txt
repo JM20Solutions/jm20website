@@ -10,7 +10,7 @@ Compliance positioning stated on the site: EU-based, GDPR Art. 28, EU AI Act awa
 - **Murph, AI support agent.** Not a FAQ bot: it reads your live database (orders, billing, inventory, cancellations, technical issues) and holds a real conversation until the problem is resolved. Remembers context across the full conversation. Works on Web, WhatsApp and Telegram. When it cannot help, it routes to a human with full conversation context, triggers a Slack alert, opens a dedicated escalation page and sends acknowledgment and resolution emails.
 - **Mowaat, intelligent dashboard.** Live view of what Murph resolved, what escalated, what it cost and what it saved. Includes real-time LLM cost tracking, live metrics on tickets, escalations and AI-vs-human resolution rates, and a unified view across WhatsApp, Telegram and Web.
 - **Iggy, dashboard AI chat.** Lives inside the Mowaat dashboard. Ask about any chart or metric and get a reasoned answer from the same live database. Type or speak the question.
-- **Sheetah, data copilot.** Connects directly to your database and reasons over it in real time, in plain English, with no SQL. Works with MySQL, PostgreSQL, MongoDB, Airtable and more, with no migration. Owner and analyst access is secured behind login.
+- **Sheetah, data intelligence.** Connects directly to your database and reasons over it in real time, in plain English, with no SQL. Works with MySQL, PostgreSQL, MongoDB, Airtable and more, with no migration. Owner and analyst access is secured behind login.
 
 ## Pricing (prices exclude VAT)
 

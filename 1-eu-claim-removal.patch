@@ -1,0 +1,261 @@
+diff --git a/bot-snapshot.html b/bot-snapshot.html
+index c35b5f7..0ab8c4c 100644
+--- a/bot-snapshot.html
++++ b/bot-snapshot.html
+@@ -4,19 +4,19 @@
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>JM20 — AI Automation for EU Businesses</title>
+-<meta name="description" content="Secure, GDPR-compliant AI support automation for EU businesses. Web, Telegram &amp; WhatsApp. Your data never leaves the EU.">
++<meta name="description" content="Secure, GDPR-compliant AI support automation for EU businesses. Web, Telegram &amp; WhatsApp.">
+ <meta name="robots" content="index, follow">
+ <link rel="canonical" href="https://jm20aisolutions.com/">
+ <meta property="og:type" content="website">
+ <meta property="og:site_name" content="JM20">
+ <meta property="og:url" content="https://jm20aisolutions.com/">
+ <meta property="og:title" content="JM20 — AI Automation for EU Businesses">
+-<meta property="og:description" content="Secure, GDPR-compliant AI support automation for EU businesses. Web, Telegram &amp; WhatsApp. Your data never leaves the EU.">
++<meta property="og:description" content="Secure, GDPR-compliant AI support automation for EU businesses. Web, Telegram &amp; WhatsApp.">
+ <meta property="og:image" content="https://jm20aisolutions.com/og-image.png">
+ <meta property="og:locale" content="en_US">
+ <meta name="twitter:card" content="summary_large_image">
+ <meta name="twitter:title" content="JM20 — AI Automation for EU Businesses">
+-<meta name="twitter:description" content="Secure, GDPR-compliant AI support automation for EU businesses. Web, Telegram &amp; WhatsApp. Your data never leaves the EU.">
++<meta name="twitter:description" content="Secure, GDPR-compliant AI support automation for EU businesses. Web, Telegram &amp; WhatsApp.">
+ <meta name="twitter:image" content="https://jm20aisolutions.com/og-image.png">
+ <script type="application/ld+json">
+ {
+@@ -24,7 +24,7 @@
+   "@type": "Organization",
+   "name": "JM20",
+   "url": "https://jm20aisolutions.com/",
+-  "description": "AI agentic automation consultancy. We design, build and deploy AI agents for customer support, business intelligence and repetitive workflows. EU-based, GDPR-compliant, your data stays in Europe.",
++  "description": "AI agentic automation consultancy. We design, build and deploy AI agents for customer support, business intelligence and repetitive workflows. EU-based, GDPR-compliant.",
+   "areaServed": "EU",
+   "knowsAbout": [
+     "AI automation",
+@@ -105,8 +105,8 @@
+ 
+ <header>
+ <h1>JM20 — AI Agents for Your Business</h1>
+-<p>Murph answers your customers from your live data (orders, billing, inventory) and hands over to a person, with the full conversation, the moment they want one. You stay in control. Your data stays in Europe.</p>
+-<p>EU-based · GDPR Art. 28 · EU AI Act aware · EAA compliant · Your data stays in Europe · Voice accessible.</p>
++<p>Murph answers your customers from your live data (orders, billing, inventory) and hands over to a person, with the full conversation, the moment they want one. You stay in control.</p>
++<p>EU-based · GDPR Art. 28 · EU AI Act aware · EAA compliant · Voice accessible.</p>
+ </header>
+ 
+ <main>
+diff --git a/index.html b/index.html
+index 7bed5f5..5e82e0e 100644
+--- a/index.html
++++ b/index.html
+@@ -84,7 +84,7 @@
+   <meta charset="UTF-8"/>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <title>JM20 — AI Automation for EU Businesses</title>
+-  <meta name="description" content="Secure, GDPR-compliant AI support automation for EU businesses. Web, Telegram &amp; WhatsApp. Your data never leaves the EU."/>
++  <meta name="description" content="Secure, GDPR-compliant AI support automation for EU businesses. Web, Telegram &amp; WhatsApp."/>
+ 
+   <!-- SEO: crawl + canonical -->
+   <meta name="robots" content="index, follow"/>
+@@ -95,14 +95,14 @@
+   <meta property="og:type" content="website"/>
+   <meta property="og:url" content="https://jm20aisolutions.com/"/>
+   <meta property="og:title" content="JM20 — AI Automation for EU Businesses"/>
+-  <meta property="og:description" content="Secure, GDPR-compliant AI support automation for EU businesses. Web, Telegram &amp; WhatsApp. Your data never leaves the EU."/>
++  <meta property="og:description" content="Secure, GDPR-compliant AI support automation for EU businesses. Web, Telegram &amp; WhatsApp."/>
+   <meta property="og:image" content="https://jm20aisolutions.com/og-image.png"/>
+   <meta property="og:locale" content="en_US"/>
+ 
+   <!-- Twitter / X card -->
+   <meta name="twitter:card" content="summary_large_image"/>
+   <meta name="twitter:title" content="JM20 — AI Automation for EU Businesses"/>
+-  <meta name="twitter:description" content="Secure, GDPR-compliant AI support automation for EU businesses. Web, Telegram &amp; WhatsApp. Your data never leaves the EU."/>
++  <meta name="twitter:description" content="Secure, GDPR-compliant AI support automation for EU businesses. Web, Telegram &amp; WhatsApp."/>
+   <meta name="twitter:image" content="https://jm20aisolutions.com/og-image.png"/>
+ 
+   <!-- Structured data: helps Google understand the business -->
+@@ -112,7 +112,7 @@
+     "@type": "Organization",
+     "name": "JM20",
+     "url": "https://jm20aisolutions.com/",
+-    "description": "AI agentic automation consultancy. We design, build and deploy AI agents for customer support, business intelligence and repetitive workflows. EU-based, GDPR-compliant, your data stays in Europe.",
++    "description": "AI agentic automation consultancy. We design, build and deploy AI agents for customer support, business intelligence and repetitive workflows. EU-based, GDPR-compliant.",
+     "areaServed": "EU",
+     "knowsAbout": ["AI automation", "Customer support automation", "GDPR-compliant AI", "Business intelligence", "AI agents"]
+   }
+@@ -233,19 +233,19 @@ const TR = {
+     trustA11y: "Voice-accessible — works hands-free for visually &amp; motor-impaired users",
+     vpEyebrow: "OUR COMMITMENTS",
+     vpH2: "Built different. By design.",
+-    heroBadge: "EU-BASED · GDPR ART.28 · EU AI ACT AWARE · EAA COMPLIANT · YOUR DATA STAYS IN EUROPE · VOICE ACCESSIBLE",
++    heroBadge: "EU-BASED · GDPR ART.28 · EU AI ACT AWARE · EAA COMPLIANT · VOICE ACCESSIBLE",
+     heroH1a: "Your team shouldn't spend the day answering the same questions.",
+     heroH1b: "",
+-    heroLead: "Murph answers your customers from your live data (orders, billing, inventory) and hands over to a person, with the full conversation, the moment they want one. You stay in control. Your data stays in Europe.",
++    heroLead: "Murph answers your customers from your live data (orders, billing, inventory) and hands over to a person, with the full conversation, the moment they want one. You stay in control.",
+     heroBody: "",
+     heroBodyBold: "",
+     heroCta1: "Book a free call →",
+     heroCta2: "See our products ↓",
+     statAutomation: "Automation Rate",
+     statResponse: "Avg. Response Time",
+-    statEU: "EU Data Residency",
+-    vp1Title: "Your data never leaves the EU.",
+-    vp1Body: "Every query is processed on EU infrastructure. Nobody else can access it — not even us.",
++    statEU: "EU-Based",
++    vp1Title: "Built in the EU, for EU businesses.",
++    vp1Body: "Your core database is hosted in an EU region (Supabase, Frankfurt), and access is restricted behind login.",
+     vp2Title: "Most AI tools aren't GDPR-compliant by design.",
+     vp2Body: "The EU AI Act and GDPR Article 28 are live obligations. US-based AI tools create a direct bridge to your customer data — that's already an exposure. JM20 is built GDPR-native from the ground up: compliant by architecture, not by checkbox.",
+     vp3Title: "You own it. On day one and every day after.",
+@@ -372,7 +372,7 @@ const TR = {
+     nmB1: "No data migration required",
+     nmB2: "Connect to 10+ database types",
+     nmB3: "Query across all sources in plain English",
+-    nmB4: "All data stays in EU infrastructure",
++    nmB4: "Core data hosted in an EU region",
+     nmConnects: "Connects to your existing stack",
+     demoSelectChannel: "SELECT CHANNEL",
+     demoAgentOnline: "AI Agent · Online",
+@@ -386,8 +386,8 @@ const TR = {
+     demoRagDesc: "The AI queries your actual database through a secure Edge Function — answers are grounded in your real data, not guessed.",
+     demoResponseTime: "2s average response time",
+     demoResponseTimeDesc: "From question received to answer delivered, end-to-end in under 2 seconds.",
+-    demoEuData: "All data stays in EU",
+-    demoEuDataDesc: "Your customer's data never leaves the European Union. Full GDPR Article 28 compliance.",
++    demoEuData: "Core data hosted in the EU",
++    demoEuDataDesc: "Your customer's core data is stored in an EU region (Supabase, Frankfurt). Full GDPR Article 28 compliance.",
+     copilotPlaceholder: "Ask anything about your data...",
+     faqEyebrow: "FAQ",
+     faqH2: "Good to know",
+@@ -502,7 +502,7 @@ const TR = {
+     footerTerms: "Terms of service",
+     footerPrivacy: "Privacy policy",
+     footerGDPR: "GDPR Article 28",
+-    footerEUData: "EU Data Residency",
++    footerEUData: "EU-Based",
+     footerZeroDB: "Zero DB Exposure",
+     footerSecurity: "Security Architecture",
+     footerEAA: "EU Accessibility Act (EAA)",
+@@ -514,7 +514,7 @@ const TR = {
+     contactF2: "Real Examples: See how AI automation could realistically fit your workflow.",
+     contactF3: "Zero Pressure: A relaxed conversation — no pitch, no obligation.",
+     contactF4: "Clear Next Steps: Leave knowing exactly what working together would look like.",
+-    contactBadge1: "EU Data Residency",
++    contactBadge1: "EU-Based",
+     contactBadge2: "GDPR Art. 28",
+     contactBadge3: "Zero DB Exposure",
+     contactBadge4: "You Own It",
+@@ -528,7 +528,7 @@ const TR = {
+     contactErrorMsg: "Something went wrong. Please try again.",
+     contactSubmitBtn: "Submit",
+     contactSendingBtn: "Sending…",
+-    contactPrivacyNote: "Your data stays in the EU. We never share your information with third parties.",
++    contactPrivacyNote: "Core data is hosted in the EU. We never share your information with third parties.",
+     contactLabelInterest: "Interested in (select all that apply)",
+     contactInterestDiscover: "Discover",
+     contactInterestMurph: "Murph",
+@@ -583,19 +583,19 @@ const TR = {
+     trustA11y: "Accesible por voz — funciona sin manos para usuarios con discapacidad visual o motora",
+     vpEyebrow: "NUESTROS COMPROMISOS",
+     vpH2: "Construido diferente. Por diseño.",
+-    heroBadge: "EMPRESA EUROPEA · RGPD ART.28 · LEY IA UE · LEY ACCESIBILIDAD UE · TUS DATOS SE QUEDAN EN EUROPA · ACCESIBLE POR VOZ",
++    heroBadge: "EMPRESA EUROPEA · RGPD ART.28 · LEY IA UE · LEY ACCESIBILIDAD UE · ACCESIBLE POR VOZ",
+     heroH1a: "Tu equipo no debería pasarse el día respondiendo las mismas preguntas.",
+     heroH1b: "",
+-    heroLead: "Murph responde a tus clientes con tus datos en vivo (pedidos, facturación, inventario) y pasa la conversación a una persona, con todo el contexto, en cuanto el cliente lo pide. Tú mantienes el control. Tus datos se quedan en Europa.",
++    heroLead: "Murph responde a tus clientes con tus datos en vivo (pedidos, facturación, inventario) y pasa la conversación a una persona, con todo el contexto, en cuanto el cliente lo pide. Tú mantienes el control.",
+     heroBody: "",
+     heroBodyBold: "",
+     heroCta1: "Reserva una llamada gratis →",
+     heroCta2: "Ver nuestros productos ↓",
+     statAutomation: "Tasa de Automatización",
+     statResponse: "Tiempo de Respuesta Medio",
+-    statEU: "Datos en la UE",
+-    vp1Title: "Tus datos nunca salen de la UE.",
+-    vp1Body: "Cada consulta se procesa en infraestructura de la UE. Nadie más puede acceder a ellos — ni siquiera nosotros.",
++    statEU: "Empresa europea",
++    vp1Title: "Creado en la UE, para empresas de la UE.",
++    vp1Body: "Tu base de datos principal se aloja en una región de la UE (Supabase, Frankfurt) y el acceso está restringido tras inicio de sesión.",
+     vp2Title: "La mayoría de herramientas de IA no son conformes con el RGPD por diseño.",
+     vp2Body: "La Ley de IA de la UE y el RGPD Artículo 28 son obligaciones vigentes. Las herramientas de IA americanas crean un puente directo a los datos de tus clientes — eso ya es una exposición. JM20 está construido RGPD-nativo desde el principio: conforme por arquitectura, no por formulario.",
+     vp3Title: "Lo posees. Desde el primer día y siempre.",
+@@ -722,7 +722,7 @@ const TR = {
+     nmB1: "Sin migración de datos",
+     nmB2: "Conecta con más de 10 tipos de bases de datos",
+     nmB3: "Consulta todas las fuentes en lenguaje natural",
+-    nmB4: "Todos los datos permanecen en infraestructura de la UE",
++    nmB4: "Datos principales alojados en una región de la UE",
+     nmConnects: "Conecta con tu stack actual",
+     demoSelectChannel: "SELECCIONAR CANAL",
+     demoAgentOnline: "Agente IA · En línea",
+@@ -852,7 +852,7 @@ const TR = {
+     footerTerms: "Términos de servicio",
+     footerPrivacy: "Política de privacidad",
+     footerGDPR: "RGPD Artículo 28",
+-    footerEUData: "Residencia de Datos en la UE",
++    footerEUData: "Empresa europea",
+     footerZeroDB: "Cero Exposición de BD",
+     footerSecurity: "Arquitectura de Seguridad",
+     footerEAA: "Ley Europea de Accesibilidad (EAA)",
+@@ -864,7 +864,7 @@ const TR = {
+     contactF2: "Ejemplos Reales: Vemos cómo la automatización con IA puede encajar realmente en tu flujo de trabajo.",
+     contactF3: "Cero Presión: Una conversación relajada, sin discurso de venta ni obligación.",
+     contactF4: "Próximos Pasos Claros: Sales sabiendo exactamente cómo sería trabajar juntos.",
+-    contactBadge1: "Residencia de Datos en la UE",
++    contactBadge1: "Empresa europea",
+     contactBadge2: "RGPD Art. 28",
+     contactBadge3: "Cero Exposición de BD",
+     contactBadge4: "Tú lo posees",
+@@ -878,7 +878,7 @@ const TR = {
+     contactErrorMsg: "Algo salió mal. Por favor, inténtalo de nuevo.",
+     contactSubmitBtn: "Enviar",
+     contactSendingBtn: "Enviando…",
+-    contactPrivacyNote: "Tus datos se quedan en la UE. Nunca compartimos tu información con terceros.",
++    contactPrivacyNote: "Los datos principales se alojan en la UE. Nunca compartimos tu información con terceros.",
+     contactLabelInterest: "Interesado en (selecciona todo lo que aplique)",
+     contactInterestDiscover: "Discover",
+     contactInterestMurph: "Murph",
+@@ -5691,12 +5691,12 @@ const CompliancePage = ({
+     intro: es ? "El Artículo 28 del RGPD regula la relación entre el responsable del tratamiento (tu empresa) y el encargado del tratamiento (JM20). Exige que los encargados actúen únicamente según instrucciones documentadas, mantengan la confidencialidad e implementen medidas de seguridad adecuadas." : "GDPR Article 28 governs the relationship between a data controller (your business) and a data processor (JM20). It requires that processors only act on documented instructions, maintain confidentiality, and implement appropriate security measures.",
+     points: es ? ["JM20 actúa estrictamente como encargado del tratamiento — solo procesamos los datos de tus clientes según tus instrucciones explícitas", "Nunca usamos tus datos para entrenar modelos ni los compartimos con terceros", "Acuerdo de Tratamiento de Datos (ATD) completo proporcionado a cada cliente", "Mantenemos registros de todas las actividades de tratamiento según el Artículo 30", "Derecho de auditoría: puedes solicitar una auditoría técnica completa de nuestro tratamiento en cualquier momento", "Los subencargados son comunicados y cumplen la normativa — Supabase (región UE), n8n (autoalojado o nube UE)"] : ["JM20 acts strictly as a data processor — we only process your customer data on your explicit instructions", "We never use your data to train models or share it with third parties", "Full Data Processing Agreement (DPA) provided to every client", "We maintain records of all processing activities as required by Article 30", "Right to audit: you can request a full technical audit of our processing at any time", "Sub-processors are disclosed and compliant — Supabase (EU region), n8n (self-hosted or EU cloud)"]
+   }, {
+-    tag: es ? "RESIDENCIA DE DATOS EN LA UE" : "EU DATA RESIDENCY",
++    tag: es ? "ALOJAMIENTO EN LA UE" : "EU HOSTING",
+     icon: "globe",
+     color: "#34d399",
+-    title: es ? "Tus datos nunca salen del suelo europeo" : "Your data never leaves European soil",
+-    intro: es ? "La residencia de datos significa que tus datos — incluyendo conversaciones de clientes, información personal y registros de negocio — se almacenan y procesan exclusivamente en servidores ubicados dentro de la Unión Europea." : "Data residency means that your data — including customer conversations, personal information and business records — is stored and processed exclusively on servers located within the European Union.",
+-    points: es ? ["Todos los datos almacenados en instancias de Supabase con sede en la UE (Frankfurt, Alemania)", "Los flujos de n8n funcionan en infraestructura de la UE — sin transferencias transatlánticas", "Las llamadas de inferencia de IA se gestionan a través de endpoints compatibles con la UE", "Ningún dato se almacena en caché fuera de la UE en ningún punto del pipeline", "Cláusulas Contractuales Tipo (CCT) vigentes para cualquier transferencia transfronteriza", "Puedes solicitar un informe completo de residencia de datos en cualquier momento"] : ["All data stored in EU-based Supabase instances (Frankfurt, Germany)", "n8n workflows run on EU infrastructure — no transatlantic data transfers", "AI inference calls are handled via EU-compliant API endpoints", "No data is cached or stored outside the EU at any point in the pipeline", "Standard Contractual Clauses (SCCs) in place for any cross-border transfers", "You can request a full data residency report at any time"]
++    title: es ? "Datos principales alojados en la UE" : "Core data hosted in the EU",
++    intro: es ? "Tus datos principales — incluyendo conversaciones de clientes, información personal y registros de negocio — se almacenan en servidores ubicados dentro de la Unión Europea." : "Your core data — including customer conversations, personal information and business records — is stored on servers located within the European Union.",
++    points: es ? ["Datos principales almacenados en instancias de Supabase con sede en la UE (Frankfurt, Alemania)", "Los flujos de n8n funcionan en infraestructura de la UE", "Cláusulas Contractuales Tipo (CCT) vigentes para cualquier transferencia transfronteriza", "Puedes solicitar un informe completo de residencia de datos en cualquier momento"] : ["Core data stored in EU-based Supabase instances (Frankfurt, Germany)", "n8n workflows run on EU infrastructure", "Standard Contractual Clauses (SCCs) in place for any cross-border transfers", "You can request a full data residency report at any time"]
+   }, {
+     tag: es ? "CERO EXPOSICIÓN DE BASE DE DATOS" : "ZERO DATABASE EXPOSURE",
+     icon: "database",
+diff --git a/llms.txt b/llms.txt
+index 57a5d23..7a9b070 100644
+--- a/llms.txt
++++ b/llms.txt
+@@ -1,6 +1,6 @@
+ # JM20 AI Solutions
+ 
+-> JM20 builds AI agents that take the repetitive load off customer support, business intelligence and back-office work, while your team stays in control of the decisions that matter. Secure, GDPR-compliant AI support automation for EU businesses on Web, Telegram and WhatsApp. Your data stays in Europe.
++> JM20 builds AI agents that take the repetitive load off customer support, business intelligence and back-office work, while your team stays in control of the decisions that matter. Secure, GDPR-compliant AI support automation for EU businesses on Web, Telegram and WhatsApp.
+ 
+ Website: https://jm20aisolutions.com/ (available in English and Spanish).
+ Compliance positioning stated on the site: EU-based, GDPR Art. 28, EU AI Act aware, EAA compliant, voice accessible.
+diff --git a/murph.html b/murph.html
+index 262f13a..074775b 100644
+--- a/murph.html
++++ b/murph.html
+@@ -108,7 +108,7 @@
+       </span>
+       <span>
+         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 1 0-20z"/></svg>
+-        Tus datos se quedan en la UE
++        Empresa con sede en la UE
+       </span>
+     </div>
+   </main>

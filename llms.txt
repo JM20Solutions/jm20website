@@ -1,6 +1,6 @@
 # JM20 AI Solutions
 
-> JM20 builds AI agents that take the repetitive load off customer support, business intelligence and back-office work, while your team stays in control of the decisions that matter. Secure, GDPR-compliant AI support automation for EU businesses on Web, Telegram and WhatsApp. Your data stays in Europe.
+> JM20 builds AI agents that take the repetitive load off customer support, business intelligence and back-office work, while your team stays in control of the decisions that matter. Secure, GDPR-compliant AI support automation for EU businesses on Web, Telegram and WhatsApp.
 
 Website: https://jm20aisolutions.com/ (available in English and Spanish).
 Compliance positioning stated on the site: EU-based, GDPR Art. 28, EU AI Act aware, EAA compliant, voice accessible.

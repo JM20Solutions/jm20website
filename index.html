@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8"/>
  <script>
   /* Consent-gated analytics.
      Google Analytics is NOT loaded until the visitor clicks Accept.
@@ -81,8 +82,7 @@
   })();
   </script>
 
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>JM20 — AI Automation for EU Businesses</title>
   <meta name="description" content="Secure, GDPR-compliant AI support automation for EU businesses. Web, Telegram &amp; WhatsApp."/>
 
@@ -118,13 +118,11 @@
   }
   </script>
 
-  <link rel="preconnect" href="https://unpkg.com" crossorigin/>
-
-  <!-- pinned versions — do not change -->
-  <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/prop-types@15.8.1/prop-types.min.js" crossorigin></script>
-  <script src="https://unpkg.com/recharts@2.8.0/umd/Recharts.js" crossorigin></script>
+  <!-- pinned versions, self-hosted in /vendor (same files as unpkg) — do not change -->
+<link rel="preload" href="/vendor/react-18.2.0.production.min.js" as="script">
+<link rel="preload" href="/vendor/react-dom-18.2.0.production.min.js" as="script">
+<link rel="preload" href="/vendor/prop-types-15.8.1.min.js" as="script">
+<link rel="preload" href="/vendor/recharts-2.8.0.umd.js" as="script">
   
 
   <!-- getdesign: apple DARK — design tokens applied below -->
@@ -137,7 +135,7 @@
     /* Apple Dark: surface-black canvas */
     body{background:#2a2a2c;font-family:Inter,SF Pro Display,system-ui,-apple-system,BlinkMacSystemFont,sans-serif;color:#ffffff}
     #root{min-height:100vh}
-    .skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:#2997ff;color:#fff;padding:.75rem 1.25rem;border-radius:0 0 12px 0;font:500 16px system-ui,sans-serif;text-decoration:none}
+    .skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:#0066cc;color:#fff;padding:.75rem 1.25rem;border-radius:0 0 12px 0;font:500 16px system-ui,sans-serif;text-decoration:none}
     .skip-link:focus{left:0}
     :focus-visible{outline:2px solid #2997ff;outline-offset:3px}
     input:focus-visible,textarea:focus-visible{outline:2px solid #2997ff!important;outline-offset:2px}
@@ -148,6 +146,10 @@
 </head>
 <body>
   <div id="root"><div style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:system-ui;color:#7a7a7a;font-size:0.9rem;">Loading JM20…</div></div>
+<script src="/vendor/react-18.2.0.production.min.js"></script>
+<script src="/vendor/react-dom-18.2.0.production.min.js"></script>
+<script src="/vendor/prop-types-15.8.1.min.js"></script>
+<script src="/vendor/recharts-2.8.0.umd.js"></script>
 
   <script>
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
@@ -946,7 +948,7 @@ html{scrollbar-color:rgba(255,255,255,0.35) #1d1d1f}
 
 /* Apple pill CTA — btn-primary: #2997ff on dark */
 .btn-primary{
-  background:#2997ff;
+  background:#0066cc;
   color:#ffffff;
   padding:11px 22px;
   border-radius:9999px;           /* rounded.pill */
@@ -2028,15 +2030,15 @@ const Hero = ({
    VALUE PROPS
 ───────────────────────────────────────────────── */
 const VALUE_CARDS_DATA = [{
-  img: "eulogo.jpg",
+  img: "/img/eulogo.webp",
   imgPos: "center center",
   tk: "vp1"
 }, {
-  img: "gdprlogo.png",
+  img: "/img/gdprlogo.webp",
   imgPos: "center center",
   tk: "vp2"
 }, {
-  img: "infrstructure.png",
+  img: "/img/infrstructure.webp",
   imgPos: "center 70%",
   tk: "vp3"
 }];
@@ -2728,7 +2730,7 @@ const ProductsPage = ({
   }, t.productsBack), /*#__PURE__*/React.createElement("button", {
     onClick: onContact,
     style: {
-      background: "#2997ff",
+      background: "#0066cc",
       color: "#ffffff",
       borderRadius: "9999px",
       padding: "0.35rem 0.875rem",
@@ -2921,7 +2923,7 @@ const ProductsPage = ({
   }, b)))), /*#__PURE__*/React.createElement("button", {
     onClick: onContact,
     style: {
-      background: "#2997ff",
+      background: "#0066cc",
       color: "#ffffff",
       padding: "11px 22px",
       borderRadius: "9999px",
@@ -2970,7 +2972,7 @@ const ProductsPage = ({
   }, t.productsNeedCustomSub), /*#__PURE__*/React.createElement("button", {
     onClick: onContact,
     style: {
-      background: "#2997ff",
+      background: "#0066cc",
       color: "#ffffff",
       padding: "14px 28px",
       borderRadius: "9999px",
@@ -5243,7 +5245,7 @@ const Pricing = ({
       top: 0,
       left: "50%",
       transform: "translateX(-50%) translateY(-1px)",
-      background: "#2997ff",
+      background: "#0066cc",
       color: "#fff",
       fontSize: "11px",
       padding: "0.2rem 0.875rem",
@@ -6153,7 +6155,7 @@ const articles = [{
   }, "\u2190 ", es ? "Volver" : "Back"), /*#__PURE__*/React.createElement("button", {
     onClick: onContact,
     style: {
-      background: "#2997ff",
+      background: "#0066cc",
       color: "#ffffff",
       borderRadius: "9999px",
       padding: "0.35rem 0.875rem",
@@ -6303,7 +6305,7 @@ const articles = [{
   }, T2.discSub), /*#__PURE__*/React.createElement("button", {
     onClick: onContact,
     style: {
-      background: "#2997ff",
+      background: "#0066cc",
       color: "#ffffff",
       padding: "14px 28px",
       borderRadius: "9999px",
@@ -6380,7 +6382,7 @@ const CareersPage = ({
   }, "\u2190 ", es ? "Volver" : "Back"), /*#__PURE__*/React.createElement("button", {
     onClick: onContact,
     style: {
-      background: "#2997ff",
+      background: "#0066cc",
       color: "#ffffff",
       borderRadius: "9999px",
       padding: "0.35rem 0.875rem",
@@ -6454,7 +6456,7 @@ const CareersPage = ({
   }, es ? "Personas que se toman en serio la calidad, entienden lo que significa construir para pymes, y no necesitan que les expliquen por qué el RGPD importa. Si tienes experiencia en IA, automatización, diseño o atención al cliente — y quieres construir algo real — escríbenos." : "People who take quality seriously, understand what it means to build for SMBs, and don't need to be told why GDPR matters. If you have experience in AI, automation, design or customer operations — and want to build something real — reach out.")), /*#__PURE__*/React.createElement("button", {
     onClick: onContact,
     style: {
-      background: "#2997ff",
+      background: "#0066cc",
       color: "#ffffff",
       padding: "14px 32px",
       borderRadius: "9999px",
@@ -6756,7 +6758,7 @@ const ContactPage = ({
   }, t.contactSuccessBody), /*#__PURE__*/React.createElement("button", {
     onClick: onBack,
     style: {
-      background: "#2997ff",
+      background: "#0066cc",
       color: "#ffffff",
       padding: "14px 28px",
       borderRadius: "9999px",
@@ -7126,7 +7128,7 @@ const ContactPage = ({
     type: "submit",
     disabled: status === "sending",
     style: {
-      background: "#2997ff",
+      background: "#0066cc",
       color: "#ffffff",
       padding: "1rem",
       width: "100%",

@@ -2,7 +2,7 @@
 
 > JM20 builds AI agents that take the repetitive load off customer support, business intelligence and back-office work, while your team stays in control of the decisions that matter. Secure, GDPR-compliant AI support automation for EU businesses on Web, Telegram and WhatsApp.
 
-Website: https://jm20aisolutions.com/ (available in English and Spanish).
+Website: [JM20 AI Solutions](https://jm20aisolutions.com/) (available in English and Spanish).
 Compliance positioning stated on the site: EU-based, GDPR Art. 28, EU AI Act aware, EAA compliant, voice accessible.
 
 ## Products
@@ -35,15 +35,15 @@ All packages build on each other: Murph is the foundation and each tier adds the
 
 ## Contact
 
-- Email: hello@jm20.ai
-- Site: https://jm20aisolutions.com/
+- Email: [hello@jm20.ai](mailto:hello@jm20.ai)
+- Site: [jm20aisolutions.com](https://jm20aisolutions.com/)
 
 ## Related pages
 
-- EU AI Act (English): https://jm20aisolutions.com/eu-ai-act
-- Ley de IA de la UE (Spanish): https://jm20aisolutions.com/ley-de-ia-ue
-- The cost of not automating (English): https://jm20aisolutions.com/cost-of-not-automating
-- El coste de no automatizar (Spanish): https://jm20aisolutions.com/coste-de-no-automatizar
-- Privacy policy: https://jm20aisolutions.com/privacy-policy (ES: https://jm20aisolutions.com/politica-de-privacidad)
-- Terms of service: https://jm20aisolutions.com/terms-of-service (ES: https://jm20aisolutions.com/terminos-de-servicio)
-- Noah, AI receptionist for barbershops and salons: https://noah.jm20aisolutions.com/
+- [EU AI Act (English)](https://jm20aisolutions.com/eu-ai-act)
+- [Ley de IA de la UE (Spanish)](https://jm20aisolutions.com/ley-de-ia-ue)
+- [The cost of not automating (English)](https://jm20aisolutions.com/cost-of-not-automating)
+- [El coste de no automatizar (Spanish)](https://jm20aisolutions.com/coste-de-no-automatizar)
+- [Privacy policy](https://jm20aisolutions.com/privacy-policy) ([ES](https://jm20aisolutions.com/politica-de-privacidad))
+- [Terms of service](https://jm20aisolutions.com/terms-of-service) ([ES](https://jm20aisolutions.com/terminos-de-servicio))
+- [Noah, AI receptionist for barbershops and salons](https://noah.jm20aisolutions.com/)

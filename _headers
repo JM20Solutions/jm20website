@@ -1,3 +1,12 @@
 /
   Link: </llms.txt>; rel="describedby"
   Link: </.well-known/agent-skills/index.json>; rel="describedby"
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/vendor/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/img/*
+  Cache-Control: public, max-age=31536000, immutable

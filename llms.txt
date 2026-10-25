@@ -35,7 +35,6 @@ All packages build on each other: Murph is the foundation and each tier adds the
 
 ## Contact
 
-- Email: [hello@jm20.ai](mailto:hello@jm20.ai)
 - Site: [jm20aisolutions.com](https://jm20aisolutions.com/)
 
 ## Related pages

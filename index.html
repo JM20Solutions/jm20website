@@ -3024,72 +3024,113 @@ const PRODUCT_DESCS = {
 const ProductTeasers = ({ onPage, lang }) => {
   const t = TR[lang];
   const PRODUCTS = getProducts(lang);
-  const font = "SF Pro Text,system-ui,-apple-system,sans-serif";
-  const fontDisplay = "SF Pro Display,system-ui,-apple-system,sans-serif";
-  const oneLiners = PRODUCT_DESCS[lang] || PRODUCT_DESCS.en;
+  const font = "Inter,SF Pro Text,system-ui,-apple-system,sans-serif";
+  const fontDisplay = "Inter,SF Pro Display,system-ui,-apple-system,sans-serif";
+  const copy = lang === "es" ? {
+    tags: { agent: "SOPORTE CON IA", dashboard: "ANALÍTICA EN VIVO", iggy: "INTELIGENCIA DE DATOS", copilot: "INFORMES CON IA" },
+    summaries: {
+      agent: "Atención con IA que coordina conversaciones y da visibilidad de operaciones y ROI.",
+      dashboard: "Una vista en directo de la actividad de la IA, los resultados de soporte y el ROI.",
+      iggy: "Detecta patrones y problemas operativos para decidir mejor con tus datos.",
+      copilot: "Genera informes y previsiones al instante con recomendaciones basadas en datos."
+    },
+    views: { agent: ["Chat", "Voz"], dashboard: ["Analítica", "Panel"], iggy: ["Consulta", "Insights"], copilot: ["Previsión", "Consulta"] },
+    category: "Selecciona una vista de producto"
+  } : {
+    tags: { agent: "AI CUSTOMER SUPPORT", dashboard: "LIVE AI ANALYTICS", iggy: "DATA INTELLIGENCE", copilot: "AI REPORTING" },
+    summaries: {
+      agent: "AI support that orchestrates customer conversations with visibility into operations and ROI.",
+      dashboard: "One live view of AI activity, support outcomes, and ROI.",
+      iggy: "Find patterns and operational issues, then make clearer decisions with your data.",
+      copilot: "Generate instant reports and forecasts with data-backed recommendations."
+    },
+    views: { agent: ["Chat", "Voice"], dashboard: ["Analytics", "Dashboard"], iggy: ["Ask Iggy", "Insights"], copilot: ["Forecast", "Request"] },
+    category: "Choose a product view"
+  };
+  const imageOrder = { agent: [0, 1], dashboard: [1, 0], iggy: [0, 1], copilot: [1, 0] };
+  const [viewSelection, setViewSelection] = React.useState({});
   const showcaseStyles = [
-    ".jm20-product-showcase-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}",
-    ".jm20-product-showcase-media{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:0 20px 20px;margin-top:auto}",
-    ".jm20-product-showcase-link:focus-visible{outline:2px solid #0071e3;outline-offset:4px;border-radius:3px}",
-    ".jm20-product-showcase-link:hover{text-decoration:underline;text-underline-offset:3px}",
-    "@media(max-width:833px){.jm20-product-showcase-grid{grid-template-columns:1fr}}",
-    "@media(max-width:520px){.jm20-product-showcase-section{padding:4rem 1rem!important}.jm20-product-showcase-grid{gap:16px}.jm20-product-showcase-media{grid-template-columns:1fr;padding:0 16px 16px}.jm20-product-showcase-screen{aspect-ratio:16/9!important}}",
-    "@media(prefers-reduced-motion:reduce){.jm20-product-showcase-section *{scroll-behavior:auto!important}}"
+    ".jm20-product-showcase-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;align-items:stretch}",
+    ".jm20-product-showcase-card:hover{transform:translateY(-2px);border-color:rgba(41,151,255,.34)!important;box-shadow:0 10px 28px rgba(0,0,0,.22)}",
+    ".jm20-product-showcase-card button:focus-visible{outline:2px solid #7abaff;outline-offset:2px}",
+    ".jm20-product-showcase-view:hover{background:rgba(255,255,255,.08)!important}",
+    ".jm20-product-showcase-cta:hover{text-decoration:none;opacity:.82}",
+    "@media(max-width:1100px){.jm20-product-showcase-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}",
+    "@media(max-width:640px){.jm20-product-showcase-section{padding:4rem 1rem!important}.jm20-product-showcase-grid{grid-template-columns:1fr;gap:16px}.jm20-product-showcase-card{max-width:460px;width:100%;margin:0 auto}}",
+    "@media(prefers-reduced-motion:reduce){.jm20-product-showcase-section *{transition:none!important;scroll-behavior:auto!important}}"
   ].join(String.fromCharCode(10));
   const renderTile = p => {
     const name = PRODUCT_NAMES[p.id];
     const images = PRODUCT_SHOWCASE_IMAGES[p.id] || [];
+    const orderedImages = (imageOrder[p.id] || [0, 1]).map(index => images[index]).filter(Boolean);
+    const labels = copy.views[p.id] || [];
+    const selectedIndex = viewSelection[p.id] === 1 && orderedImages.length > 1 ? 1 : 0;
+    const activeImage = orderedImages[selectedIndex];
     return React.createElement("article", {
       key: p.id,
       className: "jm20-product-showcase-card",
-      style: { minWidth: 0, background: "#ffffff", border: "1px solid #f0f0f0", borderRadius: 18, overflow: "hidden", display: "flex", flexDirection: "column" }
+      style: { minWidth: 0, height: "100%", background: "#1d1d1f", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 18, overflow: "hidden", display: "flex", flexDirection: "column", transition: "border-color .2s,transform .2s,box-shadow .2s" }
     },
       React.createElement("div", {
-        style: { padding: "24px 24px 12px", display: "flex", flexDirection: "column", flex: 1 }
+        style: { padding: "18px 18px 0", display: "flex", flexDirection: "column", flex: 1 }
       },
+        React.createElement("span", {
+          style: { alignSelf: "flex-start", display: "inline-flex", alignItems: "center", minHeight: 24, padding: "3px 10px", borderRadius: 9999, background: "rgba(41,151,255,0.1)", color: "#78b7ff", fontSize: 10, fontWeight: 500, letterSpacing: "0.02em", fontFamily: font }
+        }, copy.tags[p.id]),
         React.createElement("h3", {
-          style: { margin: 0, color: "#1d1d1f", fontSize: "clamp(1.4rem,2.2vw,1.75rem)", fontWeight: 600, lineHeight: 1.15, letterSpacing: "-0.28px", fontFamily: fontDisplay }
-        }, PRODUCT_NAMES[p.id]),
+          style: { margin: "10px 0 0", color: "#ffffff", fontSize: 21, fontWeight: 600, lineHeight: 1.15, letterSpacing: "-0.28px", fontFamily: fontDisplay }
+        }, name),
         React.createElement("p", {
-          style: { minHeight: "4.35em", margin: "10px 0 12px", color: "#333333", fontSize: "15px", lineHeight: 1.45, letterSpacing: "-0.12px", fontFamily: font }
-        }, oneLiners[p.id]),
-        React.createElement("button", {
-          type: "button",
-          className: "jm20-product-showcase-link",
-          "aria-label": lang === "es" ? "Más información sobre " + name : "Learn more about " + name,
-          onClick: () => onPage("products", p.id),
-          style: { alignSelf: "flex-start", minHeight: 44, marginTop: "auto", padding: "0 2px", border: "none", background: "transparent", color: "#0066cc", fontSize: "14px", fontWeight: 400, letterSpacing: "-0.224px", fontFamily: font, textAlign: "left", cursor: "pointer" }
-        }, t.teaserLearnMore)
+          style: { minHeight: "4.5em", margin: "8px 0 0", color: "#a0a0a0", fontSize: 12.5, lineHeight: 1.5, letterSpacing: "-0.12px", fontFamily: font }
+        }, copy.summaries[p.id])
       ),
-      React.createElement("div", {
-        className: "jm20-product-showcase-media",
-        role: "group",
-        "aria-label": lang === "es" ? "Capturas de pantalla de " + name : name + " product screenshots"
-      }, images.map(image => React.createElement("figure", {
-        key: image.src,
+      React.createElement("figure", {
         className: "jm20-product-showcase-screen",
-        style: { minWidth: 0, margin: 0, overflow: "hidden", borderRadius: 8, background: "#f5f5f7", aspectRatio: "4 / 3", display: "flex", alignItems: "center", justifyContent: "center" }
-      }, React.createElement("img", {
-        src: image.src,
-        alt: lang === "es" ? image.es : image.en,
-        width: image.width,
-        height: image.height,
+        style: { position: "relative", margin: "14px 16px 0", overflow: "hidden", borderRadius: 12, border: "1px solid rgba(255,255,255,0.08)", background: "#141416", aspectRatio: "1.36", display: "flex", alignItems: "center", justifyContent: "center" }
+      }, activeImage && React.createElement("img", {
+        key: activeImage.src,
+        src: activeImage.src,
+        alt: lang === "es" ? activeImage.es : activeImage.en,
+        width: activeImage.width,
+        height: activeImage.height,
         loading: "lazy",
         decoding: "async",
-        style: { display: "block", width: "100%", height: "100%", objectFit: "contain" }
-      }))))
+        style: { display: "block", boxSizing: "border-box", width: "100%", height: "100%", padding: 6, objectFit: "contain" }
+      })),
+      React.createElement("div", {
+        role: "group",
+        "aria-label": copy.category + ": " + name,
+        style: { display: "grid", gridTemplateColumns: "repeat(2,minmax(0,1fr))", gap: 6, padding: "10px 16px 0" }
+      }, orderedImages.map((image, index) => React.createElement("button", {
+        key: image.src,
+        type: "button",
+        className: "jm20-product-showcase-view",
+        "aria-label": (lang === "es" ? "Mostrar captura: " : "Show screenshot: ") + labels[index],
+        "aria-pressed": selectedIndex === index,
+        onClick: () => setViewSelection(current => ({ ...current, [p.id]: index })),
+        style: { minWidth: 0, minHeight: 44, padding: "6px 8px", borderRadius: 9, border: selectedIndex === index ? "1px solid rgba(41,151,255,.55)" : "1px solid rgba(255,255,255,.08)", background: selectedIndex === index ? "rgba(41,151,255,.12)" : "transparent", color: selectedIndex === index ? "#78b7ff" : "#a0a0a0", fontSize: 11, fontWeight: selectedIndex === index ? 500 : 400, lineHeight: 1.15, fontFamily: font, cursor: "pointer", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }
+      }, labels[index]))),
+      React.createElement("div", {
+        style: { marginTop: "auto", padding: "14px 16px 16px", borderTop: "1px solid rgba(255,255,255,0.07)", marginLeft: 16, marginRight: 16 }
+      }, React.createElement("button", {
+        type: "button",
+        className: "btn-ghost jm20-product-showcase-cta",
+        "aria-label": lang === "es" ? "Más información sobre " + name : "Learn more about " + name,
+        onClick: () => onPage("products", p.id),
+        style: { display: "block", width: "100%", minHeight: 44, padding: "9px 12px", borderRadius: 9999, fontSize: 13, fontFamily: font, cursor: "pointer" }
+      }, t.teaserLearnMore, " →"))
     );
   };
   return React.createElement("section", {
     className: "jm20-product-showcase-section",
-    style: { padding: "5rem 2rem", background: "#f5f5f7" }
+    style: { padding: "5rem 1.5rem", background: "#2a2a2c", borderTop: "1px solid " + T.border }
   },
     React.createElement("style", null, showcaseStyles),
-    React.createElement("div", { style: { maxWidth: 1100, margin: "0 auto" } },
-      React.createElement("div", { style: { textAlign: "center", maxWidth: 760, margin: "0 auto 40px" } },
-        React.createElement("span", { style: { fontSize: "14px", color: "#0066cc", fontWeight: 600, letterSpacing: "-0.224px", fontFamily: font } }, t.teasersEyebrow),
-        React.createElement("h2", { style: { fontSize: "clamp(1.75rem,3.4vw,2.4rem)", fontWeight: 600, color: "#1d1d1f", margin: "12px auto 0", lineHeight: 1.16, letterSpacing: "-0.28px", whiteSpace: "pre-line", fontFamily: fontDisplay } }, t.teasersH2),
-        React.createElement("p", { style: { color: "#333333", fontSize: "17px", maxWidth: 600, margin: "12px auto 0", lineHeight: 1.5, letterSpacing: "-0.224px", fontFamily: font } }, t.teasersSub)
+    React.createElement("div", { style: { maxWidth: 1280, margin: "0 auto" } },
+      React.createElement("div", { style: { textAlign: "center", maxWidth: 760, margin: "0 auto 36px" } },
+        React.createElement("span", { style: { fontSize: 14, color: "#2997ff", fontWeight: 600, letterSpacing: "-0.224px", fontFamily: font } }, t.teasersEyebrow),
+        React.createElement("h2", { style: { fontSize: "clamp(1.75rem,3.4vw,2.4rem)", fontWeight: 600, color: "#ffffff", margin: "12px auto 0", lineHeight: 1.16, letterSpacing: "-0.28px", whiteSpace: "pre-line", fontFamily: fontDisplay } }, t.teasersH2),
+        React.createElement("p", { style: { color: "#a0a0a0", fontSize: 15, maxWidth: 600, margin: "12px auto 0", lineHeight: 1.5, letterSpacing: "-0.224px", fontFamily: font } }, t.teasersSub)
       ),
       React.createElement("div", { className: "jm20-product-showcase-grid" }, PRODUCTS.map(renderTile))
     )

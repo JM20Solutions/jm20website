@@ -3083,8 +3083,8 @@ const IndustriesSection = ({
     style: {
       display: "flex",
       flexDirection: "column",
-      alignItems: "center",
-      textAlign: "center",
+      alignItems: "flex-start",
+      textAlign: "left",
       gap: "0.4rem",
       marginTop: "0.5rem"
     }
@@ -3092,7 +3092,7 @@ const IndustriesSection = ({
     key: j,
     style: {
       display: "flex",
-      alignItems: "center",
+      alignItems: "flex-start",
       gap: "0.5rem"
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -3101,11 +3101,13 @@ const IndustriesSection = ({
       height: 5,
       borderRadius: "50%",
       background: "#2997ff",
-      flexShrink: 0
-    }
+           flexShrink: 0,
+      marginTop: 7
+        }
   }), /*#__PURE__*/React.createElement("span", {
     style: {
       fontSize: "13px",
+      lineHeight: 1.5,
       color: "rgba(255,255,255,0.6)",
       fontFamily: "Inter,SF Pro Text,system-ui,-apple-system,sans-serif"
     }

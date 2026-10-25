@@ -1025,7 +1025,7 @@ input,button,select,textarea{font-family:Inter,SF Pro Text,system-ui,-apple-syst
     flex-wrap:nowrap !important;
     gap:1rem !important;
   }
-  .teaser-connector{ display:none !important; }
+
   /* Murph wrapper: same width as the other tiles, centered,
      with the gap the hidden connector used to provide */
   .teaser-murph-wrap{
@@ -2987,37 +2987,26 @@ const ProductsPage = ({
   }, t.productsCustomCta)));
 };
 
-/* ── ABSTRACT PRODUCT MARKS — no logos, pure geometry ── */
-const PRODUCT_IMGS = {
-  agent: "",
-  dashboard: "",
-  iggy: "",
-  copilot: ""
+/* ── APPLE-STYLE PRODUCT SHOWCASE ── */
+const PRODUCT_SHOWCASE_IMAGES = {
+  agent: [
+    { src: "/img/product-showcase/murph-support-chat.png", width: 627, height: 464, en: "Murph answering a customer in a WhatsApp support conversation", es: "Murph responde a un cliente en una conversación de soporte por WhatsApp" },
+    { src: "/img/product-showcase/murph-voice-escalation.png", width: 707, height: 553, en: "Murph handling voice messages and sharing an escalation form", es: "Murph gestiona mensajes de voz y comparte un formulario de escalado" }
+  ],
+  dashboard: [
+    { src: "/img/product-showcase/mowaat-dashboard.png", width: 1334, height: 557, en: "Mowaat dashboard showing ticket performance and revenue trends", es: "Panel de Mowaat con el rendimiento de tickets y las tendencias de ingresos" },
+    { src: "/img/product-showcase/mowaat-analytics.png", width: 723, height: 543, en: "Mowaat AI analytics with resolution, escalation and savings metrics", es: "Analítica de IA de Mowaat con métricas de resolución, escalado y ahorro" }
+  ],
+  iggy: [
+    { src: "/img/product-showcase/iggy-query.png", width: 702, height: 530, en: "Iggy interface for asking questions about business data in plain language", es: "Interfaz de Iggy para consultar datos de negocio en lenguaje natural" },
+    { src: "/img/product-showcase/iggy-insights.png", width: 618, height: 550, en: "Iggy answer with a structured analysis and key findings", es: "Respuesta de Iggy con un análisis estructurado y hallazgos clave" }
+  ],
+  copilot: [
+    { src: "/img/product-showcase/sheetah-report-request.png", width: 976, height: 395, en: "Sheetah interface for requesting a report or forecast in plain language", es: "Interfaz de Sheetah para solicitar informes o previsiones en lenguaje natural" },
+    { src: "/img/product-showcase/sheetah-forecast.png", width: 617, height: 560, en: "Sheetah revenue forecast with trends, anomalies and monthly estimates", es: "Previsión de ingresos de Sheetah con tendencias, anomalías y estimaciones mensuales" }
+  ]
 };
-const PRODUCT_IMG_CFG = {
-  agent: {
-    size: "100%",
-    pos: "center top"
-  },
-  dashboard: {
-    size: "100%",
-    pos: "left top"
-  },
-  iggy: {
-    size: "100%",
-    pos: "center top"
-  },
-  copilot: {
-    size: "100%",
-    pos: "center top"
-  }
-};
-const PRODUCT_NAMES = {
-  agent: "Murph",
-  dashboard: "Mowaat",
-  iggy: "Iggy",
-  copilot: "Sheetah"
-};
+const PRODUCT_NAMES = { agent: "Murph", dashboard: "Mowaat", iggy: "Iggy", copilot: "Sheetah" };
 const PRODUCT_DESCS = {
   en: {
     agent: "Murph doesn't just answer questions: it orchestrates your entire customer experience, with total visibility over your support operations and ROI.",
@@ -3032,295 +3021,77 @@ const PRODUCT_DESCS = {
     copilot: "Un agente de IA de informes que genera forecasts al instante, detecta tendencias y ofrece recomendaciones basadas en datos."
   }
 };
-const ProductTeasers = ({
-  onPage,
-  lang
-}) => {
+const ProductTeasers = ({ onPage, lang }) => {
   const t = TR[lang];
   const PRODUCTS = getProducts(lang);
-  const font = "Inter,SF Pro Text,system-ui,-apple-system,sans-serif";
-  const fontDisplay = "Inter,SF Pro Display,system-ui,-apple-system,sans-serif";
+  const font = "SF Pro Text,system-ui,-apple-system,sans-serif";
+  const fontDisplay = "SF Pro Display,system-ui,-apple-system,sans-serif";
   const oneLiners = PRODUCT_DESCS[lang] || PRODUCT_DESCS.en;
-  const [hov, setHov] = useState(null);
-
-  const renderTile = (p, idx) => {
-    const img = PRODUCT_IMGS[p.id];
-    const imgCfg = PRODUCT_IMG_CFG[p.id];
+  const showcaseStyles = [
+    ".jm20-product-showcase-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}",
+    ".jm20-product-showcase-media{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:0 20px 20px;margin-top:auto}",
+    ".jm20-product-showcase-link:focus-visible{outline:2px solid #0071e3;outline-offset:4px;border-radius:3px}",
+    ".jm20-product-showcase-link:hover{text-decoration:underline;text-underline-offset:3px}",
+    "@media(max-width:833px){.jm20-product-showcase-grid{grid-template-columns:1fr}}",
+    "@media(max-width:520px){.jm20-product-showcase-section{padding:4rem 1rem!important}.jm20-product-showcase-grid{gap:16px}.jm20-product-showcase-media{grid-template-columns:1fr;padding:0 16px 16px}.jm20-product-showcase-screen{aspect-ratio:16/9!important}}",
+    "@media(prefers-reduced-motion:reduce){.jm20-product-showcase-section *{scroll-behavior:auto!important}}"
+  ].join(String.fromCharCode(10));
+  const renderTile = p => {
     const name = PRODUCT_NAMES[p.id];
-    const oneLiner = oneLiners[p.id];
-    const isHov = hov === idx;
-
-    return React.createElement("div", {
+    const images = PRODUCT_SHOWCASE_IMAGES[p.id] || [];
+    return React.createElement("article", {
       key: p.id,
-      onClick: () => onPage("products", p.id),
-      role: "button",
-      tabIndex: 0,
-      "aria-label": name + (oneLiner ? " — " + oneLiner : ""),
-      onKeyDown: e => {
-        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onPage("products", p.id); }
-      },
-      onFocus: () => setHov(idx),
-      onBlur: () => setHov(null),
-      onMouseEnter: () => setHov(idx),
-      onMouseLeave: () => setHov(null),
-      style: {
-        position: "relative",
-  width: "330px",
-  maxWidth: "100%",
-  minHeight: "300px",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  cursor: "pointer",
-  overflow: "hidden",
-  borderRadius: 14,
-  flexShrink: 0,
-  transform: isHov ? "translateY(-8px) scale(1.025)" : "translateY(0) scale(1)",
-  boxShadow: isHov
-    ? `0 18px 44px ${p.accent}40, 0 0 0 1px ${p.accent}80`
-    : "0 0 0 1px rgba(255,255,255,0.04)",
-  transition: "transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease",
-  willChange: "transform"
-      }
+      className: "jm20-product-showcase-card",
+      style: { minWidth: 0, background: "#ffffff", border: "1px solid #f0f0f0", borderRadius: 18, overflow: "hidden", display: "flex", flexDirection: "column" }
     },
       React.createElement("div", {
-        style: {
-          position: "absolute",
-          inset: 0,
-          backgroundImage: SHOT_IDS.includes(p.id) ? "none" : `url("${img}")`,
-          backgroundSize: imgCfg.size,
-          backgroundPosition: imgCfg.pos,
-          backgroundRepeat: "no-repeat",
-          filter: isHov
-            ? "brightness(1.0) saturate(1.05)"
-            : "brightness(0.88) saturate(0.96)",
-          transition: "filter .35s ease"
-        }
-      }),
-
-      React.createElement("div", {
-        style: {
-          position: "absolute",
-          inset: 0,
-          background: isHov
-            ? `linear-gradient(to bottom, ${p.accent}33 0%, rgba(0,0,0,0.3) 35%, rgba(0,0,0,0.72) 100%)`
-            : "linear-gradient(to bottom, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.42) 42%, rgba(0,0,0,0.82) 100%)",
-          transition: "background .35s ease"
-        }
-      }),
-
-            null,
-
-      React.createElement("div", {
-        style: {
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          height: 2,
-          background: p.accent,
-          opacity: isHov ? 1 : 0,
-          transition: "opacity .3s"
-        }
-      }),
-
-      React.createElement("div", {
-        style: {
-          position: "relative",
-          zIndex: 1,
-          padding: "1.5rem 1.4rem 1.4rem",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          textAlign: "center",
-          gap: "0.6rem"
-        }
+        style: { padding: "24px 24px 12px", display: "flex", flexDirection: "column", flex: 1 }
       },
-
-        React.createElement("div", {
-          style: {
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "100%"
-          }
-        },
-          
-
-          React.createElement("div", {
-            style: {
-              fontSize: "1.75rem",
-              fontWeight: 700,
-              color: "#ffffff",
-              letterSpacing: "-0.04em",
-              lineHeight: 1,
-              fontFamily: fontDisplay,
-              textShadow: "0 2px 12px rgba(0,0,0,0.7)"
-            }
-          }, name)
-        ),
-
+        React.createElement("h3", {
+          style: { margin: 0, color: "#1d1d1f", fontSize: "clamp(1.4rem,2.2vw,1.75rem)", fontWeight: 600, lineHeight: 1.15, letterSpacing: "-0.28px", fontFamily: fontDisplay }
+        }, PRODUCT_NAMES[p.id]),
         React.createElement("p", {
-          style: {
-            margin: 0,
-            fontSize: "13.5px",
-            color: isHov ? "#ffffff" : "rgba(255,255,255,0.82)",
-            transition: "color .3s",
-            lineHeight: 1.5,
-            fontFamily: font,
-            textShadow: "0 1px 6px rgba(0,0,0,0.6)",
-            display: "flex",
-           alignItems: "center",
-            justifyContent: "center"
-          }
-        }, oneLiner),
-
-        React.createElement("div", {
-          style: {
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "0.3rem",
-            color: p.accent,
-            fontSize: "12px",
-            fontWeight: 500,
-            fontFamily: font,
-            marginTop: "0.3rem",
-            opacity: isHov ? 1 : 0.6,
-            letterSpacing: isHov ? "0.04em" : "0",
-            transition: "opacity .25s, letter-spacing .25s"
-          }
+          style: { minHeight: "4.35em", margin: "10px 0 12px", color: "#333333", fontSize: "15px", lineHeight: 1.45, letterSpacing: "-0.12px", fontFamily: font }
+        }, oneLiners[p.id]),
+        React.createElement("button", {
+          type: "button",
+          className: "jm20-product-showcase-link",
+          "aria-label": lang === "es" ? "Más información sobre " + name : "Learn more about " + name,
+          onClick: () => onPage("products", p.id),
+          style: { alignSelf: "flex-start", minHeight: 44, marginTop: "auto", padding: "0 2px", border: "none", background: "transparent", color: "#0066cc", fontSize: "14px", fontWeight: 400, letterSpacing: "-0.224px", fontFamily: font, textAlign: "left", cursor: "pointer" }
         }, t.teaserLearnMore)
-      )
+      ),
+      React.createElement("div", {
+        className: "jm20-product-showcase-media",
+        role: "group",
+        "aria-label": lang === "es" ? "Capturas de pantalla de " + name : name + " product screenshots"
+      }, images.map(image => React.createElement("figure", {
+        key: image.src,
+        className: "jm20-product-showcase-screen",
+        style: { minWidth: 0, margin: 0, overflow: "hidden", borderRadius: 8, background: "#f5f5f7", aspectRatio: "4 / 3", display: "flex", alignItems: "center", justifyContent: "center" }
+      }, React.createElement("img", {
+        src: image.src,
+        alt: lang === "es" ? image.es : image.en,
+        width: image.width,
+        height: image.height,
+        loading: "lazy",
+        decoding: "async",
+        style: { display: "block", width: "100%", height: "100%", objectFit: "contain" }
+      }))))
     );
   };
-
   return React.createElement("section", {
-    style: {
-      padding: "4.5rem 2rem 5rem",
-      background: "#2a2a2c",
-      borderTop: `1px solid ${T.border}`
-    }
+    className: "jm20-product-showcase-section",
+    style: { padding: "5rem 2rem", background: "#f5f5f7" }
   },
-
-    React.createElement("div", {
-      style: {
-        maxWidth: 1100,
-        margin: "0 auto"
-      }
-    },
-
-      React.createElement("div", {
-        style: {
-          textAlign: "center",
-          marginBottom: "4rem"
-        }
-      },
-
-        React.createElement("span", {
-          style: {
-            fontSize: "14px",
-            color: "#2997ff",
-            fontWeight: 600,
-            letterSpacing: "-0.224px",
-            fontFamily: font
-          }
-        }, t.teasersEyebrow),
-
-        React.createElement("h2", {
-          style: {
-            fontSize: "clamp(1.75rem,3.4vw,2.4rem)",
-            fontWeight: 600,
-            color: "#ffffff",
-            maxWidth: 1000,
-            margin: "1.1rem auto 0",
-            lineHeight: 1.2,
-            letterSpacing: "-0.025em",
-            whiteSpace: "pre-line",
-            fontFamily: fontDisplay
-          }
-        }, t.teasersH2),
-
-        React.createElement("p", {
-          style: {
-            color: "rgba(255,255,255,0.64)",
-            fontSize: "17px",
-            maxWidth: 600,
-            margin: "1.5rem auto 0",
-            lineHeight: 1.65,
-            fontFamily: font
-          }
-        }, t.teasersSub)
+    React.createElement("style", null, showcaseStyles),
+    React.createElement("div", { style: { maxWidth: 1100, margin: "0 auto" } },
+      React.createElement("div", { style: { textAlign: "center", maxWidth: 760, margin: "0 auto 40px" } },
+        React.createElement("span", { style: { fontSize: "14px", color: "#0066cc", fontWeight: 600, letterSpacing: "-0.224px", fontFamily: font } }, t.teasersEyebrow),
+        React.createElement("h2", { style: { fontSize: "clamp(1.75rem,3.4vw,2.4rem)", fontWeight: 600, color: "#1d1d1f", margin: "12px auto 0", lineHeight: 1.16, letterSpacing: "-0.28px", whiteSpace: "pre-line", fontFamily: fontDisplay } }, t.teasersH2),
+        React.createElement("p", { style: { color: "#333333", fontSize: "17px", maxWidth: 600, margin: "12px auto 0", lineHeight: 1.5, letterSpacing: "-0.224px", fontFamily: font } }, t.teasersSub)
       ),
-
-      (() => {
-        const murphTile = renderTile(PRODUCTS[0], 0);
-        const restTiles = PRODUCTS
-          .slice(1)
-          .map((p, i) => renderTile(p, i + 1));
-
-        const curveStyle = {
-          fill: "none",
-          stroke: "rgba(255,255,255,0.16)",
-          strokeWidth: 1.5,
-          strokeLinecap: "round",
-          vectorEffect: "non-scaling-stroke"
-        };
-
-     const connector = React.createElement("svg", {
-  className: "teaser-connector",
-  width: "100%",
-  height: 55,
-  viewBox: "0 0 300 55",
-  preserveAspectRatio: "none",
-  style: {
-    display: "block",
-    width: "1038px",
-    maxWidth: "100%",
-    margin: "0 auto"
-  }
-},
-  React.createElement("path", {
-    d: "M150,0 C150,27 50,27 50,55",
-    ...curveStyle
-  }),
-  React.createElement("path", {
-    d: "M150,0 C150,27 150,27 150,55",
-    ...curveStyle
-  }),
-  React.createElement("path", {
-    d: "M150,0 C150,27 250,27 250,55",
-    ...curveStyle
-  })
-);
-
-        return React.createElement("div", null,
-
-          React.createElement("div", {
-            className: "teaser-murph-wrap",
-            style: {
-              width: "330px",
-  maxWidth: "100%",
-  margin: "0 auto",
-  borderRadius: 14,
-  overflow: "visible"
-            }
-          }, murphTile),
-
-          connector,
-
-          React.createElement("div", {
-            className: "teasers-grid",
-            style: {
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "stretch",
-              flexWrap: "wrap",
-              gap: "1rem"
-            }
-          }, restTiles)
-        );
-      })()
+      React.createElement("div", { className: "jm20-product-showcase-grid" }, PRODUCTS.map(renderTile))
     )
   );
 };

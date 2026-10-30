@@ -1,0 +1,483 @@
+diff --git a/calculadora-coste-soporte.html b/calculadora-coste-soporte.html
+new file mode 100644
+index 0000000..23d7f8d
+--- /dev/null
++++ b/calculadora-coste-soporte.html
+@@ -0,0 +1,92 @@
++<!DOCTYPE html>
++<html lang="es">
++<head>
++<meta charset="utf-8"/>
++<meta name="viewport" content="width=device-width, initial-scale=1"/>
++<title>Calculadora: cuánto te cuesta atender a tus clientes sin ayuda — JM20</title>
++<meta name="description" content="Calcula en 30 segundos cuánto tiempo pierdes respondiendo siempre lo mismo y cuántos problemas reales (reembolsos, cancelaciones, quejas) se escapan en tu tienda."/>
++<meta name="robots" content="index, follow"/>
++<meta name="theme-color" content="#000000"/>
++<link rel="canonical" href="https://jm20aisolutions.com/calculadora-coste-soporte"/>
++<link rel="alternate" hreflang="en" href="https://jm20aisolutions.com/support-cost-calculator"/>
++<link rel="alternate" hreflang="es" href="https://jm20aisolutions.com/calculadora-coste-soporte"/>
++<link rel="alternate" hreflang="x-default" href="https://jm20aisolutions.com/support-cost-calculator"/>
++<meta property="og:type" content="website"/>
++<meta property="og:url" content="https://jm20aisolutions.com/calculadora-coste-soporte"/>
++<meta property="og:title" content="¿Cuánto te cuesta ser el servicio de atención de tu tienda?"/>
++<meta property="og:description" content="Calcula en 30 segundos cuánto tiempo pierdes respondiendo siempre lo mismo y cuántos problemas reales (reembolsos, cancelaciones, quejas) se escapan en tu tienda."/>
++<meta property="og:image" content="https://jm20aisolutions.com/og-image.png"/>
++<meta property="og:locale" content="es_ES"/>
++<meta name="twitter:card" content="summary_large_image"/>
++<meta name="twitter:title" content="¿Cuánto te cuesta ser el servicio de atención de tu tienda?"/>
++<meta name="twitter:description" content="Calcula en 30 segundos cuánto tiempo pierdes respondiendo siempre lo mismo y cuántos problemas reales (reembolsos, cancelaciones, quejas) se escapan en tu tienda."/>
++<meta name="twitter:image" content="https://jm20aisolutions.com/og-image.png"/>
++<script type="application/ld+json">
++{"@context":"https://schema.org","@type":"WebApplication","name":"¿Cuánto te cuesta ser el servicio de atención de tu tienda?","description":"Calcula en 30 segundos cuánto tiempo pierdes respondiendo siempre lo mismo y cuántos problemas reales (reembolsos, cancelaciones, quejas) se escapan en tu tienda.","inLanguage":"es","applicationCategory":"BusinessApplication","operatingSystem":"Any","url":"https://jm20aisolutions.com/calculadora-coste-soporte","publisher":{"@type":"Organization","name":"JM20","url":"https://jm20aisolutions.com/"}}
++</script>
++<link rel="stylesheet" href="/murph-calc.css"/>
++</head>
++<body>
++<header class="bar">
++  <a class="brand" href="https://jm20aisolutions.com/"><span class="jm">JM</span><span class="num">20</span></a>
++  <nav>
++    <a href="https://jm20aisolutions.com/support-cost-calculator">English</a>
++    <a class="hide-sm" href="https://jm20aisolutions.com/">← Inicio</a>
++    <a class="cta" href="https://jm20aisolutions.com/">Empieza con un Discovery →</a>
++  </nav>
++</header>
++<main class="mc-main">
++  <h1>¿Cuánto te cuesta ser el servicio de atención de tu tienda?</h1>
++  <p class="mc-dek">Dos cálculos con tus propios números: el tiempo que dedicas a las mismas preguntas y los problemas reales que se pierden por el camino.</p>
++  <div class="mc-grid">
++    <section class="mc-leak" aria-labelledby="mc-h-a">
++      <h2 id="mc-h-a">1. Respondes siempre lo mismo</h2>
++      <p class="mc-intro">“¿Estáis abiertos?”, “¿Tenéis esto?”, “¿Dónde está mi pedido?”, “¿Por qué me cobrasteis dos veces?”. Cada una te saca de lo que estabas haciendo.</p>
++      <div class="mc-field"><label for="mc-q">Preguntas repetidas al día</label><div class="mc-help">Llamadas y mensajes, todos los canales.</div><div class="mc-row"><input id="mc-q" type="number" inputmode="numeric" min="0" max="1000" step="1" value="20"></div></div>
++      <div class="mc-field"><label for="mc-min">Minutos por pregunta</label><div class="mc-help">Contando que dejas lo que estabas haciendo.</div><div class="mc-row"><input id="mc-min" type="number" inputmode="decimal" min="0" max="60" step="0.5" value="3"><span class="mc-unit">min</span></div></div>
++      <div class="mc-field"><label for="mc-rate">Coste de tu hora</label><div class="mc-help">Tu hora o la de quien responde.</div><div class="mc-row"><input id="mc-rate" type="number" inputmode="decimal" min="0" max="200" step="1" value="15"><span class="mc-unit">€/h</span></div></div>
++      <div class="mc-field"><label for="mc-days">Días que abres al mes</label><div class="mc-row"><input id="mc-days" type="number" inputmode="numeric" min="1" max="31" step="1" value="26"></div></div>
++      <div class="mc-result" aria-live="polite">
++        <div class="mc-rlabel">Lo que te cuesta hoy</div>
++        <div class="mc-big" data-r="hours"></div>
++        <div class="mc-detail" data-r="cost"></div>
++        <p class="mc-note">Es lo que cuesta hoy, no lo que ahorrarías. Murph solo responde lo que está en los datos de tu tienda; el Discovery mide cuánto de esto puede quitarte.</p>
++      </div>
++    </section>
++    <section class="mc-leak" aria-labelledby="mc-h-b">
++      <h2 id="mc-h-b">2. Se pierden problemas reales</h2>
++      <p class="mc-intro">Reembolsos, cancelaciones y quejas necesitan a una persona, pero acaban enterrados en un chat o en una bandeja de entrada.</p>
++      <div class="mc-field"><label for="mc-n">Reembolsos, cancelaciones y quejas al mes</label><div class="mc-row"><input id="mc-n" type="number" inputmode="numeric" min="0" max="1000" step="1" value="15"></div></div>
++      <div class="mc-field"><label for="mc-slip">% que se retrasan o se olvidan</label><div class="mc-help">Tu mejor estimación, sin quedar bien.</div><div class="mc-row"><input id="mc-slip" type="number" inputmode="numeric" min="0" max="100" step="1" value="20"><span class="mc-unit">%</span></div></div>
++      <div class="mc-field"><label for="mc-lose">De esos clientes, % que dejan de comprar</label><div class="mc-help">Es el dato más difícil de saber. Pon un número prudente.</div><div class="mc-row"><input id="mc-lose" type="number" inputmode="numeric" min="0" max="100" step="1" value="30"><span class="mc-unit">%</span></div></div>
++      <div class="mc-field"><label for="mc-spend">Lo que gasta al año un cliente medio</label><div class="mc-row"><input id="mc-spend" type="number" inputmode="decimal" min="0" max="10000" step="1" value="150"><span class="mc-unit">€</span></div></div>
++      <div class="mc-result" aria-live="polite">
++        <div class="mc-rlabel">Clientes que podrías perder</div>
++        <div class="mc-big" data-r="cases"></div>
++        <div class="mc-detail" data-r="lost"></div>
++        <p class="mc-note">Estimación. Un reembolso olvidado no son ventas perdidas: lo que cuesta es el cliente que no vuelve.</p>
++      </div>
++    </section>
++  </div>
++  <p class="mc-example">Valores de ejemplo. Cámbialos por los tuyos.</p>
++  <div class="mc-summary" data-r="summary" aria-live="polite"></div>
++  <section class="mc-cta" aria-labelledby="mc-h-cta">
++    <h2 id="mc-h-cta">Pon tus números reales</h2>
++    <p>El Discovery de 250 € mapea cómo atiendes hoy a tus clientes, mide estas fugas y te entrega un plan en 48 horas. Se descuenta de cualquier paquete.</p>
++    <form class="mc-form" id="mc-form" novalidate>
++      <div><label for="mc-full_name">Nombre *</label><input id="mc-full_name" name="full_name" type="text" required maxlength="120" autocomplete="name"></div>
++      <div><label for="mc-company">Nombre de tu tienda *</label><input id="mc-company" name="company" type="text" required maxlength="160" autocomplete="organization"></div>
++      <div><label for="mc-email">Correo electrónico *</label><input id="mc-email" name="email" type="email" required maxlength="254" autocomplete="email"></div>
++      <div><label for="mc-phone">Teléfono (opcional)</label><input id="mc-phone" name="phone" type="tel" maxlength="30" autocomplete="tel"></div>
++      <div class="mc-hp" aria-hidden="true"><label for="mc-hp_url">Website</label><input id="mc-hp_url" name="hp_url" type="text" tabindex="-1" autocomplete="off"></div>
++      <p class="mc-legal full">Al enviar aceptas nuestra <a href="/politica-de-privacidad" target="_blank" rel="noopener">política de privacidad</a>.</p>
++      <div class="mc-error full" role="alert">Algo salió mal. Inténtalo de nuevo en unos minutos.</div>
++      <div class="full"><button type="submit" class="mc-btn">Pedir el Discovery</button></div>
++    </form>
++    <div class="mc-done" id="mc-done" role="status"><h2>¡Solicitud recibida!</h2><p>Hemos recibido tu solicitud con tus números y te contactaremos.</p></div>
++  </section>
++</main>
++<footer>© 2026 JM20 · <a href="https://jm20aisolutions.com/">jm20aisolutions.com</a></footer>
++<script src="/murph-calc.js" defer></script>
++</body>
++</html>
+diff --git a/cost-of-not-automating.html b/cost-of-not-automating.html
+index 5993246..0d57083 100644
+--- a/cost-of-not-automating.html
++++ b/cost-of-not-automating.html
+@@ -124,6 +124,8 @@ footer a{color:var(--muted)}
+ <p>If you've never mapped the cost of your current process, start there. Before any tool evaluation, spend 30 minutes with your team mapping one workflow — customer support, intake, or internal requests — and counting what it actually costs in time per week.</p>
+ <p>The number will usually surprise you. And once you can see it clearly, the conversation about what to do about it becomes much simpler.</p>
+ 
++    <div class="obj"><p class="q">Want your own numbers?</p><p><a href="https://jm20aisolutions.com/support-cost-calculator">Try the free calculator →</a> It takes 30 seconds and uses your own data.</p></div>
++
+     <div class="endcta">
+       <p>JM20 is an AI agentic automation consultancy based in the EU. We build AI agents for European businesses — starting with a Discovery that maps your process, surfaces the automation opportunities, and delivers a custom roadmap in 48 hours. Fully deducted from any package you sign.</p>
+       <a href="https://jm20aisolutions.com/">Start with a Discovery →</a>
+diff --git a/coste-de-no-automatizar.html b/coste-de-no-automatizar.html
+index 59f61b6..7a6ea9f 100644
+--- a/coste-de-no-automatizar.html
++++ b/coste-de-no-automatizar.html
+@@ -124,6 +124,8 @@ footer a{color:var(--muted)}
+ <p>Si nunca has mapeado el coste de tu proceso actual, empieza por ahí. Antes de evaluar cualquier herramienta, dedica 30 minutos con tu equipo a mapear un flujo de trabajo —atención al cliente, gestión de entradas o peticiones internas— y a contar lo que cuesta realmente en tiempo a la semana.</p>
+ <p>El número suele sorprender. Y una vez lo ves con claridad, la conversación sobre qué hacer al respecto se vuelve mucho más sencilla.</p>
+ 
++    <div class="obj"><p class="q">¿Quieres tus propios números?</p><p><a href="https://jm20aisolutions.com/calculadora-coste-soporte">Prueba la calculadora gratuita →</a> Tarda 30 segundos y usa tus datos.</p></div>
++
+     <div class="endcta">
+       <p>JM20 es una consultoría de automatización agéntica con IA con sede en la UE. Construimos agentes de IA para empresas europeas, empezando por un Discovery que mapea tu proceso, descubre las oportunidades de automatización y entrega una hoja de ruta a medida en 48 horas. Se descuenta íntegramente de cualquier paquete que contrates.</p>
+       <a href="https://jm20aisolutions.com/">Empieza con un Discovery →</a>
+diff --git a/llms.txt b/llms.txt
+index 5bd0bc8..79bab93 100644
+--- a/llms.txt
++++ b/llms.txt
+@@ -45,4 +45,5 @@ All packages build on each other: Murph is the foundation and each tier adds the
+ - [El coste de no automatizar (Spanish)](https://jm20aisolutions.com/coste-de-no-automatizar)
+ - [Privacy policy](https://jm20aisolutions.com/privacy-policy) ([ES](https://jm20aisolutions.com/politica-de-privacidad))
+ - [Terms of service](https://jm20aisolutions.com/terms-of-service) ([ES](https://jm20aisolutions.com/terminos-de-servicio))
++- [Support cost calculator (English)](https://jm20aisolutions.com/support-cost-calculator) ([ES](https://jm20aisolutions.com/calculadora-coste-soporte))
+ - [Noah, AI receptionist for barbershops and salons](https://noah.jm20aisolutions.com/)
+diff --git a/murph-calc.css b/murph-calc.css
+new file mode 100644
+index 0000000..b99720a
+--- /dev/null
++++ b/murph-calc.css
+@@ -0,0 +1,58 @@
++/* Murph support-cost calculator. Same look as the article pages (dark, Inter, JM20 bar). */
++@font-face{font-family:"Inter";font-style:normal;font-weight:300;font-display:swap;src:url(/fonts/inter-300.woff2) format("woff2")}
++@font-face{font-family:"Inter";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/inter-400.woff2) format("woff2")}
++@font-face{font-family:"Inter";font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/inter-600.woff2) format("woff2")}
++:root{--bg:#000;--ink:#f5f5f7;--muted:#9a9aa2;--soft:#c7c7cf;--line:#1d1d1f;--card:#0c0c0d;--field:rgba(255,255,255,.06);--field-line:rgba(255,255,255,.3);--blue:#0066cc;--blue-hi:#2997ff}
++*{box-sizing:border-box}
++html{scroll-behavior:smooth}
++body{margin:0;background:var(--bg);color:var(--ink);font-family:"Inter","SF Pro Display",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.55;font-size:17px;-webkit-font-smoothing:antialiased}
++a{color:inherit}
++.bar{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;background:rgba(0,0,0,.72);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line)}
++.brand{font-weight:800;font-size:22px;letter-spacing:-.02em;text-decoration:none}
++.brand .jm{color:#c76b45}.brand .num{color:var(--blue-hi)}
++.bar nav{display:flex;gap:22px;align-items:center;font-size:14px}
++.bar nav a{color:var(--muted);text-decoration:none}
++.bar nav a:hover{color:var(--ink)}
++.bar .cta{color:#fff;background:var(--blue);padding:8px 16px;border-radius:980px;font-weight:600}
++.mc-main{max-width:980px;margin:0 auto;padding:56px 24px 40px}
++.mc-main h1{font-size:clamp(30px,5.5vw,48px);line-height:1.08;letter-spacing:-.025em;margin:0 0 16px;font-weight:800;max-width:780px}
++.mc-dek{font-size:20px;color:var(--soft);line-height:1.5;margin:0 0 36px;max-width:720px}
++.mc-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
++.mc-leak{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;display:flex;flex-direction:column}
++.mc-leak h2{font-size:24px;line-height:1.2;letter-spacing:-.02em;margin:0 0 8px;font-weight:700}
++.mc-intro{font-size:15px;line-height:1.5;color:var(--muted);margin:0 0 22px}
++.mc-field{margin-bottom:18px}
++.mc-field label{display:block;font-size:15px;line-height:1.3;font-weight:600;margin-bottom:3px}
++.mc-help{font-size:13px;line-height:1.4;color:var(--muted);margin-bottom:7px}
++.mc-row{display:flex;align-items:center;gap:10px}
++.mc-row input{flex:1;min-width:0;font:400 17px/1.3 "Inter",system-ui,sans-serif;color:var(--ink);background:var(--field);border:1px solid var(--field-line);border-radius:12px;padding:11px 14px}
++.mc-row input:focus,.mc-form input:focus{outline:2px solid var(--blue-hi);outline-offset:1px;border-color:transparent}
++.mc-unit{flex:0 0 auto;min-width:44px;font-size:15px;color:var(--muted)}
++.mc-result{margin-top:auto;padding-top:20px;border-top:1px solid var(--line)}
++.mc-rlabel{font-size:14px;color:var(--muted);margin-bottom:4px}
++.mc-big{font-size:48px;line-height:1.05;letter-spacing:-.03em;font-weight:800;overflow-wrap:anywhere}
++.mc-detail{font-size:16px;line-height:1.4;color:var(--soft);margin-top:8px}
++.mc-note{font-size:13px;line-height:1.45;color:var(--muted);margin-top:12px}
++.mc-example{font-size:13px;color:var(--muted);margin:14px 2px 0}
++.mc-summary{margin:28px 0 0;padding:20px 24px;border:1px solid var(--line);border-radius:18px;background:var(--card);font-size:18px;line-height:1.45;color:var(--soft)}
++.mc-summary:empty{display:none}
++.mc-cta{margin:40px 0 0;padding:32px;border:1px solid var(--line);border-radius:18px;background:var(--card)}
++.mc-cta h2{font-size:28px;line-height:1.15;letter-spacing:-.02em;margin:0 0 10px;font-weight:700}
++.mc-cta>p{font-size:16px;line-height:1.5;color:var(--soft);margin:0 0 22px;max-width:640px}
++.mc-form{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px;max-width:680px}
++.mc-form .full{grid-column:1/-1}
++.mc-form label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--soft)}
++.mc-form input[type=text],.mc-form input[type=email],.mc-form input[type=tel]{width:100%;font:400 16px/1.4 "Inter",system-ui,sans-serif;color:var(--ink);background:var(--field);border:1px solid var(--field-line);border-radius:12px;padding:11px 14px}
++.mc-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
++.mc-legal{font-size:12px;line-height:1.45;color:var(--muted);margin:0}
++.mc-legal a{text-decoration:underline}
++.mc-error{display:none;padding:10px 12px;border-radius:10px;background:#3a1512;color:#ffb4a8;font-size:14px}
++.mc-error.show{display:block}
++.mc-btn{cursor:pointer;border:0;color:#fff;background:var(--blue);font:600 16px/1 "Inter",system-ui,sans-serif;padding:14px 24px;border-radius:980px;min-height:46px}
++.mc-btn:hover{background:#0058b0}
++.mc-btn[disabled]{opacity:.6;cursor:default}
++.mc-done{display:none;text-align:left;max-width:640px}
++.mc-done h2{margin-bottom:8px}
++footer{max-width:980px;margin:0 auto;padding:30px 24px 60px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
++footer a{color:var(--muted)}
++@media (max-width:820px){.mc-grid{grid-template-columns:1fr}.mc-form{grid-template-columns:1fr}.mc-big{font-size:40px}.mc-leak,.mc-cta{padding:22px 18px}.hide-sm{display:none}}
+diff --git a/murph-calc.js b/murph-calc.js
+new file mode 100644
+index 0000000..e9f897b
+--- /dev/null
++++ b/murph-calc.js
+@@ -0,0 +1,162 @@
++/* Murph support-cost calculator (standalone page, ES + EN).
++   Pure client-side maths. Nothing is sent anywhere until the visitor submits the form at the bottom.
++   The form posts to the same Supabase "leads" table, with the same fields, as the Contact page in app.js. */
++(function () {
++  'use strict';
++
++  var SUPABASE_URL = 'https://wiavnyuchdsfztzhvaua.supabase.co';
++  var SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndpYXZueXVjaGRzZnp0emh2YXVhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEwMDI2ODQsImV4cCI6MjA4NjU3ODY4NH0.dXz7vyFglA_lihma__rbtBT8afZZ1YUJEkAmqpFOL6c';
++
++  var LIMITS = {
++    q: [0, 1000], min: [0, 60], rate: [0, 200], days: [1, 31],
++    n: [0, 1000], slip: [0, 100], lose: [0, 100], spend: [0, 10000]
++  };
++  var IDS = ['q', 'min', 'rate', 'days', 'n', 'slip', 'lose', 'spend'];
++
++  var TX = {
++    es: {
++      locale: 'es-ES',
++      hours: '{h} h al mes', cost: '≈ {m} al mes · {y} al año',
++      cases: '{c} {cw} al mes', casesW1: 'caso', casesWN: 'casos',
++      lost: '≈ {l} {lw} al año · {r} de ventas anuales en riesgo', lostW1: 'cliente', lostWN: 'clientes',
++      summary: 'Tu fuga más grande ahora mismo: {name}, unos {amt} al año.',
++      name1: 'responder siempre lo mismo', name2: 'los problemas reales que se pierden',
++      sending: 'Enviando…',
++      comment: 'Origen: calculadora de atención al cliente (web). 1) {q} preguntas/día, {min} min, {rate} €/h, {days} días/mes: ≈ {cost} al mes. 2) {n} casos/mes, {slip}% se escapan, {lose}% dejan de comprar, {spend} €/año por cliente: ≈ {risk} de ventas anuales en riesgo.'
++    },
++    en: {
++      locale: 'en-GB',
++      hours: '{h} h a month', cost: '≈ {m} a month · {y} a year',
++      cases: '{c} {cw} a month', casesW1: 'case', casesWN: 'cases',
++      lost: '≈ {l} {lw} a year · {r} of yearly sales at risk', lostW1: 'customer', lostWN: 'customers',
++      summary: 'Your biggest leak right now: {name}, about {amt} a year.',
++      name1: 'answering the same questions', name2: 'real problems getting lost',
++      sending: 'Sending…',
++      comment: 'Source: customer-service calculator (web). 1) {q} questions/day, {min} min, {rate} EUR/h, {days} days/month: ≈ {cost} a month. 2) {n} cases/month, {slip}% slip through, {lose}% stop buying, {spend} EUR/year per customer: ≈ {risk} of yearly sales at risk.'
++    }
++  };
++
++  function lang() { return (document.documentElement.lang || 'es').slice(0, 2) === 'en' ? 'en' : 'es'; }
++
++  function clamp(name, raw) {
++    var n = parseFloat(String(raw).replace(',', '.'));
++    if (!isFinite(n)) n = 0;
++    return Math.min(LIMITS[name][1], Math.max(LIMITS[name][0], n));
++  }
++
++  // Pure maths, no DOM. Exposed for testing.
++  function compute(v) {
++    var hours = v.q * v.min / 60 * v.days;
++    var costMonth = hours * v.rate;
++    var casesMonth = v.n * v.slip / 100;
++    var lostYear = casesMonth * 12 * v.lose / 100;
++    return {
++      hours: hours, costMonth: costMonth, costYear: costMonth * 12,
++      casesMonth: casesMonth, lostYear: lostYear, riskYear: lostYear * v.spend
++    };
++  }
++
++  function fill(tpl, map) { return tpl.replace(/\{(\w+)\}/g, function (m, k) { return map[k] != null ? map[k] : m; }); }
++  function eur(n, loc) { return new Intl.NumberFormat(loc, { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(Math.round(n)); }
++  function num(n, loc) { return new Intl.NumberFormat(loc, { maximumFractionDigits: 1 }).format(Math.round(n * 10) / 10); }
++  function setText(sel, text) { var el = document.querySelector(sel); if (el) el.textContent = text; }
++
++  var last = { comment: '' };
++
++  function read() {
++    var v = {};
++    IDS.forEach(function (id) {
++      var el = document.getElementById('mc-' + id);
++      v[id] = clamp(id, el ? el.value : 0);
++    });
++    return v;
++  }
++
++  function render() {
++    var t = TX[lang()], v = read(), r = compute(v), loc = t.locale;
++
++    setText('[data-r="hours"]', fill(t.hours, { h: num(r.hours, loc) }));
++    setText('[data-r="cost"]', fill(t.cost, { m: eur(r.costMonth, loc), y: eur(r.costYear, loc) }));
++
++    var cRounded = Math.round(r.casesMonth * 10) / 10;
++    setText('[data-r="cases"]', fill(t.cases, { c: num(r.casesMonth, loc), cw: cRounded === 1 ? t.casesW1 : t.casesWN }));
++    var lRounded = Math.round(r.lostYear * 10) / 10;
++    setText('[data-r="lost"]', fill(t.lost, { l: num(r.lostYear, loc), lw: lRounded === 1 ? t.lostW1 : t.lostWN, r: eur(r.riskYear, loc) }));
++
++    // Summary names the bigger yearly figure. It does not add the two together:
++    // one is the value of your time, the other is sales at risk.
++    var summary = '';
++    if (r.costYear > 0 || r.riskYear > 0) {
++      var first = r.costYear >= r.riskYear;
++      summary = fill(t.summary, { name: first ? t.name1 : t.name2, amt: eur(first ? r.costYear : r.riskYear, loc) });
++    }
++    setText('[data-r="summary"]', summary);
++
++    last.comment = fill(t.comment, {
++      q: v.q, min: v.min, rate: v.rate, days: v.days, n: v.n, slip: v.slip, lose: v.lose, spend: v.spend,
++      cost: eur(r.costMonth, loc), risk: eur(r.riskYear, loc)
++    });
++  }
++
++  // Same field names the Contact page in app.js sends to the "leads" table.
++  function buildPayload(f, comment) {
++    return {
++      full_name: f.full_name, company: f.company, email: f.email, phone: f.phone || '',
++      website: '', interest: 'Discovery', comments: comment
++    };
++  }
++
++  function onSubmit(e) {
++    e.preventDefault();
++    var form = e.target, t = TX[lang()];
++    var err = form.querySelector('.mc-error'), btn = form.querySelector('.mc-btn');
++    err.classList.remove('show');
++    if (!form.reportValidity()) return;
++    var val = function (n) { return (form.elements[n].value || '').trim(); };
++
++    // Anti-spam trap: bots fill the hidden field. Pretend success, send nothing.
++    if (val('hp_url')) { showDone(); return; }
++
++    var idle = btn.textContent;
++    btn.disabled = true; btn.textContent = t.sending;
++    fetch(SUPABASE_URL + '/rest/v1/leads', {
++      method: 'POST',
++      headers: {
++        'Content-Type': 'application/json',
++        'apikey': SUPABASE_ANON,
++        'Authorization': 'Bearer ' + SUPABASE_ANON,
++        'Prefer': 'return=minimal'
++      },
++      body: JSON.stringify(buildPayload({
++        full_name: val('full_name'), company: val('company'), email: val('email'), phone: val('phone')
++      }, last.comment))
++    }).then(function (res) {
++      if (res.ok) showDone(); else throw new Error('http ' + res.status);
++    }).catch(function () {
++      err.classList.add('show');
++      btn.disabled = false; btn.textContent = idle;
++    });
++  }
++
++  function showDone() {
++    var f = document.getElementById('mc-form'), d = document.getElementById('mc-done');
++    if (f) f.style.display = 'none';
++    if (d) { d.style.display = 'block'; d.setAttribute('tabindex', '-1'); d.focus(); }
++  }
++
++  function init() {
++    if (!document.getElementById('mc-q')) return;
++    IDS.forEach(function (id) {
++      var el = document.getElementById('mc-' + id);
++      if (el) el.addEventListener('input', render);
++    });
++    var f = document.getElementById('mc-form');
++    if (f) f.addEventListener('submit', onSubmit);
++    render();
++  }
++
++  if (typeof module !== 'undefined' && module.exports) module.exports = { compute: compute, clamp: clamp, buildPayload: buildPayload };
++  if (typeof document !== 'undefined') {
++    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
++  }
++})();
+diff --git a/sitemap.xml b/sitemap.xml
+index 51ab4da..69a6d1b 100644
+--- a/sitemap.xml
++++ b/sitemap.xml
+@@ -45,4 +45,14 @@
+     <loc>https://jm20aisolutions.com/terms-of-service</loc>
+     <lastmod>2026-10-18</lastmod>
+   </url>
++  <url>
++    <loc>https://jm20aisolutions.com/support-cost-calculator</loc>
++    <xhtml:link rel="alternate" hreflang="en" href="https://jm20aisolutions.com/support-cost-calculator"/>
++    <xhtml:link rel="alternate" hreflang="es" href="https://jm20aisolutions.com/calculadora-coste-soporte"/>
++  </url>
++  <url>
++    <loc>https://jm20aisolutions.com/calculadora-coste-soporte</loc>
++    <xhtml:link rel="alternate" hreflang="en" href="https://jm20aisolutions.com/support-cost-calculator"/>
++    <xhtml:link rel="alternate" hreflang="es" href="https://jm20aisolutions.com/calculadora-coste-soporte"/>
++  </url>
+ </urlset>
+diff --git a/support-cost-calculator.html b/support-cost-calculator.html
+new file mode 100644
+index 0000000..e688eca
+--- /dev/null
++++ b/support-cost-calculator.html
+@@ -0,0 +1,92 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++<meta charset="utf-8"/>
++<meta name="viewport" content="width=device-width, initial-scale=1"/>
++<title>Calculator: what answering your customers alone really costs — JM20</title>
++<meta name="description" content="Work out in 30 seconds how much time you lose answering the same questions and how many real problems (refunds, cancellations, complaints) slip through in your shop."/>
++<meta name="robots" content="index, follow"/>
++<meta name="theme-color" content="#000000"/>
++<link rel="canonical" href="https://jm20aisolutions.com/support-cost-calculator"/>
++<link rel="alternate" hreflang="en" href="https://jm20aisolutions.com/support-cost-calculator"/>
++<link rel="alternate" hreflang="es" href="https://jm20aisolutions.com/calculadora-coste-soporte"/>
++<link rel="alternate" hreflang="x-default" href="https://jm20aisolutions.com/support-cost-calculator"/>
++<meta property="og:type" content="website"/>
++<meta property="og:url" content="https://jm20aisolutions.com/support-cost-calculator"/>
++<meta property="og:title" content="What does it cost you to be your shop’s help desk?"/>
++<meta property="og:description" content="Work out in 30 seconds how much time you lose answering the same questions and how many real problems (refunds, cancellations, complaints) slip through in your shop."/>
++<meta property="og:image" content="https://jm20aisolutions.com/og-image.png"/>
++<meta property="og:locale" content="en_US"/>
++<meta name="twitter:card" content="summary_large_image"/>
++<meta name="twitter:title" content="What does it cost you to be your shop’s help desk?"/>
++<meta name="twitter:description" content="Work out in 30 seconds how much time you lose answering the same questions and how many real problems (refunds, cancellations, complaints) slip through in your shop."/>
++<meta name="twitter:image" content="https://jm20aisolutions.com/og-image.png"/>
++<script type="application/ld+json">
++{"@context":"https://schema.org","@type":"WebApplication","name":"What does it cost you to be your shop’s help desk?","description":"Work out in 30 seconds how much time you lose answering the same questions and how many real problems (refunds, cancellations, complaints) slip through in your shop.","inLanguage":"en","applicationCategory":"BusinessApplication","operatingSystem":"Any","url":"https://jm20aisolutions.com/support-cost-calculator","publisher":{"@type":"Organization","name":"JM20","url":"https://jm20aisolutions.com/"}}
++</script>
++<link rel="stylesheet" href="/murph-calc.css"/>
++</head>
++<body>
++<header class="bar">
++  <a class="brand" href="https://jm20aisolutions.com/"><span class="jm">JM</span><span class="num">20</span></a>
++  <nav>
++    <a href="https://jm20aisolutions.com/calculadora-coste-soporte">Español</a>
++    <a class="hide-sm" href="https://jm20aisolutions.com/">← Home</a>
++    <a class="cta" href="https://jm20aisolutions.com/">Start with a Discovery →</a>
++  </nav>
++</header>
++<main class="mc-main">
++  <h1>What does it cost you to be your shop’s help desk?</h1>
++  <p class="mc-dek">Two calculations with your own numbers: the time you spend on the same questions, and the real problems that get lost along the way.</p>
++  <div class="mc-grid">
++    <section class="mc-leak" aria-labelledby="mc-h-a">
++      <h2 id="mc-h-a">1. You answer the same questions all day</h2>
++      <p class="mc-intro">“Are you open?”, “Do you have this?”, “Where’s my order?”, “Why was I charged twice?” Each one pulls you away from what you were doing.</p>
++      <div class="mc-field"><label for="mc-q">Repeated questions per day</label><div class="mc-help">Calls and messages, every channel.</div><div class="mc-row"><input id="mc-q" type="number" inputmode="numeric" min="0" max="1000" step="1" value="20"></div></div>
++      <div class="mc-field"><label for="mc-min">Minutes per question</label><div class="mc-help">Counting that you stop what you were doing.</div><div class="mc-row"><input id="mc-min" type="number" inputmode="decimal" min="0" max="60" step="0.5" value="3"><span class="mc-unit">min</span></div></div>
++      <div class="mc-field"><label for="mc-rate">Cost of your hour</label><div class="mc-help">Your hour, or whoever answers.</div><div class="mc-row"><input id="mc-rate" type="number" inputmode="decimal" min="0" max="200" step="1" value="15"><span class="mc-unit">€/h</span></div></div>
++      <div class="mc-field"><label for="mc-days">Days you open per month</label><div class="mc-row"><input id="mc-days" type="number" inputmode="numeric" min="1" max="31" step="1" value="26"></div></div>
++      <div class="mc-result" aria-live="polite">
++        <div class="mc-rlabel">What it costs you today</div>
++        <div class="mc-big" data-r="hours"></div>
++        <div class="mc-detail" data-r="cost"></div>
++        <p class="mc-note">This is what it costs today, not what you would save. Murph only answers what is in your shop’s own data; the Discovery measures how much of this it can take off you.</p>
++      </div>
++    </section>
++    <section class="mc-leak" aria-labelledby="mc-h-b">
++      <h2 id="mc-h-b">2. Real problems get lost</h2>
++      <p class="mc-intro">Refunds, cancellations and complaints need a person, but they end up buried in a chat or an inbox.</p>
++      <div class="mc-field"><label for="mc-n">Refunds, cancellations and complaints per month</label><div class="mc-row"><input id="mc-n" type="number" inputmode="numeric" min="0" max="1000" step="1" value="15"></div></div>
++      <div class="mc-field"><label for="mc-slip">% that are delayed or forgotten</label><div class="mc-help">Your best estimate, no sugar-coating.</div><div class="mc-row"><input id="mc-slip" type="number" inputmode="numeric" min="0" max="100" step="1" value="20"><span class="mc-unit">%</span></div></div>
++      <div class="mc-field"><label for="mc-lose">Of those customers, % who stop buying</label><div class="mc-help">The hardest number to know. Use a cautious figure.</div><div class="mc-row"><input id="mc-lose" type="number" inputmode="numeric" min="0" max="100" step="1" value="30"><span class="mc-unit">%</span></div></div>
++      <div class="mc-field"><label for="mc-spend">What an average customer spends per year</label><div class="mc-row"><input id="mc-spend" type="number" inputmode="decimal" min="0" max="10000" step="1" value="150"><span class="mc-unit">€</span></div></div>
++      <div class="mc-result" aria-live="polite">
++        <div class="mc-rlabel">Customers you could lose</div>
++        <div class="mc-big" data-r="cases"></div>
++        <div class="mc-detail" data-r="lost"></div>
++        <p class="mc-note">Estimate. A forgotten refund is not lost sales: the real cost is the customer who does not come back.</p>
++      </div>
++    </section>
++  </div>
++  <p class="mc-example">Example values. Change them to yours.</p>
++  <div class="mc-summary" data-r="summary" aria-live="polite"></div>
++  <section class="mc-cta" aria-labelledby="mc-h-cta">
++    <h2 id="mc-h-cta">Use your real numbers</h2>
++    <p>The €250 Discovery maps how you handle customers today, measures these leaks and hands you a plan in 48 hours. It is deducted from any package.</p>
++    <form class="mc-form" id="mc-form" novalidate>
++      <div><label for="mc-full_name">Name *</label><input id="mc-full_name" name="full_name" type="text" required maxlength="120" autocomplete="name"></div>
++      <div><label for="mc-company">Your shop name *</label><input id="mc-company" name="company" type="text" required maxlength="160" autocomplete="organization"></div>
++      <div><label for="mc-email">Email *</label><input id="mc-email" name="email" type="email" required maxlength="254" autocomplete="email"></div>
++      <div><label for="mc-phone">Phone (optional)</label><input id="mc-phone" name="phone" type="tel" maxlength="30" autocomplete="tel"></div>
++      <div class="mc-hp" aria-hidden="true"><label for="mc-hp_url">Website</label><input id="mc-hp_url" name="hp_url" type="text" tabindex="-1" autocomplete="off"></div>
++      <p class="mc-legal full">By submitting you accept our <a href="/privacy-policy" target="_blank" rel="noopener">privacy policy</a>.</p>
++      <div class="mc-error full" role="alert">Something went wrong. Please try again in a few minutes.</div>
++      <div class="full"><button type="submit" class="mc-btn">Request the Discovery</button></div>
++    </form>
++    <div class="mc-done" id="mc-done" role="status"><h2>Request received!</h2><p>We received your request with your numbers and will contact you.</p></div>
++  </section>
++</main>
++<footer>© 2026 JM20 · <a href="https://jm20aisolutions.com/">jm20aisolutions.com</a></footer>
++<script src="/murph-calc.js" defer></script>
++</body>
++</html>

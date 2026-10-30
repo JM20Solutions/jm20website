@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Calculator: what answering your customers alone really costs — JM20</title>
+<meta name="description" content="Work out in 30 seconds how much time you lose answering the same questions and how many real problems (refunds, cancellations, complaints) slip through in your shop."/>
+<meta name="robots" content="index, follow"/>
+<meta name="theme-color" content="#000000"/>
+<link rel="canonical" href="https://jm20aisolutions.com/support-cost-calculator"/>
+<link rel="alternate" hreflang="en" href="https://jm20aisolutions.com/support-cost-calculator"/>
+<link rel="alternate" hreflang="es" href="https://jm20aisolutions.com/calculadora-coste-soporte"/>
+<link rel="alternate" hreflang="x-default" href="https://jm20aisolutions.com/support-cost-calculator"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://jm20aisolutions.com/support-cost-calculator"/>
+<meta property="og:title" content="What does it cost you to be your shop’s help desk?"/>
+<meta property="og:description" content="Work out in 30 seconds how much time you lose answering the same questions and how many real problems (refunds, cancellations, complaints) slip through in your shop."/>
+<meta property="og:image" content="https://jm20aisolutions.com/og-image.png"/>
+<meta property="og:locale" content="en_US"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="What does it cost you to be your shop’s help desk?"/>
+<meta name="twitter:description" content="Work out in 30 seconds how much time you lose answering the same questions and how many real problems (refunds, cancellations, complaints) slip through in your shop."/>
+<meta name="twitter:image" content="https://jm20aisolutions.com/og-image.png"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"What does it cost you to be your shop’s help desk?","description":"Work out in 30 seconds how much time you lose answering the same questions and how many real problems (refunds, cancellations, complaints) slip through in your shop.","inLanguage":"en","applicationCategory":"BusinessApplication","operatingSystem":"Any","url":"https://jm20aisolutions.com/support-cost-calculator","publisher":{"@type":"Organization","name":"JM20","url":"https://jm20aisolutions.com/"}}
+</script>
+<link rel="stylesheet" href="/murph-calc.css"/>
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="https://jm20aisolutions.com/"><span class="jm">JM</span><span class="num">20</span></a>
+  <nav>
+    <a href="https://jm20aisolutions.com/calculadora-coste-soporte">Español</a>
+    <a class="hide-sm" href="https://jm20aisolutions.com/">← Home</a>
+    <a class="cta" href="https://jm20aisolutions.com/">Start with a Discovery →</a>
+  </nav>
+</header>
+<main class="mc-main">
+  <h1>What does it cost you to be your shop’s help desk?</h1>
+  <p class="mc-dek">Two calculations with your own numbers: the time you spend on the same questions, and the real problems that get lost along the way.</p>
+  <div class="mc-grid">
+    <section class="mc-leak" aria-labelledby="mc-h-a">
+      <h2 id="mc-h-a">1. You answer the same questions all day</h2>
+      <p class="mc-intro">“Are you open?”, “Do you have this?”, “Where’s my order?”, “Why was I charged twice?” Each one pulls you away from what you were doing.</p>
+      <div class="mc-field"><label for="mc-q">Repeated questions per day</label><div class="mc-help">Calls and messages, every channel.</div><div class="mc-row"><input id="mc-q" type="number" inputmode="numeric" min="0" max="1000" step="1" value="20"></div></div>
+      <div class="mc-field"><label for="mc-min">Minutes per question</label><div class="mc-help">Counting that you stop what you were doing.</div><div class="mc-row"><input id="mc-min" type="number" inputmode="decimal" min="0" max="60" step="0.5" value="3"><span class="mc-unit">min</span></div></div>
+      <div class="mc-field"><label for="mc-rate">Cost of your hour</label><div class="mc-help">Your hour, or whoever answers.</div><div class="mc-row"><input id="mc-rate" type="number" inputmode="decimal" min="0" max="200" step="1" value="15"><span class="mc-unit">€/h</span></div></div>
+      <div class="mc-field"><label for="mc-days">Days you open per month</label><div class="mc-row"><input id="mc-days" type="number" inputmode="numeric" min="1" max="31" step="1" value="26"></div></div>
+      <div class="mc-result" aria-live="polite">
+        <div class="mc-rlabel">What it costs you today</div>
+        <div class="mc-big" data-r="hours"></div>
+        <div class="mc-detail" data-r="cost"></div>
+        <p class="mc-note">This is what it costs today, not what you would save. Murph only answers what is in your shop’s own data; the Discovery measures how much of this it can take off you.</p>
+      </div>
+    </section>
+    <section class="mc-leak" aria-labelledby="mc-h-b">
+      <h2 id="mc-h-b">2. Real problems get lost</h2>
+      <p class="mc-intro">Refunds, cancellations and complaints need a person, but they end up buried in a chat or an inbox.</p>
+      <div class="mc-field"><label for="mc-n">Refunds, cancellations and complaints per month</label><div class="mc-row"><input id="mc-n" type="number" inputmode="numeric" min="0" max="1000" step="1" value="15"></div></div>
+      <div class="mc-field"><label for="mc-slip">% that are delayed or forgotten</label><div class="mc-help">Your best estimate, no sugar-coating.</div><div class="mc-row"><input id="mc-slip" type="number" inputmode="numeric" min="0" max="100" step="1" value="20"><span class="mc-unit">%</span></div></div>
+      <div class="mc-field"><label for="mc-lose">Of those customers, % who stop buying</label><div class="mc-help">The hardest number to know. Use a cautious figure.</div><div class="mc-row"><input id="mc-lose" type="number" inputmode="numeric" min="0" max="100" step="1" value="30"><span class="mc-unit">%</span></div></div>
+      <div class="mc-field"><label for="mc-spend">What an average customer spends per year</label><div class="mc-row"><input id="mc-spend" type="number" inputmode="decimal" min="0" max="10000" step="1" value="150"><span class="mc-unit">€</span></div></div>
+      <div class="mc-result" aria-live="polite">
+        <div class="mc-rlabel">Customers you could lose</div>
+        <div class="mc-big" data-r="cases"></div>
+        <div class="mc-detail" data-r="lost"></div>
+        <p class="mc-note">Estimate. A forgotten refund is not lost sales: the real cost is the customer who does not come back.</p>
+      </div>
+    </section>
+  </div>
+  <p class="mc-example">Example values. Change them to yours.</p>
+  <div class="mc-summary" data-r="summary" aria-live="polite"></div>
+  <section class="mc-cta" aria-labelledby="mc-h-cta">
+    <h2 id="mc-h-cta">Use your real numbers</h2>
+    <p>The €250 Discovery maps how you handle customers today, measures these leaks and hands you a plan in 48 hours. It is deducted from any package.</p>
+    <form class="mc-form" id="mc-form" novalidate>
+      <div><label for="mc-full_name">Name *</label><input id="mc-full_name" name="full_name" type="text" required maxlength="120" autocomplete="name"></div>
+      <div><label for="mc-company">Your shop name *</label><input id="mc-company" name="company" type="text" required maxlength="160" autocomplete="organization"></div>
+      <div><label for="mc-email">Email *</label><input id="mc-email" name="email" type="email" required maxlength="254" autocomplete="email"></div>
+      <div><label for="mc-phone">Phone (optional)</label><input id="mc-phone" name="phone" type="tel" maxlength="30" autocomplete="tel"></div>
+      <div class="mc-hp" aria-hidden="true"><label for="mc-hp_url">Website</label><input id="mc-hp_url" name="hp_url" type="text" tabindex="-1" autocomplete="off"></div>
+      <p class="mc-legal full">By submitting you accept our <a href="/privacy-policy" target="_blank" rel="noopener">privacy policy</a>.</p>
+      <div class="mc-error full" role="alert">Something went wrong. Please try again in a few minutes.</div>
+      <div class="full"><button type="submit" class="mc-btn">Request the Discovery</button></div>
+    </form>
+    <div class="mc-done" id="mc-done" role="status"><h2>Request received!</h2><p>We received your request with your numbers and will contact you.</p></div>
+  </section>
+</main>
+<footer>© 2026 JM20 · <a href="https://jm20aisolutions.com/">jm20aisolutions.com</a></footer>
+<script src="/murph-calc.js" defer></script>
+</body>
+</html>
